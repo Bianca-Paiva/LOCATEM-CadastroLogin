@@ -1,0 +1,164 @@
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+header {
+    width: 100%;
+    height: 90px;
+    /* altura da faixa */
+
+    display: flex;
+    align-items: center;
+    /* centraliza verticalmente */
+
+    padding-left: 30px;
+    /* espaço da logo até a borda */
+
+    background: linear-gradient(to bottom,
+            #FFCA00 0%,
+            /* amarelo forte no topo */
+            #FFE580 70%,
+            /* meio */
+            #ffffff 100%
+            /* degradê suave para branco */
+        );
+}
+
+.logo {
+    height: 40px;
+    /* controla tamanho da logo */
+    object-fit: contain;
+}
+
+main {
+    min-height: calc(100vh - 90px); /* ocupa a tela menos o header */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* centraliza vertical */
+    
+    background-color: #f4f4f4;
+}
+
+.topo {
+    text-align: center;
+    margin-bottom: 40px; /* aqui você controla a distância */
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragrafo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 40px 30px;
+
+    border-radius: 20px;
+
+    background-color: #f9f9f9;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 16px;
+
+    border-radius: 14px;
+    border: 1px solid #dcdcdc;
+
+    font-size: 14px;
+
+    margin-top: 16px;
+    margin-bottom: 20px;
+
+    background-color: #fff;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #FFCA00;
+}
+
+button {
+    width: 100%;
+    height: 55px;
+
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 16px;
+
+    background-color: #FFCA00;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #e6b800;
+}
+
+form a {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+.criarConta {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    gap: 6px; 
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+main p {
+    color: #333333d7;
+}
+
+main a {
+    color: black;
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
