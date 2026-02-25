@@ -324,3 +324,53 @@ senha.addEventListener("blur", () => {
         requisitosLista.classList.remove("ativo");
     }
 });
+
+// ================= TELEFONE =================
+
+const telefoneInput = document.getElementById("telefone");
+const erroTelefone = document.getElementById("erroTelefone");
+
+// Máscara (11) 91234-5678
+function aplicarMascaraTelefone(valor) {
+
+    // Remove tudo que não for número e limita a 11 dígitos
+    valor = valor.replace(/\D/g, "").substring(0, 11);
+
+    // Aplica DDD
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2");
+
+    // Aplica hífen (formato 9 dígitos)
+    valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+
+    return valor;
+}
+
+// Aplica máscara enquanto digita
+telefoneInput.addEventListener("input", (e) => {
+    e.target.value = aplicarMascaraTelefone(e.target.value);
+});
+
+// Validação
+function validarTelefone() {
+
+    // Remove máscara para validar só números
+    const numero = telefoneInput.value.replace(/\D/g, "");
+
+    // Telefone válido no Brasil tem 10 ou 11 dígitos
+    const valido = numero.length === 10 || numero.length === 11;
+
+    if (!valido) {
+        telefoneInput.classList.add("erro");
+        telefoneInput.classList.remove("sucesso");
+        erroTelefone.textContent = "Digite um telefone válido com DDD";
+    } else {
+        telefoneInput.classList.remove("erro");
+        telefoneInput.classList.add("sucesso");
+        erroTelefone.textContent = "";
+    }
+
+    return valido;
+}
+
+// Valida ao sair do campo
+telefoneInput.addEventListener("blur", validarTelefone);
