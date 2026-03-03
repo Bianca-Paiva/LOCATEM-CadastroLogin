@@ -1,0 +1,113 @@
+/* ===== ESTILOS PARA TELAS MENORES (TABLET E MOBILE) ===== */
+@media (max-width: 1024px) {
+
+    /* Diminui o tamanho do título principal */
+    .header{
+        height: auto;
+        padding: 24px;
+    }
+
+    .header-top {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 16px;
+    }
+
+    .logo {
+        width: 260px;
+        height: auto;
+        margin-right: 0;
+    }
+
+    .search-bar {
+        width: 100%;
+        order: 3;
+        margin: 0;
+    }
+
+    .chat {
+        margin-left: auto;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .carrossel {
+        max-width: 100%;
+        height: 300px;
+    }
+
+    .ferramentas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        width: 220px;
+    }
+
+    .search-bar {
+        height: 42px;
+        padding: 0 16px;
+    }
+
+    .menu {
+        gap: 16px;
+        font-size: 14px;
+    }
+
+    .menu a {
+        gap: 8px;
+    }
+
+    .menu img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .carrossel {
+        height: 240px;
+        border-radius: 12px;
+    }
+
+    .seta-btn {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .menu {
+        justify-content: center;
+        gap: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+
+    .search-bar input {
+        font-size: 13px;
+    }
+
+    .carrossel {
+        height: 200px;
+    }
+
+    .carrossel-indicador {
+        width: 5px;
+        height: 5px;
+    }
+}
