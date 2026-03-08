@@ -26,46 +26,45 @@
 
     /* Espaçamento interno bem controlado
        para alinhar logo, busca e menu */
-    padding-top: 33px; 
-    padding-left: 30px; 
-    padding-right: 30px; 
-    padding-bottom: 39px;
-
-    /* Fonte padrão do header */
-    font-family: 'Montserrat', sans-serif;
+    padding: 33px 40px 30px 39px;
 }
 
 /* Área superior do header (logo + busca + chat) */
 .header-top {
     display: flex;              /* layout em linha */
-    align-items: center;        /* centraliza verticalmente */
+    align-items: center; /* centraliza verticalmente */
+    justify-content:space-between;
+    gap: 40px; /* controla espaço entre os itens */
 
-    height: 61px;               /* altura exata da faixa superior */
+    height: 61px; /* altura exata da faixa superior */
 }
 
 /* Logo */
 .header-top .logo {
-    width: 338.55px;
-    height: 73.6px;
-
-    /* Espaço entre logo e barra de busca */
-    margin-right: 53px;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transform: translateY(2px);
 }
 
 /* Ícone de chat */
 .header-top .chat {
-    width: 46px;
-    height: 46px;
-    cursor: pointer;            /* indica interação */
-}
+    width: 30px;
+    height: 30px;
 
+    display: block;
+    object-fit: contain;
+
+    cursor: pointer;
+}
 
 /* ======================================================
    BARRA DE PESQUISA
-   ====================================================== */
+====================================================== */
 .search-bar {
-    width: 919px;
-    height: 46px;
+    min-width: 919px;
+    height: 43px;
 
     /* Flex para alinhar input + botão */
     display: flex;
@@ -74,14 +73,11 @@
     background: #fff;
     border-radius: 999px;       /* formato pill */
     padding: 0 24px;
-
-    /* Distância da barra até o ícone de chat */
-    margin-right: 75px;
 }
 
 /* Campo de texto da busca */
 .search-bar input {
-    flex: 1;                    /* ocupa todo espaço disponível */
+    flex: 1; /* ocupa todo espaço disponível */
     border: none;
     outline: none;
     font-size: 14px;
@@ -157,24 +153,23 @@
 
 /* ======================================================
    CARROSSEL
-   ====================================================== */
+====================================================== */
 .carrossel {
-    position: relative;         /* base para setas e indicadores */
+    position: relative; /* base para setas e indicadores */
 
-    max-width: 1320px;
-    height: 369px;
+    max-width: 1200px;
+    height: 300px;
 
-    margin: 20px auto 0;        /* centralizado */
+    margin: 20px auto;        /* centralizado */
 
     border-radius: 16px;
-    overflow: hidden;           /* esconde slides fora da área */
+    overflow: hidden;  /* esconde slides fora da área */
 }
 
-.carrossel-track {
+.carrossel-imagens {
     display: flex;
     height: 100%;
     width: 100%;
-    position: relative;
 }
 
 /* Cada slide do carrossel */
@@ -202,6 +197,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;          /* evita distorção */
+    display: block;
 }
 
 
@@ -211,22 +207,23 @@
 .setas {
     position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
+    left: 25px;
+    right: 25px;
 
     display: flex;
     justify-content: space-between;
 
-    padding: 0 20px;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: 10;
 }
 
 /* Botões das setas */
 .seta-btn {
-    width: 50px;
-    height: 50px;
+    font-size: 24px;   /* tamanho da seta */
 
+    width: 10px;
+    height: 10px;
+    
     border-radius: 50%;
     border: none;
 
@@ -238,6 +235,8 @@
     justify-content: center;
 
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 
@@ -274,7 +273,7 @@
 /* ======================================================
    TÍTULO DA SEÇÃO
    ====================================================== */
-.Subtitulo {
+.subtitulo {
     font-size: 22px;
     font-weight: 800;
 
@@ -282,7 +281,7 @@
 
     /* Puxa o título para cima,
        sobrepondo a área do carrossel */
-    margin-top: -180px;
+    margin-top: -200px;
 }
 
 
@@ -295,20 +294,28 @@
 
     margin-bottom: 32px;
 
-    overflow-x: auto;           /* ativa scroll horizontal */
+    overflow-x: auto; /* ativa scroll horizontal */
     scroll-snap-type: x mandatory;
 }
 
 /* Pills das categorias */
 .categoria {
-    min-width: 120px;
-    height: 18px;
+    font-size: 14px;
 
-    background: #D9D9D9;
+    min-width: 130px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #d9d9d95a;
     border-radius: 999px;
 
     flex-shrink: 0;             /* impede esmagamento */
     scroll-snap-align: start;
+
+    cursor: pointer;
 }
 
 /* Esconde scrollbar (Firefox) */
@@ -338,15 +345,69 @@
 }
 
 /* Card individual */
-.ferramenta-card {
-    min-width: 360px; 
-    height: 300px;
+/* ======================================================
+   CARD DE FERRAMENTA
+====================================================== */
 
-    background: #D9D9D9;
-    border-radius: 20px;
+.ferramenta-card{
+    min-width:260px;
+    height:320px;
 
-    flex-shrink: 0;
-    scroll-snap-align: start;
+    background:#ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border-radius:8px;
+
+    flex-shrink:0;
+    scroll-snap-align:start;
+
+    display:flex;
+    flex-direction:column;
+
+    cursor:pointer;
+}
+
+.card-img{
+    height:180px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.card-img img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+}
+
+.card-info{
+    padding:12px 16px;
+}
+
+.nome{
+    font-size:14px;
+    font-weight:400;
+    color:#333;
+
+    margin-bottom:8px;
+}
+
+.preco{
+    font-size:22px;
+    font-weight:600;
+    color:#000;
+}
+
+.preco span{
+    font-size:12px;
+    color:#037233;
+}
+
+.ferramenta-card:hover{
+    
+    transition:0.2s;
 }
 
 /* Esconde scrollbar (Firefox) */
