@@ -1,142 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOCATEM</title>
-    <!-- Reset CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Locatem</title>
     <link rel="stylesheet" href="./src/css/reset.css">
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="./src/css/pincipalPage.css">
-    <!-- CSS responsivo -->
+    <link rel="stylesheet" href="./src/css/principalPage.css">
     <link rel="stylesheet" href="./src/css/responsivoPrincipalPage.css">
-    <!-- Fonte Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <!-- FAIXA VISUAL COM GRADIENTE -->
-    <div class="faixa-topo">
-        <!-- CABEÇALHO (navegação) -->
-        <header class="header">
-            <!-- Linha superior: logo, busca e chat -->
-            <div class="header-top">
-                <img src="./src/images/Logo com nome.png" alt="Logo LOCATEM" class="logo">
-                <form class="search-bar" action="#" method="get">
-                    <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar">
-                    <button type="submit" class="lupa-btn">
-                        <img src="./src/images/lupa.png" alt="Buscar">
-                    </button>
-                </form>
-                <img src="./src/images/chat.png" alt="Abrir chat" class="chat">
+
+    <div class="app">
+
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
+                LOCATEM
             </div>
-            <!-- Menu principal -->
-            <nav class="menu" aria-label="Menu principal">
-                <a href="#">
-                    <img src="./src/images/home (1).png" alt aria-hidden="true">
-                    Início
-                </a>
-                <a href="#">
-                    <img src="./src/images/carrinho.png" alt aria-hidden="true">
-                    Carrinho
-                </a>
-                <a href="#">
-                    <img src="./src/images/relogio.png" alt aria-hidden="true">
-                    Histórico
-                </a>
-                <a href="#">
-                    <img src="./src/images/calendario.png" alt aria-hidden="true">
-                    Agendamento
-                </a>
-                <a href="#">
-                    <img src="./src/images/notificacoes.png" alt aria-hidden="true">
-                    Notificações
-                </a>
-                <a href="#">
-                    <img src="./src/images/star.png" alt aria-hidden="true">
-                    Avaliações
-                </a>
-                <a href="#">
-                    <img src="./src/images/suporte.png" alt aria-hidden="true">
-                    Suporte
-                </a>
-                <a href="#">
-                    <img src="./src/images/usuario.png" alt aria-hidden="true">
-                    Entrar
-                </a>
-            </nav>
+
+            <!-- Barra de pesquisa desktop -->
+            <form class="search-bar-desktop">
+                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
+                <button type="submit" class="lupa-btn">
+                    <img src="./src/images/lupa.png" alt="Buscar">
+                </button>
+            </form>
+
+            <button aria-label="Mensagens" class="chat">
+                <img src="./src/images/chat.png" alt="Chat">
+            </button>
+
+
         </header>
-        <!-- PARTE AMARELA AINDA FAZ PARTE DA FAIXA -->
-        <!-- CARROSSEL DE ANÚNCIOS -->
-        <section class="carrossel">
-            <div class="carrossel-track"></div>
-                <div class="carrossel_item ativo">
-                    <div class="anuncio-img">
-                        <img src="./src/images/anuncio locatem 1.png" alt="Anúncio 1">
-                    </div>
-                </div>
-                <div class="carrossel_item">
-                    <div class="anuncio-img">
-                        <img src="./src/images/anuncio 2.png" alt="Anúncio 2">
-                    </div>
-                </div>
-            </div>
 
-            <div class="setas">
-                <button class="seta-btn" id="antes">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 48 48">
-                        <path
-                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-                    </svg>
+        <!-- Nav desktop fica abaixo da linha superior -->
+        <nav class="navegacaoDesktop">
+            <a href="#"><img src="./src/images/home (1).png" alt="">Início</a>
+            <a href="#"><img src="./src/images/carrinho.png" alt="">Carrinho</a>
+            <a href="#"><img src="./src/images/relogio.png" alt="">Histórico</a>
+            <a href="#"><img src="./src/images/calendario.png" alt="">Agendamento</a>
+            <a href="#"><img src="./src/images/notificacoes.png" alt="">Notificações</a>
+            <a href="#"><img src="./src/images/Star.png" alt="">Avaliações</a>
+            <a href="#"><img src="./src/images/suporte.png" alt="">Suporte</a>
+            <a href="#"><img src="./src/images/usuario.png" alt="">Entrar</a>
+        </nav>
+
+        <!-- BARRA DE BUSCA -->
+        <div class="search-bar-carrinho">
+            <form class="search-bar">
+                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
+                <button type="submit" class="lupa-btn">
+                    <img src="./src/images/lupa.png" alt="Buscar">
                 </button>
+            </form>
 
-                <button class="seta-btn" id="depois">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 48 48">
-                        <path
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
-                    </svg>
-                </button>
-            </div>
+            <button aria-label="Carrinho" class="carrinho">
+                <img src="./src/images/carrinho.png" alt="Carrinho">
+            </button>
+        </div>
 
-            <div class="carrossel-indicadores">
-                <div class="indicadores">
-                    <div class="carrossel-indicador ativo"></div>
-                    <div class="carrossel-indicador"></div>
+        <!-- BANNER -->
+        <section aria-label="Banner de anúncio">
+            <div class="banner">
+                <div class="anuncio-img">
+                    <img src="./src/images/anuncio locatem 1.png" alt="Anúncio 1">
+                </div>
+
+                <div class="anuncio-img">
+                    <img src="" alt="Anúncio 2">
+                </div>
+
+                <div class="setas">
+                    <button class="seta-btn" id="antes">
+                        &#10094
+                    </button>
+
+                    <button class="seta-btn" id="depois">
+                        &#10095
+                    </button>
+                </div>
+
+                <div class="indicadores" role="tablist" aria-label="Slides do banner">
+                    <span class="ativo" role="tab" aria-selected="true"></span>
+                    <span role="tab" aria-selected="false"></span>
                 </div>
             </div>
         </section>
+
+        <!-- FERRAMENTAS -->
+        <main>
+            <h2>Ferramentas</h2>
+
+            <!-- CATEGORIAS -->
+            <ul class="categorias" aria-label="Categorias de ferramentas">
+                <li><button>Furadeira</button></li>
+                <li><button>Parafusadeira</button></li>
+                <li><button>Lixadeira</button></li>
+                <li><button>Serra elétrica</button></li>
+                <li><button>Gerador</button></li>
+            </ul>
+
+            <!-- GRID DE ANÚNCIOS -->
+            <ul class="anuncios" aria-label="Anúncios de ferramentas">
+                <li class="anuncio-card">
+                    <div class="card-img">
+                        <img src="./src/images/parafusadeira-furadeira-WAP.png" alt="Furadeira">
+                    </div>
+
+                    <div class="card-info">
+                        <h3>Furadeira de Impacto WAP</h3>
+                        <p>R$45,00<span>/dia</span></p>
+                    </div>
+                </li>
+                <li class="anuncio-card">
+                    <div class="card-img">
+                        <img src="" alt="">
+                    </div>
+
+                    <div class="card-info">
+                        <h3>Nome</h3>
+                        <p>R$<span>/dia</span></p>
+                    </div>
+                </li>
+                <li class="anuncio-card">
+                    <div class="card-img">
+                        <img src="" alt="">
+                    </div>
+
+                    <div class="card-info">
+                        <h3>Nome</h3>
+                        <p>R$<span>/dia</span></p>
+                    </div>
+                </li>
+                <li class="anuncio-card">
+                    <div class="card-img">
+                        <img src="" alt="">
+                    </div>
+
+                    <div class="card-info">
+                        <h3>Nome</h3>
+                        <p>R$<span>/dia</span></p>
+                    </div>
+                </li>
+            </ul>
+        </main>
+
+        <!-- BOTTOM NAV -->
+        <nav aria-label="Navegação principal" class="navegacaoMobile">
+            <a href="#" class="ativo" aria-label="Início" aria-current="page">
+                <img src="./src/images/home.png" alt="Início">
+            </a>
+            <a href="#" aria-label="Histórico">
+                <img src="./src/images/relogio.png" alt="Histórico">
+            </a>
+            <a href="#" aria-label="Calendário">
+                <img src="./src/images/calendario.png" alt="Agendamentos">
+            </a>
+            <a href="#" aria-label="Favoritos">
+                <img src="./src/images/Star.png" alt="Favoritos">
+            </a>
+            <a href="#" aria-label="Perfil">
+                <img src="./src/images/usuario.png" alt="Usuário">
+            </a>
+        </nav>
     </div>
-    
-    <!-- FECHA faixa-topo -->
-    <!-- CONTEÚDO REAL DA PÁGINA -->
-    <main class="container">
-        <!-- daqui pra baixo NÃO tem gradiente -->
-        <h2 class="Subtitulo" id="Subtitulo">Ferramentas</h2>
-        <!-- Categorias de ferramentas -->
-        <div class="categorias-ferramentas">
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-            <div class="categoria"></div>
-        </div>
-        <!-- Cards de ferramentas -->
-        <div class="ferramentas">
-            <div class="ferramenta-card"></div>
-            <div class="ferramenta-card"></div>
-            <div class="ferramenta-card"></div>
-            <div class="ferramenta-card"></div>
-            <div class="ferramenta-card"></div>
-        </div>
-    </main>
 </body>
+
+<script src="./src/js/principalPage.js"></script>
 
 </html>
