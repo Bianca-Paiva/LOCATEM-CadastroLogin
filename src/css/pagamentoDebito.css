@@ -51,9 +51,9 @@ body {
     background: linear-gradient(
         to bottom,
         var(--color-primary) 0%,
-        var(--color-primary-light) 3%,
-        var(--color-primary-soft) 5%,
-        var(--color-bg-main) 8%
+        var(--color-primary-light) 4%,
+        var(--color-primary-soft) 6%,
+        var(--color-bg-main) 9%
     );
 }
 
@@ -61,7 +61,7 @@ body {
 /* HEADER */
 /* ============================= */
 .topo {
-    padding: 14px 16px 30px;
+    padding: 14px 16px 38px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -140,4 +140,228 @@ body {
     height: 30px;
     object-fit: contain;
     display: block;
+}
+
+/* ===========================
+   CARD COMPONENT
+=========================== */
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+ 
+/* ===========================
+   CARD HEADER
+=========================== */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+ 
+.card-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+ 
+.card-header svg {
+  color: #555;
+  width: 20px;
+  height: 20px;
+}
+ 
+/* ===========================
+   FORM FIELDS
+=========================== */
+.form-cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+ 
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+ 
+.campo label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+ 
+.campo input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  background-color: #fafafa;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+ 
+.campo input::placeholder {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+ 
+.campo input:focus {
+  border-color: #FFD600;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 214, 0, 0.2);
+}
+ 
+/* ===========================
+   LINHA DE CAMPOS (validade + cvv)
+=========================== */
+.linha-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+ 
+/* ===========================
+   CHECKBOX SALVAR CARTÃO
+=========================== */
+.salvar-cartao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+ 
+.salvar-cartao input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #FFD600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+ 
+.salvar-cartao span {
+  font-size: 0.875rem;
+  color: #444;
+}
+ 
+/* ===========================
+   RESUMO DO PEDIDO
+=========================== */
+.resumo-pedido {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+ 
+.resumo-pedido h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+ 
+.linha-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.linha-total span:first-child {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+ 
+.linha-total span:last-child {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+ 
+/* ===========================
+   BOTÃO CONFIRMAR
+=========================== */
+.btn-pagar {
+  width: 100%;
+  padding: 16px;
+  background-color: #FFD600;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+ 
+.btn-pagar:hover {
+  background-color: #f5cc00;
+  box-shadow: 0 4px 16px rgba(255, 214, 0, 0.45);
+  transform: translateY(-1px);
+}
+ 
+.btn-pagar:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+ 
+/* ===========================
+   SEGURANÇA
+=========================== */
+.seguranca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #888;
+}
+ 
+.seguranca svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+ 
+.seguranca p {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+ 
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 560px) {
+  .pagamento-container {
+    padding: 20px 16px 40px;
+    gap: 16px;
+  }
+ 
+  .card {
+    padding: 20px;
+  }
+ 
+  .titulo-pagina h1 {
+    font-size: 1.25rem;
+  }
+ 
+  .linha-campos {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+ 
+  .linha-total span:last-child {
+    font-size: 1.1rem;
+  }
 }

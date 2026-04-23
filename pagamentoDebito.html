@@ -36,32 +36,19 @@
                             d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
                     </svg>
                 </button>
-                <h1>Pagamento Cartão de Débito</h1>
-            </section>
-
-
-
-            <!-- FORMA DE PAGAMENTO -->
-
-            <!-- BANCOS -->
-            <section class="card">
-                <h2>Selecione seu Banco</h2>
-
-                <div class="grid-bancos">
-                    <button type="button">Nubank</button>
-                    <button type="button">Itaú</button>
-                    <button type="button">Bradesco</button>
-                    <button type="button">Santander</button>
-                    <button type="button">Banco do Brasil</button>
-                    <button type="button">Caixa</button>
-                </div>
+                <h1>Pagamento com Cartão de Débito</h1>
             </section>
 
             <!-- DADOS DO CARTÃO -->
             <section class="card">
                 <div class="card-header">
                     <h2>Dados do Cartão de Débito</h2>
-                    <span class="card-icon">💳</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-credit-card" viewBox="0 0 16 16">
+                        <path
+                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                        <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+                    </svg>
                 </div>
 
                 <form class="form-cartao">
@@ -86,11 +73,6 @@
                             <input id="cvv" type="text" placeholder="123" />
                         </div>
                     </div>
-
-                    <div class="aviso-banco">
-                        <span class="info-icon">i</span>
-                        <p>Você será redirecionado para autenticação do seu banco para confirmar o pagamento</p>
-                    </div>
                 </form>
             </section>
 
@@ -98,32 +80,19 @@
             <section class="card resumo-pedido">
                 <h2>Resumo do Pedido</h2>
 
-                <div class="linha-resumo">
-                    <span>Subtotal</span>
-                    <span>R$ 380,00</span>
-                </div>
-
-                <div class="linha-resumo">
-                    <span>Frete</span>
-                    <span class="gratis">Grátis</span>
-                </div>
-
                 <div class="linha-total">
                     <span>Total</span>
-                    <span>R$ 380,00</span>
+                    <span>R$ 15,00</span>
                 </div>
 
-                <div class="cupom-box">
-                    <div class="input-cupom">
-                        <span class="cupom-icon">🏷</span>
-                        <input type="text" placeholder="Inserir código de cupom" />
-                    </div>
-                </div>
-
-                <button class="btn-pagar" type="button">Pagar com Débito</button>
+                <button class="btn-pagar" type="button">Confirmar Pagamento</button>
 
                 <div class="seguranca">
-                    <span>🔒</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-lock-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
+                    </svg>
                     <p>Pagamento 100% seguro</p>
                 </div>
             </section>
