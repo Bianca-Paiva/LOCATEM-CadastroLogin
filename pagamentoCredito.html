@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/css/pagamentoDebito.css" />
+    <link rel="stylesheet" href="./src/css/pagamentoCredito.css" />
     <link rel="stylesheet" href="./src/css/reset.css">
     <title>LOCATEM</title>
 </head>
@@ -36,7 +36,7 @@
                             d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
                     </svg>
                 </button>
-                <h1>Pagamento com Cartão de Débito</h1>
+                <h1>Pagamento com Cartão de Crédito</h1>
             </section>
 
             <div class="cards-wrapper">
@@ -72,6 +72,20 @@
                             <div class="campo">
                                 <label for="cvv">CVV</label>
                                 <input id="cvv" type="text" placeholder="123" />
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label for="parcelamento">Parcelamento</label>
+                            <div class="input-parcela">
+                                <input id="parcelamento" type="text" placeholder="1x sem juros" />
+                                <button class="input-btn" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
 

@@ -179,7 +179,7 @@ header button {
 
 .anuncio-card {
     background-color: #ffffff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.224);
+    box-shadow: 0 5px 10px #00000039;
     border-radius: 12px;
     display: flex;
     flex-direction: column;

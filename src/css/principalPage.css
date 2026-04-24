@@ -241,7 +241,7 @@ main h2 {
 
 .categorias li button {
     background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.117);
+    box-shadow: 0 2px 5px #0000001e;
     border: none;
     border-radius: 20px;
     padding: 7px 14px;
