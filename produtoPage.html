@@ -1,75 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./src/css/produtoPage.css">
 </head>
+
 <body>
- <!-- HEADER -->
-        <header class="main-header">
-            <div class="cabecario">
- 
-           
-                 <div class="header-superior">
-                    <div class="logo">
-                        <a href="#">
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="cabecario">
+
+
+            <div class="header-superior">
+                <div class="logo">
+                    <a href="#">
                         <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
                         LOCATEM
-                        </a>
-                    </div>
- 
-                    <!-- Barra de pesquisa -->
-                    <form class="search-bar">
-                        <img src="./src/images/lupa.png" alt="" class="search-icon" />
-                        <input type="search" placeholder="Buscar Ferramentas" aria-label="Pesquisar ferramentas" />
-                       
-                    </form>
- 
-                    <button aria-label="Mensagens" class="chat">
-                        <img src="./src/images/chat.png" alt="Chat">
-                    </button>
-               </div>
- 
-               <div class="header-inferior">
-                    <nav class="navegacaoMenu">
-                        <a href="#"><img src="./src/images/home.png" alt="">Início</a>
-                        <a href="#"><img src="./src/images/carrinho.png" alt="">Carrinho</a>
-                        <a href="#"><img src="./src/images/relogio.png" alt="">Histórico</a>
-                        <a href="#"><img src="./src/images/calendario.png" alt="">Agendamento</a>
-                        <a href="#"><img src="./src/images/notificacoes.png" alt="">Notificações</a>
-                        <a href="#"><img src="./src/images/Star.png" alt="">Avaliações</a>
-                        <a href="#"><img src="./src/images/suporte.png" alt="">Suporte</a>
-                        <a href="./login.html"><img src="./src/images/usuario.png" alt="">Entrar</a>
-                    </nav>
+                    </a>
                 </div>
-           </div>
-        </header>
 
-        <main>
-            <section class="product-hero">
+                <!-- Barra de pesquisa -->
+                <form class="search-bar">
+                    <img src="./src/images/lupa.png" alt="" class="search-icon" />
+                    <input type="search" placeholder="Buscar Ferramentas" aria-label="Pesquisar ferramentas" />
 
-            </section>
+                </form>
 
-            <section class="related-products">
+                <button aria-label="Mensagens" class="chat">
+                    <img src="./src/images/chat.png" alt="Chat">
+                </button>
+            </div>
 
-            </section>
+            <div class="header-inferior">
+                <nav class="navegacaoMenu">
+                    <a href="#"><img src="./src/images/home.png" alt="">Início</a>
+                    <a href="#"><img src="./src/images/carrinho.png" alt="">Carrinho</a>
+                    <a href="#"><img src="./src/images/relogio.png" alt="">Histórico</a>
+                    <a href="#"><img src="./src/images/calendario.png" alt="">Agendamento</a>
+                    <a href="#"><img src="./src/images/notificacoes.png" alt="">Notificações</a>
+                    <a href="#"><img src="./src/images/Star.png" alt="">Avaliações</a>
+                    <a href="#"><img src="./src/images/suporte.png" alt="">Suporte</a>
+                    <a href="./login.html"><img src="./src/images/usuario.png" alt="">Entrar</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-            <section class="product-details">
+    <main>
+        <section class="product-hero">
+            <div class="image-carrossel">
+                <div class="splide-track">
 
-            </section>
+                    <!-- Lista de imagens -->
+                    <ul class="image-list">
+                        <li class="item-image">
 
-            <section class="product-reviews">
+                        </li>
 
-            </section>
+                        <li class="item-image">
 
-            <section class="recommended-products">
+                        </li>
 
-            </section>
-        </main>
+                        <li class="item-image">
 
-        <footer class="main-footer">
+                        </li>
+                    </ul>
 
-        </footer>
+                    <!-- Setas -->
+                    <div class="arrows">
+                        <button class="arrow-btn">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="28" viewBox="0 0 15 28"
+                                fill="none">
+                                <path d="M13.5417 26.6667L1 13.8333L13.5417 1" stroke="#818181" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <button class="arrow-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="28" viewBox="0 0 15 28"
+                                fill="none">
+                                <path d="M1.00008 26.6667L13.5417 13.8333L1.00008 1" stroke="#818181" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <div class="indicators">
+                            <div class="dots">
+                                <div class="dot active"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="informacoes">
+                <!-- Titulo -->
+                <h2 class="title">
+                    Furadeira Parafusadeira Sem Fio A Bateria Tb-12e 12v 3/8 10mm Com Maleta E Acessórios The Black Tools
+                </h2>
+
+                <!-- Avaliacao -->
+                <div class="product-rating">
+
+                </div>
+
+                <!-- Preço -->
+                <div class="product-price">
+                    <p>R$ 15,00/dia</p>
+                </div>
+
+                <!-- Voltagem -->
+                 <div class="product-section">
+                    <p>Voltagem:</p>
+                    <div class="optons">
+                        <button>127v</button>
+                        <button>220v</button>
+                        <button>Bivolt</button>
+                    </div>
+                 </div>
+
+                 <!-- Tempo/Unidades -->
+                  <div></div>
+            </div>
+        </section>
+
+        <section class="related-products">
+
+        </section>
+
+        <section class="product-details">
+
+        </section>
+
+        <section class="product-reviews">
+
+        </section>
+
+        <section class="recommended-products">
+
+        </section>
+    </main>
+
+    <footer class="main-footer">
+
+    </footer>
 </body>
+
 </html>
