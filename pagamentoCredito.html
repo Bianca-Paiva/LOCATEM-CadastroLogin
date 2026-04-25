@@ -30,11 +30,13 @@
         <main class="pagamento-container">
             <section class="titulo-pagina">
                 <button class="btn-voltar" aria-label="Voltar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
-                    </svg>
+                    <a href="/principalPage.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
+                        </svg>
+                    </a>
                 </button>
                 <h1>Pagamento com Cartão de Crédito</h1>
             </section>
@@ -55,38 +57,39 @@
                     <form class="dados-cartao">
                         <div class="campo">
                             <label for="numeroCartao">Número do Cartão</label>
-                            <input id="numeroCartao" type="text" placeholder="0000 0000 0000 0000" />
+                            <div class="input-cartao">
+                                <input id="numeroCartao" type="text" placeholder="0000 0000 0000 0000" required />
+                                <img id="iconeBandeira" class="icone-bandeira" src="" alt="Bandeira do cartão">
+                            </div>
+                            <small class="erro"></small>
                         </div>
 
                         <div class="campo">
                             <label for="nomeTitular">Nome do Titular</label>
-                            <input id="nomeTitular" type="text" placeholder="NOME COMO ESTÁ NO CARTÃO" />
+                            <input id="nomeTitular" type="text" placeholder="NOME COMO ESTÁ NO CARTÃO" required />
+                            <small class="erro"></small>
                         </div>
 
                         <div class="linha-campos">
                             <div class="campo">
                                 <label for="validade">Validade</label>
-                                <input id="validade" type="text" placeholder="MM/AA" />
+                                <input id="validade" type="text" placeholder="MM/AA" required />
+                                <small class="erro"></small>
                             </div>
 
                             <div class="campo">
                                 <label for="cvv">CVV</label>
-                                <input id="cvv" type="text" placeholder="123" />
+                                <input id="cvv" type="text" placeholder="123" required />
+                                <small class="erro"></small>
                             </div>
                         </div>
 
                         <div class="campo">
                             <label for="parcelamento">Parcelamento</label>
-                            <div class="input-parcela">
-                                <input id="parcelamento" type="text" placeholder="1x sem juros" />
-                                <button class="input-btn" type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
-                                    </svg>
-                                </button>
-                            </div>
+                            <select id="parcelamento" required>
+                                <option value="">Selecione</option>
+                            </select>
+                            <small class="erro"></small>
                         </div>
 
                         <div class="salvar-cartao">
@@ -119,6 +122,8 @@
             </div>
         </main>
     </div>
+
+    <script src="/src/js/pagamentoCredito.js"></script>
 </body>
 
 </html>

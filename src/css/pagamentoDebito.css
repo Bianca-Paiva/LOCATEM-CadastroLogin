@@ -134,6 +134,7 @@ body {
   height: 30px;
   object-fit: contain;
   display: block;
+  color: var(--color-text-primary);
 }
 
 /* ===========================
@@ -214,6 +215,66 @@ body {
   font-weight: 400;
 }
 
+.input-cartao {
+  position: relative;
+  width: 100%;
+}
+
+.input-cartao input {
+  padding-right: 56px;
+}
+
+.icone-bandeira {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: auto;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.icone-bandeira.ativo {
+  opacity: 1;
+}
+
+/* =========================== */
+/* LABEL REQUIRED (*) */
+/* =========================== */
+.campo label:has(+ input[required])::after {
+  content: " *";
+  color: #e11d48;
+  font-weight: 700;
+}
+
+/* para campos OPICIONAIS */
+.campo label:has(+ input:not([required]))::after {
+  content: " (opcional)";
+  color: var(--color-text-subtle);
+  font-weight: 400;
+}
+
+/* =========================== */
+/* ERROS DOS CAMPOS */
+/* =========================== */
+.campo .erro {
+  display: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #e11d48;
+}
+
+.campo.erro-ativo input {
+  border-color: #e11d48;
+  background-color: #fff5f7;
+}
+
+.campo.erro-ativo .erro {
+  display: block;
+}
+
 /* =================================
   LINHA DE CAMPOS (validade + cvv)
 ==================================== */
@@ -221,6 +282,21 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+}
+
+/* =========================== */
+/* AJUSTE DOS CAMPOS LADO A LADO */
+/* =========================== */
+.linha-campos {
+  align-items: start;
+}
+
+.linha-campos .campo {
+  justify-content: flex-start;
+}
+
+.campo .erro {
+  min-height: 14px;
 }
 
 /* ===========================

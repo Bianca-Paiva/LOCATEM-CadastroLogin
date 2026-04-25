@@ -134,6 +134,7 @@ body {
     height: 30px;
     object-fit: contain;
     display: block;
+    color: var(--color-text-primary)
 }
 
 /* ===========================
@@ -143,7 +144,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    /* mesmo gap que estava no .pagamento-container */
 }
 
 .card {
@@ -214,44 +214,114 @@ body {
     font-weight: 400;
 }
 
-/* ==================================
-  INPUT DE PARCELAS COM ÍCONE/BOTÃO
-===================================== */
-.input-parcela {
+.input-cartao {
     position: relative;
-    display: flex;
-    align-items: center;
     width: 100%;
 }
 
-.input-parcela input {
-    /* Adiciona um padding extra na direita para o texto não sobrepor o ícone */
-    padding-right: 40px;
+.input-cartao input {
+    padding-right: 56px;
 }
 
-.input-btn {
+.icone-bandeira {
     position: absolute;
     right: 16px;
-    /* Distância do ícone até a borda direita do input */
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.icone-bandeira.ativo {
+    opacity: 1;
+}
+
+/* =========================== */
+/* LABEL REQUIRED (*) */
+/* =========================== */
+.campo label:has(+ :is(input, select)[required])::after {
+    content: " *";
+    color: #e11d48;
+    font-weight: 700;
+}
+
+/*para campos OPICIONAIS*/
+/*.campo label:has(+ input:not([required]))::after {
+    content: " (opcional)";
     color: var(--color-text-subtle);
-    /* Deixa o ícone com um tom cinza como na imagem */
-    transition: color 0.2s ease;
+    font-weight: 400;
+} */
+
+/* =========================== 
+    AJUSTE DOS CAMPOS LADO A LADO
+/* =========================== */
+.linha-campos {
+    align-items: start;
 }
 
-.input-btn:hover {
-    color: var(--color-text-tertiary);
+.linha-campos .campo {
+    justify-content: flex-start;
 }
 
-.input-btn svg {
-    width: 16px;
-    height: 16px;
+.campo .erro {
+    min-height: 14px;
+}
+
+/* =========================== */
+/* ERROS DOS CAMPOS */
+/* =========================== */
+.campo .erro {
+    display: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #e11d48;
+}
+
+.campo.erro-ativo input,
+.campo.erro-ativo select {
+    border-color: #e11d48;
+    background-color: #fff5f7;
+}
+
+.campo.erro-ativo .erro {
+    display: block;
+}
+
+/* =========================== */
+/* SELECT PARCELAMENTO */
+/* =========================== */
+.campo select {
+    width: 100%;
+    padding: 15.5px 16px;
+    border: 1px solid var(--color-border-input);
+    border-radius: var(--radius-input);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg-card);
+    outline: none;
+
+    /* REMOVE ESTILO PADRÃO DA SETINHA DO NAVEDOR */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* SETINHA CUSTOM */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%236A7282' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+
+    cursor: pointer;
+}
+
+/* ESTADO DESABILITADO */
+.campo select:disabled {
+    background-color: #f5f5f5;
+    color: var(--color-text-subtle);
+    cursor: not-allowed;
 }
 
 /* =================================
