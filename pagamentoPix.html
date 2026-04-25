@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOCATEM</title>
+
+    <!-- RESET E ESTILO DA TELA PIX -->
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/pagamentoPix.css">
 </head>
@@ -14,50 +16,63 @@
 
         <!-- HEADER -->
         <header class="topo">
-
             <div class="linha-topo">
+
+                <!-- Logo da LOCATEM com link para a página principal -->
                 <a href="./principalPage.html" class="logo">
                     <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
                     LOCATEM
                 </a>
 
+                <!-- Botão de acesso ao chat -->
                 <button class="chat">
                     <img src="./src/images/chat.png" alt="Chat">
                 </button>
             </div>
 
-            <!-- <form class="search-bar">
-                <input type="search" placeholder="Buscar ferramentas...">
-                <button type="submit">
-                    <img src="./src/images/lupa.png" alt="Buscar">
-                </button>
-            </form> -->
         </header>
 
-        <!-- CONTEÚDO -->
+        <!-- CONTEÚDO GERAL -->
         <main class="pagamento-container">
 
             <section class="titulo-pagina">
+
+                <!-- Botão de seta para voltar para a página inicial -->
                 <button class="btn-voltar" aria-label="Voltar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
-                    </svg>
+                    <a href="/principalPage.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
+                        </svg>
+                    </a>
                 </button>
-                <h1>Pagamento via Pix</h1>
+
+                <h1>Pagamento com Pix</h1>
             </section>
 
+            <!-- LAYOUT: esquerda (Pix) + direita (Resumo) -->
             <div class="pagamento-layout">
 
-                <!-- COLUNA ESQUERDA -->
+                <!-- ============================= -->
+                <!-- COLUNA ESQUERDA - ÁREA PIX -->
+                <!-- ============================= -->
                 <div class="coluna-esquerda">
                     <section class="card area-pix">
 
                         <!-- ESTADO: AGUARDANDO PAGAMENTO -->
+                        <!-- Controlados pela função trocarEstadoTela() -->
                         <div id="estadoAguardandoPagamento" class="estado-pagamento">
-                            <div id="tempoExpiracao" class="tempo-expiracao">Expira em 15:00</div>
 
+                            <!-- TIMER DO PIX -->
+                            <!-- Exibe o tempo restante para pagamento -->
+                            <!-- JS: atualiza dinamicamente com countdown -->
+                            <!-- Exemplo: "Expira em 23:59:59" -->
+                            <div id="tempoExpiracao" class="tempo-expiracao">
+                                Expira em 24:00:00
+                            </div>
+
+                            <!-- QR CODE DO PAGAMENTO -->
                             <div class="qr-box">
                                 <img id="imagemQrCode" src="./src/images/qrCodeFake.png" alt="QR Code">
                             </div>
@@ -66,27 +81,35 @@
                                 Escaneie o QR Code com seu app bancário
                             </p>
 
+                            <!-- DIVISOR VISUAL -->
                             <div class="divisor">
                                 <hr>
                                 <span>ou</span>
                                 <hr>
                             </div>
 
+                            <!-- CAMPO CÓDIGO PIX COPIA E COLA -->
                             <div class="campo-pix">
                                 <label for="codigoPix">Código Pix Copia e Cola</label>
                                 <div class="input-com-icone">
+
+                                    <!-- Campo somente leitura com o código Pix Copia e Cola -->
                                     <input id="codigoPix" type="text" readonly
                                         value="00020126580014br.gov.bcb.pix0136a1b2c3d4-e5f6-7890-abcd-ef1234567890520400005303986540380.005802BR5913LOCATEM LTDA6009SAO PAULO62070503***63041D3D" />
+
+                                    <!-- Botão ícone copiar -->
                                     <button id="btnCopiarIcone" type="button" aria-label="Copiar código">
                                         <img src="./src/images/copiarBtn.svg" alt="Copiar código">
                                     </button>
                                 </div>
                             </div>
 
+                            <!-- BOTÃO PRINCIPAL DE CÓPIA -->
                             <button class="btn-copiar-pix" id="btnCopiarPix" type="button">
                                 Copiar Código Pix
                             </button>
 
+                            <!-- INSTRUÇÕES PARA PAGAMENTO -->
                             <div class="instrucoes-pix">
                                 <h3>Por favor, siga as instruções de pagamento:</h3>
 
@@ -112,7 +135,10 @@
                             </div>
                         </div>
 
+                        <!-- ============================= -->
                         <!-- ESTADO: PIX EXPIRADO -->
+                        <!-- ============================= -->
+                        <!-- Controlados pela função trocarEstadoTela() -->
                         <div id="estadoPixExpirado" class="estado-pagamento escondido">
                             <div class="estado-icone estado-icone-expirado">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -127,12 +153,16 @@
 
                             <p class="descricao-estado">O código PIX expirou. Gere um novo código para continuar.</p>
 
+                            <!-- Botão para gerar novo QR Code após expiração -->
                             <button id="btnGerarNovoQrCode" class="btn-copiar-pix" type="button">
                                 Gerar Novo QR Code
                             </button>
                         </div>
 
-                        <!-- ESTADO: ERRO AO GERAR PAGAMENTO -->
+                        <!-- ============================= -->
+                        <!-- ESTADO: ERRO -->
+                        <!-- ============================= -->
+                        <!-- Controlados pela função trocarEstadoTela() -->
                         <div id="estadoErroPagamento" class="estado-pagamento escondido">
                             <div class="estado-icone estado-icone-erro">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -148,6 +178,7 @@
                             <p class="descricao-estado">Não foi possível gerar o código PIX no momento. Tente novamente.
                             </p>
 
+                            <!-- Botão para tentar novamente em caso de erro -->
                             <button id="btnTentarNovamente" class="btn-copiar-pix" type="button">
                                 Tentar novamente
                             </button>
@@ -155,36 +186,42 @@
                     </section>
                 </div>
 
-                <!-- COLUNA DIREITA -->
-                <aside class="coluna-direita">
-                    <section class="card resumo-pedido">
-                        <div class="linha-total">
-                            <span>Total</span>
-                            <span id="total">R$ 380,00</span>
-                        </div>
+                <!-- ============================= -->
+                <!-- COLUNA DIREITA - RESUMO -->
+                <!-- ============================= -->
+                <aside class="card resumo-pedido">
+                    <h2>Resumo do Pedido</h2>
 
-                        <div class="linha-prazo">
-                            <p class="prazo-label">Pague em até</p>
-                            <div class="prazo-info">
-                                <span class="prazo-tempo">23:54:45</span>
-                                <span class="prazo-vencimento">17 de abril de 2026, 15:44</span>
-                            </div>
-                        </div>
-                    </section>
+                    <!-- VALOR TOTAL -->
+                    <div class="linha-total">
+                        <span>Total</span>
+                        <span id="total">R$ 380,00</span>
+                    </div>
 
+                    <!-- PRAZO DE PAGAMENTO -->
+                    <div class="linha-prazo">
+                        <p class="prazo-label">Pague em até</p>
+                        <div class="prazo-info">
+                            <span class="prazo-tempo">23:54:45</span>
+                            <span class="prazo-vencimento">17 de abril de 2026, 15:44</span>
+                        </div>
+                    </div>
+
+                    <!-- INDICADOR DE SEGURANÇA -->
                     <div class="seguranca">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-lock-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
                         </svg>
+
                         <p>Pagamento 100% seguro</p>
                     </div>
                 </aside>
             </div>
         </main>
     </div>
-    
+
     <script src="./src/js/pagamentoPix.js"></script>
 
 </body>

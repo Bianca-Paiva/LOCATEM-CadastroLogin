@@ -1,38 +1,38 @@
 :root {
-    /* ============================= */
     /* CORES PRINCIPAIS */
-    /* ============================= */
-    --color-primary: #FFD600;
-    --color-primary-hover: #f2cb00;
+    --color-primary: #ffd600;
+    --color-primary-hover: #f5cc00;
     --color-primary-light: #ffe97a;
     --color-primary-soft: #fff3b0;
 
-    /* ============================= */
     /* BACKGROUNDS */
-    /* ============================= */
     --color-bg-main: #F9FAFB;
     --color-bg-card: #ffffff;
     --color-bg-input: #f8f8f8;
 
-    /* ============================= */
     /* TEXTOS */
-    /* ============================= */
-    --color-text-primary: #222;
-    --color-text-secondary: #666;
-    --color-text-terciary: #555
-    --color-text-security: #777
-    --color-text-muted: #999;
-    --color-text-dark: #000;
+    --color-text-primary: #0A0A0A;
+    --color-text-secondary: #1a1a1a;
+    --color-text-tertiary: #364153;
+    --color-text-muted: #4A5565;
+    --color-text-subtle: #6A7282;
+    --color-text-dark: #000000;
 
-    /* ============================= */
     /* BORDAS */
-    /* ============================= */
-    --color-border-light: #ddd;
+    --color-border-light: #e8e8e8;
     --color-border-soft: #e5e5e5;
+    --color-border-input: #D1D5DC;
 
-    /* ============================= */
+    /* SOMBRAS */
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.05);
+    --shadow-feedback: 0 6px 18px rgba(0, 0, 0, 0.14);
+
+    /* BORDER RADIUS */
+    --radius-card: 16px;
+    --radius-input: 10px;
+    --radius-btn: 10px;
+
     /* FEEDBACK / STATUS */
-    /* ============================= */
 
     /* Sucesso */
     --color-success-bg: #eefaf0;
@@ -53,17 +53,9 @@
     --color-expired-bg: #FBE4E4;
     --color-expired-icon: #ef1111;
 
-    /* ============================= */
-    /* PIX / INFO */
-    /* ============================= */
+    /* PIX / Timer */
     --color-pix-timer-bg: #eaf3ff;
     --color-pix-timer-text: #2764c8;
-
-    /* ============================= */
-    /* SOMBRAS */
-    /* ============================= */
-    --shadow-card: 0 5px 10px rgba(0, 0, 0, 0.12);
-    --shadow-feedback: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
 /* ============================= */
@@ -74,24 +66,23 @@ body {
     color: var(--color-text-primary);
 }
 
+/* GRADIENTE AMARELO */
 .app {
     width: 100%;
-    max-width: 1280px;
+    max-width: 100%;
     min-height: 100vh;
-    background: linear-gradient(
-        to bottom,
-        var(--color-primary) 0%,
-        var(--color-primary-light) 3%,
-        var(--color-primary-soft) 5%,
-        var(--color-bg-main) 8%
-    );
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 3%,
+            var(--color-primary-soft) 4.5%,
+            var(--color-bg-main) 7%);
 }
 
 /* ============================= */
 /* HEADER */
 /* ============================= */
 .topo {
-    padding: 14px 16px 30px;
+    padding: 14px 16px 38px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -142,19 +133,20 @@ body {
 /* ============================= */
 .pagamento-container {
     padding: 0 16px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .titulo-pagina {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 10px 0 20px;
 }
 
 .titulo-pagina h1 {
-    font-size: clamp(22px, 4vw, 28px);
-    font-weight: bold;
-    margin: 0;
+    font-size: clamp(14px, 4vw, 24px);
+    font-weight: 700;
 }
 
 .btn-voltar {
@@ -162,7 +154,7 @@ body {
     background: transparent;
     font-size: 30px;
     cursor: pointer;
-    color: var(--color-text-dark);
+    color: var(--color-text-primary);
 }
 
 .btn-voltar svg {
@@ -170,16 +162,35 @@ body {
     height: 30px;
     object-fit: contain;
     display: block;
+    color: var(--color-text-primary);
 }
 
 /* ============================= */
-/* LAYOUT */
+/* LAYOUT PIX */
 /* ============================= */
 .pagamento-layout {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 24px;
     align-items: start;
+}
+
+/* ============================= */
+/* CARD COMPONENT */
+/* ============================= */
+.card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    padding: 25px;
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-card);
+}
+
+.card h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
 }
 
 /* ============================= */
@@ -191,10 +202,10 @@ body {
     min-width: 180px;
     max-width: 260px;
     padding: 10px 12px;
-    border-radius: 10px;
-    font-size: 13px;
+    border-radius: var(--radius-input);
+    font-size: 0.8125rem;
     font-weight: 500;
-    box-shadow: 0 6px 18px var(--shadow-feedback);
+    box-shadow: var(--shadow-feedback);
     border: 1px solid transparent;
     animation: aparecerFeedback 0.2s ease;
 }
@@ -230,23 +241,6 @@ body {
 }
 
 /* ============================= */
-/* CARD PADRÃO */
-/* ============================= */
-.card {
-    background-color: var(--color-bg-card);
-    box-shadow: 0 5px 10px var(--shadow-card);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 16px;
-}
-
-.card h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 16px;
-}
-
-/* ============================= */
 /* ÁREA PIX */
 /* ============================= */
 .area-pix {
@@ -259,8 +253,8 @@ body {
     color: var(--color-pix-timer-text);
     padding: 6px 16px;
     border-radius: 999px;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 0.75rem;
+    font-weight: 700;
     margin-bottom: 20px;
 }
 
@@ -270,8 +264,8 @@ body {
 }
 
 .texto-qr {
-    font-size: 13px;
-    color: var(--color-text-secondary);
+    font-size: 0.8125rem;
+    color: var(--color-text-subtle);
     margin-bottom: 20px;
     line-height: 1.5;
 }
@@ -290,11 +284,14 @@ body {
 }
 
 .divisor span {
-    font-size: 11px;
-    color: var(--color-text-muted);
+    font-size: 0.6875rem;
+    color: var(--color-text-subtle);
     text-transform: lowercase;
 }
 
+/* ============================= */
+/* CAMPO CHAVE PIX */
+/* ============================= */
 .campo-pix {
     text-align: left;
     margin-bottom: 16px;
@@ -302,8 +299,9 @@ body {
 
 .campo-pix label {
     display: block;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
     margin-bottom: 8px;
 }
 
@@ -312,8 +310,8 @@ body {
     align-items: center;
     gap: 4px;
     background-color: var(--color-bg-input);
-    border: 1px solid var(--color-border-light);
-    border-radius: 10px;
+    border: 1px solid var(--color-border-input);
+    border-radius: var(--radius-input);
     overflow: hidden;
 }
 
@@ -323,8 +321,8 @@ body {
     background: transparent;
     padding: 12px 0 12px 14px;
     outline: none;
-    font-size: 12px;
-    color: var(--color-text-terciary);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
 }
 
 .input-com-icone button {
@@ -334,21 +332,32 @@ body {
     cursor: pointer;
 }
 
+/* ============================= */
+/* BOTÃO COPIAR PIX */
+/* ============================= */
 .btn-copiar-pix {
     width: 100%;
     background-color: var(--color-primary);
     color: var(--color-text-dark);
     border: none;
-    border-radius: 12px;
-    padding: 14px;
-    font-weight: bold;
-    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 16px;
+    font-weight: 700;
+    font-size: 1rem;
     cursor: pointer;
     margin-bottom: 26px;
+    transition:
+        background-color 0.2s ease,
+        transform 0.15s ease;
 }
 
 .btn-copiar-pix:hover {
     background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-copiar-pix:active {
+    transform: translateY(0);
 }
 
 /* ============================= */
@@ -359,8 +368,9 @@ body {
 }
 
 .instrucoes-pix h3 {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
     margin-bottom: 14px;
 }
 
@@ -378,14 +388,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 0.75rem;
+    font-weight: 700;
     flex-shrink: 0;
 }
 
 .instrucao p {
-    font-size: 12px;
-    color: var(--color-text-terciary);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
     line-height: 1.45;
     margin: 0;
 }
@@ -425,7 +435,6 @@ body {
 
 .estado-icone-erro {
     background-color: var(--color-error-bg);
-    color: var(--color-error-text);
 }
 
 .icone-erro-svg {
@@ -436,50 +445,68 @@ body {
 }
 
 .titulo-estado {
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
     margin-bottom: 10px;
     text-align: center;
 }
 
 .descricao-estado {
-    font-size: 16px;
-    color: var(--color-text-secondary);
+    font-size: 1rem;
+    color: var(--color-text-subtle);
     text-align: center;
     margin-bottom: 24px;
     line-height: 1.5;
 }
 
 /* ============================= */
-/* RESUMO / PRAZO */
+/* RESUMO DO PEDIDO */
 /* ============================= */
 .resumo-pedido {
-    position: sticky;
-    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
-.linha-total,
+.resumo-pedido h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 10px;
+}
+
+.linha-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0;
+}
+
+.linha-total span:first-child {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.linha-total span:last-child {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
 .linha-prazo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.linha-total {
-    padding-top: 15px;
-    margin-bottom: 20px;
-    font-size: 18px;
-    color: var(--color-text-dark);
-}
-
-.linha-prazo {
-    padding-top: 20px;
-    border-top: 1px solid var(--color-border-soft);
+    padding: 20px 0;
 }
 
 .prazo-label {
-    font-size: 18px;
-    color: var(--color-text-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
     margin: 0;
     white-space: nowrap;
 }
@@ -490,18 +517,19 @@ body {
     align-items: flex-end;
     text-align: right;
     gap: 2px;
+    margin-left: 3px;
 }
 
 .prazo-tempo {
-    font-size: 16px;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: #f59e0b;
     line-height: 1.3;
 }
 
 .prazo-vencimento {
-    font-size: 16px;
-    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    color: var(--color-text-subtle);
     line-height: 1.3;
 }
 
@@ -510,50 +538,388 @@ body {
 /* ============================= */
 .seguranca {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    color: var(--color-text-muted);
-    font-size: 12px;
+    color: var(--color-text-subtle);
 }
 
 .seguranca svg {
     width: auto;
-    height: 12px;
-    object-fit: contain;
-    color: var(--color-text-security);
+    height: 13.5px;
+    flex-shrink: 0;
 }
 
-
-/* ============================= */
-/* RESPONSIVIDADE */
-/* ============================= */
-@media (max-width: 900px) {
-    .pagamento-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .resumo-pedido {
-        position: static;
-    }
+.seguranca p {
+    font-size: 0.75rem;
+    font-weight: 500;
 }
 
-@media (max-width: 700px) {
-    .topo {
-        flex-wrap: wrap;
-    }
-
-    .titulo-pagina h1 {
-        font-size: 22px;
-    }
-}
-
-@media (max-width: 480px) {
+/* =========================== */
+/* RESPONSIVO */
+/* =========================== */
+@media (max-width: 360px) {
     .pagamento-container {
-        padding: 0 12px 24px;
+        padding: 16px 12px 32px;
+        gap: 12px;
     }
 
     .card {
         padding: 16px;
+    }
+
+    .titulo-pagina {
+        gap: 8px;
+    }
+
+    .titulo-pagina h1 {
+        font-size: 0.9375rem;
+    }
+
+    .btn-voltar svg {
+        height: 22px;
+    }
+
+    .card h2 {
+        font-size: 0.9375rem;
+    }
+
+    .btn-copiar-pix {
+        font-size: 0.875rem;
+        padding: 13px;
+    }
+
+    .seguranca p {
+        font-size: 0.625rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .pagamento-container {
+        padding: 20px 16px 40px;
+        gap: 16px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .titulo-pagina h1 {
+        font-size: 1.125rem;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+    }
+
+    .btn-copiar-pix {
+        font-size: 0.9375rem;
+        padding: 14px;
+    }
+
+    .seguranca p {
+        font-size: 0.6875rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .resumo-pedido {
+        top: 24px;
+    }
+
+    .resumo-pedido h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .app {
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 5%,
+                var(--color-primary-soft) 7%,
+                var(--color-bg-main) 11%);
+    }
+
+    .pagamento-layout {
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+    }
+
+    .topo {
+        padding: 20px 40px 48px;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .pagamento-container {
+        padding: 0 40px 48px;
+        gap: 32px;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .chat img {
+        height: 28px;
+    }
+
+    .tempo-expiracao {
+        font-size: 0.875rem;
+    }
+
+    .qr-box img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .texto-qr {
+        font-size: 0.9375rem;
+    }
+
+    .divisor span {
+        font-size: 0.8125rem;
+    }
+
+    .campo-pix label {
+        font-size: 0.875rem;
+    }
+
+    .input-com-icone input {
+        font-size: 0.875rem;
+        padding: 13px 0 13px 16px;
+    }
+
+    .btn-copiar-pix {
+        font-size: 1.0625rem;
+    }
+
+    .instrucoes-pix h3 {
+        font-size: 1rem;
+    }
+
+    .instrucao p {
+        font-size: 0.875rem;
+    }
+
+    .numero {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8125rem;
+    }
+
+    /* RESUMO DO PEDIDO — escala moderada (~15%) */
+    .resumo-pedido h2 {
+        font-size: 1.25rem;
+    }
+
+    .linha-total span:first-child {
+        font-size: 1.1875rem;
+    }
+
+    .linha-total span:last-child {
+        font-size: 1.25rem;
+    }
+
+    .prazo-label {
+        font-size: 1.1875rem;
+    }
+
+    .prazo-tempo {
+        font-size: 1.125rem;
+    }
+
+    .prazo-vencimento {
+        font-size: 1.125rem;
+    }
+
+    .seguranca p {
+        font-size: 0.8125rem;
+    }
+
+    .estado-icone {
+    width: 90px;
+    height: 90px;
+}
+
+.icone-expirado-svg {
+    height: 46px;
+}
+
+.icone-erro-svg {
+    height: 43px;
+}
+
+.titulo-estado {
+    font-size: 1.5rem;      /* 22px → 24px */
+}
+
+.descricao-estado {
+    font-size: 1.125rem;    /* 16px → 18px */
+}
+}
+
+@media (min-width: 2560px) {
+    .app {
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 4%,
+                var(--color-primary-soft) 6%,
+                var(--color-bg-main) 9%);
+    }
+
+    .topo {
+        padding: 28px 80px 64px;
+        max-width: 2560px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .logo img {
+        height: 38px;
+    }
+
+    .chat img {
+        height: 34px;
+    }
+
+    .pagamento-container {
+        padding: 0 80px 64px;
+        gap: 40px;
+        max-width: 2560px;
+    }
+
+    .titulo-pagina h1 {
+        font-size: 2rem;
+    }
+
+    .btn-voltar svg {
+        height: 38px;
+    }
+
+    .card {
+        padding: 36px;
+    }
+
+    .card h2 {
+        font-size: 1.375rem;
+    }
+
+    .linha-total span:first-child {
+        font-size: 1.25rem;
+    }
+
+    .linha-total span:last-child {
+        font-size: 1.375rem;
+    }
+
+    .btn-copiar-pix {
+        font-size: 1.25rem;
+        padding: 20px;
+    }
+
+    .seguranca p {
+        font-size: 0.875rem;
+    }
+
+    /* CARD PIX — escala ampla (~40%) */
+    .tempo-expiracao {
+        font-size: 1rem;
+        padding: 8px 20px;
+    }
+
+    .qr-box img {
+        width: 280px;
+        height: 280px;
+    }
+
+    .texto-qr {
+        font-size: 1.0625rem;
+    }
+
+    .divisor span {
+        font-size: 0.9375rem;
+    }
+
+    .campo-pix label {
+        font-size: 1rem;
+    }
+
+    .input-com-icone input {
+        font-size: 1rem;
+        padding: 16px 0 16px 18px;
+    }
+
+    .instrucoes-pix h3 {
+        font-size: 1.125rem;
+    }
+
+    .instrucao p {
+        font-size: 1rem;
+    }
+
+    .numero {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9375rem;
+    }
+
+    /* RESUMO DO PEDIDO — escala ampla (~33%) */
+    .resumo-pedido h2 {
+        font-size: 1.5rem;
+    }
+
+    .linha-total span:first-child {
+        font-size: 1.375rem;
+    }
+
+    .linha-total span:last-child {
+        font-size: 1.5rem;
+    }
+
+    .prazo-label {
+        font-size: 1.375rem;
+    }
+
+    .prazo-tempo {
+        font-size: 1.25rem;
+    }
+
+    .prazo-vencimento {
+        font-size: 1.25rem;
+    }
+
+    .seguranca p {
+        font-size: 0.9375rem;
+    }
+
+    /* ESTADO DE ERRO/EXPIRADO — escala ampla (~40%) */
+    .estado-icone {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 28px;
+    }
+
+    .icone-expirado-svg {
+        height: 56px;
+    }
+
+    .icone-erro-svg {
+        height: 52px;
+    }
+
+    .titulo-estado {
+        font-size: 1.875rem;
+        /* 22px → 30px */
+    }
+
+    .descricao-estado {
+        font-size: 1.375rem;
+        /* 16px → 22px */
     }
 }
