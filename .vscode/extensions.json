@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "lirobi.phone-preview"
+        "lirobi.phone-preview",
+        "eamodio.gitlens"
     ]
 }

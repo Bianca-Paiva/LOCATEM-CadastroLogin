@@ -8,6 +8,8 @@
     /* BACKGROUNDS */
     --color-bg-main: #F9FAFB;
     --color-bg-card: #ffffff;
+    --color-bg-input-desabilitado: #f5f5f5;
+    --color-bg-input-erro: #fff5f7;
 
     /* TEXTOS */
     --color-text-primary: #0A0A0A;
@@ -16,6 +18,7 @@
     --color-text-muted: #4A5565;
     --color-text-subtle: #6A7282;
     --color-text-dark: #000000;
+    --color-text-red: #e11d48;
 
     /* BORDAS */
     --color-border-light: #e8e8e8;
@@ -39,6 +42,7 @@ body {
     color: var(--color-text-primary);
 }
 
+/* GRADIENTE AMARELO */
 .app {
     width: 100%;
     max-width: 100%;
@@ -137,9 +141,9 @@ body {
     color: var(--color-text-primary)
 }
 
-/* ===========================
-  CARD COMPONENT
-=========================== */
+/* =========================== */
+/* CARD COMPONENT */
+/* =========================== */
 .cards-wrapper {
     display: flex;
     flex-direction: column;
@@ -154,9 +158,9 @@ body {
     box-shadow: var(--shadow-card);
 }
 
-/* ===========================
-  CARD HEADER
-=========================== */
+/* =========================== */
+/* CARD HEADER */
+/* =========================== */
 .card-header {
     display: flex;
     align-items: center;
@@ -176,9 +180,9 @@ body {
     height: 18px;
 }
 
-/* ===========================
-  DADOS CARTÃO
-=========================== */
+/* =========================== */
+/* DADOS CARTÃO */
+/* =========================== */
 .dados-cartao {
     display: flex;
     flex-direction: column;
@@ -198,102 +202,9 @@ body {
     color: var(--color-text-tertiary);
 }
 
-.campo input {
-    width: 100%;
-    padding: 15.5px 16px;
-    border: 1px solid var(--color-border-input);
-    border-radius: var(--radius-input);
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    background-color: var(--color-bg-card);
-    outline: none;
-}
-
-.campo input::placeholder {
-    font-size: 0.9rem;
-    font-weight: 400;
-}
-
-.input-cartao {
-    position: relative;
-    width: 100%;
-}
-
-.input-cartao input {
-    padding-right: 56px;
-}
-
-.icone-bandeira {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 32px;
-    height: auto;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-.icone-bandeira.ativo {
-    opacity: 1;
-}
-
-/* =========================== */
-/* LABEL REQUIRED (*) */
-/* =========================== */
-.campo label:has(+ :is(input, select)[required])::after {
-    content: " *";
-    color: #e11d48;
-    font-weight: 700;
-}
-
-/*para campos OPICIONAIS*/
-/*.campo label:has(+ input:not([required]))::after {
-    content: " (opcional)";
-    color: var(--color-text-subtle);
-    font-weight: 400;
-} */
-
-/* =========================== 
-    AJUSTE DOS CAMPOS LADO A LADO
-/* =========================== */
-.linha-campos {
-    align-items: start;
-}
-
-.linha-campos .campo {
-    justify-content: flex-start;
-}
-
-.campo .erro {
-    min-height: 14px;
-}
-
-/* =========================== */
-/* ERROS DOS CAMPOS */
-/* =========================== */
-.campo .erro {
-    display: none;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #e11d48;
-}
-
-.campo.erro-ativo input,
-.campo.erro-ativo select {
-    border-color: #e11d48;
-    background-color: #fff5f7;
-}
-
-.campo.erro-ativo .erro {
-    display: block;
-}
-
-/* =========================== */
-/* SELECT PARCELAMENTO */
-/* =========================== */
+.campo input,
 .campo select {
+    /* estilização: input e select */
     width: 100%;
     padding: 15.5px 16px;
     border: 1px solid var(--color-border-input);
@@ -302,8 +213,11 @@ body {
     color: var(--color-text-secondary);
     background-color: var(--color-bg-card);
     outline: none;
+    transition: all 0.2s ease;
+}
 
-    /* REMOVE ESTILO PADRÃO DA SETINHA DO NAVEDOR */
+.campo select {
+    /* Remove o estilo padrão da setinha do navegador */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -319,23 +233,131 @@ body {
 
 /* ESTADO DESABILITADO */
 .campo select:disabled {
-    background-color: #f5f5f5;
+    background-color: var(--color-bg-input-desabilitado);
     color: var(--color-text-subtle);
     cursor: not-allowed;
 }
 
-/* =================================
-  LINHA DE CAMPOS (validade + cvv)
-==================================== */
+.campo input::placeholder {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* =========================== */
+/* INPUT DO CARTÃO COM BANDEIRA */
+/* =========================== */
+
+/* Wrapper usado para posicionar o ícone da bandeira dentro do campo */
+.input-cartao {
+    position: relative;
+    width: 100%;
+}
+
+/* Aumenta o espaço interno à direita para o texto não passar por cima do ícone */
+.input-cartao input {
+    padding-right: 56px;
+}
+
+/* Ícone da bandeira do cartão */
+.icone-bandeira {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Classe adicionada via JavaScript quando uma bandeira é detectada */
+.icone-bandeira.ativo {
+    opacity: 1;
+}
+
+/* ================================ */
+/* INDICADOR DE CAMPO OBRIGATÓRIO */
+/* =================================== */
+
+/*
+    Usa :has() para verificar se o label está associado a um campo obrigatório.
+    A primeira regra funciona quando o input/select vem logo depois do label.
+    A segunda regra cobre o campo número do cartão, pois o input está dentro da div .input-cartao.
+*/
+.campo label:has(+ :is(input, select)[required])::after,
+.campo label:has(+ .input-cartao input[required])::after {
+    content: " *";
+    color: var(--color-text-red);
+    font-weight: 700;
+}
+
+/*para campos OPICIONAIS*/
+/*.campo label:has(+ input:not([required]))::after {
+    content: " (opcional)";
+    color: var(--color-text-subtle);
+    font-weight: 400;
+} */
+
+/* =============================== */
+/* AJUSTE DOS CAMPOS LADO A LADO */
+/* ================================== */
+.linha-campos {
+    align-items: start;
+}
+
+.linha-campos .campo {
+    justify-content: flex-start;
+}
+
+/* ============================= */
+/* MENSAGENS E ESTADO DE ERRO */
+/* ============================= */
+
+/* Mensagem de erro abaixo dos campos */
+.campo .erro {
+    display: none;
+    min-height: 14px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-red);
+}
+
+/* Aplica borda e fundo vermelho claro nos campos inválidos */
+.campo.erro-ativo input,
+.campo.erro-ativo select {
+    border-color: var(--color-text-red);
+    background-color: var(--color-bg-input-erro);
+    animation: shake 0.25s ease;
+}
+
+/* Exibe a mensagem quando o campo recebe a classe de erro */
+.campo.erro-ativo .erro {
+    display: block;
+}
+
+/* Animação suave para chamar atenção no erro */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-4px); }
+    40% { transform: translateX(4px); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+}
+
+/* ================================== */
+/* LINHA DE CAMPOS (validade + cvv) */
+/* ================================== */
 .linha-campos {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-/* ===========================
-  CHECKBOX SALVAR CARTÃO
-============================= */
+/* =========================== */
+/* CHECKBOX SALVAR CARTÃO */
+/* ============================= */
 .salvar-cartao {
     display: flex;
     align-items: center;
@@ -361,9 +383,9 @@ body {
     color: var(--color-text-muted);
 }
 
-/* ===========================
-  RESUMO DO PEDIDO
-=========================== */
+/* =========================== */
+/* RESUMO DO PEDIDO */
+/* =========================== */
 .card.resumo-pedido {
     display: flex;
     flex-direction: column;
@@ -396,9 +418,9 @@ body {
     color: var(--color-text-primary);
 }
 
-/* ===========================
-  BOTÃO CONFIRMAR
-=========================== */
+/* =========================== */
+/* BOTÃO CONFIRMAR */
+/* =========================== */
 .btn-pagar {
     width: 100%;
     padding: 16px;
@@ -426,8 +448,42 @@ body {
     box-shadow: none;
 }
 
+/* =========================== */
+/* BOTÃO EM PROCESSAMENTO */
+/* =========================== */
+
+/*
+    Estado aplicado quando o usuário confirma o pagamento.
+    Impede novo clique e mostra feedback visual de carregamento.
+*/
+.btn-pagar.carregando {
+    cursor: wait;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Spinner (circulo de carregamento) exibido ao lado do texto do botão */
+.btn-pagar.carregando::after {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    border: 2px solid var(--color-text-secondary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+}
+
+/* Animação do spinner */
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* ===========================
-  SEGURANÇA
+    SEGURANÇA
 =========================== */
 .seguranca {
     display: flex;

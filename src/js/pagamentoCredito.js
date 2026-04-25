@@ -1,3 +1,7 @@
+/* =========================================================
+    CAPTURA DOS ELEMENTOS DO HTML
+    Esses elementos serão manipulados pelo JavaScript.
+========================================================= */
 const numeroCartao = document.getElementById("numeroCartao");
 const iconeBandeira = document.getElementById("iconeBandeira");
 const nomeTitular = document.getElementById("nomeTitular");
@@ -7,8 +11,22 @@ const parcelamento = document.getElementById("parcelamento");
 
 const btnPagar = document.querySelector(".btn-pagar");
 
+/*
+    Controla se o pagamento já está sendo processado.
+    Isso evita que o usuário clique várias vezes no botão e simule/envie o pagamento mais de uma vez.
+*/
+let pagamentoEmProcessamento = false;
+
+/*
+    Valor total usado para calcular as parcelas.
+    Futuramente esse valor pode vir do carrinho ou da API.
+*/
 const valorTotal = 20.00;
 
+/* =========================================================
+    MAPA DE BANDEIRAS
+    Relaciona o nome detectado da bandeira com o caminho do ícone.
+========================================================= */
 const mapaBandeiras = {
     VISA: "/src/images/bandeiras/visa.png",
     MASTER: "/src/images/bandeiras/master.png",
@@ -19,7 +37,8 @@ const mapaBandeiras = {
 };
 
 /* =========================================================
-   MENSAGENS PADRONIZADAS
+    MENSAGENS PADRONIZADAS
+    Centraliza todas as mensagens de erro para facilitar manutenção.
 ========================================================= */
 const mensagensErro = {
     numeroCartaoIncompleto: "Confira o número do cartão.",
@@ -39,7 +58,11 @@ const mensagensErro = {
 };
 
 /* =========================================================
-   LIMITAR, FORMATAR E DETECTAR BANDEIRA DO CARTÃO
+    NÚMERO DO CARTÃO
+    - Remove caracteres que não são números
+    - Limita a 16 dígitos
+    - Formata em blocos de 4 números
+    - Detecta a bandeira e exibe o ícone correspondente
 ========================================================= */
 numeroCartao.addEventListener("input", () => {
     limparErro(numeroCartao);
@@ -69,23 +92,19 @@ numeroCartao.addEventListener("input", () => {
 });
 
 /* =========================================================
-   DETECTOR DA BANDEIRA DO CARTÃO
+    DETECTOR DA BANDEIRA DO CARTÃO
+    Usa os primeiros dígitos do cartão para identificar a bandeira.
+    Essa detecção é visual/UX; a validação real deve ocorrer na API.
 ========================================================= */
 function detectarBandeira(numero) {
     numero = numero.replace(/\D/g, "");
 
     if (/^4/.test(numero)) return "VISA";
-
     if (/^5[1-5]/.test(numero)) return "MASTER";
-
     if (/^2(2[2-9]|[3-6]|7[01]|720)/.test(numero)) return "MASTER";
-
     if (/^3[47]/.test(numero)) return "AMEX";
-
     if (/^6(?:011|5)/.test(numero)) return "DISCOVER";
-
     if (/^(4011|4312|4389|4514|4576|5041|5066|5067|509|6277|6362|6363|650|6516|6550)/.test(numero)) return "ELO";
-
     if (/^3(?:0[0-5]|[68])/.test(numero)) return "DINERS";
 
     return "";
@@ -101,7 +120,10 @@ function detectarBandeira(numero) {
 }
 
 /* =========================================================
-   LIMITAR NOME DO TITULAR
+    NOME DO TITULAR
+    - Permite apenas letras e espaços
+    - Limita a 40 caracteres
+    - Converte automaticamente para maiúsculo
 ========================================================= */
 nomeTitular.addEventListener("input", () => {
     limparErro(nomeTitular);
@@ -117,7 +139,9 @@ nomeTitular.addEventListener("input", () => {
 });
 
 /* =========================================================
-   LIMITAR E FORMATAR VALIDADE MM/AA
+    VALIDADE DO CARTÃO
+    - Permite apenas números
+    - Formata automaticamente no padrão MM/AA
 ========================================================= */
 validade.addEventListener("input", () => {
     limparErro(validade);
@@ -137,7 +161,10 @@ validade.addEventListener("input", () => {
 });
 
 /* =========================================================
-   VALIDAR SE A DATA ESTÁ NO PASSADO
+    VALIDAÇÃO DA DATA DE VALIDADE
+    Ao sair do campo, verifica:
+    - se o mês é válido
+    - se o cartão não está vencido
 ========================================================= */
 validade.addEventListener("blur", () => {
     if (validade.value.length !== 5) return;
@@ -163,7 +190,9 @@ validade.addEventListener("blur", () => {
 });
 
 /* =========================================================
-   LIMITAR CVV
+    CVV
+    - Permite apenas números
+    - Limita a 3 dígitos
 ========================================================= */
 cvv.addEventListener("input", () => {
     limparErro(cvv);
@@ -179,7 +208,9 @@ cvv.addEventListener("input", () => {
 });
 
 /* =========================================================
-   GERAR PARCELAS COM VALOR MÍNIMO DE R$10
+    PARCELAMENTO
+    Gera as opções de parcela automaticamente.
+    Regra: cada parcela precisa ter valor mínimo de R$10.
 ========================================================= */
 function gerarParcelas() {
     parcelamento.innerHTML = '<option value="">Selecione</option>';
@@ -198,16 +229,23 @@ function gerarParcelas() {
         parcelamento.appendChild(option);
     }
 
+    /*
+        Pré-seleciona 1x automaticamente.
+        Caso exista apenas uma opção, o select é desabilitado para evitar interação desnecessária.
+    */
     parcelamento.value = "1";
 
     if (totalParcelas === 1) {
         parcelamento.disabled = true;
     }
 }
+
 gerarParcelas();
 
+
 /* =========================================================
-   FUNÇÕES DE VALIDAÇÃO
+    FUNÇÕES DE VALIDAÇÃO
+    Retornam true ou false conforme cada campo esteja correto.
 ========================================================= */
 function validarNumeroCartao() {
     return numeroCartao.value.replace(/\D/g, "").length === 16;
@@ -239,13 +277,20 @@ function validarParcelamento() {
 }
 
 /* =========================================================
-   UI DE ERRO
+    UI DE ERRO
+    Controla a exibição e remoção das mensagens de erro.
 ========================================================= */
 function mostrarErro(input, mensagem) {
     const campo = input.closest(".campo");
     const erro = campo.querySelector(".erro");
 
     if (!erro) return;
+
+    /*
+        Remove e adiciona a classe novamente para reiniciar a animação de erro sempre que necessário.
+    */
+    campo.classList.remove("erro-ativo"); // reset animação
+    void campo.offsetWidth; // força reflow (truque do CSS)
 
     campo.classList.add("erro-ativo");
     erro.textContent = mensagem;
@@ -262,9 +307,15 @@ function limparErro(input) {
 }
 
 /* =========================================================
-   CONFIRMAR PAGAMENTO
+    CONFIRMAR PAGAMENTO
+    - Valida todos os campos
+    - Bloqueia clique duplo
+    - Mostra estado de carregamento
+    - Redireciona para a tela de pagamento aprovado
 ========================================================= */
 btnPagar.addEventListener("click", () => {
+    if (pagamentoEmProcessamento) return;
+
     limparErro(numeroCartao);
     limparErro(nomeTitular);
     limparErro(validade);
@@ -300,5 +351,12 @@ btnPagar.addEventListener("click", () => {
 
     if (!formularioValido) return;
 
-    window.location.href = "./pagamentoAprovado.html";
+    pagamentoEmProcessamento = true;
+    btnPagar.disabled = true;
+    btnPagar.classList.add("carregando");
+    btnPagar.textContent = "Processando pagamento";
+
+    setTimeout(() => {
+        window.location.href = "./pagamentoAprovado.html";
+    }, 1500);
 });

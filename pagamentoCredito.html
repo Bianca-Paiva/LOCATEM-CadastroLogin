@@ -15,20 +15,25 @@
         <!-- HEADER -->
         <header class="topo">
             <div class="linha-topo">
+                <!-- Logo da LOCATEM com link para a página principal -->
                 <a href="./principalPage.html" class="logo">
                     <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
                     LOCATEM
                 </a>
 
+                <!-- Botão de acesso ao chat -->
                 <button class="chat">
                     <img src="./src/images/chat.png" alt="Chat">
                 </button>
             </div>
         </header>
 
-        <!-- CONTEÚDO -->
+        <!-- CONTEÚDO GERAL -->
         <main class="pagamento-container">
+
             <section class="titulo-pagina">
+                
+                <!-- Botão de seta para voltar para a página inicial -->
                 <button class="btn-voltar" aria-label="Voltar">
                     <a href="/principalPage.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -38,14 +43,19 @@
                         </svg>
                     </a>
                 </button>
+
                 <h1>Pagamento com Cartão de Crédito</h1>
             </section>
 
             <div class="cards-wrapper">
-                <!-- DADOS DO CARTÃO -->
+
+                <!-- CARD DE DADOS DO CARTÃO -->
                 <section class="card">
+
                     <div class="card-header">
                         <h2>Dados do Cartão</h2>
+
+                        <!-- svg do icone de cartão no canto direito -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-credit-card" viewBox="0 0 16 16">
                             <path
@@ -54,44 +64,65 @@
                         </svg>
                     </div>
 
+                    <!-- ============================= -->
+                    <!-- FORMULÁRIO DE DADOS DO CARTÃO -->
+                    <!-- ============================= -->
                     <form class="dados-cartao">
+
+                        <!-- Campo do número do cartão com ícone dinâmico da bandeira -->
                         <div class="campo">
                             <label for="numeroCartao">Número do Cartão</label>
+
                             <div class="input-cartao">
                                 <input id="numeroCartao" type="text" placeholder="0000 0000 0000 0000" required />
                                 <img id="iconeBandeira" class="icone-bandeira" src="" alt="Bandeira do cartão">
                             </div>
+
+                            <!-- Mensagem de erro exibida via JavaScript -->
                             <small class="erro"></small>
                         </div>
 
+                        <!-- Campo do nome do titular -->
                         <div class="campo">
                             <label for="nomeTitular">Nome do Titular</label>
                             <input id="nomeTitular" type="text" placeholder="NOME COMO ESTÁ NO CARTÃO" required />
+
+                            <!-- Mensagem de erro exibida via JavaScript -->
                             <small class="erro"></small>
                         </div>
 
+                        <!-- Linha com validade e CVV lado a lado -->
                         <div class="linha-campos">
+
                             <div class="campo">
                                 <label for="validade">Validade</label>
                                 <input id="validade" type="text" placeholder="MM/AA" required />
+
+                                <!-- Mensagem de erro exibida via JavaScript -->
                                 <small class="erro"></small>
                             </div>
 
                             <div class="campo">
                                 <label for="cvv">CVV</label>
                                 <input id="cvv" type="text" placeholder="123" required />
+
+                                <!-- Mensagem de erro exibida via JavaScript -->
                                 <small class="erro"></small>
                             </div>
                         </div>
 
+                        <!-- Select de parcelamento gerado dinamicamente pelo JavaScript -->
                         <div class="campo">
                             <label for="parcelamento">Parcelamento</label>
                             <select id="parcelamento" required>
                                 <option value="">Selecione</option>
                             </select>
+
+                            <!-- Mensagem de erro exibida via JavaScript -->
                             <small class="erro"></small>
                         </div>
 
+                        <!-- Opção visual para salvar o cartão -->
                         <div class="salvar-cartao">
                             <input type="checkbox" />
                             <span>Salvar cartão para próximas compras</span>
