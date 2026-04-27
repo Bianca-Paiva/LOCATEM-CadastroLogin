@@ -1,0 +1,161 @@
+:root {
+    /* CORES PRINCIPAIS */
+    --color-primary: #ffd600;
+    --color-primary-hover: #f5cc00;
+    --color-primary-light: #ffe97a;
+    --color-primary-soft: #fff3b0;
+
+    /* BACKGROUNDS */
+    --color-bg-main: #F9FAFB;
+    --color-bg-card: #ffffff;
+    --color-bg-input-erro: #fff5f7;
+
+    /* TEXTOS */
+    --color-text-primary: #0A0A0A;
+    --color-text-secondary: #1a1a1a;
+    --color-text-tertiary: #364153;
+    --color-text-muted: #4A5565;
+    --color-text-subtle: #6A7282;
+    --color-text-dark: #000000;
+    --color-text-red: #e11d48;
+
+    /* BORDAS */
+    --color-border-light: #e8e8e8;
+    --color-border-input: #D1D5DC;
+
+    /* SOMBRAS */
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.05);
+    --shadow-btn: 0 4px 16px rgba(255, 214, 0, 0.45);
+
+    /* BORDER RADIUS */
+    --radius-card: 16px;
+    --radius-input: 10px;
+    --radius-btn: 10px;
+}
+
+/* ============================= */
+/* BASE GERAL */
+/* ============================= */
+body {
+    background-color: var(--color-bg-main); /* Fundo padrão da aplicação */
+    color: var(--color-text-primary); /* Cor padrão dos textos */
+}
+
+/* Fundo principal com degradê no topo */
+.app {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 8%,
+            var(--color-primary-soft) 13%,
+            var(--color-bg-main) 18%);
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+header {
+    padding: 18px 25px 38px;
+    display: flex;
+    flex-direction: column;
+}
+
+.linha-topo {
+    display: flex;
+    justify-content: space-between; /* Distribui logo, busca e chat */
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 795;
+    font-size: clamp(16px, 5vw, 20px);
+    color: var(--color-text-dark);
+    flex-shrink: 0; /* Impede encolhimento */
+    text-decoration: none;
+}
+
+.logo img {
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Barra de pesquisa */
+.barra-pesquisa {
+    width: 600px; /* Largura fixa */
+    min-width: 600px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 999px;
+    padding: 0 24px;
+}
+
+.barra-pesquisa input {
+    flex: 1; /* Ocupa o espaço interno */
+    border: none;
+    outline: none;
+    font-size: 0.875rem;
+}
+
+.barra-pesquisa button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.barra-pesquisa img {
+    height: 20px;
+}
+
+/* Botão de chat */
+.chat {
+    background: transparent;
+    border-radius: 50%;
+    padding: 6px;
+    border: none;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.chat img {
+    height: 25px;
+    object-fit: contain;
+}
+
+/* ============================= */
+/* MENU DE NAVEGAÇÃO */
+/* ============================= */
+.menuNavegacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(15px, 2vw, 40px); /* Espaçamento responsivo */
+    padding: 0 25px;
+    max-width: 1200px;
+    margin: 0 auto 25px;
+}
+
+.menuNavegacao a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.menuNavegacao img {
+    width: 20px;
+}
