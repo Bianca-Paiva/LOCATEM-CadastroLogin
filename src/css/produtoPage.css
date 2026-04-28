@@ -1,0 +1,55 @@
+/*==================== RESET MODERNO ====================*/
+
+*,
+ *::before,  /*garantem que até elementos que criamos via CSS tambem sigam a regra */
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height: 100vh;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas{
+    display: block;
+    max-width: 100%;
+}
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+}
+
+/*===========================================================================================*/
+
+/*==================== ROOT ====================*/
+:root{
+/* cor do header */
+--header-gradiente: linear-gradient(to right, #FFCA00 0%, #FFDC57 73%, #F9FAFB 100%);
+
+
+}
+
