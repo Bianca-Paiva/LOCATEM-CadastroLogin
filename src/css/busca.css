@@ -5,6 +5,7 @@
   --color-primary-soft: #fff3b0;
   --color-secondary: #d9d9d9;
   --color-secondary-soft: #f7f7f7;
+  --color-terciary: #A5A5A5;
 
   --color-bg-main: #f3f4f6;
   --color-bg-card: #ffffff;
@@ -177,6 +178,10 @@ main {
     gap: 20px;
     padding: 0px;
     
+  hr {
+    border-top: 3px solid var(--color-secondary);
+    border-radius: var(--radius-input);
+  } 
     
   h2 {
     font-size: 20px;
@@ -185,6 +190,11 @@ main {
     color: var(--color-text-primary);
     text-align: center;
 }
+    h3{
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+    }
     ul{
         list-style: none;
         display: flex;
@@ -210,8 +220,29 @@ main {
     flex-direction: column;  
     gap: 12px;
     padding: 0px;
+
+
+    
+    label {
+        font-size: 14px;
+        border: var(--color-secondary) 2px solid;
+        background-color: transparent;
+        padding: 5px 12px;
+        border-radius: var(--radius-input);
+        color: var(--color-text-secondary);
+        appearance: none;
+        
+    } 
     
 }
+.filtroMarca input {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-input);
+    border-radius: var(--radius-input);
+    padding: 5px 15px;
+    font-size: 14px;
+    color: var(--color-text-primary);
+} 
 .filtroMarca form {
    display: flex;
    gap: 10px;
@@ -228,6 +259,14 @@ main {
     height: 10px;
     opacity: 0.6;
 }
+
+.filtroMarca ul{
+    input{  
+        display: none;
+    }
+}
+
+
 /*===========fILTROS PADRÃO=============*/
 .filtro-padrao {
     display: flex;
@@ -235,6 +274,28 @@ main {
     gap: 12px;
     padding: 0px;
     
+    input[type="checkbox"] {  
+        display: none;
+    }
+    input[type="radio"] {  
+        display: none;
+    }
+    
+    label {
+        font-size: 14px;
+        border: var(--color-secondary) 2px solid;
+        background-color: transparent;
+        padding: 5px 15px;
+        border-radius: var(--radius-input);
+        color: var(--color-text-secondary);
+        appearance: none;
+        
+    }
+    label:hover {
+        border-color: var(--color-terciary);
+        background-color: var(--color-terciary);
+        color: var(--color-secondary-soft);
+    }
 }
 /*============= Botao filtro =============*/
 .botoesFiltro {
@@ -255,6 +316,11 @@ main {
         text-align: center;
         font-weight: 600;
         cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    button:hover {
+        background-color: var(--color-primary-light);
+        transform: translateY(-2px);
     }
 }
 
@@ -304,6 +370,11 @@ main {
     flex-direction: column;
     padding: 15px ;
     cursor: pointer;
+}
+.anuncio-card:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
 }
 
 .card-img {
@@ -380,5 +451,21 @@ main {
     color: #037233;
 }
 
+/*==================== footer ==================*/
 
-
+footer {
+    background-color: var(--color-secondary-soft);
+    display: flex;
+}
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+.rodape nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
