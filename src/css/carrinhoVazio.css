@@ -1,83 +1,93 @@
 :root {
     /* CORES PRINCIPAIS */
-    --color-primary: #ffd600;
-    --color-primary-hover: #f5cc00;
+    --color-primary: #FFCA00;
     --color-primary-light: #ffe97a;
-    --color-primary-soft: #fff3b0;
+    --color-primary-soft: #fff6c7;
+    --color-secondary: #f0c000c0;
 
     /* BACKGROUNDS */
     --color-bg-main: #F9FAFB;
     --color-bg-card: #ffffff;
-    --color-bg-input-erro: #fff5f7;
 
     /* TEXTOS */
-    --color-text-primary: #0A0A0A;
-    --color-text-secondary: #1a1a1a;
-    --color-text-tertiary: #364153;
-    --color-text-muted: #4A5565;
-    --color-text-subtle: #6A7282;
-    --color-text-dark: #000000;
-    --color-text-red: #e11d48;
+    --color-text-dark: #0A0A0A;
+    --color-text-muted: #7a7a7a;
 
     /* BORDAS */
-    --color-border-light: #e8e8e8;
     --color-border-input: #D1D5DC;
 
     /* SOMBRAS */
-    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.05);
-    --shadow-btn: 0 4px 16px rgba(255, 214, 0, 0.45);
-
-    /* BORDER RADIUS */
-    --radius-card: 16px;
-    --radius-input: 10px;
-    --radius-btn: 10px;
+    --shadow-search: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
 /* ============================= */
 /* BASE GERAL */
 /* ============================= */
+
 body {
-    background-color: var(--color-bg-main); /* Fundo padrão da aplicação */
-    color: var(--color-text-primary); /* Cor padrão dos textos */
+    background-color: var(--color-bg-main);
+    color: var(--color-text-dark);
 }
 
-/* Fundo principal com degradê no topo */
 .app {
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(to bottom,
             var(--color-primary) 0%,
-            var(--color-primary-light) 8%,
-            var(--color-primary-soft) 13%,
-            var(--color-bg-main) 18%);
+            var(--color-primary-light) 9%,
+            var(--color-primary-soft) 14%,
+            var(--color-bg-main) 20%);
 }
 
+/* ============================= */
+/* HEADER MOBILE */
+/* ============================= */
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
-header {
-    padding: 18px 25px 38px;
+.header-desktop {
+    display: none;
+}
+
+.menu-navegacao-desktop {
+    display: none;
+}
+
+.header-mobile {
+    width: 100%;
+    padding: 22px 20px 34px;
     display: flex;
     flex-direction: column;
+    gap: 26px;
 }
 
-.linha-topo {
+/* Linha com menu, logo e carrinho */
+.linha-topo-mobile {
+    width: 100%;
     display: flex;
-    justify-content: space-between; /* Distribui logo, busca e chat */
     align-items: center;
+    justify-content: space-between;
 }
 
-/* Logo */
+/* AGRUPA MENU + LOGO */
+.lado-esquerdo {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+/* ============================= */
+/* LOGO */
+/* ============================= */
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 795;
-    font-size: clamp(16px, 5vw, 20px);
+    gap: 7px;
     color: var(--color-text-dark);
-    flex-shrink: 0; /* Impede encolhimento */
     text-decoration: none;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 750;
+    letter-spacing: -0.5px;
 }
 
 .logo img {
@@ -85,77 +95,258 @@ header {
     object-fit: contain;
 }
 
-/* Barra de pesquisa */
-.barra-pesquisa {
-    width: 600px; /* Largura fixa */
-    min-width: 600px;
-    height: 39px;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 999px;
-    padding: 0 24px;
-}
+/* ============================= */
+/* BOTÕES DO HEADER */
+/* ============================= */
 
-.barra-pesquisa input {
-    flex: 1; /* Ocupa o espaço interno */
+.menu-btn,
+.carrinho-btn {
+    width: 42px;
+    height: 42px;
     border: none;
-    outline: none;
-    font-size: 0.875rem;
-}
-
-.barra-pesquisa button {
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: none;
-    border: none;
     cursor: pointer;
 }
 
-.barra-pesquisa img {
-    height: 20px;
-}
-
-/* Botão de chat */
-.chat {
-    background: transparent;
-    border-radius: 50%;
-    padding: 6px;
-    border: none;
-    flex-shrink: 0;
-    cursor: pointer;
-}
-
-.chat img {
+.menu-btn img,
+.carrinho-btn img {
+    width: 25px;
     height: 25px;
     object-fit: contain;
 }
 
-/* ============================= */
-/* MENU DE NAVEGAÇÃO */
-/* ============================= */
-.menuNavegacao {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: clamp(15px, 2vw, 40px); /* Espaçamento responsivo */
-    padding: 0 25px;
-    max-width: 1200px;
-    margin: 0 auto 25px;
+/* Carrinho com badge */
+.carrinho-btn {
+    position: relative;
+    text-decoration: none;
 }
 
-.menuNavegacao a {
+.quantidade-carrinho {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    font-size: 12px;
+    font-weight: 800;
     display: flex;
     align-items: center;
-    gap: 7px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #000;
-    text-decoration: none;
-    white-space: nowrap;
+    justify-content: center;
 }
 
-.menuNavegacao img {
-    width: 20px;
+/* ============================= */
+/* BARRA DE PESQUISA */
+/* ============================= */
+
+.barra-pesquisa-mobile {
+    width: 100%;
+    height: 54px;
+    background-color: var(--color-bg-card);
+    border-radius: 999px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-search);
+}
+
+.barra-pesquisa-mobile img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.65;
+}
+
+.barra-pesquisa-mobile input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--color-text-dark);
+    font-size: 15px;
+}
+
+.barra-pesquisa-mobile input::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* ============================= */
+/* AJUSTES PARA TELAS MENORES */
+/* ============================= */
+
+@media (max-width: 380px) {
+    .header-mobile {
+        padding: 20px 16px 30px;
+        gap: 22px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .logo img {
+        height: 28px;
+    }
+
+    .barra-pesquisa-mobile {
+        height: 50px;
+        padding: 0 16px;
+    }
+
+    .barra-pesquisa-mobile input {
+        font-size: 14px;
+    }
+}
+
+/* ============================= */
+/* AJUSTES PARA TELAS MAIORES */
+/* ============================= */
+
+@media (min-width: 1024px) {
+
+    .header-mobile {
+        display: none;
+    }
+
+    .app {
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 8%,
+                var(--color-primary-soft) 13%,
+                var(--color-bg-main) 18%);
+    }
+
+    /* ============================= */
+    /* HEADER */
+    /* ============================= */
+
+    .header-desktop {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 18px 0 10px;
+    }
+
+    .linha-topo-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 32px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 800;
+        font-size: clamp(16px, 1.4vw, 20px);
+        color: var(--color-text-dark);
+        flex-shrink: 0;
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 30px;
+        object-fit: contain;
+    }
+
+    /* Barra de pesquisa — lupa à esquerda, igual à imagem */
+    .barra-pesquisa {
+        flex: 1;
+        max-width: 620px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        border-radius: 999px;
+        padding: 0 20px;
+        margin: 0 32px;
+        box-shadow: var(--shadow-search);
+    }
+
+    .barra-pesquisa button {
+        border: none;
+        background: none;
+    }
+
+    .barra-pesquisa img {
+        width: 18px;
+        height: 18px;
+        opacity: 0.55;
+        flex-shrink: 0;
+    }
+
+    .barra-pesquisa input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 0.9rem;
+        color: var(--color-text-dark);
+    }
+
+    .barra-pesquisa input::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    /* Botão de chat */
+    .chat {
+        background: transparent;
+        border: 2px solid var(--color-text-dark);
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        cursor: pointer;
+        border: none;
+    }
+
+    .chat img {
+        height: 20px;
+        object-fit: contain;
+    }
+
+    /* ============================= */
+    /* MENU DE NAVEGAÇÃO */
+    /* ============================= */
+
+    .menu-navegacao-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(12px, 2vw, 38px);
+        padding: 18px 32px 0;
+        width: 100%;
+    }
+
+    .menu-navegacao-desktop a {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-text-dark);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .menu-navegacao-desktop img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
 }
