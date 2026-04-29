@@ -1,55 +1,38 @@
-/*==================== RESET MODERNO ====================*/
-
-*,
- *::before,  /*garantem que até elementos que criamos via CSS tambem sigam a regra */
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    -webkit-text-size-adjust: 100%;
-    scroll-behavior:smooth;
-}
-
-body{
-    min-height: 100vh;
-    line-height: 1.5;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas{
-    display: block;
-    max-width: 100%;
-}
-
-button{
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-a{
-    text-decoration: none;
-    color: inherit;
-}
-
-ul{
-    list-style: none;
-}
-
-/*===========================================================================================*/
-
 /*==================== ROOT ====================*/
 :root{
-/* cor do header */
---header-gradiente: linear-gradient(to right, #FFCA00 0%, #FFDC57 73%, #F9FAFB 100%);
+    /* CORES PRINCIPAIS */
+    --color-primary: #ffd600;
+    --color-primary-hover: #f5cc00;
+    --color-primary-light: #ffe97a;
+    --color-primary-soft: #fff3b0;
+
+    /* BACKGROUND */
+    --color-bg-main: #F9FAFB;
+
+    /* TEXTOS */
+    --color-text-primary: #0A0A0A;
 
 
+}
+
+/* =============================== */
+
+/* ============================= */
+/* BASE GERAL */
+/* ============================= */
+body {
+    background-color: var(--color-bg-main); /* Fundo padrão da aplicação */
+    color: var(--color-text-primary); /* Cor padrão dos textos */
+}
+
+/* Fundo principal com degradê no topo */
+.app {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 8%,
+            var(--color-primary-soft) 13%,
+            var(--color-bg-main) 18%);
 }
 

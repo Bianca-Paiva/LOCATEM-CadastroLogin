@@ -1,241 +1,191 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Produto - LOCATEM</title>
-    <link rel="stylesheet" href="./src/css/produtoPage.css">
-  </head>
-  <body>
-        <!-- HEADER -->
-        <header>
-            <div class="linha-topo">
+<html lang="en">
 
-                <!-- Logo da LOCATEM com link para a página principal -->
-                <a href="./principalPage.html" class="logo">
-                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
-                    LOCATEM
-                </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto - Locatem</title>
+  <link rel="stylesheet" href="./src/css/produtoPage.css">
+  <link rel="stylesheet" href="./src/css/reset.css">
+</head>
 
-                <!-- Barra de pesquisa -->
-                <form class="barra-pesquisa">
-                    <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
-                    <button type="submit" class="lupa-btn">
-                        <img src="./src/images/lupa.png" alt="Buscar">
-                    </button>
-                </form>
-
-                <!-- Botão de acesso ao chat -->
-                <button class="chat">
-                    <img src="./src/images/chat.png" alt="Chat">
-                </button>
-        </header>
+<body>
+  <div class="app">
+    <header>
+      <div class="linha-topo">
 
 
+        <div class="header-esquerda">
+          <!-- BOTÃO VOLTAR -->
+          <a href="" class="btn-voltar">
+            <!-- SVG DA SETA -->
+          </a>
 
-    <main class="conteudo-principal">
-      <section class="secao-produto">
-        <article class="galeria-produto">
-          <button class="botao-anterior">Anterior</button>
-          <img
-            src="/assets/imagens/furadeira.png"
-            alt="Furadeira com maleta e acessórios"
-          />
-          <button class="botao-proximo">Próximo</button>
-        </article>
-
-        <article class="informacoes-produto">
-          <h1 class="titulo-produto">
-            Furadeira Parafusadeira Sem Fio A Bateria Tb-12e 12v 3/8 10mm Com
-            Maleta E Acessórios The Black Tools
-          </h1>
-
-          <div class="avaliacao-produto">
-            <span>4.5</span>
-            <span>★★★★★</span>
-          </div>
-
-          <p class="preco-produto">R$ 15,00/dia</p>
-
-          <section class="opcoes-produto">
-            <h2>Voltagem: Escolha</h2>
-            <div class="botoes-voltagem">
-              <button>127V</button>
-              <button>220V</button>
-              <button>Bivolt</button>
-            </div>
-
-            <div class="seletores">
-              <label>
-                Tempo:
-                <select>
-                  <option>Selecione</option>
-                </select>
-              </label>
-
-              <label>
-                Unidades:
-                <select>
-                  <option>Selecione</option>
-                </select>
-              </label>
-            </div>
-          </section>
-
-          <div class="acoes-produto">
-            <button class="botao-locar">Locar</button>
-            <button class="botao-carrinho">Adicionar ao carrinho</button>
-          </div>
-        </article>
-      </section>
-
-      <section class="secao-relacionados">
-        <h2>Produtos relacionados</h2>
-        <div class="lista-produtos">
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto1.png" alt="Produto relacionado" />
-            <p>Parafusadeira e Furadeira</p>
-            <span>R$18,00/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto2.png" alt="Produto relacionado" />
-            <p>Parafusadeira e Furadeira</p>
-            <span>R$18,00/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto3.png" alt="Produto relacionado" />
-            <p>Parafusadeira e Furadeira</p>
-            <span>R$18,00/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto4.png" alt="Produto relacionado" />
-            <p>Parafusadeira e Furadeira</p>
-            <span>R$18,00/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto5.png" alt="Produto relacionado" />
-            <p>Parafusadeira e Furadeira</p>
-            <span>R$18,00/dia</span>
-          </article>
+          <!-- Logo da LOCATEM com link para a página principal -->
+          <a href="./principalPage.html" class="logo">
+            <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
+            LOCATEM
+          </a>
         </div>
-      </section>
 
-      <section class="secao-detalhes">
-        <article class="descricao-produto">
-          <h2>Descrição</h2>
-          <p>
-            Kit Parafusadeira e Furadeira de Impacto Profissional 24V com Maleta
-            e Acessórios. Ferramenta versátil e resistente, ideal para uso
-            profissional ou doméstico. Possui três modos de operação: impacto,
-            furadeira e parafusadeira. Conta com duas baterias recarregáveis de
-            24V que garantem maior autonomia de uso.
-          </p>
-        </article>
+        <!-- Barra de pesquisa -->
+        <form class="barra-pesquisa">
+          <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
+          <button type="submit" class="lupa-btn">
+            <img src="./src/images/lupa.png" alt="Buscar">
+          </button>
+        </form>
 
-        <aside class="informacoes-locador">
-          <h3>Locador "NOME DO LOCADOR"</h3>
-          <img src="/assets/imagens/marca.png" alt="Logo do locador" />
-          <div class="avaliacao-locador">★★★★★</div>
-          <button class="botao-seguir">Seguir</button>
-          <button class="botao-loja">Ir para Loja</button>
-        </aside>
-      </section>
+        <!-- Botão de acesso ao chat -->
+        <div class="header-direita">
+          <button class="chat">
+            <img src="./src/images/chat.png" alt="Chat">
+          </button>
 
-      <section class="secao-avaliacoes">
-        <article class="avaliacoes-clientes">
-          <h2>Avaliações</h2>
-          <div class="nota-geral">
-            <span>4.5</span>
-            <span>★★★★☆</span>
-          </div>
-
-          <div class="lista-avaliacoes">
-            <article class="avaliacao-item">
-              <img src="/assets/imagens/furadeira.png" alt="Produto avaliado" />
-              <p>
-                muito textooooooooooooooo e etc, to separando com esses blocos
-                cinza pra ficar melhor os grids, bem é isso agora encher essa
-                label com muito textooooooo
-              </p>
-              <button>Foi útil?</button>
-            </article>
-
-            <article class="avaliacao-item">
-              <img src="/assets/imagens/furadeira.png" alt="Produto avaliado" />
-              <p>
-                muito textooooooooooooooo e etc, to separando com esses blocos
-                cinza pra ficar melhor os grids, bem é isso agora encher essa
-                label com muito textooooooo
-              </p>
-              <button>Foi útil?</button>
-            </article>
-
-            <article class="avaliacao-item">
-              <img src="/assets/imagens/furadeira.png" alt="Produto avaliado" />
-              <p>
-                muito textooooooooooooooo e etc, to separando com esses blocos
-                cinza pra ficar melhor os grids, bem é isso agora encher essa
-                label com muito textooooooo
-              </p>
-              <button>Foi útil?</button>
-            </article>
-          </div>
-
-          <button class="botao-ver-mais">Ver mais</button>
-        </article>
-
-        <aside class="banner-promocional">
-          <img
-            src="/assets/imagens/black-friday.png"
-            alt="Banner Black Friday Locatem 50% de desconto"
-          />
-        </aside>
-      </section>
-
-      <section class="secao-relacionados">
-        <h2>Produtos relacionados</h2>
-        <div class="lista-produtos">
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto6.png" alt="Produto relacionado" />
-            <p>Kit Perfuradeira</p>
-            <span>R$12,90/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto7.png" alt="Produto relacionado" />
-            <p>Kit Perfuradeira</p>
-            <span>R$12,90/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto8.png" alt="Produto relacionado" />
-            <p>Kit Perfuradeira</p>
-            <span>R$12,90/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img src="/assets/imagens/produto9.png" alt="Produto relacionado" />
-            <p>Kit Perfuradeira</p>
-            <span>R$12,90/dia</span>
-          </article>
-
-          <article class="cartao-produto">
-            <img
-              src="/assets/imagens/produto10.png"
-              alt="Produto relacionado"
-            />
-            <p>Kit Perfuradeira</p>
-            <span>R$12,90/dia</span>
-          </article>
+          <a href="" class="carrinho">
+            <!-- IMAGEM DO CARRINHO -->
+          </a>
         </div>
-      </section>
-    </main>
+      </div>
+    </header>
+  </div>
 
-    <footer class="rodape">
-      <p>&copy; 2026 LOCATEM</p>
-    </footer>
-  </body>
+  <main>
+    <section class="produto">
+
+      <!-- CARROSSEL DE IMAGENS -->
+      <div class="carrossel-produto">
+        <!-- BOTÃO DE FAVORITAR -->
+        <button class="btn-favoritar">
+          <!-- *Colocar imagem* -->
+        </button>
+
+        <!-- CARROSSEL -->
+        <div class="carrossel">
+          <!-- BOTÃO ANTERIOR -->
+          <button class="btn-anterior">
+            <!-- *COLOCAR SVG*-->
+          </button>
+
+          <div class="carrossel-container">
+            <!-- LISTA DE IMAGENS -->
+            <ul class="carrossel-lista">
+              <li class="carrossel-item ativo">
+                <!-- *COLOCAR IMAGEM DO PRODUTO* -->
+              </li>
+              <li class="carrossel-item">
+                <!-- *COLOCAR IMAGEM DO PRODUTO* -->
+              </li>
+              <li class="carrossel-item">
+                <!-- *COLOCAR IMAGEM DO PRODUTO* -->
+              </li>
+            </ul>
+          </div>
+
+          <!-- BOTÃO PRÓXIMO  -->
+          <button class="btn-proximo">
+            <!-- *COLOCAR SVG* -->
+          </button>
+
+        </div>
+
+        <div class="indicadores">
+          <div class="circulos">
+            <div class="circulo ativo"></div>
+            <div class=" circulo"></div>
+            <div class="circulo"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESCRIÇÃO DO PRODUTO -->
+      <div class="descricao-produto">
+        <h1>Furadeira Parafusadeira Sem Fio A Bateria 10mm Com Maleta E Acessórios The Black Tools</h1>
+
+        <!-- PARTE DE AVALIAÇÃO -->
+        <div class="avaliacao">
+          <!-- *COLOCAR O SVG DA ESTRELINHA* -->
+          <p>4.8 <span>(120 avaliações)</span></p>
+        </div>
+
+        <p>R$15 <span>/dia</span></p>
+      </div>
+
+      <!-- VOLTAGEM -->
+      <div class="voltagem">
+        <button class="btn-voltagem">127V</button>
+        <button class="btn-voltagem">220V</button>
+        <button class="btn-voltagem">Bivolt</button>
+      </div>
+
+      <!-- TEMPO + QUANTIDADE -->
+      <div>
+        <div class="tempo">
+          <label for="tempo" class="tempo-label">Tempo:</label>
+
+          <select name="tempo" id="tempo">
+            <option value="">Selecione</option>
+            <option value="1">1 dia</option>
+            <option value="2">2 dias</option>
+            <option value="7"> 1 semana</option>
+          </select>
+        </div>
+
+        <div class="quantidade">
+          <span>Quantidade:</span>
+
+          <!-- BOTÃO MENOS -->
+          <button class="btn-menos"> - </button>
+
+          <input type="number" value="1" min="1" class="quantidade-input">
+
+          <!-- BOTÃO ADICIONAR -->
+          <button class="btn-adicionar"> + </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LOJA -->
+    <section class="loja-produto">
+      <!-- LOJA -->
+      
+        <!-- IMAGEM -->
+        <figure class="logo-loja">
+          <!-- LOGO DA LOJA -->
+        </figure>
+
+        <!-- NOME E AVALIAÇÃO DA LOJA -->
+        <div class="nome-loja">
+          <h2> HomeFix Pro Store</h2>
+
+          <!-- DIV -criada para adicionar svg da estrela -->
+          <div class="avaliacao-loja">
+            <!-- ADICIONAR SVG DA ESTRELA -->
+
+            <p>4.9 <span>Locador Verificado</span></p>
+          </div>
+        </div>
+    </section>
+
+     <!-- DESCRIÇÃO -->
+    <section class="descricao-produto">
+      <header class="descricao-cabecalho"> 
+        <h2>Descrição</h2>
+
+        <button class="btn-expandir">
+          <!-- SVG -->
+        </button>
+      </header>
+
+      <div class="descricao-conteudo">
+        <p>
+          Ideal para uso doméstico e profissional leve. Perfeita para montagem de móveis, instalações e pequenos reparos. Compacta, potente e fácil de manusear — resolve o problema sem complicação.
+        </p>
+      </div>
+    </section>
+  </main>
+
+</body>
+
 </html>
