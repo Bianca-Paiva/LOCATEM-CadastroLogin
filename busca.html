@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/busca.css"> 
     <link rel="stylesheet" href="./src/css/responsivoBusca.css">  
+    
 
 </head>
 
@@ -30,9 +31,9 @@
                     </div>
 
                     <!-- Barra de pesquisa -->
-                    <form class="search-bar"> 
+                    <form class="search-bar" id="searchForm"> 
                         <img src="./src/images/lupa.png" alt="" class="search-icon" />
-                        <input type="search" placeholder="Buscar Ferramentas" aria-label="Pesquisar ferramentas" />
+                        <input type="search" id="searchInput" placeholder="Buscar Ferramentas" aria-label="Pesquisar ferramentas" />
                        
                     </form>
 
@@ -85,8 +86,8 @@
                     </select>
                 </div>
                 
-                <ul class="grid-produtos">
-                     <li class="anuncio-card">
+                <ul class="grid-produtos" id="grid-anuncios">
+                     <!-- <li class="anuncio-card">
                         <div class="card-img">
                             <img src="./src/images/parafusadeira-furadeira-WAP.webp" alt="Furadeira">
                         </div>
@@ -179,7 +180,7 @@
                             </div>
                              <p id="preco">{preco}<span id="tempo">/{tempo}</span></p>
                         </div>
-                </li>
+                </li> -->
 
                 </ul>
             </div>
@@ -308,13 +309,15 @@
 
                 </div>
                 <div class="botoesFiltro">
-                <button class="aplicar-filtros" onclick="AplicarFiltros">Filtrar</button>
-                <button class="limpar-filtros" onclick="LimparFiltros">Limpar Filtros</button>
+                <button type="button" class="aplicar-filtros">Filtrar</button>
+                <button type="button" class="limpar-filtros">Limpar Filtros</button>
                 </div>
             </div>
             </aside>
         </main>
-        <footer>
+       
+    </div>
+     <footer>
             <div class="rodape">
                 <p>&copy; 2024 LOCATEM. Todos os direitos reservados.</p>
                 <nav class="navegacaoRodape">
@@ -328,10 +331,9 @@
                     <a href="./login.html">Entrar</a>
                 </nav>
             </div>
-        <footer>
-    </div>
+        </footer>
 </body>
 
-<script src=""></script>
+<script src="./js/busca.js"></script>
 
 </html>
