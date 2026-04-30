@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/carrinho.css" />
+
+    <title>LOCATEM</title>
+</head>
+
+<body>
+    <div class="app">
+        <!-- ============== -->
+        <!-- HEADER MOBILE -->
+        <!-- ============== -->
+        <header class="header-mobile">
+            <!-- LINHA SUPERIOR -->
+            <div class="linha-topo-mobile">
+                <!-- AGRUPAMENTO ESQUERDO -->
+                <div class="lado-esquerdo">
+                    <button class="menu-btn">
+                        <img src="./src/images/menuHamburguer.png" alt="Menu" />
+                    </button>
+
+                    <a href="./principalPage.html" class="logo">
+                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                        LOCATEM
+                    </a>
+                </div>
+
+                <!-- DIREITA -->
+                <a href="#" class="carrinho-btn">
+                    <img src="./src/images/carrinho.svg" alt="Carrinho" />
+                    <span class="quantidade-carrinho">2</span>
+                </a>
+            </div>
+
+            <!-- Barra de pesquisa -->
+            <form class="barra-pesquisa-mobile">
+                <img src="./src/images/lupa.png" alt="Buscar" />
+                <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                    aria-label="Pesquisar ferramentas" />
+            </form>
+        </header>
+
+        <!-- =============== -->
+        <!-- HEADER DESKTOP-->
+        <!-- =============== -->
+        <header class="header-desktop">
+            <div class="linha-topo-desktop">
+                <!-- Logo da LOCATEM com link para a página principal -->
+                <a href="./principalPage.html" class="logo">
+                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                    LOCATEM
+                </a>
+
+                <!-- Barra de pesquisa -->
+                <form class="barra-pesquisa">
+                    <button type="submit" class="lupa-btn">
+                        <img src="./src/images/lupa.png" alt="Buscar" />
+                    </button>
+                    <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                        aria-label="Pesquisar ferramentas" />
+                </form>
+
+                <!-- Botão de acesso ao chat -->
+                <button class="chat">
+                    <img src="./src/images/chat.png" alt="Chat" />
+                </button>
+            </div>
+        </header>
+
+        <!-- ============== -->
+        <!-- MAIN MOBILE -->
+        <!-- ============== -->
+        <main class="main-mobile">
+            <div class="cabecalho">
+                <a href="./principalPage.html" class="icon-voltar">
+                    <img src="./src/images/setaVoltar.png" alt="Ícone de seta para voltar" />
+                </a>
+                <h1>Carrinho</h1>
+            </div>
+
+            <!-- Primeira Loja -->
+            <section class="grupo-loja">
+                <div class="cabecalho-loja">
+                    <h2>Produto de JB Ferramentas</h2>
+                    <span>Loja oficial Dewalt</span>
+                    <img src="./src/images/verificado.png">
+                </div>
+
+                <!-- Lista de produtos dessa loja -->
+                <div class="lista-produtos">
+
+                    <!-- Produto 1 -->
+                    <article class="card-produto">
+                        <img src="./src/images/Furadeira1.webp" alt="Furadeira Elétrica">
+
+                        <div class="info-produto">
+                            <h3>Furadeira Elétrica</h3>
+                            <img src="./src/images/lixo.png" alt="Lixo">
+                            <p>2 dias de aluguel</p>
+                            <p>R$ 15,00/dia x 2 dias</p>
+
+                            <div class="controles-quantidade">
+                                <!-- Botões de + e - -->
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produto 2 -->
+                    <article class="card-produto">
+                        <img src="./src/images/Furadeira2.webp" alt="Furadeira Elétrica">
+
+                        <div class="info-produto">
+                            <h3>Furadeira Elétrica</h3>
+                            <img src="./src/images/lixo.png" alt="Lixo">
+                            <p>2 dias de aluguel</p>
+                            <p>R$ 15,00/dia x 2 dias</p>
+
+                            <div class="controles-quantidade">
+                                <!-- Botões de + e - -->
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Segunda Loja -->
+            <section class="grupo-loja">
+                <div class="cabecalho-loja">
+                    <h2>Produto de JB Ferramentas</h2>
+                    <span>Loja oficial Dewalt</span>
+                    <img src="./src/images/verificado.png">
+                </div>
+
+                <!-- Lista de produtos dessa loja -->
+                <div class="lista-produtos">
+
+                    <!-- Produto 1 -->
+                    <article class="card-produto">
+                        <img src="./src/images/Furadeira1.webp" alt="Furadeira Elétrica">
+
+                        <div class="info-produto">
+                            <h3>Furadeira Elétrica</h3>
+                            <img src="./src/images/lixo.png" alt="Lixo">
+                            <p>2 dias de aluguel</p>
+                            <p>R$ 15,00/dia x 2 dias</p>
+
+                            <div class="controles-quantidade">
+                                <!-- Botões de + e - -->
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produto 2 -->
+                    <article class="card-produto">
+                        <img src="./src/images/Furadeira2.webp" alt="Furadeira Elétrica">
+
+                        <div class="info-produto">
+                            <h3>Furadeira Elétrica</h3>
+                            <img src="./src/images/lixo.png" alt="Lixo">
+                            <p>2 dias de aluguel</p>
+                            <p>R$ 15,00/dia x 2 dias</p>
+
+                            <div class="controles-quantidade">
+                                <!-- Botões de + e - -->
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produto 3 -->
+                    <article class="card-produto">
+                        <img src="./src/images/Furadeira3.webp" alt="Furadeira Elétrica">
+
+                        <div class="info-produto">
+                            <h3>Furadeira Elétrica</h3>
+                            <img src="./src/images/lixo.png" alt="Lixo">
+                            <p>2 dias de aluguel</p>
+                            <p>R$ 15,00/dia x 2 dias</p>
+
+                            <div class="controles-quantidade">
+                                <!-- Botões de + e - -->
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <aside class="card card-resumo">
+                <h3>Resumo do Pedido</h3>
+            </aside>
+        </main>
+    </div>
+</body>
+
+</html>

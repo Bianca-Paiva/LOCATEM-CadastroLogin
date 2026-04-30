@@ -174,16 +174,12 @@ body {
     outline: none;
     background: transparent;
     color: var(--color-text-dark);
-    font-size: 15px;
+    font-size: clamp(14px, 3.5vw, 16px);
 }
 
 .barra-pesquisa-mobile input::placeholder {
     color: var(--color-text-muted);
 }
-
-
-
-
 
 /* ── Layout principal ── */
 .main-mobile {
@@ -200,7 +196,6 @@ body {
     justify-content: start;
     padding: 0 10px;
     gap: 16px;
-    background-color: red;
 }
 
 .icon-voltar {
@@ -237,58 +232,6 @@ body {
     padding: 18px 16px;
     margin: 0 0 15px;
 }
-
-/* ── Card Carrinho ── */
-.card-carrinho {
-    display: flex;
-    align-items: center;
-    padding: 45px 60px 39px 35px;
-    gap: 30px;
-}
-
-.card-carrinho img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.conteudo-carrinho h2 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-text-dark);
-    margin: 0 0 7px;
-
-}
-
-.conteudo-carrinho a {
-    font-size: 0.875rem;
-    color: var(--color-text-link);
-}
-
-/* ── Card Resumo ── */
-.card-resumo {
-    padding: 28px 33px;
-}
-
-.card-resumo h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-text-desativado);
-    margin-bottom: 10px;
-}
-
-.linha-divisoria {
-    border: 1px solid var(--color-linha-divisoria);
-    margin: 12px 0 11px;
-}
-
-.card-resumo p {
-    font-size: 0.9375rem;
-    color: var(--color-text-desativado);
-    line-height: 1.5;
-}
-
 
 
 
@@ -437,85 +380,5 @@ body {
         width: 60%;
         height: 60%;
         object-fit: contain;
-    }
-
-    /* ============================= */
-    /* MENU DE NAVEGAÇÃO */
-    /* ============================= */
-
-    .menu-navegacao-desktop {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: clamp(12px, 2vw, 38px);
-        padding: 18px 32px 0;
-        width: 100%;
-    }
-
-    .menu-navegacao-desktop a {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        font-size: clamp(15px, 1vw, 18px);
-        font-weight: 600;
-        color: var(--color-text-dark);
-        text-decoration: none;
-        white-space: nowrap;
-    }
-
-    .menu-navegacao-desktop img {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-    }
-
-    /* ============================= */
-    /* CONTEÚDO */
-    /* ============================= */
-
-    .cabecalho>h1 {
-        font-size: clamp(26px, 2vw, 34px);
-    }
-
-    .main-mobile {
-        width: 100%;
-        margin: 0 auto;
-        padding: 54px 40px;
-    }
-
-    .checkout-container {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    /* Card Carrinho ocupa o espaço restante */
-    .card-carrinho {
-        flex: 1;
-        padding: 28px 32px;
-        gap: 20px;
-        margin-bottom: 0;
-    }
-
-    /* Card Resumo com largura fixa à direita */
-    .card-resumo {
-        width: 280px;
-        flex-shrink: 0;
-        padding: 20px 24px;
-        margin-bottom: 0;
-    }
-
-    .conteudo-carrinho h2 {
-        font-size: clamp(18px, 1.2vw, 22px);
-    }
-
-    .card-resumo h3 {
-        font-size: clamp(16px, 1vw, 18px);
-        margin-bottom: 8px;
-    }
-
-    .card-resumo p {
-        font-size: clamp(14px, 0.9vw, 16px);
     }
 }
