@@ -18,6 +18,7 @@
 
     /* BORDAS */
     --color-border-card: #e5e7eb;
+    --color-linha-divisoria: #a0a0a09a;
     --card-radius: 14px;
 
     /* SOMBRAS */
@@ -279,7 +280,7 @@ body {
 }
 
 .linha-divisoria {
-    border: 0.01px solid var(--color-text-desativado);
+    border: 1px solid var(--color-linha-divisoria);
     margin: 12px 0 11px;
 }
 
@@ -333,9 +334,9 @@ body {
     .app {
         background: linear-gradient(to bottom,
                 var(--color-primary) 0%,
-                var(--color-primary-light) 8%,
-                var(--color-primary-soft) 13%,
-                var(--color-bg-main) 18%);
+                var(--color-primary-light) 7%,
+                var(--color-primary-soft) 12.2%,
+                var(--color-bg-main) 16%);
     }
 
     /* ============================= */
@@ -350,17 +351,16 @@ body {
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 18px 0 10px;
+        padding: 20px 0 10px;
     }
 
     .linha-topo-desktop {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px;
         width: 100%;
-        margin: 0 auto;
         padding: 0 32px;
+        margin: 0 auto;
     }
 
     .logo {
@@ -368,7 +368,7 @@ body {
         align-items: center;
         gap: 6px;
         font-weight: 800;
-        font-size: clamp(16px, 1.4vw, 20px);
+        font-size: clamp(20px, 1.6vw, 26px);
         color: var(--color-text-dark);
         flex-shrink: 0;
         text-decoration: none;
@@ -379,15 +379,15 @@ body {
         object-fit: contain;
     }
 
-    /* Barra de pesquisa — lupa à esquerda, igual à imagem */
+    /* Barra de pesquisa */
     .barra-pesquisa {
         flex: 1;
-        max-width: 620px;
+        max-width: 1000px;
         height: 42px;
         display: flex;
         align-items: center;
         gap: 10px;
-        background: #fff;
+        background: var(--color-bg-card);
         border-radius: 999px;
         padding: 0 20px;
         margin: 0 32px;
@@ -411,7 +411,7 @@ body {
         border: none;
         outline: none;
         background: transparent;
-        font-size: 0.9rem;
+        font-size: clamp(15px, 1.1vw, 17px);
         color: var(--color-text-dark);
     }
 
@@ -424,8 +424,8 @@ body {
         background: transparent;
         border: 2px solid var(--color-text-dark);
         border-radius: 50%;
-        width: 42px;
-        height: 42px;
+        width: clamp(36px, 3vw, 48px);
+        height: clamp(36px, 3vw, 48px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -435,7 +435,8 @@ body {
     }
 
     .chat img {
-        height: 20px;
+        width: 60%;
+        height: 60%;
         object-fit: contain;
     }
 
@@ -457,7 +458,7 @@ body {
         display: flex;
         align-items: center;
         gap: 7px;
-        font-size: 15px;
+        font-size: clamp(15px, 1vw, 18px);
         font-weight: 600;
         color: var(--color-text-dark);
         text-decoration: none;
@@ -474,10 +475,14 @@ body {
     /* CONTEÚDO */
     /* ============================= */
 
+    .main-mobile>h1 {
+        font-size: clamp(26px, 2vw, 34px);
+    }
+
     .main-mobile {
-        max-width: 1200px;
+        width: 100%;
         margin: 0 auto;
-        padding: 24px 40px;
+        padding: 54px 40px;
     }
 
     .checkout-container {
@@ -502,12 +507,16 @@ body {
         margin-bottom: 0;
     }
 
+    .conteudo-carrinho h2 {
+        font-size: clamp(18px, 1.2vw, 22px);
+    }
+
     .card-resumo h3 {
-        font-size: 1rem;
+        font-size: clamp(16px, 1vw, 18px);
         margin-bottom: 8px;
     }
 
     .card-resumo p {
-        font-size: 0.875rem;
+        font-size: clamp(14px, 0.9vw, 16px);
     }
 }
