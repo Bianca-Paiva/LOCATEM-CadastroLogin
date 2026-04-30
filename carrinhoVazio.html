@@ -1,93 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
 
+    <link rel="shortcut icon" href="./src/images/LogoIcon.png" type="image/x-icon" />
+    
     <link rel="stylesheet" href="./src/css/reset.css" />
     <link rel="stylesheet" href="./src/css/carrinhoVazio.css" />
 
     <title>LOCATEM</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="app">
+      <!-- ============== -->
+      <!-- HEADER MOBILE -->
+      <!-- ============== -->
+      <header class="header-mobile">
+        <!-- LINHA SUPERIOR -->
+        <div class="linha-topo-mobile">
+          <!-- AGRUPAMENTO ESQUERDO -->
+          <div class="lado-esquerdo">
+            <button class="menu-btn">
+              <img src="./src/images/menuHamburguer.png" alt="Menu" />
+            </button>
 
-        <!-- HEADER MOBILE -->
-        <header class="header-mobile">
+            <a href="./principalPage.html" class="logo">
+              <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+              LOCATEM
+            </a>
+          </div>
 
-            <!-- LINHA SUPERIOR -->
-            <div class="linha-topo-mobile">
+          <!-- DIREITA -->
+          <a href="#" class="carrinho-btn">
+            <img src="./src/images/carrinho.svg" alt="Carrinho" />
+            <span class="quantidade-carrinho">2</span>
+          </a>
+        </div>
 
-                <!-- AGRUPAMENTO ESQUERDO -->
-                <div class="lado-esquerdo">
+        <!-- Barra de pesquisa -->
+        <form class="barra-pesquisa-mobile">
+          <img src="./src/images/lupa.png" alt="Buscar" />
+          <input
+            type="search"
+            placeholder="Qual ferramenta você precisa hoje?"
+            aria-label="Pesquisar ferramentas"
+          />
+        </form>
+      </header>
 
-                    <button class="menu-btn">
-                        <img src="./src/images/menuHamburguer.png" alt="Menu">
-                    </button>
+      <!-- =============== -->
+      <!-- HEADER DESKTOP-->
+      <!-- =============== -->
+      <header class="header-desktop">
+        <div class="linha-topo-desktop">
+          <!-- Logo da LOCATEM com link para a página principal -->
+          <a href="./principalPage.html" class="logo">
+            <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+            LOCATEM
+          </a>
 
-                    <a href="./principalPage.html" class="logo">
-                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
-                        LOCATEM
-                    </a>
+          <!-- Barra de pesquisa -->
+          <form class="barra-pesquisa">
+            <button type="submit" class="lupa-btn">
+              <img src="./src/images/lupa.png" alt="Buscar" />
+            </button>
+            <input
+              type="search"
+              placeholder="Pesquisar..."
+              aria-label="Pesquisar ferramentas"
+            />
+          </form>
 
-                </div>
+          <!-- Botão de acesso ao chat -->
+          <button class="chat">
+            <img src="./src/images/chat.png" alt="Chat" />
+          </button>
+        </div>
+      </header>
 
-                <!-- DIREITA -->
-                <a href="#" class="carrinho-btn">
-                    <img src="./src/images/carrinho.svg" alt="Carrinho">
-                    <span class="quantidade-carrinho">2</span>
-                </a>
+      <!-- Nav desktop fica abaixo da linha superior -->
+      <nav class="menu-navegacao-desktop">
+        <a href="./principalPage.html">
+          <img src="./src/images/home.png" alt="Ícone Início" />
+          Início
+        </a>
+        <a href="#">
+          <img src="./src/images/carrinho.png" alt="Ícone Carrinho" />
+          Carrinho
+        </a>
+        <a href="#">
+          <img src="./src/images/relogio.png" alt="Ícone Histórico" />
+          Histórico
+        </a>
+        <a href="#">
+          <img src="./src/images/calendario.png" alt="Ícone Agendamento" />
+          Agendamento
+        </a>
+        <a href="#">
+          <img src="./src/images/notificacoes.png" alt="Ícone Notificações" />
+          Notificações
+        </a>
+        <a href="#">
+          <img src="./src/images/Star.png" alt="Ícone Avaliações" />
+          Avaliações
+        </a>
+        <a href="#">
+          <img src="./src/images/suporte.png" alt="Ícone Suporte" />
+          Suporte
+        </a>
+        <a href="./login.html">
+          <img src="./src/images/usuario.png" alt="Ícone Entrar" />
+          Entrar
+        </a>
+      </nav>
 
+      <!-- ============== -->
+      <!-- MAIN MOBILE -->
+      <!-- ============== -->
+      <main class="main-mobile">
+        <div class="cabecalho">
+          <a href="./principalPage.html" class="icon-voltar">
+            <img
+              src="./src/images/setaVoltar.png"
+              alt="Ícone de seta para voltar"
+            />
+          </a>
+          <h1>Carrinho</h1>
+        </div>
+
+        <section class="checkout-container">
+          <article class="card card-carrinho">
+            <img src="./src/images/carrinho2.png" alt="Icone Carrinho" />
+
+            <div class="conteudo-carrinho">
+              <h2>Seu carrinho está vazio</h2>
+              <a href="./busca.html">Conferir Produtos</a>
             </div>
+          </article>
 
-            <!-- Barra de pesquisa -->
-            <form class="barra-pesquisa-mobile">
-                <img src="./src/images/lupa.png" alt="Buscar">
-                <input type="search" placeholder="Qual ferramenta você precisa hoje?"
-                    aria-label="Pesquisar ferramentas" />
-            </form>
-        </header>
-
-        <!-- HEADER DESKTOP-->
-        <header class="header-desktop">
-            <div class="linha-topo-desktop">
-
-                <!-- Logo da LOCATEM com link para a página principal -->
-                <a href="./principalPage.html" class="logo">
-                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
-                    LOCATEM
-                </a>
-
-                <!-- Barra de pesquisa -->
-                <form class="barra-pesquisa">
-                    <button type="submit" class="lupa-btn">
-                        <img src="./src/images/lupa.png" alt="Buscar">
-                    </button>
-                    <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
-                </form>
-
-                <!-- Botão de acesso ao chat -->
-                <button class="chat">
-                    <img src="./src/images/chat.png" alt="Chat">
-                </button>
-            </div>
-        </header>
-
-        <!-- Nav desktop fica abaixo da linha superior -->
-        <nav class="menu-navegacao-desktop">
-            <a href="./principalPage.html"><img src="./src/images/home.png" alt="">Início</a>
-            <a href="#"><img src="./src/images/carrinho.png" alt="">Carrinho</a>
-            <a href="#"><img src="./src/images/relogio.png" alt="">Histórico</a>
-            <a href="#"><img src="./src/images/calendario.png" alt="">Agendamento</a>
-            <a href="#"><img src="./src/images/notificacoes.png" alt="">Notificações</a>
-            <a href="#"><img src="./src/images/Star.png" alt="">Avaliações</a>
-            <a href="#"><img src="./src/images/suporte.png" alt="">Suporte</a>
-            <a href="./login.html"><img src="./src/images/usuario.png" alt="">Entrar</a>
-        </nav>
-
+          <aside class="card card-resumo">
+            <h3>Resumo do Pedido</h3>
+            <div class="linha-divisoria"></div>
+            <p>
+              Aqui você encontrará os valores da sua compra assim que adicionar
+              produtos.
+            </p>
+          </aside>
+        </section>
+      </main>
     </div>
-</body>
-
+  </body>
 </html>
