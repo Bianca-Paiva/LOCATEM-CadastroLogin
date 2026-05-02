@@ -14,6 +14,7 @@
     --color-text-dark: #0A0A0A;
     --color-text-secondary: #8e8e93;
     --color-text-terciary: #4A5565;
+    --color-text-quartiary: #6A7282;
     --color-text-muted: #7a7a7a;
     --color-text-desativado: #A0A0A0;
     --color-text-btn: #3A83FA;
@@ -41,9 +42,9 @@ body {
     min-height: 100vh;
     background: linear-gradient(to bottom,
             var(--color-primary) 0%,
-            var(--color-primary-light) 9%,
-            var(--color-primary-soft) 14%,
-            var(--color-bg-main) 20%);
+            var(--color-primary-light) 4%,
+            var(--color-primary-soft) 7%,
+            var(--color-bg-main) 10%);
 }
 
 /* ============================= */
@@ -196,7 +197,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 0 10px;
+    padding: 0 10px 20px;
     gap: 16px;
 }
 
@@ -251,7 +252,7 @@ body {
 
 /* Cabeçalho do grupo (nome da loja) */
 .grupo-loja-header {
-    padding: 16px 18px 14px;
+    padding: 5px 18px 15px;
     border-bottom: 1px solid var(--color-border-card);
 }
 
@@ -270,7 +271,7 @@ body {
     color: var(--color-text-muted);
 }
 
-/* Ícone de verificado (SVG inline) */
+/* Ícone de verificado */
 .icone-verificado {
     width: 16px;
     height: 16px;
@@ -293,7 +294,6 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 16px 18px;
-    border-bottom: 1px solid var(--color-border-card);
 }
 
 .card-produto:last-child {
@@ -311,7 +311,7 @@ body {
     width: 72px;
     height: 72px;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: unset;
     flex-shrink: 0;
     background-color: #f0f0f0;
 }
@@ -346,6 +346,7 @@ body {
     flex-shrink: 0;
     opacity: 0.5;
     transition: opacity .2s;
+    cursor: pointer;
 }
 
 .btn-lixeira:hover {
@@ -359,14 +360,27 @@ body {
 
 .produto-aluguel {
     font-size: 0.8125rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-quartiary);
 }
 
-.produto-preco {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
+/* Container que deixa o detalhe na esquerda e o total na direita */
+.produto-valores-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     margin-top: 2px;
+}
+
+.produto-preco-detalhe {
+    font-size: 0.875rem;
+    color: var(--color-text-terciary);
+}
+
+.produto-total {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
 }
 
 /* ============================= */
@@ -375,57 +389,55 @@ body {
 .produto-controles {
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: nowrap;
+    /* impede quebra de linha */
+    overflow-x: auto;
 }
 
 /* Grupo dias */
 .controle-grupo {
     display: flex;
     align-items: center;
-    gap: 0;
+    border: 1px solid var(--color-border-card);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 30px;
+    flex-shrink: 0;
 }
 
+/* Botões sem borda individual */
 .btn-controle {
-    width: 28px;
-    height: 28px;
-    border: 1px solid var(--color-border-card);
-    background: var(--color-bg-card);
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
+    width: 20px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 0.9375rem;
+    font-weight: 500;
     color: var(--color-text-dark);
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
     transition: background .15s;
 }
 
-.btn-controle:hover {
-    background: var(--color-primary-soft);
-}
-
+/* Valor central */
 .controle-valor {
-    min-width: 40px;
-    text-align: center;
+    padding: 0 5px;
     font-size: 0.8125rem;
     font-weight: 600;
     color: var(--color-text-dark);
-    padding: 0 4px;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .controle-label-max,
 .controle-label-disp {
     font-size: 0.75rem;
     color: var(--color-text-desativado);
-    white-space: nowrap;
-}
-
-/* Separador vertical */
-.controle-sep {
-    width: 1px;
-    height: 20px;
-    background: var(--color-linha-divisoria);
 }
 
 /* Grupo unidade */
@@ -433,6 +445,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0;
+    margin-left: 10px;
 }
 
 .controle-unidade .controle-valor {
@@ -490,25 +503,31 @@ body {
 }
 
 /* Campo CEP */
+.linha-cep {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
 .campo-cep {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
+    border: 1px solid var(--color-border-card);
+    border-radius: 10px;
+    padding: 4px;
+    height: 44px;
+    background: var(--color-bg-card);
 }
 
 .input-cep {
     flex: 1;
-    height: 40px;
-    padding: 0 14px;
-    border: 1px solid var(--color-border-card);
-    border-radius: 8px;
-    font-size: 0.875rem;
-    font-family: var(--font);
-    color: var(--color-text-dark);
+    height: 100%;
+    border: none;
     outline: none;
-    background: var(--color-bg-card);
-    transition: border-color .2s;
+    background: transparent;
+    font-size: 0.875rem;
+    padding-left: 10px;
 }
 
 .input-cep::placeholder {
@@ -516,23 +535,27 @@ body {
 }
 
 .btn-usar {
-    height: 40px;
-    padding: 0 16px;
+    height: 100%;
+    padding: 0 14px;
     border-radius: 8px;
     border: none;
     background: var(--color-bg-btn);
     color: var(--color-text-btn);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
-    transition: background .2s;
+    cursor: pointer;
+    transition: background .2;
 }
 
 .link-cep {
     font-size: 0.8125rem;
     color: var(--color-text-btn);
+    text-decoration: none;
     display: block;
-    margin-bottom: 16px;
 }
 
 /* Campo cupom */
@@ -552,7 +575,6 @@ body {
 .icone-cupom {
     width: 18px;
     height: 18px;
-    opacity: .4;
     flex-shrink: 0;
 }
 
@@ -579,6 +601,7 @@ body {
     font-weight: 600;
     white-space: nowrap;
     transition: background .2s;
+    cursor: pointer;
 }
 
 /* Total */
@@ -596,7 +619,7 @@ body {
 }
 
 .resumo-total strong {
-    font-size: 1.375rem;
+    font-size: 1.1875rem;
     font-weight: 800;
     color: var(--color-text-dark);
     letter-spacing: -0.5px;
@@ -607,26 +630,23 @@ body {
     width: 100%;
     height: 54px;
     border: none;
-    border-radius: 999px;
+    border-radius: 10px;
     background-color: var(--color-primary);
     color: var(--color-text-dark);
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.2px;
     transition: background .2s, transform .1s;
+    cursor: pointer;
 }
 
 .btn-pagamento:hover {
-    background-color: var(--color-primary-light);
+    background-color: var(--color-secondary);
 }
 
 .btn-pagamento:active {
     transform: scale(.98);
 }
-
-
-
-
 
 
 
@@ -636,7 +656,7 @@ body {
 
 @media (max-width: 380px) {
     .header-mobile {
-        padding: 20px 16px 30px;
+        padding: 20px 16px;
         gap: 22px;
     }
 
@@ -657,8 +677,8 @@ body {
         font-size: 14px;
     }
 
-    .card-produto {
-        padding: 14px 14px;
+    .main-mobile {
+        padding: 8px 10px;
     }
 
     .produto-imagem {
@@ -666,8 +686,94 @@ body {
         height: 60px;
     }
 
+    .produto-valores-row {
+        flex-direction: column;
+        align-items: start;
+        gap: 2px;
+    }
+
+    .produto-total {
+        font-size: 0.8125rem;
+    }
+
+    .produto-controles {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 12px 8px;
+        align-items: center;
+        overflow-x: visible;
+    }
+
+    .controle-unidade {
+        margin-left: 0 !important;
+    }
+
+    .controle-grupo {
+        height: 28px;
+    }
+
+    .btn-controle {
+        width: 24px;
+    }
+
     .controle-valor {
-        min-width: 32px;
+        font-size: 0.75rem;
+    }
+
+    .controle-unidade .controle-valor {
+        min-width: 50px;
+    }
+
+    .controle-label-max,
+    .controle-label-disp {
+        font-size: 0.7rem;
+    }
+
+    .linha-cep {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .campo-cupom {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 48px;
+        padding: 0 8px 0;
+    }
+
+    .linha-cep input {
+        flex: 1;
+        outline: none;
+        width: 195px;
+        font-size: 12px;
+    }
+
+    .campo-cupom input {
+        flex: 1;
+        border: none !important;
+        font-size: 12px;
+        outline: none;
+        width: 0;
+    }
+
+    .btn-aplicar {
+        padding: 6px 12px;
+        font-size: 13px;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    .link-cep {
+        font-size: 12px;
+        padding: 0 5px;
+    }
+
+    .btn-pagamento{
+        font-size: 1rem;
     }
 }
 
@@ -679,9 +785,9 @@ body {
     .app {
         background: linear-gradient(to bottom,
                 var(--color-primary) 0%,
-                var(--color-primary-light) 7%,
-                var(--color-primary-soft) 12.2%,
-                var(--color-bg-main) 16%);
+                var(--color-primary-light) 5%,
+                var(--color-primary-soft) 8.2%,
+                var(--color-bg-main) 12%);
     }
 
     /* ============================= */
@@ -803,6 +909,7 @@ body {
         font-size: clamp(15px, 1vw, 18px);
         font-weight: 600;
         color: var(--color-text-dark);
+        text-decoration: none;
     }
 
     .menu-navegacao-desktop img {
@@ -811,22 +918,26 @@ body {
         object-fit: contain;
     }
 
-    /* Conteúdo principal */
-    .main-mobile {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 54px 40px 60px;
-    }
+    /* ========================= */
+    /* MAIN DESKTOP              */
+    /* ========================= */
 
-    .cabecalho {
-        padding: 0 0 28px;
+    .main-mobile {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 40px;
+        min-height: auto;
     }
 
     .cabecalho>h1 {
-        font-size: clamp(26px, 2vw, 34px);
+        font-size: clamp(26px, 2.2vw, 36px);
+        font-weight: 800;
     }
 
-    /* Layout lado a lado */
+    /* ========================= */
+    /* CHECKOUT CONTAINER        */
+    /* ========================= */
+
     .checkout-container {
         flex-direction: row;
         align-items: flex-start;
@@ -838,22 +949,82 @@ body {
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
         min-width: 0;
     }
 
-    /* Card resumo fixo à direita */
-    .card-resumo {
-        width: 300px;
-        flex-shrink: 0;
+    /* ========================= */
+    /* GRUPO DE LOJA DESKTOP     */
+    /* ========================= */
+
+    .grupo-loja-header {
+        padding: 18px 24px 16px;
+    }
+
+    .grupo-loja-header h2 {
+        font-size: 1.0625rem;
     }
 
     .produto-imagem {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
+        border-radius: 12px;
     }
 
     .produto-nome {
+        font-size: 0.9375rem;
+    }
+
+    /* ========================= */
+    /* RESUMO DESKTOP            */
+    /* ========================= */
+
+    /* Largura fixa à direita */
+    .card-resumo {
+        width: 372px;
+        flex-shrink: 0;
+        top: 24px;
+    }
+
+    /* "Calcular frete | Grátis" na mesma linha */
+    .resumo-frete-linha {
+        margin-bottom: 12px;
+    }
+
+    /* CEP + link na mesma linha (sem quebra) */
+    .linha-cep {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .campo-cep {
+        min-width: 0;
+    }
+
+    .link-cep {
+        white-space: nowrap;
+    }
+
+    .resumo-total strong {
+        font-size: 1.375rem;
+    }
+
+    .btn-pagamento {
+        height: 54px;
+        border-radius: 10px;
         font-size: 1rem;
+    }
+
+    .linha-cep {
+        flex-direction: column;
+        align-items: flex-start;
+        /* Alinha o conteúdo à esquerda */
+        gap: 8px;
+        /* Ajusta o espaço entre o campo e o link */
+    }
+
+    .campo-cep {
+        width: 100%;
+        /* Garante que o input não encolha e ocupe toda a largura disponível */
     }
 }

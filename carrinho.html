@@ -79,8 +79,44 @@
             </div>
         </header>
 
+        <!-- Nav desktop fica abaixo da linha superior -->
+        <nav class="menu-navegacao-desktop">
+            <a href="./principalPage.html">
+                <img src="./src/images/home.png" alt="Ícone Início" />
+                Início
+            </a>
+            <a href="#">
+                <img src="./src/images/carrinho.svg" alt="Ícone Carrinho" />
+                Carrinho
+            </a>
+            <a href="#">
+                <img src="./src/images/relogio.png" alt="Ícone Histórico" />
+                Histórico
+            </a>
+            <a href="#">
+                <img src="./src/images/calendario.png" alt="Ícone Agendamento" />
+                Agendamento
+            </a>
+            <a href="#">
+                <img src="./src/images/notificacoes.png" alt="Ícone Notificações" />
+                Notificações
+            </a>
+            <a href="#">
+                <img src="./src/images/Star.png" alt="Ícone Avaliações" />
+                Avaliações
+            </a>
+            <a href="#">
+                <img src="./src/images/suporte.png" alt="Ícone Suporte" />
+                Suporte
+            </a>
+            <a href="./login.html">
+                <img src="./src/images/usuario.png" alt="Ícone Entrar" />
+                Entrar
+            </a>
+        </nav>
+
         <!-- ============== -->
-        <!-- MAIN           -->
+        <!--      MAIN      -->
         <!-- ============== -->
         <main class="main-mobile">
 
@@ -124,7 +160,6 @@
                             <!-- Produto 1 -->
                             <div class="card-produto">
                                 <div class="produto-linha-topo">
-                                    <!-- Imagem placeholder de furadeira (gradiente amarelo) -->
                                     <img src="./src/images/Furadeira1.webp" alt="Furadeira" class="produto-imagem">
 
                                     <div class="produto-infos">
@@ -135,7 +170,10 @@
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                        <div class="produto-valores-row">
+                                            <span class="produto-preco-detalhe">R$ 49,99/dia × 2 dias</span>
+                                            <span class="produto-total">Total: R$99,98</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -149,21 +187,20 @@
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
 
-                                    <div class="controle-sep" aria-hidden="true"></div>
-
                                     <!-- Unidades -->
                                     <div class="controle-grupo controle-unidade">
                                         <button class="btn-controle" aria-label="Diminuir unidades">−</button>
                                         <span class="controle-valor">1 unidade</span>
                                         <button class="btn-controle" aria-label="Aumentar unidades">+</button>
                                     </div>
+                                    <span class="controle-label-disp">+50 disponíveis</span>
                                 </div>
                             </div><!-- /Produto 1 -->
 
                             <!-- Produto 2 -->
                             <div class="card-produto">
                                 <div class="produto-linha-topo">
-                                    <img class="produto-imagem" src="./src/images/Furadeira2.webp">
+                                    <img class="produto-imagem" src="./src/images/pistolaPintura.png">
                                     <div class="produto-infos">
                                         <div class="produto-nome-row">
                                             <span class="produto-nome">Furadeira Elétrica</span>
@@ -172,7 +209,10 @@
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                        <div class="produto-valores-row">
+                                            <span class="produto-preco-detalhe">R$ 49,99/dia × 2 dias</span>
+                                            <span class="produto-total">Total: R$99,98</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
@@ -182,7 +222,6 @@
                                         <button class="btn-controle">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
-                                    <div class="controle-sep"></div>
                                     <div class="controle-grupo controle-unidade">
                                         <button class="btn-controle">−</button>
                                         <span class="controle-valor">1 unidade</span>
@@ -204,7 +243,10 @@
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                        <div class="produto-valores-row">
+                                            <span class="produto-preco-detalhe">R$ 49,99/dia × 2 dias</span>
+                                            <span class="produto-total">Total: R$99,98</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
@@ -214,7 +256,6 @@
                                         <button class="btn-controle">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
-                                    <div class="controle-sep"></div>
                                     <div class="controle-grupo controle-unidade">
                                         <button class="btn-controle">−</button>
                                         <span class="controle-valor">1 unidade</span>
@@ -255,7 +296,10 @@
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                        <div class="produto-valores-row">
+                                            <span class="produto-preco-detalhe">R$ 49,99/dia × 2 dias</span>
+                                            <span class="produto-total">Total: R$99,98</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
@@ -265,28 +309,31 @@
                                         <button class="btn-controle">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
-                                    <div class="controle-sep"></div>
                                     <div class="controle-grupo controle-unidade">
                                         <button class="btn-controle">−</button>
                                         <span class="controle-valor">1 unidade</span>
                                         <button class="btn-controle">+</button>
                                     </div>
+                                    <span class="controle-label-disp">+50 disponíveis</span>
                                 </div>
                             </div>
 
                             <!-- Produto 5 -->
                             <div class="card-produto">
                                 <div class="produto-linha-topo">
-                                    <img class="produto-imagem" src="./src/images/serraCircularProfissional.png">
+                                    <img class="produto-imagem" src="./src/images/Furadeira2.webp">
                                     <div class="produto-infos">
                                         <div class="produto-nome-row">
-                                            <span class="produto-nome">Furadeira Elétrica</span>
+                                            <span class="produto-nome">Serra Circular Profissional</span>
                                             <button class="btn-lixeira" aria-label="Remover produto">
                                                 <img src="./src/images/lixo.svg" alt="Remover produto">
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                        <div class="produto-valores-row">
+                                            <span class="produto-preco-detalhe">R$ 49,99/dia × 2 dias</span>
+                                            <span class="produto-total">Total: R$99,98</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
@@ -296,7 +343,6 @@
                                         <button class="btn-controle">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
-                                    <div class="controle-sep"></div>
                                     <div class="controle-grupo controle-unidade">
                                         <button class="btn-controle">−</button>
                                         <span class="controle-valor">1 unidade</span>
@@ -326,13 +372,14 @@
                     <!-- Calcular frete -->
                     <p class="resumo-secao-titulo">Calcular frete</p>
 
-                    <div class="campo-cep">
-                        <input class="input-cep" type="text" placeholder="Informe um CEP" maxlength="9"
-                            aria-label="CEP" />
-                        <button class="btn-usar" type="button">Usar</button>
-                    </div>
+                    <div class="linha-cep">
+                        <div class="campo-cep">
+                            <input class="input-cep" type="text" placeholder="Informe um CEP" />
+                            <button class="btn-usar">Usar</button>
+                        </div>
 
-                    <a href="#" class="link-cep">Não sei o meu CEP</a>
+                        <a href="#" class="link-cep">Não sei o meu CEP</a> 
+                    </div>
 
                     <!-- Cupom -->
                     <div class="campo-cupom">
