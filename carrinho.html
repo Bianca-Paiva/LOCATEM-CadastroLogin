@@ -11,7 +11,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet" />
 
-
     <link rel="stylesheet" href="./src/css/reset.css" />
     <link rel="stylesheet" href="./src/css/carrinho.css" />
 
@@ -81,127 +80,287 @@
         </header>
 
         <!-- ============== -->
-        <!-- MAIN MOBILE -->
+        <!-- MAIN           -->
         <!-- ============== -->
         <main class="main-mobile">
+
+            <!-- Cabeçalho "← Carrinho" -->
             <div class="cabecalho">
-                <a href="./principalPage.html" class="icon-voltar">
-                    <img src="./src/images/setaVoltar.png" alt="Ícone de seta para voltar" />
+                <a href="./principalPage.html" class="icon-voltar" aria-label="Voltar">
+                    <img src="./src/images/setaVoltar.png" alt="Icone Voltar">
                 </a>
                 <h1>Carrinho</h1>
             </div>
 
-            <!-- Primeira Loja -->
-            <section class="grupo-loja">
-                <div class="cabecalho-loja">
-                    <h2>Produto de JB Ferramentas</h2>
-                    <span>Loja oficial Dewalt</span>
-                    <img src="./src/images/verificado.png">
-                </div>
+            <!-- ============================== -->
+            <!-- CHECKOUT CONTAINER             -->
+            <!-- (mobile: coluna / desktop: row) -->
+            <!-- ============================== -->
+            <div class="checkout-container">
 
-                <!-- Lista de produtos dessa loja -->
-                <div class="lista-produtos">
+                <!-- ====================== -->
+                <!-- COLUNA DE PRODUTOS     -->
+                <!-- ====================== -->
+                <div class="coluna-produtos">
 
-                    <!-- Produto 1 -->
-                    <article class="card-produto">
-                        <img src="./src/images/Furadeira1.webp" alt="Furadeira Elétrica">
+                    <!-- ========================= -->
+                    <!-- GRUPO 1 – JB Ferramentas -->
+                    <!-- ========================= -->
+                    <article class="card grupo-loja">
 
-                        <div class="info-produto">
-                            <h3>Furadeira Elétrica</h3>
-                            <img src="./src/images/lixo.png" alt="Lixo">
-                            <p>2 dias de aluguel</p>
-                            <p>R$ 15,00/dia x 2 dias</p>
-
-                            <div class="controles-quantidade">
-                                <!-- Botões de + e - -->
+                        <!-- Cabeçalho da loja -->
+                        <div class="grupo-loja-header">
+                            <h2>Produto de JB Ferramentas</h2>
+                            <div class="loja-oficial">
+                                Loja oficial Dewalt
+                                <!-- Ícone verificado azul -->
+                                <img src="./src/images/verificado.png" alt="Verificado" class="icone-verificado">
                             </div>
                         </div>
-                    </article>
 
-                    <!-- Produto 2 -->
-                    <article class="card-produto">
-                        <img src="./src/images/Furadeira2.webp" alt="Furadeira Elétrica">
+                        <!-- Lista de produtos -->
+                        <div class="lista-produtos">
 
-                        <div class="info-produto">
-                            <h3>Furadeira Elétrica</h3>
-                            <img src="./src/images/lixo.png" alt="Lixo">
-                            <p>2 dias de aluguel</p>
-                            <p>R$ 15,00/dia x 2 dias</p>
+                            <!-- Produto 1 -->
+                            <div class="card-produto">
+                                <div class="produto-linha-topo">
+                                    <!-- Imagem placeholder de furadeira (gradiente amarelo) -->
+                                    <img src="./src/images/Furadeira1.webp" alt="Furadeira" class="produto-imagem">
 
-                            <div class="controles-quantidade">
-                                <!-- Botões de + e - -->
+                                    <div class="produto-infos">
+                                        <div class="produto-nome-row">
+                                            <span class="produto-nome">Furadeira Elétrica</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto">
+                                                <img src="./src/images/lixo.svg" alt="Remover produto">
+                                            </button>
+                                        </div>
+                                        <span class="produto-aluguel">2 dias de aluguel</span>
+                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                    </div>
+                                </div>
+
+                                <!-- Controles -->
+                                <div class="produto-controles">
+                                    <!-- Dias -->
+                                    <div class="controle-grupo">
+                                        <button class="btn-controle" aria-label="Diminuir dias">−</button>
+                                        <span class="controle-valor">2 dias</span>
+                                        <button class="btn-controle" aria-label="Aumentar dias">+</button>
+                                    </div>
+                                    <span class="controle-label-max">Máx. 30</span>
+
+                                    <div class="controle-sep" aria-hidden="true"></div>
+
+                                    <!-- Unidades -->
+                                    <div class="controle-grupo controle-unidade">
+                                        <button class="btn-controle" aria-label="Diminuir unidades">−</button>
+                                        <span class="controle-valor">1 unidade</span>
+                                        <button class="btn-controle" aria-label="Aumentar unidades">+</button>
+                                    </div>
+                                </div>
+                            </div><!-- /Produto 1 -->
+
+                            <!-- Produto 2 -->
+                            <div class="card-produto">
+                                <div class="produto-linha-topo">
+                                    <img class="produto-imagem" src="./src/images/Furadeira2.webp">
+                                    <div class="produto-infos">
+                                        <div class="produto-nome-row">
+                                            <span class="produto-nome">Furadeira Elétrica</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto">
+                                                <img src="./src/images/lixo.svg" alt="Remover produto">
+                                            </button>
+                                        </div>
+                                        <span class="produto-aluguel">2 dias de aluguel</span>
+                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                    </div>
+                                </div>
+                                <div class="produto-controles">
+                                    <div class="controle-grupo">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">2 dias</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                    <span class="controle-label-max">Máx. 30</span>
+                                    <div class="controle-sep"></div>
+                                    <div class="controle-grupo controle-unidade">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">1 unidade</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                    <span class="controle-label-disp">+50 disponíveis</span>
+                                </div>
+                            </div><!-- /Produto 2 -->
+
+                            <!-- Produto 3 -->
+                            <div class="card-produto">
+                                <div class="produto-linha-topo">
+                                    <img class="produto-imagem" src="./src/images/Furadeira3.webp">
+                                    <div class="produto-infos">
+                                        <div class="produto-nome-row">
+                                            <span class="produto-nome">Furadeira Elétrica</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto">
+                                                <img src="./src/images/lixo.svg" alt="Remover produto">
+                                            </button>
+                                        </div>
+                                        <span class="produto-aluguel">2 dias de aluguel</span>
+                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                    </div>
+                                </div>
+                                <div class="produto-controles">
+                                    <div class="controle-grupo">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">2 dias</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                    <span class="controle-label-max">Máx. 30</span>
+                                    <div class="controle-sep"></div>
+                                    <div class="controle-grupo controle-unidade">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">1 unidade</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                    <span class="controle-label-disp">+50 disponíveis</span>
+                                </div>
+                            </div><!-- /Produto 3 -->
+
+                        </div><!-- /lista-produtos -->
+                    </article><!-- /Grupo 1 -->
+
+
+                    <!-- ==================== -->
+                    <!-- GRUPO 2 – JB Ferramentas -->
+                    <!-- ==================== -->
+                    <article class="card grupo-loja">
+
+                        <div class="grupo-loja-header">
+                            <h2>Produto de JB Ferramentas</h2>
+                            <div class="loja-oficial">
+                                Loja oficial Dewalt
+                                <img src="./src/images/verificado.png" alt="Verificado" class="icone-verificado">
                             </div>
                         </div>
-                    </article>
-                </div>
-            </section>
 
-            <!-- Segunda Loja -->
-            <section class="grupo-loja">
-                <div class="cabecalho-loja">
-                    <h2>Produto de JB Ferramentas</h2>
-                    <span>Loja oficial Dewalt</span>
-                    <img src="./src/images/verificado.png">
-                </div>
+                        <div class="lista-produtos">
 
-                <!-- Lista de produtos dessa loja -->
-                <div class="lista-produtos">
-
-                    <!-- Produto 1 -->
-                    <article class="card-produto">
-                        <img src="./src/images/Furadeira1.webp" alt="Furadeira Elétrica">
-
-                        <div class="info-produto">
-                            <h3>Furadeira Elétrica</h3>
-                            <img src="./src/images/lixo.png" alt="Lixo">
-                            <p>2 dias de aluguel</p>
-                            <p>R$ 15,00/dia x 2 dias</p>
-
-                            <div class="controles-quantidade">
-                                <!-- Botões de + e - -->
+                            <!-- Produto 4 -->
+                            <div class="card-produto">
+                                <div class="produto-linha-topo">
+                                    <img class="produto-imagem" src="./src/images/Furadeira4.webp">
+                                    <div class="produto-infos">
+                                        <div class="produto-nome-row">
+                                            <span class="produto-nome">Furadeira Elétrica</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto">
+                                                <img src="./src/images/lixo.svg" alt="Remover produto">
+                                            </button>
+                                        </div>
+                                        <span class="produto-aluguel">2 dias de aluguel</span>
+                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                    </div>
+                                </div>
+                                <div class="produto-controles">
+                                    <div class="controle-grupo">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">2 dias</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                    <span class="controle-label-max">Máx. 30</span>
+                                    <div class="controle-sep"></div>
+                                    <div class="controle-grupo controle-unidade">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">1 unidade</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </article>
 
-                    <!-- Produto 2 -->
-                    <article class="card-produto">
-                        <img src="./src/images/Furadeira2.webp" alt="Furadeira Elétrica">
-
-                        <div class="info-produto">
-                            <h3>Furadeira Elétrica</h3>
-                            <img src="./src/images/lixo.png" alt="Lixo">
-                            <p>2 dias de aluguel</p>
-                            <p>R$ 15,00/dia x 2 dias</p>
-
-                            <div class="controles-quantidade">
-                                <!-- Botões de + e - -->
+                            <!-- Produto 5 -->
+                            <div class="card-produto">
+                                <div class="produto-linha-topo">
+                                    <img class="produto-imagem" src="./src/images/serraCircularProfissional.png">
+                                    <div class="produto-infos">
+                                        <div class="produto-nome-row">
+                                            <span class="produto-nome">Furadeira Elétrica</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto">
+                                                <img src="./src/images/lixo.svg" alt="Remover produto">
+                                            </button>
+                                        </div>
+                                        <span class="produto-aluguel">2 dias de aluguel</span>
+                                        <span class="produto-preco">R$ 49,99/dia × 2 dias</span>
+                                    </div>
+                                </div>
+                                <div class="produto-controles">
+                                    <div class="controle-grupo">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">2 dias</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                    <span class="controle-label-max">Máx. 30</span>
+                                    <div class="controle-sep"></div>
+                                    <div class="controle-grupo controle-unidade">
+                                        <button class="btn-controle">−</button>
+                                        <span class="controle-valor">1 unidade</span>
+                                        <button class="btn-controle">+</button>
+                                    </div>
+                                    <span class="controle-label-disp">+50 disponíveis</span>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </div><!-- /lista-produtos -->
+                    </article><!-- /Grupo 2 -->
 
-                    <!-- Produto 3 -->
-                    <article class="card-produto">
-                        <img src="./src/images/Furadeira3.webp" alt="Furadeira Elétrica">
+                </div><!-- /coluna-produtos -->
 
-                        <div class="info-produto">
-                            <h3>Furadeira Elétrica</h3>
-                            <img src="./src/images/lixo.png" alt="Lixo">
-                            <p>2 dias de aluguel</p>
-                            <p>R$ 15,00/dia x 2 dias</p>
 
-                            <div class="controles-quantidade">
-                                <!-- Botões de + e - -->
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
+                <!-- ============================= -->
+                <!-- CARD RESUMO DO PEDIDO         -->
+                <!-- ============================= -->
+                <aside class="card card-resumo">
+                    <h3>Resumo do Pedido</h3>
 
-            <aside class="card card-resumo">
-                <h3>Resumo do Pedido</h3>
-            </aside>
+                    <!-- Subtotal -->
+                    <div class="resumo-linha">
+                        <span>Subtotal</span>
+                        <strong>R$ 499,98</strong>
+                    </div>
+
+                    <!-- Calcular frete -->
+                    <p class="resumo-secao-titulo">Calcular frete</p>
+
+                    <div class="campo-cep">
+                        <input class="input-cep" type="text" placeholder="Informe um CEP" maxlength="9"
+                            aria-label="CEP" />
+                        <button class="btn-usar" type="button">Usar</button>
+                    </div>
+
+                    <a href="#" class="link-cep">Não sei o meu CEP</a>
+
+                    <!-- Cupom -->
+                    <div class="campo-cupom">
+                        <!-- Ícone etiqueta -->
+                        <img class="icone-cupom" src="./src/images/etiqueta.png">
+                        <input class="input-cupom" type="text" placeholder="Inserir código de cupom"
+                            aria-label="Código de cupom" />
+                        <button class="btn-aplicar" type="button">Aplicar</button>
+                    </div>
+
+                    <hr class="linha-divisoria" />
+
+                    <!-- Total -->
+                    <div class="resumo-total">
+                        <span>Total</span>
+                        <strong>R$ 499,98</strong>
+                    </div>
+
+                    <!-- CTA -->
+                    <button class="btn-pagamento" type="button">
+                        Continuar para Pagamento
+                    </button>
+                </aside><!-- /card-resumo -->
+
+            </div><!-- /checkout-container -->
         </main>
-    </div>
+
+    </div><!-- /app -->
 </body>
 
 </html>

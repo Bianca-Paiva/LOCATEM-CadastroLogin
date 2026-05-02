@@ -8,13 +8,15 @@
     /* BACKGROUNDS */
     --color-bg-main: #F9FAFB;
     --color-bg-card: #ffffff;
+    --color-bg-btn: #D5ECFF;
 
     /* TEXTOS */
     --color-text-dark: #0A0A0A;
     --color-text-secondary: #8e8e93;
+    --color-text-terciary: #4A5565;
     --color-text-muted: #7a7a7a;
     --color-text-desativado: #A0A0A0;
-    --color-text-link: #3A83FA;
+    --color-text-btn: #3A83FA;
 
     /* BORDAS */
     --color-border-card: #e5e7eb;
@@ -217,14 +219,18 @@ body {
     color: var(--color-text-dark);
 }
 
-/* ── Container das seções ── */
+/* ============================= */
+/* CONTAINER CHECKOUT            */
+/* ============================= */
 .checkout-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-/* ── Card base ── */
+/* ============================= */
+/* CARD BASE                     */
+/* ============================= */
 .card {
     background-color: var(--color-bg-card);
     border-radius: var(--card-radius);
@@ -233,6 +239,390 @@ body {
     margin: 0 0 15px;
 }
 
+/* ============================= */
+/* GRUPO DE LOJA                 */
+/* ============================= */
+.grupo-loja {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+}
+
+/* Cabeçalho do grupo (nome da loja) */
+.grupo-loja-header {
+    padding: 16px 18px 14px;
+    border-bottom: 1px solid var(--color-border-card);
+}
+
+.grupo-loja-header h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
+}
+
+.loja-oficial {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+/* Ícone de verificado (SVG inline) */
+.icone-verificado {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* ============================= */
+/* LISTA DE PRODUTOS             */
+/* ============================= */
+.lista-produtos {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================= */
+/* CARD PRODUTO                  */
+/* ============================= */
+.card-produto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--color-border-card);
+}
+
+.card-produto:last-child {
+    border-bottom: none;
+}
+
+/* Linha superior: imagem + infos + lixeira */
+.produto-linha-topo {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.produto-imagem {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: #f0f0f0;
+}
+
+.produto-infos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.produto-nome-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.produto-nome {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+/* Botão lixeira */
+.btn-lixeira {
+    background: transparent;
+    border: none;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity .2s;
+}
+
+.btn-lixeira:hover {
+    opacity: 1;
+}
+
+.btn-lixeira img {
+    width: 16px;
+    height: 16px;
+}
+
+.produto-aluguel {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+}
+
+.produto-preco {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-top: 2px;
+}
+
+/* ============================= */
+/* CONTROLES DE DIAS E UNIDADES  */
+/* ============================= */
+.produto-controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Grupo dias */
+.controle-grupo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.btn-controle {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--color-border-card);
+    background: var(--color-bg-card);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s;
+}
+
+.btn-controle:hover {
+    background: var(--color-primary-soft);
+}
+
+.controle-valor {
+    min-width: 40px;
+    text-align: center;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    padding: 0 4px;
+}
+
+.controle-label-max,
+.controle-label-disp {
+    font-size: 0.75rem;
+    color: var(--color-text-desativado);
+    white-space: nowrap;
+}
+
+/* Separador vertical */
+.controle-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--color-linha-divisoria);
+}
+
+/* Grupo unidade */
+.controle-unidade {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.controle-unidade .controle-valor {
+    min-width: 60px;
+}
+
+/* ============================= */
+/* CARD RESUMO DO PEDIDO         */
+/* ============================= */
+.card-resumo {
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.card-resumo h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 16px;
+}
+
+/* Linha subtotal */
+.resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.resumo-linha span {
+    font-size: 0.9375rem;
+    color: var(--color-text-terciary);
+}
+
+.resumo-linha strong {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--color-text-terciary);
+}
+
+.linha-divisoria {
+    border: none;
+    border-top: 1px solid var(--color-border-card);
+    margin: 0 0 16px;
+}
+
+/* Calcular frete */
+.resumo-secao-titulo {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--color-text-terciary);
+    margin-bottom: 10px;
+}
+
+/* Campo CEP */
+.campo-cep {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.input-cep {
+    flex: 1;
+    height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--color-border-card);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-family: var(--font);
+    color: var(--color-text-dark);
+    outline: none;
+    background: var(--color-bg-card);
+    transition: border-color .2s;
+}
+
+.input-cep::placeholder {
+    color: var(--color-text-desativado);
+}
+
+.btn-usar {
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 8px;
+    border: none;
+    background: var(--color-bg-btn);
+    color: var(--color-text-btn);
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background .2s;
+}
+
+.link-cep {
+    font-size: 0.8125rem;
+    color: var(--color-text-btn);
+    display: block;
+    margin-bottom: 16px;
+}
+
+/* Campo cupom */
+.campo-cupom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--color-border-card);
+    border-radius: 8px;
+    padding: 0 8px 0 14px;
+    height: 44px;
+    margin-bottom: 20px;
+    background: var(--color-bg-card);
+    transition: border-color .2s;
+}
+
+.icone-cupom {
+    width: 18px;
+    height: 18px;
+    opacity: .4;
+    flex-shrink: 0;
+}
+
+.input-cupom {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.875rem;
+}
+
+.input-cupom::placeholder {
+    color: var(--color-text-desativado);
+}
+
+.btn-aplicar {
+    height: 30px;
+    padding: 0 16px;
+    border-radius: 8px;
+    border: none;
+    background: var(--color-bg-btn);
+    color: var(--color-text-btn);
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background .2s;
+}
+
+/* Total */
+.resumo-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.resumo-total span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.resumo-total strong {
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    letter-spacing: -0.5px;
+}
+
+/* Botão Continuar para Pagamento */
+.btn-pagamento {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    transition: background .2s, transform .1s;
+}
+
+.btn-pagamento:hover {
+    background-color: var(--color-primary-light);
+}
+
+.btn-pagamento:active {
+    transform: scale(.98);
+}
 
 
 
@@ -266,6 +656,19 @@ body {
     .barra-pesquisa-mobile input {
         font-size: 14px;
     }
+
+    .card-produto {
+        padding: 14px 14px;
+    }
+
+    .produto-imagem {
+        width: 60px;
+        height: 60px;
+    }
+
+    .controle-valor {
+        min-width: 32px;
+    }
 }
 
 /* ============================= */
@@ -282,7 +685,7 @@ body {
     }
 
     /* ============================= */
-    /* HEADER */
+    /* HEADER DESKTOP */
     /* ============================= */
 
     .header-mobile {
@@ -380,5 +783,77 @@ body {
         width: 60%;
         height: 60%;
         object-fit: contain;
+    }
+
+    /* Nav desktop */
+    .menu-navegacao-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(12px, 2vw, 38px);
+        padding: 18px 32px 0;
+        width: 100%;
+    }
+
+    .menu-navegacao-desktop a {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: clamp(15px, 1vw, 18px);
+        font-weight: 600;
+        color: var(--color-text-dark);
+    }
+
+    .menu-navegacao-desktop img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
+
+    /* Conteúdo principal */
+    .main-mobile {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 54px 40px 60px;
+    }
+
+    .cabecalho {
+        padding: 0 0 28px;
+    }
+
+    .cabecalho>h1 {
+        font-size: clamp(26px, 2vw, 34px);
+    }
+
+    /* Layout lado a lado */
+    .checkout-container {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    /* Coluna de grupos de produtos */
+    .coluna-produtos {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-width: 0;
+    }
+
+    /* Card resumo fixo à direita */
+    .card-resumo {
+        width: 300px;
+        flex-shrink: 0;
+    }
+
+    .produto-imagem {
+        width: 80px;
+        height: 80px;
+    }
+
+    .produto-nome {
+        font-size: 1rem;
     }
 }
