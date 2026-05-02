@@ -1,191 +1,654 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produto - Locatem</title>
+    <link rel="stylesheet" href="./src/css/produtoPage.css" />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produto - Locatem</title>
-  <link rel="stylesheet" href="./src/css/produtoPage.css">
-  <link rel="stylesheet" href="./src/css/reset.css">
-</head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="linha-topo">
+          <div class="header-esquerda">
+            <!-- Logo da LOCATEM com link para a página principal -->
+            <a href="./principalPage.html" class="logo">
+              <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+              LOCATEM
+            </a>
 
-<body>
-  <div class="app">
-    <header>
-      <div class="linha-topo">
-
-
-        <div class="header-esquerda">
-          <!-- BOTÃO VOLTAR -->
-          <a href="" class="btn-voltar">
-            <!-- SVG DA SETA -->
-          </a>
-
-          <!-- Logo da LOCATEM com link para a página principal -->
-          <a href="./principalPage.html" class="logo">
-            <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
-            LOCATEM
-          </a>
-        </div>
-
-        <!-- Barra de pesquisa -->
-        <form class="barra-pesquisa">
-          <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
-          <button type="submit" class="lupa-btn">
-            <img src="./src/images/lupa.png" alt="Buscar">
-          </button>
-        </form>
-
-        <!-- Botão de acesso ao chat -->
-        <div class="header-direita">
-          <button class="chat">
-            <img src="./src/images/chat.png" alt="Chat">
-          </button>
-
-          <a href="" class="carrinho">
-            <!-- IMAGEM DO CARRINHO -->
-          </a>
-        </div>
-      </div>
-    </header>
-  </div>
-
-  <main>
-    <section class="produto">
-
-      <!-- CARROSSEL DE IMAGENS -->
-      <div class="carrossel-produto">
-        <!-- BOTÃO DE FAVORITAR -->
-        <button class="btn-favoritar">
-          <!-- *Colocar imagem* -->
-        </button>
-
-        <!-- CARROSSEL -->
-        <div class="carrossel">
-          <!-- BOTÃO ANTERIOR -->
-          <button class="btn-anterior">
-            <!-- *COLOCAR SVG*-->
-          </button>
-
-          <div class="carrossel-container">
-            <!-- LISTA DE IMAGENS -->
-            <ul class="carrossel-lista">
-              <li class="carrossel-item ativo">
-                <!-- *COLOCAR IMAGEM DO PRODUTO* -->
-              </li>
-              <li class="carrossel-item">
-                <!-- *COLOCAR IMAGEM DO PRODUTO* -->
-              </li>
-              <li class="carrossel-item">
-                <!-- *COLOCAR IMAGEM DO PRODUTO* -->
-              </li>
-            </ul>
+            <!-- BOTÃO VOLTAR -->
+            <a href="" class="btn-voltar">
+              <svg
+                width="14"
+                height="12"
+                viewBox="0 0 14 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M14 6C14 5.77271 13.9078 5.55473 13.7437 5.39402C13.5797 5.2333 13.3571 5.14301 13.1251 5.14301H2.98848L6.74531 1.46482C6.82666 1.38514 6.89118 1.29055 6.93521 1.18644C6.97923 1.08233 7.00189 0.970754 7.00189 0.85807C7.00189 0.745387 6.97923 0.633807 6.93521 0.529701C6.89118 0.425595 6.82666 0.331002 6.74531 0.251323C6.66397 0.171643 6.5674 0.108438 6.46111 0.0653162C6.35483 0.0221939 6.24092 0 6.12588 0C6.01084 0 5.89693 0.0221939 5.79065 0.0653162C5.68436 0.108438 5.58779 0.171643 5.50645 0.251323L0.257035 5.39325C0.175559 5.47286 0.110916 5.56743 0.0668094 5.67155C0.022703 5.77566 0 5.88728 0 6C0 6.11272 0.022703 6.22434 0.0668094 6.32846C0.110916 6.43257 0.175559 6.52714 0.257035 6.60675L5.50645 11.7487C5.67073 11.9096 5.89355 12 6.12588 12C6.35821 12 6.58103 11.9096 6.74531 11.7487C6.90959 11.5878 7.00189 11.3695 7.00189 11.1419C7.00189 10.9144 6.90959 10.6961 6.74531 10.5352L2.98848 6.85699H13.1251C13.3571 6.85699 13.5797 6.7667 13.7437 6.60598C13.9078 6.44527 14 6.22729 14 6Z"
+                  fill="black"
+                />
+              </svg>
+            </a>
           </div>
 
-          <!-- BOTÃO PRÓXIMO  -->
-          <button class="btn-proximo">
-            <!-- *COLOCAR SVG* -->
-          </button>
+          <!-- Barra de pesquisa -->
+          <form class="barra-pesquisa">
+            <input
+              type="search"
+              placeholder="Pesquisar..."
+              aria-label="Pesquisar ferramentas"
+            />
+            <button type="submit" class="lupa-btn">
+              <img src="./src/images/lupa.png" alt="Buscar" />
+            </button>
+          </form>
 
-        </div>
+          <!-- Botão de acesso ao chat -->
+          <div class="header-direita">
+            <button class="chat">
+              <img src="./src/images/chat.png" alt="Chat" />
+            </button>
 
-        <div class="indicadores">
-          <div class="circulos">
-            <div class="circulo ativo"></div>
-            <div class=" circulo"></div>
-            <div class="circulo"></div>
+            <a href="" class="carrinho">
+              <img src="./src/images/carrinho.png" alt="Carrinho" />
+            </a>
           </div>
         </div>
-      </div>
+      </header>
+    </div>
 
-      <!-- DESCRIÇÃO DO PRODUTO -->
-      <div class="descricao-produto">
-        <h1>Furadeira Parafusadeira Sem Fio A Bateria 10mm Com Maleta E Acessórios The Black Tools</h1>
+    <main>
+      <section class="produto">
+        <!-- CARROSSEL DE IMAGENS -->
+        <div class="carrossel-produto">
+          <!-- BOTÃO DE FAVORITAR -->
+          <button class="btn-favoritar">
+            <img src="./src/images/favoritar.png" alt="Favoritar" />
+          </button>
 
-        <!-- PARTE DE AVALIAÇÃO -->
-        <div class="avaliacao">
-          <!-- *COLOCAR O SVG DA ESTRELINHA* -->
-          <p>4.8 <span>(120 avaliações)</span></p>
+          <!-- CARROSSEL -->
+          <div class="carrossel">
+            <!-- BOTÃO ANTERIOR -->
+            <button class="btn-anterior">
+              <svg
+                width="7"
+                height="12"
+                viewBox="0 0 7 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.7002 0.899902L0.900195 5.6999L5.7002 10.4999"
+                  stroke="#6B7280"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div class="carrossel-container">
+              <!-- LISTA DE IMAGENS -->
+              <ul class="carrossel-lista">
+                <li class="carrossel-item ativo">
+                  <img
+                    src="./src/images/img-carrossel-1.png"
+                    alt="Parafusadeira"
+                  />
+                </li>
+                <li class="carrossel-item">
+                  <img
+                    src="./src/images/img-carrossel-2.png"
+                    alt="Parafusadeira"
+                  />
+                </li>
+                <li class="carrossel-item">
+                  <img src="./src/images/img-carrossel-3.png" alt="" />
+                </li>
+              </ul>
+            </div>
+
+            <!-- BOTÃO PRÓXIMO  -->
+            <button class="btn-proximo">
+              <svg
+                width="7"
+                height="12"
+                viewBox="0 0 7 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.899902 0.899902L5.6999 5.6999L0.899902 10.4999"
+                  stroke="#6B7280"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="indicadores">
+            <div class="circulos">
+              <div class="circulo ativo"></div>
+              <div class="circulo"></div>
+              <div class="circulo"></div>
+            </div>
+          </div>
         </div>
 
-        <p>R$15 <span>/dia</span></p>
-      </div>
+        <!-- DESCRIÇÃO DO PRODUTO -->
+        <div class="descricao-produto">
+          <h1>
+            Furadeira Parafusadeira Sem Fio A Bateria 10mm Com Maleta E
+            Acessórios The Black Tools
+          </h1>
 
-      <!-- VOLTAGEM -->
-      <div class="voltagem">
-        <button class="btn-voltagem">127V</button>
-        <button class="btn-voltagem">220V</button>
-        <button class="btn-voltagem">Bivolt</button>
-      </div>
+          <!-- PARTE DE AVALIAÇÃO -->
+          <div class="avaliacao">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.86875 14.25L4.0875 8.98125L0 5.4375L5.4 4.96875L7.5 0L9.6 4.96875L15 5.4375L10.9125 8.98125L12.1313 14.25L7.5 11.4563L2.86875 14.25Z"
+                fill="black"
+              />
+            </svg>
+            <p>4.8 <span>(120 avaliações)</span></p>
+          </div>
 
-      <!-- TEMPO + QUANTIDADE -->
-      <div>
-        <div class="tempo">
-          <label for="tempo" class="tempo-label">Tempo:</label>
-
-          <select name="tempo" id="tempo">
-            <option value="">Selecione</option>
-            <option value="1">1 dia</option>
-            <option value="2">2 dias</option>
-            <option value="7"> 1 semana</option>
-          </select>
+          <p>R$15 <span>/dia</span></p>
         </div>
 
-        <div class="quantidade">
-          <span>Quantidade:</span>
-
-          <!-- BOTÃO MENOS -->
-          <button class="btn-menos"> - </button>
-
-          <input type="number" value="1" min="1" class="quantidade-input">
-
-          <!-- BOTÃO ADICIONAR -->
-          <button class="btn-adicionar"> + </button>
-
+        <!-- VOLTAGEM -->
+        <div class="voltagem">
+          <button class="btn-voltagem">127V</button>
+          <button class="btn-voltagem">220V</button>
+          <button class="btn-voltagem">Bivolt</button>
         </div>
-      </div>
-    </section>
 
-    <!-- LOJA -->
-    <section class="loja-produto">
-      <!-- LOJA -->
-      
+        <!-- TEMPO + QUANTIDADE -->
+        <div>
+          <div class="tempo">
+            <label for="tempo" class="tempo-label">Tempo:</label>
+
+            <select name="tempo" id="tempo">
+              <option value="">Selecione</option>
+              <option value="1">1 dia</option>
+              <option value="2">2 dias</option>
+              <option value="7">1 semana</option>
+            </select>
+          </div>
+
+          <div class="quantidade">
+            <span>Quantidade:</span>
+
+            <!-- BOTÃO MENOS -->
+            <button class="btn-menos">-</button>
+
+            <input type="number" value="1" min="1" class="quantidade-input" />
+
+            <!-- BOTÃO ADICIONAR -->
+            <button class="btn-adicionar">+</button>
+          </div>
+        </div>
+      </section>
+
+      <!--======== LOJA======== -->
+      <section class="loja-produto">
         <!-- IMAGEM -->
         <figure class="logo-loja">
-          <!-- LOGO DA LOJA -->
+          <img src="" alt="Logo da Loja" />
         </figure>
 
         <!-- NOME E AVALIAÇÃO DA LOJA -->
         <div class="nome-loja">
-          <h2> HomeFix Pro Store</h2>
+          <h2>HomeFix Pro Store</h2>
 
           <!-- DIV -criada para adicionar svg da estrela -->
           <div class="avaliacao-loja">
-            <!-- ADICIONAR SVG DA ESTRELA -->
+            <svg
+              width="14"
+              height="13"
+              viewBox="0 0 14 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                fill="#705D00"
+              />
+            </svg>
 
             <p>4.9 <span>Locador Verificado</span></p>
           </div>
         </div>
-    </section>
 
-     <!-- DESCRIÇÃO -->
-    <section class="descricao-produto">
-      <header class="descricao-cabecalho"> 
-        <h2>Descrição</h2>
+        <!-- ICONE LOJA -->
+        <a href="./perfil-loja.html" class="btn-ir-loja">
+          <img src="./src/images/icon-loja.png" alt="Ver loja" />
+        </a>
+      </section>
 
-        <button class="btn-expandir">
-          <!-- SVG -->
-        </button>
-      </header>
+      <!-- ========DESCRIÇÃO========-->
+      <section class="descricao-produto">
+        <header class="descricao-cabecalho">
+          <h2>Descrição</h2>
 
-      <div class="descricao-conteudo">
-        <p>
-          Ideal para uso doméstico e profissional leve. Perfeita para montagem de móveis, instalações e pequenos reparos. Compacta, potente e fácil de manusear — resolve o problema sem complicação.
-        </p>
-      </div>
-    </section>
-  </main>
+          <button class="btn-expandir">
+            <svg
+              width="12"
+              height="7"
+              viewBox="0 0 12 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.899902 5.7002L5.6999 0.900195L10.4999 5.7002"
+                stroke="#6B7280"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </header>
 
-</body>
+        <div class="descricao-conteudo">
+          <p>
+            Ideal para uso doméstico e profissional leve. Perfeita para montagem
+            de móveis, instalações e pequenos reparos. Compacta, potente e fácil
+            de manusear — resolve o problema sem complicação.
+          </p>
+        </div>
+      </section>
 
+      <!--======== ESPECIFICAÇÕES TECNICAS ======== -->
+      <section class="especificacoes-produto">
+        <header class="especificacoes-cabecalho">
+          <h2>Especificações Técnicas</h2>
+          <button type="button" class="btn-expandir">
+            <svg
+              width="12"
+              height="7"
+              viewBox="0 0 12 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.899902 5.7002L5.6999 0.900195L10.4999 5.7002"
+                stroke="#6B7280"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </header>
+
+        <!-- CONTEUDO DE ESPECIFICAÇOES -->
+        <div class="especificacoes-conteudo">
+          <dl class="lista-especificacoes">
+            <div>
+              <dt>Potência de saída</dt>
+              <dd>Bateria de íon lítio de 18V máx</dd>
+            </div>
+
+            <div>
+              <dt>Torque máximo</dt>
+              <dd>45mm</dd>
+            </div>
+
+            <div>
+              <dt>Tamanho do mandril</dt>
+              <dd>13mm Sem chave</dd>
+            </div>
+
+            <div>
+              <dt>Acessórios incluidos</dt>
+              <dd>
+                2 baterias, carregador, estojo rígido, conjunto de 10 bits
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!--========AVALIAÇÕES======== -->
+      <section class="avaliacoes-produto">
+        <header>
+          <h2>Avaliações</h2>
+        </header>
+
+        <div class="avaliacoes-resumo">
+          <div class="nota-geral">
+            <span class="valor-nota">4.8</span>
+            <div class="estrelas-renderizadas">
+              <!-- IMAGENS DAS ESTRELAS -->
+            </div>
+            <p>120 avaliações</p>
+          </div>
+
+          <!-- GRAFICO DAS AVALIAÇÕES -->
+          <ul class="avaliacoes-grafico">
+            <li>
+              <span>5</span>
+              <div class="barra-fundo">
+                <div class="barra-preenchimento"></div>
+              </div>
+            </li>
+
+            <li>
+              <span>4</span>
+              <div class="barra-fundo">
+                <div class="barra-preenchimento"></div>
+              </div>
+            </li>
+
+            <li>
+              <span>3</span>
+              <div class="barra-fundo">
+                <div class="barra-preenchimento"></div>
+              </div>
+            </li>
+
+            <li>
+              <span>2</span>
+              <div class="barra-fundo">
+                <div class="barra-preenchimento"></div>
+              </div>
+            </li>
+
+            <li><!-- SEGUNDO COMENTARIO -->
+          <article class="comentario">
+            <header class="comentario-topo">
+              <img src="" alt="Foto de Maria Souza" />
+              <div class="comentario-usuario">
+                <h3>Maria Souza</h3>
+                <div class="estrelas">
+                  <!-- IMAGEM DAS ESTRELAS -->
+                </div>
+                <time datetime="2026-04-24">Há 1 semana</time>
+              </div>
+            </header>
+
+            <div class="comentario-conteudo">
+              <p>
+                Equipamento em perfeito estado. O atendimento na retirada foi
+                excelente também.
+              </p>
+
+              <img src="" alt="Foto da furadeira" />
+            </div>
+
+            <!-- FEEDBACK UTIL -->
+            <div class="feedback-util">
+              <button type="button" class="btn-util">
+                <img src="" alt="" />
+                Foi útil?
+              </button>
+
+              <span class="contagem-util"> 5 pessoas acharam util</span>
+            </div>
+          </article>
+              <span>1</span>
+              <div class="barra-fundo">
+                <div class="barra-preenchimento"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- LISTA DE COMENTARIOS -->
+        <div class="lista-comentarios">
+          <!-- PRIMEIRO COMENTARIO -->
+          <article class="comentario">
+            <header class="comentario-topo">
+              <img src="" alt="Foto de João Silva" />
+              <div class="comentario-usuario">
+                <h3>João Silva</h3>
+                <div class="estrelas">
+                  <!-- IMAGEM DAS ESTRELAS -->
+                </div>
+                <time datetime="2026-04-29">Há 2 dias</time>
+              </div>
+            </header>
+
+            <p>
+              Furadeira muito boa, usei pra montar um guarda-roupa inteiro.
+              Super potente e a bateria durou o projeto todo.
+            </p>
+
+            <!-- FEEDBACK UTIL -->
+            <div class="feedback-util">
+              <button type="button" class="btn-util">
+                <img src="" alt="" />
+                Foi útil?
+              </button>
+
+              <span class="contagem-util"> 12 pessoas acharam util</span>
+            </div>
+          </article>
+
+          <!-- SEGUNDO COMENTARIO -->
+          <article class="comentario">
+            <header class="comentario-topo">
+              <img src="" alt="Foto de Maria Souza" />
+              <div class="comentario-usuario">
+                <h3>Maria Souza</h3>
+                <div class="estrelas">
+                  <!-- IMAGEM DAS ESTRELAS -->
+                </div>
+                <time datetime="2026-04-24">Há 1 semana</time>
+              </div>
+            </header>
+
+            <div class="comentario-conteudo">
+              <p>
+                Equipamento em perfeito estado. O atendimento na retirada foi
+                excelente também.
+              </p>
+
+              <img src="" alt="Foto da furadeira" />
+            </div>
+
+            <!-- FEEDBACK UTIL -->
+            <div class="feedback-util">
+              <button type="button" class="btn-util">
+                <img src="" alt="" />
+                Foi útil?
+              </button>
+
+              <span class="contagem-util"> 5 pessoas acharam util</span>
+            </div>
+          </article>
+
+          <!-- TERCEIRO COMENTARIO -->
+          <article class="comentario">
+            <header class="comentario-topo">
+              <img src="" alt="Foto de Maria Souza" />
+              <div class="comentario-usuario">
+                <h3>Maria Souza</h3>
+                <div class="estrelas">
+                  <!-- IMAGEM DAS ESTRELAS -->
+                </div>
+                <time datetime="2026-04-24">Há 1 semana</time>
+              </div>
+            </header>
+
+            <div class="comentario-conteudo">
+              <p>
+                Equipamento em perfeito estado. O atendimento na retirada foi
+                excelente também.
+              </p>
+
+              <img src="" alt="Foto da furadeira" />
+            </div>
+
+            <!-- FEEDBACK UTIL -->
+            <div class="feedback-util">
+              <button type="button" class="btn-util">
+                <img src="" alt="" />
+                Foi útil?
+              </button>
+
+              <span class="contagem-util"> 5 pessoas acharam util</span>
+            </div>
+          </article>
+
+          <button type="button" class="btn-ver-mais">
+            <span>Ver mais</span>
+            <img src="" alt="seta" />
+          </button><!-- SEGUNDO COMENTARIO -->
+          <article class="comentario">
+            <header class="comentario-topo">
+              <img src="" alt="Foto de Maria Souza" />
+              <div class="comentario-usuario">
+                <h3>Maria Souza</h3>
+                <div class="estrelas">
+                  <!-- IMAGEM DAS ESTRELAS -->
+                </div>
+                <time datetime="2026-04-24">Há 1 semana</time>
+              </div>
+            </header>
+
+            <div class="comentario-conteudo">
+              <p>
+                Equipamento em perfeito estado. O atendimento na retirada foi
+                excelente também.
+              </p>
+
+              <img src="" alt="Foto da furadeira" />
+            </div>
+
+            <!-- FEEDBACK UTIL -->
+            <div class="feedback-util">
+              <button type="button" class="btn-util">
+                <img src="" alt="" />
+                Foi útil?
+              </button>
+
+              <span class="contagem-util"> 5 pessoas acharam util</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========FERRAMENTAS SEMELHANTES======== -->
+      <section class="ferramentas-semelhantes">
+        <header>
+          <h2>Ferramentas semelhantes</h2>
+        </header>
+
+        <ul class="grid-produtos">
+          <!-- PARAFUSADEIRA DE IMPACTO -->
+          <li>
+            <article class="card-produto">
+              <figure class="produto-foto">
+                <img src="" alt="Parafusadeira de Impacto" />
+              </figure>
+
+              <div class="produto-info">
+                <h3>Parafusadeiras de Impacto</h3>
+
+                <p>
+                  JB Ferramentas
+                  <img src="" alt="Verificado" />
+                </p>
+
+                <div class="produto-footer">
+                  <p class="preco">R$10 <span>/dia</span></p>
+                  <img src="" alt="Estrela" />
+                  <p class="nota">4.9</p>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- SERRA CIRCULAR -->
+          <li>
+            <article class="card-produto">
+              <figure class="produto-foto">
+                <img src="" alt="Serra Circular Profissional" />
+              </figure>
+
+              <div class="produto-info">
+                <h3>Serra Circular Profissional</h3>
+
+                <p>
+                  JB Ferramentas
+                  <img src="" alt="Verificado" />
+                </p>
+
+                <div class="produto-footer">
+                  <p class="preco">R$25 <span>/dia</span></p>
+                  <img src="" alt="Estrela" />
+                  <p class="nota">4.8</p>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- LIXADEIRA ORBITAL -->
+          <li>
+            <article class="card-produto">
+              <figure class="produto-foto">
+                <img src="" alt="Lixadeira Orbital" />
+              </figure>
+
+              <div class="produto-info">
+                <h3>Lixadeira Orbital</h3>
+
+                <p>
+                  JB Ferramentas
+                  <img src="" alt="Verificado" />
+                </p>
+
+                <div class="produto-footer">
+                  <p class="preco">R$15 <span>/dia</span></p>
+                  <img src="" alt="Estrela" />
+                  <p class="nota">4.9</p>
+                </div>
+              </div>
+            </article>
+          </li>
+
+          <!-- SERRA CIRCULAR -->
+          <li>
+            <article class="card-produto">
+              <figure class="produto-foto">
+                <img src="" alt="Serra Circular Profissional" />
+              </figure>
+
+              <div class="produto-info">
+                <h3>Serra Circular Profissional</h3>
+
+                <p>
+                  JB Ferramentas
+                  <img src="" alt="Verificado" />
+                </p>
+
+                <div class="produto-footer">
+                  <p class="preco">R$25 <span>/dia</span></p>
+                  <img src="" alt="Estrela" />
+                  <p class="nota">4.8</p>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
 </html>
