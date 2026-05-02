@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,57 +10,37 @@
 
   <body>
     <div class="app">
-      <header>
-        <div class="linha-topo">
-          <div class="header-esquerda">
-            <!-- Logo da LOCATEM com link para a página principal -->
+      <header class="header-mobile">
+        <!-- LINHA SUPERIOR -->
+        <div class="linha-topo-mobile">
+          <!-- AGRUPAMENTO ESQUERDO -->
+          <div class="lado-esquerdo">
+            <button class="menu-btn">
+              <img src="./src/images/menuHamburguer.png" alt="Menu" />
+            </button>
+
             <a href="./principalPage.html" class="logo">
               <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
               LOCATEM
             </a>
-
-            <!-- BOTÃO VOLTAR -->
-            <a href="" class="btn-voltar">
-              <svg
-                width="14"
-                height="12"
-                viewBox="0 0 14 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M14 6C14 5.77271 13.9078 5.55473 13.7437 5.39402C13.5797 5.2333 13.3571 5.14301 13.1251 5.14301H2.98848L6.74531 1.46482C6.82666 1.38514 6.89118 1.29055 6.93521 1.18644C6.97923 1.08233 7.00189 0.970754 7.00189 0.85807C7.00189 0.745387 6.97923 0.633807 6.93521 0.529701C6.89118 0.425595 6.82666 0.331002 6.74531 0.251323C6.66397 0.171643 6.5674 0.108438 6.46111 0.0653162C6.35483 0.0221939 6.24092 0 6.12588 0C6.01084 0 5.89693 0.0221939 5.79065 0.0653162C5.68436 0.108438 5.58779 0.171643 5.50645 0.251323L0.257035 5.39325C0.175559 5.47286 0.110916 5.56743 0.0668094 5.67155C0.022703 5.77566 0 5.88728 0 6C0 6.11272 0.022703 6.22434 0.0668094 6.32846C0.110916 6.43257 0.175559 6.52714 0.257035 6.60675L5.50645 11.7487C5.67073 11.9096 5.89355 12 6.12588 12C6.35821 12 6.58103 11.9096 6.74531 11.7487C6.90959 11.5878 7.00189 11.3695 7.00189 11.1419C7.00189 10.9144 6.90959 10.6961 6.74531 10.5352L2.98848 6.85699H13.1251C13.3571 6.85699 13.5797 6.7667 13.7437 6.60598C13.9078 6.44527 14 6.22729 14 6Z"
-                  fill="black"
-                />
-              </svg>
-            </a>
           </div>
 
-          <!-- Barra de pesquisa -->
-          <form class="barra-pesquisa">
-            <input
-              type="search"
-              placeholder="Pesquisar..."
-              aria-label="Pesquisar ferramentas"
-            />
-            <button type="submit" class="lupa-btn">
-              <img src="./src/images/lupa.png" alt="Buscar" />
-            </button>
-          </form>
-
-          <!-- Botão de acesso ao chat -->
-          <div class="header-direita">
-            <button class="chat">
-              <img src="./src/images/chat.png" alt="Chat" />
-            </button>
-
-            <a href="" class="carrinho">
-              <img src="./src/images/carrinho.png" alt="Carrinho" />
-            </a>
-          </div>
+          <!-- DIREITA -->
+          <a href="#" class="carrinho-btn">
+            <img src="./src/images/carrinho.png" alt="Carrinho" />
+            <span class="quantidade-carrinho">2</span>
+          </a>
         </div>
+
+        <!-- Barra de pesquisa -->
+        <form class="barra-pesquisa-mobile">
+          <img src="./src/images/lupa.png" alt="Buscar" />
+          <input
+            type="search"
+            placeholder="Qual ferramenta você precisa hoje?"
+            aria-label="Pesquisar ferramentas"
+          />
+        </form>
       </header>
     </div>
 
@@ -185,9 +165,9 @@
 
             <select name="tempo" id="tempo">
               <option value="">Selecione</option>
-              <option value="1">1 dia</option>
-              <option value="2">2 dias</option>
-              <option value="7">1 semana</option>
+              <option value="1">1 Dia (R$15)</option>
+              <option value="2">2 Dias (R$30)</option>
+              <option value="7">1 Semana (R$105)</option>
             </select>
           </div>
 
@@ -197,7 +177,7 @@
             <!-- BOTÃO MENOS -->
             <button class="btn-menos">-</button>
 
-            <input type="number" value="1" min="1" class="quantidade-input" />
+            <input type="text" value="1" min="1" class="quantidade-input" />
 
             <!-- BOTÃO ADICIONAR -->
             <button class="btn-adicionar">+</button>
@@ -335,12 +315,39 @@
           <div class="nota-geral">
             <span class="valor-nota">4.8</span>
             <div class="estrelas-renderizadas">
-              <!-- IMAGENS DAS ESTRELAS -->
+              <svg
+                width="116"
+                height="19"
+                viewBox="0 0 116 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
+                  fill="#FFD700"
+                />
+                <path
+                  d="M27.825 19L29.45 11.975L24 7.25L31.2 6.625L34 0L36.8 6.625L44 7.25L38.55 11.975L40.175 19L34 15.275L27.825 19Z"
+                  fill="#FFD700"
+                />
+                <path
+                  d="M51.825 19L53.45 11.975L48 7.25L55.2 6.625L58 0L60.8 6.625L68 7.25L62.55 11.975L64.175 19L58 15.275L51.825 19Z"
+                  fill="#FFD700"
+                />
+                <path
+                  d="M75.825 19L77.45 11.975L72 7.25L79.2 6.625L82 0L84.8 6.625L92 7.25L86.55 11.975L88.175 19L82 15.275L75.825 19Z"
+                  fill="#FFD700"
+                />
+                <path
+                  d="M109.15 14.85L108.325 11.25L111.1 8.85L107.45 8.525L106 5.125V12.925L109.15 14.85ZM99.825 19L101.45 11.975L96 7.25L103.2 6.625L106 0L108.8 6.625L116 7.25L110.55 11.975L112.175 19L106 15.275L99.825 19Z"
+                  fill="#FFD700"
+                />
+              </svg>
             </div>
             <p>120 avaliações</p>
           </div>
 
-          <!-- GRAFICO DAS AVALIAÇÕES -->
+          <!-- GRAFICO DE AVALIAÇÕES -->
           <ul class="avaliacoes-grafico">
             <li>
               <span>5</span>
@@ -370,38 +377,7 @@
               </div>
             </li>
 
-            <li><!-- SEGUNDO COMENTARIO -->
-          <article class="comentario">
-            <header class="comentario-topo">
-              <img src="" alt="Foto de Maria Souza" />
-              <div class="comentario-usuario">
-                <h3>Maria Souza</h3>
-                <div class="estrelas">
-                  <!-- IMAGEM DAS ESTRELAS -->
-                </div>
-                <time datetime="2026-04-24">Há 1 semana</time>
-              </div>
-            </header>
-
-            <div class="comentario-conteudo">
-              <p>
-                Equipamento em perfeito estado. O atendimento na retirada foi
-                excelente também.
-              </p>
-
-              <img src="" alt="Foto da furadeira" />
-            </div>
-
-            <!-- FEEDBACK UTIL -->
-            <div class="feedback-util">
-              <button type="button" class="btn-util">
-                <img src="" alt="" />
-                Foi útil?
-              </button>
-
-              <span class="contagem-util"> 5 pessoas acharam util</span>
-            </div>
-          </article>
+            <li>
               <span>1</span>
               <div class="barra-fundo">
                 <div class="barra-preenchimento"></div>
@@ -410,16 +386,44 @@
           </ul>
         </div>
 
-        <!-- LISTA DE COMENTARIOS -->
+        <!-- COMENTARIOS DOS USUÁRIOS -->
         <div class="lista-comentarios">
-          <!-- PRIMEIRO COMENTARIO -->
+          <!-- PRIMEIRO COMENTÁRIO -->
           <article class="comentario">
             <header class="comentario-topo">
               <img src="" alt="Foto de João Silva" />
+
               <div class="comentario-usuario">
                 <h3>João Silva</h3>
                 <div class="estrelas">
-                  <!-- IMAGEM DAS ESTRELAS -->
+                  <svg
+                    width="75"
+                    height="13"
+                    viewBox="0 0 75 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
+                      fill="#FFD700"
+                    />
+                  </svg>
                 </div>
                 <time datetime="2026-04-29">Há 2 dias</time>
               </div>
@@ -430,25 +434,52 @@
               Super potente e a bateria durou o projeto todo.
             </p>
 
-            <!-- FEEDBACK UTIL -->
             <div class="feedback-util">
               <button type="button" class="btn-util">
-                <img src="" alt="" />
+                <img src="./src/images/foi-util.png" alt="Foi útil?" />
                 Foi útil?
               </button>
 
-              <span class="contagem-util"> 12 pessoas acharam util</span>
+              <span class="contagem-util">12 pessoas acharam util</span>
             </div>
           </article>
 
-          <!-- SEGUNDO COMENTARIO -->
+          <!-- SEGUNDO COMENTÁRIO -->
           <article class="comentario">
             <header class="comentario-topo">
               <img src="" alt="Foto de Maria Souza" />
+
               <div class="comentario-usuario">
                 <h3>Maria Souza</h3>
                 <div class="estrelas">
-                  <!-- IMAGEM DAS ESTRELAS -->
+                  <svg
+                    width="75"
+                    height="13"
+                    viewBox="0 0 75 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
+                      fill="#FFD700"
+                    />
+                  </svg>
                 </div>
                 <time datetime="2026-04-24">Há 1 semana</time>
               </div>
@@ -459,90 +490,82 @@
                 Equipamento em perfeito estado. O atendimento na retirada foi
                 excelente também.
               </p>
-
-              <img src="" alt="Foto da furadeira" />
+              <img
+                src="./src/images/foto-comentario-3.png"
+                alt="Foto da furadeira"
+              />
             </div>
 
-            <!-- FEEDBACK UTIL -->
             <div class="feedback-util">
               <button type="button" class="btn-util">
-                <img src="" alt="" />
+                <img src="./src/images/foi-util.png" alt="Foi útil?" />
                 Foi útil?
               </button>
-
-              <span class="contagem-util"> 5 pessoas acharam util</span>
+              <span class="contagem-util">5 pessoas acharam util</span>
             </div>
           </article>
 
-          <!-- TERCEIRO COMENTARIO -->
+          <!-- TERCEIRO COMENTÁRIO -->
           <article class="comentario">
             <header class="comentario-topo">
-              <img src="" alt="Foto de Maria Souza" />
+              <img
+                src="./src/images/foto-pedro-Oliveira.jpg"
+                alt="Foto de Pedro Oliveira"
+              />
+
               <div class="comentario-usuario">
-                <h3>Maria Souza</h3>
+                <h3>Pedro Oliveira</h3>
                 <div class="estrelas">
-                  <!-- IMAGEM DAS ESTRELAS -->
+                  <svg
+                    width="75"
+                    height="13"
+                    viewBox="0 0 75 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
+                      fill="#FFD700"
+                    />
+                    <path
+                      d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
+                      fill="#FFD700"
+                    />
+                  </svg>
                 </div>
-                <time datetime="2026-04-24">Há 1 semana</time>
+                <time datetime="2026-04-17">Há 2 semanas</time>
               </div>
             </header>
 
-            <div class="comentario-conteudo">
-              <p>
-                Equipamento em perfeito estado. O atendimento na retirada foi
-                excelente também.
-              </p>
+            <p>Máquina cumpriu o prometido para o uso. Recomendo.</p>
 
-              <img src="" alt="Foto da furadeira" />
-            </div>
-
-            <!-- FEEDBACK UTIL -->
             <div class="feedback-util">
               <button type="button" class="btn-util">
-                <img src="" alt="" />
+                <img src="./src/images/foi-util.png" alt="Foi útil?" />
                 Foi útil?
               </button>
-
-              <span class="contagem-util"> 5 pessoas acharam util</span>
-            </div>
-          </article>
-
-          <button type="button" class="btn-ver-mais">
-            <span>Ver mais</span>
-            <img src="" alt="seta" />
-          </button><!-- SEGUNDO COMENTARIO -->
-          <article class="comentario">
-            <header class="comentario-topo">
-              <img src="" alt="Foto de Maria Souza" />
-              <div class="comentario-usuario">
-                <h3>Maria Souza</h3>
-                <div class="estrelas">
-                  <!-- IMAGEM DAS ESTRELAS -->
-                </div>
-                <time datetime="2026-04-24">Há 1 semana</time>
-              </div>
-            </header>
-
-            <div class="comentario-conteudo">
-              <p>
-                Equipamento em perfeito estado. O atendimento na retirada foi
-                excelente também.
-              </p>
-
-              <img src="" alt="Foto da furadeira" />
-            </div>
-
-            <!-- FEEDBACK UTIL -->
-            <div class="feedback-util">
-              <button type="button" class="btn-util">
-                <img src="" alt="" />
-                Foi útil?
-              </button>
-
-              <span class="contagem-util"> 5 pessoas acharam util</span>
+              <span class="contagem-util">2 pessoas acharam util</span>
             </div>
           </article>
         </div>
+
+        <!-- BOTÃO VER MAIS DE AVALIAÇÕES -->
+        <button type="button" class="btn-ver-mais">
+          <span>Ver mais</span>
+          <img src="./src/images/seta-comentario.png" alt="seta" />
+        </button>
       </section>
 
       <!-- ========FERRAMENTAS SEMELHANTES======== -->
@@ -556,7 +579,10 @@
           <li>
             <article class="card-produto">
               <figure class="produto-foto">
-                <img src="" alt="Parafusadeira de Impacto" />
+                <img
+                  src="./src/images/parafusadeira-wap.png"
+                  alt="Parafusadeira de Impacto"
+                />
               </figure>
 
               <div class="produto-info">
@@ -564,12 +590,15 @@
 
                 <p>
                   JB Ferramentas
-                  <img src="" alt="Verificado" />
+                  <img src="./src/images/verificado.png" alt="Verificado" />
                 </p>
 
                 <div class="produto-footer">
                   <p class="preco">R$10 <span>/dia</span></p>
-                  <img src="" alt="Estrela" />
+                  <img
+                    src="./src/images/estrela-semelhantes.png"
+                    alt="Estrela"
+                  />
                   <p class="nota">4.9</p>
                 </div>
               </div>
@@ -580,7 +609,10 @@
           <li>
             <article class="card-produto">
               <figure class="produto-foto">
-                <img src="" alt="Serra Circular Profissional" />
+                <img
+                  src="./src/images/serra-circular-profissional.png"
+                  alt="Serra Circular Profissional"
+                />
               </figure>
 
               <div class="produto-info">
@@ -588,12 +620,15 @@
 
                 <p>
                   JB Ferramentas
-                  <img src="" alt="Verificado" />
+                  <img src="./src/images/verificado.png" alt="Verificado" />
                 </p>
 
                 <div class="produto-footer">
                   <p class="preco">R$25 <span>/dia</span></p>
-                  <img src="" alt="Estrela" />
+                  <img
+                    src="./src/images/estrela-semelhantes.png"
+                    alt="Estrela"
+                  />
                   <p class="nota">4.8</p>
                 </div>
               </div>
@@ -604,7 +639,10 @@
           <li>
             <article class="card-produto">
               <figure class="produto-foto">
-                <img src="" alt="Lixadeira Orbital" />
+                <img
+                  src="./src/images/lixadeira-orbital.png"
+                  alt="Lixadeira Orbital"
+                />
               </figure>
 
               <div class="produto-info">
@@ -612,12 +650,15 @@
 
                 <p>
                   JB Ferramentas
-                  <img src="" alt="Verificado" />
+                  <img src="./src/images/verificado.png" alt="Verificado" />
                 </p>
 
                 <div class="produto-footer">
                   <p class="preco">R$15 <span>/dia</span></p>
-                  <img src="" alt="Estrela" />
+                  <img
+                    src="./src/images/estrela-semelhantes.png"
+                    alt="Estrela"
+                  />
                   <p class="nota">4.9</p>
                 </div>
               </div>
@@ -628,7 +669,10 @@
           <li>
             <article class="card-produto">
               <figure class="produto-foto">
-                <img src="" alt="Serra Circular Profissional" />
+                <img
+                  src="./src/images/serra-circular-profissional.png"
+                  alt="Serra Circular Profissional"
+                />
               </figure>
 
               <div class="produto-info">
@@ -636,12 +680,15 @@
 
                 <p>
                   JB Ferramentas
-                  <img src="" alt="Verificado" />
+                  <img src="./src/images/verificado.png" alt="Verificado" />
                 </p>
 
                 <div class="produto-footer">
                   <p class="preco">R$25 <span>/dia</span></p>
-                  <img src="" alt="Estrela" />
+                  <img
+                    src="./src/images/estrela-semelhantes.png"
+                    alt="Estrela"
+                  />
                   <p class="nota">4.8</p>
                 </div>
               </div>
