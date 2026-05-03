@@ -18,54 +18,239 @@
             <button class="menu-btn">
               <img src="./src/images/menuHamburguer.png" alt="Menu" />
             </button>
-
             <a href="./principalPage.html" class="logo">
               <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
               LOCATEM
             </a>
           </div>
-
           <!-- DIREITA -->
           <a href="#" class="carrinho-btn">
             <img src="./src/images/carrinho.png" alt="Carrinho" />
             <span class="quantidade-carrinho">2</span>
           </a>
         </div>
-
         <!-- Barra de pesquisa -->
         <form class="barra-pesquisa-mobile">
           <img src="./src/images/lupa.png" alt="Buscar" />
           <input
             type="search"
-            placeholder="Qual ferramenta você precisa hoje?"
+            placeholder="Buscar ferramentas..."
             aria-label="Pesquisar ferramentas"
           />
         </form>
       </header>
-    </div>
-
-    <main>
-      <section class="produto">
-        <!-- CARROSSEL DE IMAGENS -->
-        <div class="carrossel-produto">
-          <!-- BOTÃO DE FAVORITAR -->
-          <button class="btn-favoritar">
-            <img src="./src/images/favoritar.png" alt="Favoritar" />
-          </button>
-
-          <!-- CARROSSEL -->
-          <div class="carrossel">
-            <!-- BOTÃO ANTERIOR -->
-            <button class="btn-anterior">
+      <main>
+        <section class="produto">
+          <!-- CARROSSEL DE IMAGENS -->
+          <div class="carrossel-produto">
+            <!-- BOTÃO DE FAVORITAR -->
+            <button class="btn-favoritar">
+              <img src="./src/images/favoritar.png" alt="Favoritar" />
+            </button>
+            <!-- CARROSSEL -->
+            <div class="carrossel">
+              <!-- BOTÃO ANTERIOR -->
+              <button class="btn-anterior">
+                <svg
+                  width="7"
+                  height="12"
+                  viewBox="0 0 7 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.7002 0.899902L0.900195 5.6999L5.7002 10.4999"
+                    stroke="#6B7280"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="carrossel-container">
+                <!-- LISTA DE IMAGENS -->
+                <ul class="carrossel-lista">
+                  <li class="carrossel-item ativo">
+                    <img
+                      src="./src/images/img-carrossel-1.png"
+                      alt="Parafusadeira"
+                    />
+                  </li>
+                  <li class="carrossel-item">
+                    <img
+                      src="./src/images/img-carrossel-2.png"
+                      alt="Parafusadeira"
+                    />
+                  </li>
+                  <li class="carrossel-item">
+                    <img src="./src/images/img-carrossel-3.png" alt="" />
+                  </li>
+                </ul>
+              </div>
+              <!-- BOTÃO PRÓXIMO  -->
+              <button class="btn-proximo">
+                <svg
+                  width="7"
+                  height="12"
+                  viewBox="0 0 7 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.899902 0.899902L5.6999 5.6999L0.899902 10.4999"
+                    stroke="#6B7280"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="indicadores">
+              <div class="circulos">
+                <div class="circulo ativo"></div>
+                <div class="circulo"></div>
+                <div class="circulo"></div>
+              </div>
+            </div>
+          </div>
+          <!-- DESCRIÇÃO DO PRODUTO -->
+          <div class="descricao-produto">
+            <h1>
+              Furadeira Parafusadeira Sem Fio A Bateria 10mm Com Maleta E
+              Acessórios The Black Tools
+            </h1>
+            <!-- PARTE DE AVALIAÇÃO -->
+            <div class="avaliacao">
               <svg
-                width="7"
-                height="12"
-                viewBox="0 0 7 12"
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M5.7002 0.899902L0.900195 5.6999L5.7002 10.4999"
+                  d="M2.86875 14.25L4.0875 8.98125L0 5.4375L5.4 4.96875L7.5 0L9.6 4.96875L15 5.4375L10.9125 8.98125L12.1313 14.25L7.5 11.4563L2.86875 14.25Z"
+                  fill="black"
+                />
+              </svg>
+              <p>
+                4.8
+                <span>(120 avaliações)</span>
+              </p>
+            </div>
+            <p>
+              R$15
+              <span>/dia</span>
+            </p>
+          </div>
+          <!-- VOLTAGEM -->
+          <div class="voltagem">
+            <button class="btn-voltagem">127V</button>
+            <button class="btn-voltagem">220V</button>
+            <button class="btn-voltagem">Bivolt</button>
+          </div>
+          <!-- TEMPO + QUANTIDADE -->
+          <div class="container-seletores">
+            <div class="seletor-item">
+              <label for="tempo" class="label-btn">Tempo:</label>
+              <div class="select-wrapper">
+                <select name="tempo" id="tempo">
+                  <option value="">Selecione</option>
+                  <option value="1">1 Dia (R$15)</option>
+                  <option value="2">2 Dias (R$30)</option>
+                  <option value="7">1 Semana (R$105)</option>
+                </select>
+                <button class="btn-tempo" tabindex="-1" aria-hidden="true">
+                  <svg
+                    width="12"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.899902 0.899902L5.6999 5.6999L10.4999 0.899902"
+                      stroke="#6B7280"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="seletor-item">
+              <label for="quantidade" class="label-btn">Quantidade:</label>
+              <div class="controle-grupo controle-unidade">
+                <button
+                  class="btn-controle"
+                  aria-label="Diminuir"
+                  data-action="decrement"
+                >
+                  −
+                </button>
+                <span class="controle-valor">1</span>
+                <button
+                  class="btn-controle"
+                  aria-label="Aumentar"
+                  data-action="increment"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--======== LOJA======== -->
+        <section class="loja-produto">
+          <!-- IMAGEM -->
+          <figure class="logo-loja">
+            <img src="" alt="Logo da Loja" />
+          </figure>
+          <!-- NOME E AVALIAÇÃO DA LOJA -->
+          <div class="nome-loja">
+            <h2>HomeFix Pro Store</h2>
+            <!-- DIV -criada para adicionar svg da estrela -->
+            <div class="avaliacao-loja">
+              <svg
+                width="14"
+                height="13"
+                viewBox="0 0 14 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                  fill="#705D00"
+                />
+              </svg>
+              <p>
+                4.9
+                <span>Locador Verificado</span>
+              </p>
+            </div>
+          </div>
+          <!-- ICONE LOJA -->
+          <a href="./perfil-loja.html" class="btn-ir-loja">
+            <img src="./src/images/icon-loja.png" alt="Ver loja" />
+          </a>
+        </section>
+        <!-- ========DESCRIÇÃO========-->
+        <section class="descricao-produto card-secao">
+          <header class="descricao-cabecalho">
+            <h2>Descrição</h2>
+            <button class="btn-expandir aberto">
+              <svg
+                width="12"
+                height="7"
+                viewBox="0 0 12 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.899902 5.7002L5.6999 0.900195L10.4999 5.7002"
                   stroke="#6B7280"
                   stroke-width="1.8"
                   stroke-linecap="round"
@@ -73,629 +258,413 @@
                 />
               </svg>
             </button>
+          </header>
+          <div class="descricao-conteudo">
+            <p>
+              Ideal para uso doméstico e profissional leve. Perfeita para
+              montagem de móveis, instalações e pequenos reparos. Compacta,
+              potente e fácil de manusear — resolve o problema sem complicação.
+            </p>
+          </div>
+        </section>
+        <!--======== ESPECIFICAÇÕES TECNICAS ======== -->
+<section class="especificacoes-produto card-secao">
+  <header class="especificacoes-cabecalho">
+    <h2>Especificações Técnicas</h2>
+    <button type="button" class="btn-expandir aberto">
+      <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.899902 5.7002L5.6999 0.900195L10.4999 5.7002"
+          stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </header>
 
-            <div class="carrossel-container">
-              <!-- LISTA DE IMAGENS -->
-              <ul class="carrossel-lista">
-                <li class="carrossel-item ativo">
-                  <img
-                    src="./src/images/img-carrossel-1.png"
-                    alt="Parafusadeira"
+  <div class="especificacoes-conteudo">
+    <dl class="lista-especificacoes">
+      <div>
+        <dt>Potência de saída</dt>
+        <dd>Bateria de íon-lítio de 18V máx</dd>
+      </div>
+      <div>
+        <dt>Torque máximo</dt>
+        <dd>65 Nm</dd>
+      </div>
+      <div>
+        <dt>Tamanho do mandril</dt>
+        <dd>13mm Sem chave</dd>
+      </div>
+      <div>
+        <dt>Acessórios incluídos</dt>
+        <dd>2 baterias, carregador, estojo rígido, conjunto de 10 bits</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+        <!--========AVALIAÇÕES======== -->
+        <section class="avaliacoes-produto">
+          <header>
+            <h2>Avaliações</h2>
+          </header>
+          <div class="avaliacoes-resumo">
+            <div class="nota-geral">
+              <span class="valor-nota">4.8</span>
+              <div class="estrelas-renderizadas">
+                <svg
+                  width="116"
+                  height="19"
+                  viewBox="0 0 116 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
+                    fill="#FFD700"
                   />
-                </li>
-                <li class="carrossel-item">
-                  <img
-                    src="./src/images/img-carrossel-2.png"
-                    alt="Parafusadeira"
+                  <path
+                    d="M27.825 19L29.45 11.975L24 7.25L31.2 6.625L34 0L36.8 6.625L44 7.25L38.55 11.975L40.175 19L34 15.275L27.825 19Z"
+                    fill="#FFD700"
                   />
-                </li>
-                <li class="carrossel-item">
-                  <img src="./src/images/img-carrossel-3.png" alt="" />
-                </li>
-              </ul>
+                  <path
+                    d="M51.825 19L53.45 11.975L48 7.25L55.2 6.625L58 0L60.8 6.625L68 7.25L62.55 11.975L64.175 19L58 15.275L51.825 19Z"
+                    fill="#FFD700"
+                  />
+                  <path
+                    d="M75.825 19L77.45 11.975L72 7.25L79.2 6.625L82 0L84.8 6.625L92 7.25L86.55 11.975L88.175 19L82 15.275L75.825 19Z"
+                    fill="#FFD700"
+                  />
+                  <path
+                    d="M109.15 14.85L108.325 11.25L111.1 8.85L107.45 8.525L106 5.125V12.925L109.15 14.85ZM99.825 19L101.45 11.975L96 7.25L103.2 6.625L106 0L108.8 6.625L116 7.25L110.55 11.975L112.175 19L106 15.275L99.825 19Z"
+                    fill="#FFD700"
+                  />
+                </svg>
+              </div>
+              <p>120 avaliações</p>
             </div>
-
-            <!-- BOTÃO PRÓXIMO  -->
-            <button class="btn-proximo">
-              <svg
-                width="7"
-                height="12"
-                viewBox="0 0 7 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.899902 0.899902L5.6999 5.6999L0.899902 10.4999"
-                  stroke="#6B7280"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+            <!-- GRAFICO DE AVALIAÇÕES -->
+            <ul class="avaliacoes-grafico">
+              <li>
+                <span>5</span>
+                <div class="barra-fundo">
+                  <div class="barra-preenchimento"></div>
+                </div>
+              </li>
+              <li>
+                <span>4</span>
+                <div class="barra-fundo">
+                  <div class="barra-preenchimento"></div>
+                </div>
+              </li>
+              <li>
+                <span>3</span>
+                <div class="barra-fundo">
+                  <div class="barra-preenchimento"></div>
+                </div>
+              </li>
+              <li>
+                <span>2</span>
+                <div class="barra-fundo">
+                  <div class="barra-preenchimento"></div>
+                </div>
+              </li>
+              <li>
+                <span>1</span>
+                <div class="barra-fundo">
+                  <div class="barra-preenchimento"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- COMENTARIOS DOS USUÁRIOS -->
+          <div class="lista-comentarios">
+            <!-- PRIMEIRO COMENTÁRIO -->
+            <article class="comentario">
+              <header class="comentario-topo">
+                <img src="" alt="Foto de João Silva" />
+                <div class="comentario-usuario">
+                  <h3>João Silva</h3>
+                  <div class="estrelas">
+                    <svg
+                      width="75"
+                      height="13"
+                      viewBox="0 0 75 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
+                        fill="#FFD700"
+                      />
+                    </svg>
+                  </div>
+                  <time datetime="2026-04-29">Há 2 dias</time>
+                </div>
+              </header>
+              <p>
+                Furadeira muito boa, usei pra montar um guarda-roupa inteiro.
+                Super potente e a bateria durou o projeto todo.
+              </p>
+              <div class="feedback-util">
+                <button type="button" class="btn-util">
+                  <img src="./src/images/foi-util.png" alt="Foi útil?" />
+                  Foi útil?
+                </button>
+                <span class="contagem-util">12 pessoas acharam util</span>
+              </div>
+            </article>
+            <!-- SEGUNDO COMENTÁRIO -->
+            <article class="comentario">
+              <header class="comentario-topo">
+                <img src="" alt="Foto de Maria Souza" />
+                <div class="comentario-usuario">
+                  <h3>Maria Souza</h3>
+                  <div class="estrelas">
+                    <svg
+                      width="75"
+                      height="13"
+                      viewBox="0 0 75 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
+                        fill="#FFD700"
+                      />
+                    </svg>
+                  </div>
+                  <time datetime="2026-04-24">Há 1 semana</time>
+                </div>
+              </header>
+              <div class="comentario-conteudo">
+                <p>
+                  Equipamento em perfeito estado. O atendimento na retirada foi
+                  excelente também.
+                </p>
+                <img
+                  src="./src/images/foto-comentario-3.png"
+                  alt="Foto da furadeira"
                 />
-              </svg>
-            </button>
+              </div>
+              <div class="feedback-util">
+                <button type="button" class="btn-util">
+                  <img src="./src/images/foi-util.png" alt="Foi útil?" />
+                  Foi útil?
+                </button>
+                <span class="contagem-util">5 pessoas acharam util</span>
+              </div>
+            </article>
+            <!-- TERCEIRO COMENTÁRIO -->
+            <article class="comentario">
+              <header class="comentario-topo">
+                <img
+                  src="./src/images/foto-pedro-Oliveira.jpg"
+                  alt="Foto de Pedro Oliveira"
+                />
+                <div class="comentario-usuario">
+                  <h3>Pedro Oliveira</h3>
+                  <div class="estrelas">
+                    <svg
+                      width="75"
+                      height="13"
+                      viewBox="0 0 75 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
+                        fill="#FFD700"
+                      />
+                    </svg>
+                  </div>
+                  <time datetime="2026-04-17">Há 2 semanas</time>
+                </div>
+              </header>
+              <p>Máquina cumpriu o prometido para o uso. Recomendo.</p>
+              <div class="feedback-util">
+                <button type="button" class="btn-util">
+                  <img src="./src/images/foi-util.png" alt="Foi útil?" />
+                  Foi útil?
+                </button>
+                <span class="contagem-util">2 pessoas acharam util</span>
+              </div>
+            </article>
           </div>
-
-          <div class="indicadores">
-            <div class="circulos">
-              <div class="circulo ativo"></div>
-              <div class="circulo"></div>
-              <div class="circulo"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DESCRIÇÃO DO PRODUTO -->
-        <div class="descricao-produto">
-          <h1>
-            Furadeira Parafusadeira Sem Fio A Bateria 10mm Com Maleta E
-            Acessórios The Black Tools
-          </h1>
-
-          <!-- PARTE DE AVALIAÇÃO -->
-          <div class="avaliacao">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.86875 14.25L4.0875 8.98125L0 5.4375L5.4 4.96875L7.5 0L9.6 4.96875L15 5.4375L10.9125 8.98125L12.1313 14.25L7.5 11.4563L2.86875 14.25Z"
-                fill="black"
-              />
-            </svg>
-            <p>4.8 <span>(120 avaliações)</span></p>
-          </div>
-
-          <p>R$15 <span>/dia</span></p>
-        </div>
-
-        <!-- VOLTAGEM -->
-        <div class="voltagem">
-          <button class="btn-voltagem">127V</button>
-          <button class="btn-voltagem">220V</button>
-          <button class="btn-voltagem">Bivolt</button>
-        </div>
-
-        <!-- TEMPO + QUANTIDADE -->
-        <div>
-          <div class="tempo">
-            <label for="tempo" class="tempo-label">Tempo:</label>
-
-            <select name="tempo" id="tempo">
-              <option value="">Selecione</option>
-              <option value="1">1 Dia (R$15)</option>
-              <option value="2">2 Dias (R$30)</option>
-              <option value="7">1 Semana (R$105)</option>
-            </select>
-          </div>
-
-          <div class="quantidade">
-            <span>Quantidade:</span>
-
-            <!-- BOTÃO MENOS -->
-            <button class="btn-menos">-</button>
-
-            <input type="text" value="1" min="1" class="quantidade-input" />
-
-            <!-- BOTÃO ADICIONAR -->
-            <button class="btn-adicionar">+</button>
-          </div>
-        </div>
-      </section>
-
-      <!--======== LOJA======== -->
-      <section class="loja-produto">
-        <!-- IMAGEM -->
-        <figure class="logo-loja">
-          <img src="" alt="Logo da Loja" />
-        </figure>
-
-        <!-- NOME E AVALIAÇÃO DA LOJA -->
-        <div class="nome-loja">
-          <h2>HomeFix Pro Store</h2>
-
-          <!-- DIV -criada para adicionar svg da estrela -->
-          <div class="avaliacao-loja">
-            <svg
-              width="14"
-              height="13"
-              viewBox="0 0 14 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
-                fill="#705D00"
-              />
-            </svg>
-
-            <p>4.9 <span>Locador Verificado</span></p>
-          </div>
-        </div>
-
-        <!-- ICONE LOJA -->
-        <a href="./perfil-loja.html" class="btn-ir-loja">
-          <img src="./src/images/icon-loja.png" alt="Ver loja" />
-        </a>
-      </section>
-
-      <!-- ========DESCRIÇÃO========-->
-      <section class="descricao-produto">
-        <header class="descricao-cabecalho">
-          <h2>Descrição</h2>
-
-          <button class="btn-expandir">
-            <svg
-              width="12"
-              height="7"
-              viewBox="0 0 12 7"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0.899902 5.7002L5.6999 0.900195L10.4999 5.7002"
-                stroke="#6B7280"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+          <!-- BOTÃO VER MAIS DE AVALIAÇÕES -->
+          <button type="button" class="btn-ver-mais">
+            <span>Ver mais</span>
+            <img src="./src/images/seta-comentario.png" alt="seta" />
           </button>
-        </header>
-
-        <div class="descricao-conteudo">
-          <p>
-            Ideal para uso doméstico e profissional leve. Perfeita para montagem
-            de móveis, instalações e pequenos reparos. Compacta, potente e fácil
-            de manusear — resolve o problema sem complicação.
-          </p>
-        </div>
-      </section>
-
-      <!--======== ESPECIFICAÇÕES TECNICAS ======== -->
-      <section class="especificacoes-produto">
-        <header class="especificacoes-cabecalho">
-          <h2>Especificações Técnicas</h2>
-          <button type="button" class="btn-expandir">
-            <svg
-              width="12"
-              height="7"
-              viewBox="0 0 12 7"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0.899902 5.7002L5.6999 0.900195L10.4999 5.7002"
-                stroke="#6B7280"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </header>
-
-        <!-- CONTEUDO DE ESPECIFICAÇOES -->
-        <div class="especificacoes-conteudo">
-          <dl class="lista-especificacoes">
-            <div>
-              <dt>Potência de saída</dt>
-              <dd>Bateria de íon lítio de 18V máx</dd>
-            </div>
-
-            <div>
-              <dt>Torque máximo</dt>
-              <dd>45mm</dd>
-            </div>
-
-            <div>
-              <dt>Tamanho do mandril</dt>
-              <dd>13mm Sem chave</dd>
-            </div>
-
-            <div>
-              <dt>Acessórios incluidos</dt>
-              <dd>
-                2 baterias, carregador, estojo rígido, conjunto de 10 bits
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <!--========AVALIAÇÕES======== -->
-      <section class="avaliacoes-produto">
-        <header>
-          <h2>Avaliações</h2>
-        </header>
-
-        <div class="avaliacoes-resumo">
-          <div class="nota-geral">
-            <span class="valor-nota">4.8</span>
-            <div class="estrelas-renderizadas">
-              <svg
-                width="116"
-                height="19"
-                viewBox="0 0 116 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
-                  fill="#FFD700"
-                />
-                <path
-                  d="M27.825 19L29.45 11.975L24 7.25L31.2 6.625L34 0L36.8 6.625L44 7.25L38.55 11.975L40.175 19L34 15.275L27.825 19Z"
-                  fill="#FFD700"
-                />
-                <path
-                  d="M51.825 19L53.45 11.975L48 7.25L55.2 6.625L58 0L60.8 6.625L68 7.25L62.55 11.975L64.175 19L58 15.275L51.825 19Z"
-                  fill="#FFD700"
-                />
-                <path
-                  d="M75.825 19L77.45 11.975L72 7.25L79.2 6.625L82 0L84.8 6.625L92 7.25L86.55 11.975L88.175 19L82 15.275L75.825 19Z"
-                  fill="#FFD700"
-                />
-                <path
-                  d="M109.15 14.85L108.325 11.25L111.1 8.85L107.45 8.525L106 5.125V12.925L109.15 14.85ZM99.825 19L101.45 11.975L96 7.25L103.2 6.625L106 0L108.8 6.625L116 7.25L110.55 11.975L112.175 19L106 15.275L99.825 19Z"
-                  fill="#FFD700"
-                />
-              </svg>
-            </div>
-            <p>120 avaliações</p>
-          </div>
-
-          <!-- GRAFICO DE AVALIAÇÕES -->
-          <ul class="avaliacoes-grafico">
+        </section>
+        <!-- ========FERRAMENTAS SEMELHANTES======== -->
+        <section class="ferramentas-semelhantes">
+          <h3>Ferramentas semelhantes</h3>
+          <ul class="grid-produtos">
+            <!-- PARAFUSADEIRA DE IMPACTO -->
             <li>
-              <span>5</span>
-              <div class="barra-fundo">
-                <div class="barra-preenchimento"></div>
-              </div>
+              <article class="card-produto">
+                <figure class="produto-foto">
+                  <img
+                    src="./src/images/parafusadeira-wap.png"
+                    alt="Parafusadeira de Impacto"
+                  />
+                </figure>
+                <div class="produto-info">
+                  <h3>Parafusadeiras de Impacto</h3>
+                  <p>
+                    JB Ferramentas
+                    <img src="./src/images/verificado.png" alt="Verificado" />
+                  </p>
+                  <div class="produto-footer">
+                    <p class="preco">
+                      R$10
+                      <span>/dia</span>
+                    </p>
+                    <img
+                      src="./src/images/estrela-semelhantes.png"
+                      alt="Estrela"
+                    />
+                    <p class="nota">4.9</p>
+                  </div>
+                </div>
+              </article>
             </li>
-
+            <!-- SERRA CIRCULAR -->
             <li>
-              <span>4</span>
-              <div class="barra-fundo">
-                <div class="barra-preenchimento"></div>
-              </div>
+              <article class="card-produto">
+                <figure class="produto-foto">
+                  <img
+                    src="./src/images/serra-circular-profissional.png"
+                    alt="Serra Circular Profissional"
+                  />
+                </figure>
+                <div class="produto-info">
+                  <h3>Serra Circular Profissional</h3>
+                  <p>
+                    JB Ferramentas
+                    <img src="./src/images/verificado.png" alt="Verificado" />
+                  </p>
+                  <div class="produto-footer">
+                    <p class="preco">
+                      R$25
+                      <span>/dia</span>
+                    </p>
+                    <img
+                      src="./src/images/estrela-semelhantes.png"
+                      alt="Estrela"
+                    />
+                    <p class="nota">4.8</p>
+                  </div>
+                </div>
+              </article>
             </li>
-
+            <!-- LIXADEIRA ORBITAL -->
             <li>
-              <span>3</span>
-              <div class="barra-fundo">
-                <div class="barra-preenchimento"></div>
-              </div>
+              <article class="card-produto">
+                <figure class="produto-foto">
+                  <img
+                    src="./src/images/lixadeira-orbital.png"
+                    alt="Lixadeira Orbital"
+                  />
+                </figure>
+                <div class="produto-info">
+                  <h3>Lixadeira Orbital</h3>
+                  <p>
+                    JB Ferramentas
+                    <img src="./src/images/verificado.png" alt="Verificado" />
+                  </p>
+                  <div class="produto-footer">
+                    <p class="preco">
+                      R$15
+                      <span>/dia</span>
+                    </p>
+                    <img
+                      src="./src/images/estrela-semelhantes.png"
+                      alt="Estrela"
+                    />
+                    <p class="nota">4.9</p>
+                  </div>
+                </div>
+              </article>
             </li>
-
+            <!-- SERRA CIRCULAR -->
             <li>
-              <span>2</span>
-              <div class="barra-fundo">
-                <div class="barra-preenchimento"></div>
-              </div>
-            </li>
-
-            <li>
-              <span>1</span>
-              <div class="barra-fundo">
-                <div class="barra-preenchimento"></div>
-              </div>
+              <article class="card-produto">
+                <figure class="produto-foto">
+                  <img
+                    src="./src/images/serra-circular-profissional.png"
+                    alt="Serra Circular Profissional"
+                  />
+                </figure>
+                <div class="produto-info">
+                  <h3>Serra Circular Profissional</h3>
+                  <p>
+                    JB Ferramentas
+                    <img src="./src/images/verificado.png" alt="Verificado" />
+                  </p>
+                  <div class="produto-footer">
+                    <p class="preco">
+                      R$25
+                      <span>/dia</span>
+                    </p>
+                    <img
+                      src="./src/images/estrela-semelhantes.png"
+                      alt="Estrela"
+                    />
+                    <p class="nota">4.8</p>
+                  </div>
+                </div>
+              </article>
             </li>
           </ul>
-        </div>
-
-        <!-- COMENTARIOS DOS USUÁRIOS -->
-        <div class="lista-comentarios">
-          <!-- PRIMEIRO COMENTÁRIO -->
-          <article class="comentario">
-            <header class="comentario-topo">
-              <img src="" alt="Foto de João Silva" />
-
-              <div class="comentario-usuario">
-                <h3>João Silva</h3>
-                <div class="estrelas">
-                  <svg
-                    width="75"
-                    height="13"
-                    viewBox="0 0 75 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
-                      fill="#FFD700"
-                    />
-                  </svg>
-                </div>
-                <time datetime="2026-04-29">Há 2 dias</time>
-              </div>
-            </header>
-
-            <p>
-              Furadeira muito boa, usei pra montar um guarda-roupa inteiro.
-              Super potente e a bateria durou o projeto todo.
-            </p>
-
-            <div class="feedback-util">
-              <button type="button" class="btn-util">
-                <img src="./src/images/foi-util.png" alt="Foi útil?" />
-                Foi útil?
-              </button>
-
-              <span class="contagem-util">12 pessoas acharam util</span>
-            </div>
-          </article>
-
-          <!-- SEGUNDO COMENTÁRIO -->
-          <article class="comentario">
-            <header class="comentario-topo">
-              <img src="" alt="Foto de Maria Souza" />
-
-              <div class="comentario-usuario">
-                <h3>Maria Souza</h3>
-                <div class="estrelas">
-                  <svg
-                    width="75"
-                    height="13"
-                    viewBox="0 0 75 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
-                      fill="#FFD700"
-                    />
-                  </svg>
-                </div>
-                <time datetime="2026-04-24">Há 1 semana</time>
-              </div>
-            </header>
-
-            <div class="comentario-conteudo">
-              <p>
-                Equipamento em perfeito estado. O atendimento na retirada foi
-                excelente também.
-              </p>
-              <img
-                src="./src/images/foto-comentario-3.png"
-                alt="Foto da furadeira"
-              />
-            </div>
-
-            <div class="feedback-util">
-              <button type="button" class="btn-util">
-                <img src="./src/images/foi-util.png" alt="Foi útil?" />
-                Foi útil?
-              </button>
-              <span class="contagem-util">5 pessoas acharam util</span>
-            </div>
-          </article>
-
-          <!-- TERCEIRO COMENTÁRIO -->
-          <article class="comentario">
-            <header class="comentario-topo">
-              <img
-                src="./src/images/foto-pedro-Oliveira.jpg"
-                alt="Foto de Pedro Oliveira"
-              />
-
-              <div class="comentario-usuario">
-                <h3>Pedro Oliveira</h3>
-                <div class="estrelas">
-                  <svg
-                    width="75"
-                    height="13"
-                    viewBox="0 0 75 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.55 12.6667L3.63333 7.98333L0 4.83333L4.8 4.41667L6.66667 0L8.53333 4.41667L13.3333 4.83333L9.7 7.98333L10.7833 12.6667L6.66667 10.1833L2.55 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M17.8835 12.6667L18.9668 7.98333L15.3335 4.83333L20.1335 4.41667L22.0002 0L23.8668 4.41667L28.6668 4.83333L25.0335 7.98333L26.1168 12.6667L22.0002 10.1833L17.8835 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M33.2165 12.6667L34.2998 7.98333L30.6665 4.83333L35.4665 4.41667L37.3332 0L39.1998 4.41667L43.9998 4.83333L40.3665 7.98333L41.4498 12.6667L37.3332 10.1833L33.2165 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M48.55 12.6667L49.6333 7.98333L46 4.83333L50.8 4.41667L52.6667 0L54.5333 4.41667L59.3333 4.83333L55.7 7.98333L56.7833 12.6667L52.6667 10.1833L48.55 12.6667Z"
-                      fill="#FFD700"
-                    />
-                    <path
-                      d="M63.8835 12.6667L64.9668 7.98333L61.3335 4.83333L66.1335 4.41667L68.0002 0L69.8668 4.41667L74.6668 4.83333L71.0335 7.98333L72.1168 12.6667L68.0002 10.1833L63.8835 12.6667Z"
-                      fill="#FFD700"
-                    />
-                  </svg>
-                </div>
-                <time datetime="2026-04-17">Há 2 semanas</time>
-              </div>
-            </header>
-
-            <p>Máquina cumpriu o prometido para o uso. Recomendo.</p>
-
-            <div class="feedback-util">
-              <button type="button" class="btn-util">
-                <img src="./src/images/foi-util.png" alt="Foi útil?" />
-                Foi útil?
-              </button>
-              <span class="contagem-util">2 pessoas acharam util</span>
-            </div>
-          </article>
-        </div>
-
-        <!-- BOTÃO VER MAIS DE AVALIAÇÕES -->
-        <button type="button" class="btn-ver-mais">
-          <span>Ver mais</span>
-          <img src="./src/images/seta-comentario.png" alt="seta" />
-        </button>
-      </section>
-
-      <!-- ========FERRAMENTAS SEMELHANTES======== -->
-      <section class="ferramentas-semelhantes">
-        <header>
-          <h2>Ferramentas semelhantes</h2>
-        </header>
-
-        <ul class="grid-produtos">
-          <!-- PARAFUSADEIRA DE IMPACTO -->
-          <li>
-            <article class="card-produto">
-              <figure class="produto-foto">
-                <img
-                  src="./src/images/parafusadeira-wap.png"
-                  alt="Parafusadeira de Impacto"
-                />
-              </figure>
-
-              <div class="produto-info">
-                <h3>Parafusadeiras de Impacto</h3>
-
-                <p>
-                  JB Ferramentas
-                  <img src="./src/images/verificado.png" alt="Verificado" />
-                </p>
-
-                <div class="produto-footer">
-                  <p class="preco">R$10 <span>/dia</span></p>
-                  <img
-                    src="./src/images/estrela-semelhantes.png"
-                    alt="Estrela"
-                  />
-                  <p class="nota">4.9</p>
-                </div>
-              </div>
-            </article>
-          </li>
-
-          <!-- SERRA CIRCULAR -->
-          <li>
-            <article class="card-produto">
-              <figure class="produto-foto">
-                <img
-                  src="./src/images/serra-circular-profissional.png"
-                  alt="Serra Circular Profissional"
-                />
-              </figure>
-
-              <div class="produto-info">
-                <h3>Serra Circular Profissional</h3>
-
-                <p>
-                  JB Ferramentas
-                  <img src="./src/images/verificado.png" alt="Verificado" />
-                </p>
-
-                <div class="produto-footer">
-                  <p class="preco">R$25 <span>/dia</span></p>
-                  <img
-                    src="./src/images/estrela-semelhantes.png"
-                    alt="Estrela"
-                  />
-                  <p class="nota">4.8</p>
-                </div>
-              </div>
-            </article>
-          </li>
-
-          <!-- LIXADEIRA ORBITAL -->
-          <li>
-            <article class="card-produto">
-              <figure class="produto-foto">
-                <img
-                  src="./src/images/lixadeira-orbital.png"
-                  alt="Lixadeira Orbital"
-                />
-              </figure>
-
-              <div class="produto-info">
-                <h3>Lixadeira Orbital</h3>
-
-                <p>
-                  JB Ferramentas
-                  <img src="./src/images/verificado.png" alt="Verificado" />
-                </p>
-
-                <div class="produto-footer">
-                  <p class="preco">R$15 <span>/dia</span></p>
-                  <img
-                    src="./src/images/estrela-semelhantes.png"
-                    alt="Estrela"
-                  />
-                  <p class="nota">4.9</p>
-                </div>
-              </div>
-            </article>
-          </li>
-
-          <!-- SERRA CIRCULAR -->
-          <li>
-            <article class="card-produto">
-              <figure class="produto-foto">
-                <img
-                  src="./src/images/serra-circular-profissional.png"
-                  alt="Serra Circular Profissional"
-                />
-              </figure>
-
-              <div class="produto-info">
-                <h3>Serra Circular Profissional</h3>
-
-                <p>
-                  JB Ferramentas
-                  <img src="./src/images/verificado.png" alt="Verificado" />
-                </p>
-
-                <div class="produto-footer">
-                  <p class="preco">R$25 <span>/dia</span></p>
-                  <img
-                    src="./src/images/estrela-semelhantes.png"
-                    alt="Estrela"
-                  />
-                  <p class="nota">4.8</p>
-                </div>
-              </div>
-            </article>
-          </li>
-        </ul>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
