@@ -1,17 +1,21 @@
+/* ============================= */
+/* VARIÁVEIS GLOBAIS */
+/* Centraliza cores, espaçamentos e padrões visuais */
+/* ============================= */
 :root {
     /* CORES PRINCIPAIS */
-    --color-primary: #FFCA00;
-    --color-primary-light: #ffe97a;
-    --color-primary-soft: #fff6c7;
-    --color-secondary: #f0c000c0;
+    --color-primary: #FFCA00; /* Cor principal da marca */
+    --color-primary-light: #ffe97a; /* Variação mais clara (gradientes) */
+    --color-primary-soft: #fff6c7; /* Fundo suave */
+    --color-secondary: #f0c000c0; /* Hover / destaque */
 
     /* BACKGROUNDS */
-    --color-bg-main: #F9FAFB;
-    --color-bg-card: #ffffff;
-    --color-bg-btn: #D5ECFF;
+    --color-bg-main: #F9FAFB; /* Fundo geral da aplicação */
+    --color-bg-card: #ffffff; /* Fundo dos cards */
+    --color-bg-btn: #D5ECFF; /* Fundo de botões secundários */
 
     /* TEXTOS */
-    --color-text-dark: #0A0A0A;
+    --color-text-dark: #0A0A0A; /* Texto principal */
     --color-text-secondary: #8e8e93;
     --color-text-terciary: #4A5565;
     --color-text-quartiary: #6A7282;
@@ -19,17 +23,30 @@
     --color-text-desativado: #A0A0A0;
     --color-text-btn: #3A83FA;
 
-    /* BORDAS */
+    /* BORDER / RADIUS */
     --color-border-card: #e5e7eb;
     --color-linha-divisoria: #a0a0a09a;
-    --card-radius: 14px;
+
+    --radius-sm: 6px; /* Radius base (escala pequena → média → grande) */
+    --radius-md: 8px;/* Elementos pequenos (inputs, controles) */
+    --radius-lg: 12px; /* Botões e campos padrão */
+
+    /* Radius semântico (uso específico) */
+    --radius-card: 14px; /* Cards principais */
+    --radius-btn: var(--radius-md); /* Botões padrão */
+    --radius-input: var(--radius-md); /* Inputs */
+    --radius-control: var(--radius-sm); /* Controles (+ / -) */
+    --radius-pill: 999px; /* Totalmente arredondado (badge, search) */
+    
 
     /* SOMBRAS */
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra leve padrão */
+    --shadow-search: 0 4px 4px rgba(0, 0, 0, 0.145); /* Sobra padrão da barra de pesquisa */
 }
 
 /* ============================= */
 /* BASE GERAL */
+/* Define comportamento global do layout */
 /* ============================= */
 
 body {
@@ -40,6 +57,8 @@ body {
 .app {
     width: 100%;
     min-height: 100vh;
+
+    /* Gradiente do topo (identidade visual LOCATEM) */
     background: linear-gradient(to bottom,
             var(--color-primary) 0%,
             var(--color-primary-light) 4%,
@@ -49,25 +68,26 @@ body {
 
 /* ============================= */
 /* HEADER MOBILE */
+/* Layout principal para telas pequenas */
 /* ============================= */
 
-.header-desktop {
-    display: none;
-}
-
+.header-desktop,
 .menu-navegacao-desktop {
     display: none;
+    /* Esconde desktop no mobile (mobile-first) */
 }
 
+/* Container do header mobile */
 .header-mobile {
     width: 100%;
     padding: 22px 20px 34px;
+
     display: flex;
     flex-direction: column;
     gap: 26px;
 }
 
-/* Linha com menu, logo e carrinho */
+/* Linha topo (menu + logo + carrinho) */
 .linha-topo-mobile {
     width: 100%;
     display: flex;
@@ -75,7 +95,7 @@ body {
     justify-content: space-between;
 }
 
-/* AGRUPA MENU + LOGO */
+/* Agrupa botão menu + logo */
 .lado-esquerdo {
     display: flex;
     align-items: center;
@@ -91,9 +111,12 @@ body {
     display: flex;
     align-items: center;
     gap: 7px;
+
     color: var(--color-text-dark);
     text-decoration: none;
+
     font-size: clamp(16px, 4vw, 20px);
+    /* Responsivo */
     font-weight: 750;
     letter-spacing: -0.5px;
 }
@@ -101,6 +124,7 @@ body {
 .logo img {
     height: 30px;
     object-fit: contain;
+    /* Mantém proporção */
 }
 
 /* ============================= */
@@ -111,14 +135,18 @@ body {
 .carrinho-btn {
     width: 42px;
     height: 42px;
+
     border: none;
     background: transparent;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
 }
 
+/* Ícones internos */
 .menu-btn img,
 .carrinho-btn img {
     width: 25px;
@@ -126,24 +154,30 @@ body {
     object-fit: contain;
 }
 
-/* Carrinho com badge */
+/* Carrinho com badge (quantidade) */
 .carrinho-btn {
     position: relative;
     text-decoration: none;
 }
 
+/* Bolinha de quantidade */
 .quantidade-carrinho {
     position: absolute;
     top: -4px;
     right: 0;
+
     min-width: 18px;
     height: 18px;
     padding: 0 5px;
-    border-radius: 999px;
+
+    border-radius: var(--radius-pill);
+
     background-color: var(--color-secondary);
     color: var(--color-text-dark);
+
     font-size: clamp(10px, 2.5vw, 12px);
     font-weight: 800;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,35 +190,40 @@ body {
 .barra-pesquisa-mobile {
     width: 100%;
     height: 54px;
+
     background-color: var(--color-bg-card);
-    border-radius: 999px;
+    box-shadow: var(--shadow-search);
+    border-radius: var(--radius-pill);
+
     padding: 0 20px;
+
     display: flex;
     align-items: center;
     gap: 12px;
-    box-shadow: var(--shadow-search);
 }
 
 .barra-pesquisa-mobile img {
     width: 22px;
     height: 22px;
     opacity: 0.65;
+    /* Ícone mais sutil */
 }
 
 .barra-pesquisa-mobile input {
-    width: 100%;
+    flex: 1;
+
     border: none;
     outline: none;
     background: transparent;
-    color: var(--color-text-dark);
+    color: var(--color-text-muted);
+
     font-size: clamp(14px, 3.5vw, 16px);
 }
 
-.barra-pesquisa-mobile input::placeholder {
-    color: var(--color-text-muted);
-}
 
-/* ── Layout principal ── */
+/* ============================= */
+/* MAIN (ÁREA PRINCIPAL) */
+/* ============================= */
 .main-mobile {
     width: 100%;
     min-height: 100vh;
@@ -221,21 +260,14 @@ body {
 }
 
 /* ============================= */
-/* CONTAINER CHECKOUT            */
-/* ============================= */
-.checkout-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* ============================= */
-/* CARD BASE                     */
+/* CARD BASE */
+/* Componente reutilizável */
 /* ============================= */
 .card {
     background-color: var(--color-bg-card);
-    border-radius: var(--card-radius);
+    border-radius: var(--radius-card);
     box-shadow: var(--card-shadow);
+
     padding: 18px 16px;
     margin: 0 0 15px;
 }
@@ -243,12 +275,6 @@ body {
 /* ============================= */
 /* GRUPO DE LOJA                 */
 /* ============================= */
-.grupo-loja {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    overflow: hidden;
-}
 
 /* Cabeçalho do grupo (nome da loja) */
 .grupo-loja-header {
@@ -287,8 +313,10 @@ body {
 }
 
 /* ============================= */
-/* CARD PRODUTO                  */
+/* PRODUTO */
 /* ============================= */
+
+/* Container do produto */
 .card-produto {
     display: flex;
     flex-direction: column;
@@ -296,26 +324,23 @@ body {
     padding: 16px 18px;
 }
 
-.card-produto:last-child {
-    border-bottom: none;
-}
-
-/* Linha superior: imagem + infos + lixeira */
+/* Linha principal: imagem + infos + lixeira */
 .produto-linha-topo {
     display: flex;
-    align-items: flex-start;
     gap: 12px;
 }
 
+/* Imagem do produto */
 .produto-imagem {
     width: 72px;
     height: 72px;
-    border-radius: 10px;
-    object-fit: unset;
+    border-radius: var(--radius-btn);
+
     flex-shrink: 0;
-    background-color: #f0f0f0;
+    /* Impede encolher */
 }
 
+/* Infos do produto */
 .produto-infos {
     flex: 1;
     display: flex;
@@ -323,34 +348,33 @@ body {
     gap: 3px;
 }
 
-.produto-nome-row {
+/* Nome + botão lixeira */
+.produto_nome-row {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     gap: 8px;
 }
 
-.produto-nome {
+.produto_nome {
     font-size: 0.9375rem;
     font-weight: 700;
     color: var(--color-text-dark);
 }
 
-/* Botão lixeira */
+/* Botão remover */
 .btn-lixeira {
     background: transparent;
     border: none;
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
+
     opacity: 0.5;
     transition: opacity .2s;
+
     cursor: pointer;
 }
 
 .btn-lixeira:hover {
     opacity: 1;
+    /* Feedback visual */
 }
 
 .btn-lixeira img {
@@ -364,7 +388,7 @@ body {
 }
 
 /* Container que deixa o detalhe na esquerda e o total na direita */
-.produto-valores-row {
+.produto_valores {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -372,64 +396,69 @@ body {
     margin-top: 2px;
 }
 
-.produto-preco-detalhe {
+.produto_preco {
     font-size: 0.875rem;
     color: var(--color-text-terciary);
 }
 
-.produto-total {
+.produto_total {
     font-size: 0.875rem;
     font-weight: 700;
     color: var(--color-text-dark);
 }
 
+
 /* ============================= */
-/* CONTROLES DE DIAS E UNIDADES  */
+/* CONTROLES (DIAS / UNIDADES) */
 /* ============================= */
 .produto-controles {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: nowrap;
-    /* impede quebra de linha */
+
     overflow-x: auto;
+    /* Scroll horizontal se necessário */
 }
 
-/* Grupo dias */
+/* Grupo de controle (+ / -) */
 .controle-grupo {
     display: flex;
     align-items: center;
+
     border: 1px solid var(--color-border-card);
-    border-radius: 6px;
+    border-radius: var(--radius-control);
+
     overflow: hidden;
     height: 30px;
-    flex-shrink: 0;
 }
 
-/* Botões sem borda individual */
+/* Botões */
 .btn-controle {
     width: 20px;
     height: 100%;
+
     border: none;
     background: transparent;
-    font-size: 0.9375rem;
-    font-weight: 500;
     color: var(--color-text-dark);
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
-    flex-shrink: 0;
+
     transition: background .15s;
 }
 
 /* Valor central */
 .controle-valor {
     padding: 0 5px;
+    height: 100%;
+
     font-size: 0.8125rem;
     font-weight: 600;
     color: var(--color-text-dark);
-    height: 100%;
+
     display: flex;
     align-items: center;
 }
@@ -457,15 +486,17 @@ body {
 /* ============================= */
 .card-resumo {
     padding: 22px 20px 20px;
+    gap: 0;
+
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
 .card-resumo h3 {
     font-size: 1.0625rem;
     font-weight: 700;
     color: var(--color-text-dark);
+
     margin-bottom: 16px;
 }
 
@@ -474,6 +505,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     margin-bottom: 16px;
 }
 
@@ -494,14 +526,6 @@ body {
     margin: 0 0 16px;
 }
 
-/* Calcular frete */
-.resumo-secao-titulo {
-    font-size: 0.9375rem;
-    font-weight: 400;
-    color: var(--color-text-terciary);
-    margin-bottom: 10px;
-}
-
 /* Campo CEP */
 .linha-cep {
     display: flex;
@@ -511,23 +535,27 @@ body {
 }
 
 .campo-cep {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--color-border-card);
-    border-radius: 10px;
     padding: 4px;
     height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-btn);
     background: var(--color-bg-card);
 }
 
 .input-cep {
     flex: 1;
     height: 100%;
+    padding-left: 10px;
+
+    font-size: 0.875rem;
+
     border: none;
     outline: none;
     background: transparent;
-    font-size: 0.875rem;
-    padding-left: 10px;
 }
 
 .input-cep::placeholder {
@@ -537,15 +565,19 @@ body {
 .btn-usar {
     height: 100%;
     padding: 0 14px;
-    border-radius: 8px;
+
+    border-radius: var(--radius-btn);
     border: none;
     background: var(--color-bg-btn);
+
     color: var(--color-text-btn);
     font-size: 0.8125rem;
     font-weight: 600;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     white-space: nowrap;
     cursor: pointer;
     transition: background .2;
@@ -562,13 +594,16 @@ body {
 .campo-cupom {
     display: flex;
     align-items: center;
+
     gap: 8px;
-    border: 1px solid var(--color-border-card);
-    border-radius: 8px;
-    padding: 0 8px 0 14px;
     height: 44px;
+    padding: 0 5px 0 14px;
     margin-bottom: 20px;
+
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-input);
     background: var(--color-bg-card);
+
     transition: border-color .2s;
 }
 
@@ -581,8 +616,8 @@ body {
 .input-cupom {
     flex: 1;
     border: none;
-    outline: none;
     background: transparent;
+    outline: none;
     font-size: 0.875rem;
 }
 
@@ -591,16 +626,26 @@ body {
 }
 
 .btn-aplicar {
-    height: 30px;
-    padding: 0 16px;
-    border-radius: 8px;
+    height: 35px;
+    padding: 0 14px;
+
+    border-radius: var(--radius-btn);
     border: none;
     background: var(--color-bg-btn);
+
     color: var(--color-text-btn);
     font-size: 0.875rem;
     font-weight: 600;
+
     white-space: nowrap;
     transition: background .2s;
+    cursor: pointer;
+}
+
+.btn-remover-cupom{
+    color: red;
+    border: none;
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -625,25 +670,32 @@ body {
     letter-spacing: -0.5px;
 }
 
-/* Botão Continuar para Pagamento */
+/* ============================= */
+/* BOTÃO PRINCIPAL (PAGAMENTO) */
+/* ============================= */
 .btn-pagamento {
     width: 100%;
     height: 54px;
+
     border: none;
-    border-radius: 10px;
+    border-radius: var(--radius-btn);
+
     background-color: var(--color-primary);
     color: var(--color-text-dark);
+
     font-size: 1rem;
     font-weight: 700;
-    letter-spacing: -0.2px;
+
     transition: background .2s, transform .1s;
     cursor: pointer;
 }
 
+/* Hover */
 .btn-pagamento:hover {
     background-color: var(--color-secondary);
 }
 
+/* Clique */
 .btn-pagamento:active {
     transform: scale(.98);
 }
@@ -686,13 +738,13 @@ body {
         height: 60px;
     }
 
-    .produto-valores-row {
+    .produto_valores {
         flex-direction: column;
         align-items: start;
         gap: 2px;
     }
 
-    .produto-total {
+    .produto_total {
         font-size: 0.8125rem;
     }
 
@@ -772,7 +824,7 @@ body {
         padding: 0 5px;
     }
 
-    .btn-pagamento{
+    .btn-pagamento {
         font-size: 1rem;
     }
 }
@@ -839,7 +891,7 @@ body {
         align-items: center;
         gap: 10px;
         background: var(--color-bg-card);
-        border-radius: 999px;
+        border-radius: var(--radius-pill);
         padding: 0 20px;
         margin: 0 32px;
         box-shadow: var(--shadow-search);
@@ -968,10 +1020,10 @@ body {
     .produto-imagem {
         width: 90px;
         height: 90px;
-        border-radius: 12px;
+        border-radius: var(--radius-lg);
     }
 
-    .produto-nome {
+    .produto_nome {
         font-size: 0.9375rem;
     }
 
@@ -994,15 +1046,12 @@ body {
     /* CEP + link na mesma linha (sem quebra) */
     .linha-cep {
         flex-wrap: nowrap;
+        white-space: nowrap;
         gap: 8px;
     }
 
     .campo-cep {
         min-width: 0;
-    }
-
-    .link-cep {
-        white-space: nowrap;
     }
 
     .resumo-total strong {
@@ -1011,7 +1060,7 @@ body {
 
     .btn-pagamento {
         height: 54px;
-        border-radius: 10px;
+        border-radius: var(--radius-btn);
         font-size: 1rem;
     }
 

@@ -19,32 +19,26 @@
 
 <body>
     <div class="app">
+
         <!-- ============== -->
-        <!-- HEADER MOBILE -->
+        <!-- HEADER MOBILE  -->
         <!-- ============== -->
         <header class="header-mobile">
-            <!-- LINHA SUPERIOR -->
             <div class="linha-topo-mobile">
-                <!-- AGRUPAMENTO ESQUERDO -->
                 <div class="lado-esquerdo">
                     <button class="menu-btn">
                         <img src="./src/images/menuHamburguer.png" alt="Menu" />
                     </button>
-
                     <a href="./principalPage.html" class="logo">
                         <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
                         LOCATEM
                     </a>
                 </div>
-
-                <!-- DIREITA -->
                 <a href="#" class="carrinho-btn">
                     <img src="./src/images/carrinho.svg" alt="Carrinho" />
                     <span class="quantidade-carrinho">2</span>
                 </a>
             </div>
-
-            <!-- Barra de pesquisa -->
             <form class="barra-pesquisa-mobile">
                 <img src="./src/images/lupa.png" alt="Buscar" />
                 <input type="search" placeholder="Qual ferramenta você precisa hoje?"
@@ -53,17 +47,14 @@
         </header>
 
         <!-- =============== -->
-        <!-- HEADER DESKTOP-->
+        <!-- HEADER DESKTOP  -->
         <!-- =============== -->
         <header class="header-desktop">
             <div class="linha-topo-desktop">
-                <!-- Logo da LOCATEM com link para a página principal -->
                 <a href="./principalPage.html" class="logo">
                     <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
                     LOCATEM
                 </a>
-
-                <!-- Barra de pesquisa -->
                 <form class="barra-pesquisa">
                     <button type="submit" class="lupa-btn">
                         <img src="./src/images/lupa.png" alt="Buscar" />
@@ -71,47 +62,37 @@
                     <input type="search" placeholder="Qual ferramenta você precisa hoje?"
                         aria-label="Pesquisar ferramentas" />
                 </form>
-
-                <!-- Botão de acesso ao chat -->
                 <button class="chat">
                     <img src="./src/images/chat.png" alt="Chat" />
                 </button>
             </div>
         </header>
 
-        <!-- Nav desktop fica abaixo da linha superior -->
+        <!-- Nav desktop -->
         <nav class="menu-navegacao-desktop">
             <a href="./principalPage.html">
-                <img src="./src/images/home.png" alt="Ícone Início" />
-                Início
+                <img src="./src/images/home.png" alt="Ícone Início" />Início
             </a>
             <a href="#">
-                <img src="./src/images/carrinho.svg" alt="Ícone Carrinho" />
-                Carrinho
+                <img src="./src/images/carrinho.svg" alt="Ícone Carrinho" />Carrinho
             </a>
             <a href="#">
-                <img src="./src/images/relogio.png" alt="Ícone Histórico" />
-                Histórico
+                <img src="./src/images/relogio.png" alt="Ícone Histórico" />Histórico
             </a>
             <a href="#">
-                <img src="./src/images/calendario.png" alt="Ícone Agendamento" />
-                Agendamento
+                <img src="./src/images/calendario.png" alt="Ícone Agendamento" />Agendamento
             </a>
             <a href="#">
-                <img src="./src/images/notificacoes.png" alt="Ícone Notificações" />
-                Notificações
+                <img src="./src/images/notificacoes.png" alt="Ícone Notificações" />Notificações
             </a>
             <a href="#">
-                <img src="./src/images/Star.png" alt="Ícone Avaliações" />
-                Avaliações
+                <img src="./src/images/Star.png" alt="Ícone Avaliações" />Avaliações
             </a>
             <a href="#">
-                <img src="./src/images/suporte.png" alt="Ícone Suporte" />
-                Suporte
+                <img src="./src/images/suporte.png" alt="Ícone Suporte" />Suporte
             </a>
             <a href="./login.html">
-                <img src="./src/images/usuario.png" alt="Ícone Entrar" />
-                Entrar
+                <img src="./src/images/usuario.png" alt="Ícone Entrar" />Entrar
             </a>
         </nav>
 
@@ -120,18 +101,13 @@
         <!-- ============== -->
         <main class="main-mobile">
 
-            <!-- Cabeçalho "← Carrinho" -->
             <div class="cabecalho">
                 <a href="./principalPage.html" class="icon-voltar" aria-label="Voltar">
-                    <img src="./src/images/setaVoltar.png" alt="Icone Voltar">
+                    <img src="./src/images/setaVoltar.png" alt="Ícone Voltar">
                 </a>
                 <h1>Carrinho</h1>
             </div>
 
-            <!-- ============================== -->
-            <!-- CHECKOUT CONTAINER             -->
-            <!-- (mobile: coluna / desktop: row) -->
-            <!-- ============================== -->
             <div class="checkout-container">
 
                 <!-- ====================== -->
@@ -140,126 +116,136 @@
                 <div class="coluna-produtos">
 
                     <!-- ========================= -->
-                    <!-- GRUPO 1 – JB Ferramentas -->
+                    <!-- GRUPO 1 – JB Ferramentas  -->
                     <!-- ========================= -->
                     <article class="card grupo-loja">
 
-                        <!-- Cabeçalho da loja -->
                         <div class="grupo-loja-header">
                             <h2>Produto de JB Ferramentas</h2>
                             <div class="loja-oficial">
                                 Loja oficial Dewalt
-                                <!-- Ícone verificado azul -->
                                 <img src="./src/images/verificado.png" alt="Verificado" class="icone-verificado">
                             </div>
                         </div>
 
-                        <!-- Lista de produtos -->
                         <div class="lista-produtos">
 
-                            <!-- Produto 1 -->
-                            <div class="card-produto">
+                            <!-- Produto 1
+                    IMPORTANTE: data-preco-dia é a fonte canônica do preço por dia.
+                    Não dependa do texto renderizado no DOM para calcular valores. -->
+                            <div class="card-produto" data-preco-dia="15">
                                 <div class="produto-linha-topo">
                                     <img src="./src/images/Furadeira1.webp" alt="Furadeira" class="produto-imagem">
-
                                     <div class="produto-infos">
-                                        <div class="produto-nome-row">
-                                            <span class="produto-nome">Furadeira Elétrica The Black Tools</span>
-                                            <button class="btn-lixeira" aria-label="Remover produto" data-action="remover">
+                                        <div class="produto_nome-row">
+                                            <span class="produto_nome">Furadeira Elétrica The Black Tools</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto"
+                                                data-action="remover">
                                                 <img src="./src/images/lixo.svg" alt="Remover produto">
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <div class="produto-valores-row">
-                                            <span class="produto-preco-detalhe">R$15,00/dia × 2 dias</span>
-                                            <span class="produto-total">Total: R$30,00</span>
+                                        <div class="produto_valores">
+                                            <span class="produto_preco">R$15,00/dia × 2 dias</span>
+                                            <span class="produto_total">Total: R$30,00</span>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Controles -->
                                 <div class="produto-controles">
-                                    <!-- Dias -->
                                     <div class="controle-grupo">
-                                        <button class="btn-controle" aria-label="Diminuir dias" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir dias"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">2 dias</span>
-                                        <button class="btn-controle" aria-label="Aumentar dias" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar dias"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
-
-                                    <!-- Unidades -->
                                     <div class="controle-grupo controle-unidade">
-                                        <button class="btn-controle" aria-label="Diminuir unidades" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir unidades"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">1 unidade</span>
-                                        <button class="btn-controle" aria-label="Aumentar unidades" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar unidades"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-disp">+50 disponíveis</span>
                                 </div>
                             </div><!-- /Produto 1 -->
 
                             <!-- Produto 2 -->
-                            <div class="card-produto">
+                            <div class="card-produto" data-preco-dia="12">
                                 <div class="produto-linha-topo">
-                                    <img class="produto-imagem" src="./src/images/pistolaPintura.png">
+                                    <img class="produto-imagem" src="./src/images/pistolaPintura.png"
+                                        alt="Pistola de Pintura">
                                     <div class="produto-infos">
-                                        <div class="produto-nome-row">
-                                            <span class="produto-nome">Pistola de Pintura Profissional The Black Tools</span>
-                                            <button class="btn-lixeira" aria-label="Remover produto" data-action="remover">
+                                        <div class="produto_nome-row">
+                                            <span class="produto_nome">Pistola de Pintura Profissional The Black
+                                                Tools</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto"
+                                                data-action="remover">
                                                 <img src="./src/images/lixo.svg" alt="Remover produto">
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <div class="produto-valores-row">
-                                            <span class="produto-preco-detalhe">R$12,00/dia × 1 dia</span>
-                                            <span class="produto-total">Total: R$12,00</span>
+                                        <div class="produto_valores">
+                                            <span class="produto_preco">R$12,00/dia × 1 dia</span>
+                                            <span class="produto_total">Total: R$12,00</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
                                     <div class="controle-grupo">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir dias"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">1 dias</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar dias"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
                                     <div class="controle-grupo controle-unidade">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir unidades"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">1 unidade</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar unidades"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-disp">+50 disponíveis</span>
                                 </div>
                             </div><!-- /Produto 2 -->
 
                             <!-- Produto 3 -->
-                            <div class="card-produto">
+                            <div class="card-produto" data-preco-dia="28">
                                 <div class="produto-linha-topo">
-                                    <img class="produto-imagem" src="./src/images/Furadeira3.webp">
+                                    <img class="produto-imagem" src="./src/images/Furadeira3.webp" alt="Parafusadeira">
                                     <div class="produto-infos">
-                                        <div class="produto-nome-row">
-                                            <span class="produto-nome">Parafusadeira Furadeira Elétrica Hanabi</span>
-                                            <button class="btn-lixeira" aria-label="Remover produto" data-action="remover">
+                                        <div class="produto_nome-row">
+                                            <span class="produto_nome">Parafusadeira Furadeira Elétrica Hanabi</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto"
+                                                data-action="remover">
                                                 <img src="./src/images/lixo.svg" alt="Remover produto">
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <div class="produto-valores-row">
-                                            <span class="produto-preco-detalhe">R$28,00/dia × 2 dias</span>
-                                            <span class="produto-total">Total: R$56,00</span>
+                                        <div class="produto_valores">
+                                            <span class="produto_preco">R$28,00/dia × 2 dias</span>
+                                            <span class="produto_total">Total: R$56,00</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
                                     <div class="controle-grupo">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir dias"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">2 dias</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar dias"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
                                     <div class="controle-grupo controle-unidade">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir unidades"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">1 unidade</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar unidades"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-disp">+50 disponíveis</span>
                                 </div>
@@ -269,9 +255,9 @@
                     </article><!-- /Grupo 1 -->
 
 
-                    <!-- ==================== -->
-                    <!-- GRUPO 2 – JB Ferramentas -->
-                    <!-- ==================== -->
+                    <!-- ========================= -->
+                    <!-- GRUPO 2 – JB Ferramentas  -->
+                    <!-- ========================= -->
                     <article class="card grupo-loja">
 
                         <div class="grupo-loja-header">
@@ -285,72 +271,84 @@
                         <div class="lista-produtos">
 
                             <!-- Produto 4 -->
-                            <div class="card-produto">
+                            <div class="card-produto" data-preco-dia="18">
                                 <div class="produto-linha-topo">
-                                    <img class="produto-imagem" src="./src/images/Furadeira4.webp">
+                                    <img class="produto-imagem" src="./src/images/Furadeira4.webp" alt="Furadeira WAP">
                                     <div class="produto-infos">
-                                        <div class="produto-nome-row">
-                                            <span class="produto-nome">Furadeira Elétrica WAP</span>
-                                            <button class="btn-lixeira" aria-label="Remover produto" data-action="remover">
+                                        <div class="produto_nome-row">
+                                            <span class="produto_nome">Furadeira Elétrica WAP</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto"
+                                                data-action="remover">
                                                 <img src="./src/images/lixo.svg" alt="Remover produto">
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <div class="produto-valores-row">
-                                            <span class="produto-preco-detalhe">R$18,00/dia × 2 dias</span>
-                                            <span class="produto-total">Total: R$36,00</span>
+                                        <div class="produto_valores">
+                                            <span class="produto_preco">R$18,00/dia × 2 dias</span>
+                                            <span class="produto_total">Total: R$36,00</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
                                     <div class="controle-grupo">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir dias"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">2 dias</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar dias"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
                                     <div class="controle-grupo controle-unidade">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir unidades"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">1 unidade</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar unidades"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-disp">+50 disponíveis</span>
                                 </div>
-                            </div>
+                            </div><!-- /Produto 4 -->
 
                             <!-- Produto 5 -->
-                            <div class="card-produto">
+                            <div class="card-produto" data-preco-dia="25">
                                 <div class="produto-linha-topo">
-                                    <img class="produto-imagem" src="./src/images/serraCircularProfissional.png">
+                                    <img class="produto-imagem" src="./src/images/serraCircularProfissional.png"
+                                        alt="Serra Circular">
                                     <div class="produto-infos">
-                                        <div class="produto-nome-row">
-                                            <span class="produto-nome">Serra Circular Profissional</span>
-                                            <button class="btn-lixeira" aria-label="Remover produto" data-action="remover">
+                                        <div class="produto_nome-row">
+                                            <span class="produto_nome">Serra Circular Profissional</span>
+                                            <button class="btn-lixeira" aria-label="Remover produto"
+                                                data-action="remover">
                                                 <img src="./src/images/lixo.svg" alt="Remover produto">
                                             </button>
                                         </div>
                                         <span class="produto-aluguel">2 dias de aluguel</span>
-                                        <div class="produto-valores-row">
-                                            <span class="produto-preco-detalhe">R$25,00/dia × 2 dias</span>
-                                            <span class="produto-total">Total: R$50,00</span>
+                                        <div class="produto_valores">
+                                            <span class="produto_preco">R$25,00/dia × 2 dias</span>
+                                            <span class="produto_total">Total: R$50,00</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="produto-controles">
                                     <div class="controle-grupo">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir dias"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">2 dias</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar dias"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-max">Máx. 30</span>
                                     <div class="controle-grupo controle-unidade">
-                                        <button class="btn-controle" data-action="decrement">−</button>
+                                        <button class="btn-controle" aria-label="Diminuir unidades"
+                                            data-action="decrement">−</button>
                                         <span class="controle-valor">1 unidade</span>
-                                        <button class="btn-controle" data-action="increment">+</button>
+                                        <button class="btn-controle" aria-label="Aumentar unidades"
+                                            data-action="increment">+</button>
                                     </div>
                                     <span class="controle-label-disp">+50 disponíveis</span>
                                 </div>
-                            </div>
+                            </div><!-- /Produto 5 -->
+
                         </div><!-- /lista-produtos -->
                     </article><!-- /Grupo 2 -->
 
@@ -363,42 +361,40 @@
                 <aside class="card card-resumo">
                     <h3>Resumo do Pedido</h3>
 
-                    <!-- Subtotal -->
                     <div class="resumo-linha">
                         <span>Subtotal</span>
-                        <strong>R$ 499,98</strong>
+                        <strong>R$ 184,00</strong>
                     </div>
 
-                    <!-- Calcular frete -->
-                    <p class="resumo-secao-titulo">Calcular frete</p>
+                    <div class="resumo-linha">
+                        <span>Frete</span>
+                        <strong class="resumo-frete-topo"></strong>
+                    </div>
 
                     <div class="linha-cep">
                         <div class="campo-cep">
-                            <input class="input-cep" type="text" placeholder="Informe um CEP" />
-                            <button class="btn-usar">Usar</button>
+                            <input class="input-cep" type="text" placeholder="Informe um CEP" maxlength="9"
+                                inputmode="numeric" aria-label="CEP para cálculo de frete" />
+                            <button class="btn-usar" type="button">Usar</button>
                         </div>
-
-                        <a href="#" class="link-cep">Não sei o meu CEP</a> 
+                        <a href="#" class="link-cep">Não sei o meu CEP</a>
                     </div>
 
-                    <!-- Cupom -->
                     <div class="campo-cupom">
-                        <!-- Ícone etiqueta -->
-                        <img class="icone-cupom" src="./src/images/etiqueta.png">
+                        <img class="icone-cupom" src="./src/images/etiqueta.png" alt="Icone de etiqueta">
                         <input class="input-cupom" type="text" placeholder="Inserir código de cupom"
-                            aria-label="Código de cupom" />
+                            aria-label="Código de cupom" autocomplete="off" />
+                        <button class="btn-remover-cupom" type="button" aria-label="Remover cupom" hidden>×</button>
                         <button class="btn-aplicar" type="button">Aplicar</button>
                     </div>
 
                     <hr class="linha-divisoria" />
 
-                    <!-- Total -->
                     <div class="resumo-total">
                         <span>Total</span>
-                        <strong>R$ 499,98</strong>
+                        <strong>R$ 184,00</strong>
                     </div>
 
-                    <!-- CTA -->
                     <button class="btn-pagamento" type="button">
                         Continuar para Pagamento
                     </button>
@@ -408,6 +404,12 @@
         </main>
 
     </div><!-- /app -->
+
+    <!--
+    Região live para anúncios de acessibilidade (toasts).
+    Fica fora do fluxo visual; leitores de tela anunciam mudanças automaticamente.
+    -->
+    <div id="aviso-global" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="./src/js/carrinho.js"></script>
 </body>

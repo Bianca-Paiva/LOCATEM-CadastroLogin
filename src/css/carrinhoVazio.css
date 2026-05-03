@@ -200,7 +200,6 @@ body {
     justify-content: start;
     padding: 0 10px;
     gap: 16px;
-    background-color: red;
 }
 
 .icon-voltar {
@@ -258,12 +257,12 @@ body {
     font-weight: 700;
     color: var(--color-text-dark);
     margin: 0 0 7px;
-
 }
 
 .conteudo-carrinho a {
     font-size: 0.875rem;
     color: var(--color-text-link);
+    text-decoration: none;
 }
 
 /* ── Card Resumo ── */
