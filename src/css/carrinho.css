@@ -4,18 +4,26 @@
 /* ============================= */
 :root {
     /* CORES PRINCIPAIS */
-    --color-primary: #FFCA00; /* Cor principal da marca */
-    --color-primary-light: #ffe97a; /* Variação mais clara (gradientes) */
-    --color-primary-soft: #fff6c7; /* Fundo suave */
-    --color-secondary: #f0c000c0; /* Hover / destaque */
+    --color-primary: #FFCA00;
+    /* Cor principal da marca */
+    --color-primary-light: #ffe97a;
+    /* Variação mais clara (gradientes) */
+    --color-primary-soft: #fff6c7;
+    /* Fundo suave */
+    --color-secondary: #f0c000c0;
+    /* Hover / destaque */
 
     /* BACKGROUNDS */
-    --color-bg-main: #F9FAFB; /* Fundo geral da aplicação */
-    --color-bg-card: #ffffff; /* Fundo dos cards */
-    --color-bg-btn: #D5ECFF; /* Fundo de botões secundários */
+    --color-bg-main: #F9FAFB;
+    /* Fundo geral da aplicação */
+    --color-bg-card: #ffffff;
+    /* Fundo dos cards */
+    --color-bg-btn: #D5ECFF;
+    /* Fundo de botões secundários */
 
     /* TEXTOS */
-    --color-text-dark: #0A0A0A; /* Texto principal */
+    --color-text-dark: #0A0A0A;
+    /* Texto principal */
     --color-text-secondary: #8e8e93;
     --color-text-terciary: #4A5565;
     --color-text-quartiary: #6A7282;
@@ -24,24 +32,33 @@
     --color-text-btn: #3A83FA;
 
     /* BORDER / RADIUS */
-    --color-border-card: #e5e7eb;
+    --color-border-card: #E5E7EB;
     --color-linha-divisoria: #a0a0a09a;
 
-    --radius-sm: 6px; /* Radius base (escala pequena → média → grande) */
-    --radius-md: 8px;/* Elementos pequenos (inputs, controles) */
-    --radius-lg: 12px; /* Botões e campos padrão */
+    --radius-sm: 6px;
+    /* Radius base (escala pequena → média → grande) */
+    --radius-md: 8px;
+    /* Elementos pequenos (inputs, controles) */
+    --radius-lg: 12px;
+    /* Botões e campos padrão */
 
     /* Radius semântico (uso específico) */
-    --radius-card: 14px; /* Cards principais */
-    --radius-btn: var(--radius-md); /* Botões padrão */
-    --radius-input: var(--radius-md); /* Inputs */
-    --radius-control: var(--radius-sm); /* Controles (+ / -) */
-    --radius-pill: 999px; /* Totalmente arredondado (badge, search) */
-    
+    --radius-card: 14px;
+    /* Cards principais */
+    --radius-btn: var(--radius-md);
+    /* Botões padrão */
+    --radius-input: var(--radius-md);
+    /* Inputs */
+    --radius-control: var(--radius-sm);
+    /* Controles (+ / -) */
+    --radius-pill: 999px;
+    /* Totalmente arredondado (badge, search) */
+
 
     /* SOMBRAS */
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra leve padrão */
-    --shadow-search: 0 4px 4px rgba(0, 0, 0, 0.145); /* Sobra padrão da barra de pesquisa */
+    --shadow-search: 0 4px 4px #00000025;
+    /* Sobra padrão da barra de pesquisa */
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.184);
 }
 
 /* ============================= */
@@ -266,7 +283,8 @@ body {
 .card {
     background-color: var(--color-bg-card);
     border-radius: var(--radius-card);
-    box-shadow: var(--card-shadow);
+    border: 1px solid var(--color-border-card);
+    box-shadow: var(--shadow-card);
 
     padding: 18px 16px;
     margin: 0 0 15px;
@@ -279,7 +297,7 @@ body {
 /* Cabeçalho do grupo (nome da loja) */
 .grupo-loja-header {
     padding: 5px 18px 15px;
-    border-bottom: 1px solid var(--color-border-card);
+    border-bottom: 1px solid var(--color-linha-divisoria);
 }
 
 .grupo-loja-header h2 {
@@ -486,7 +504,7 @@ body {
 /* ============================= */
 .card-resumo {
     padding: 22px 20px 20px;
-    gap: 0;
+    margin: 20px 0;
 
     display: flex;
     flex-direction: column;
@@ -522,7 +540,7 @@ body {
 
 .linha-divisoria {
     border: none;
-    border-top: 1px solid var(--color-border-card);
+    border-top: 1px solid var(--color-linha-divisoria);
     margin: 0 0 16px;
 }
 
@@ -642,7 +660,7 @@ body {
     cursor: pointer;
 }
 
-.btn-remover-cupom{
+.btn-remover-cupom {
     color: red;
     border: none;
     background-color: transparent;
@@ -699,7 +717,6 @@ body {
 .btn-pagamento:active {
     transform: scale(.98);
 }
-
 
 
 /* ============================= */
@@ -835,6 +852,8 @@ body {
 
 @media (min-width: 1024px) {
     .app {
+        width: 100%;
+        min-height: 100vh;
         background: linear-gradient(to bottom,
                 var(--color-primary) 0%,
                 var(--color-primary-light) 5%,
@@ -845,7 +864,6 @@ body {
     /* ============================= */
     /* HEADER DESKTOP */
     /* ============================= */
-
     .header-mobile {
         display: none;
     }
@@ -976,8 +994,8 @@ body {
 
     .main-mobile {
         max-width: 1100px;
-        margin: 0 auto;
-        padding: 40px 40px;
+        margin: 40px auto;
+        padding: 0 40px;
         min-height: auto;
     }
 
@@ -991,6 +1009,7 @@ body {
     /* ========================= */
 
     .checkout-container {
+        display: flex;
         flex-direction: row;
         align-items: flex-start;
         gap: 24px;
@@ -1030,12 +1049,12 @@ body {
     /* ========================= */
     /* RESUMO DESKTOP            */
     /* ========================= */
-
     /* Largura fixa à direita */
     .card-resumo {
         width: 372px;
         flex-shrink: 0;
         top: 24px;
+        margin-top: 0;
     }
 
     /* "Calcular frete | Grátis" na mesma linha */
@@ -1067,13 +1086,10 @@ body {
     .linha-cep {
         flex-direction: column;
         align-items: flex-start;
-        /* Alinha o conteúdo à esquerda */
         gap: 8px;
-        /* Ajusta o espaço entre o campo e o link */
     }
 
     .campo-cep {
         width: 100%;
-        /* Garante que o input não encolha e ocupe toda a largura disponível */
     }
 }
