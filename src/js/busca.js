@@ -1,12 +1,14 @@
 let paginaAtual = 1;
 let pesquisa="";
+let DadosSalvos =[];
+
 const busca = document.querySelector('#searchInput');
 const form = document.getElementById("searchForm");
 
-form.addEventListener('submit', buscarFilme);
+form.addEventListener('submit', buscarProduto);
 
 
-async function buscarFilme(e) {
+async function buscarProduto(e) {
     if (e) e.preventDefault(); // Previne o comportamento padrão do formulário, mas permite que a função seja chamada sem um evento (para carregar mais resultados), usando da tecla Enter ou clicando no botão "Carregar mais"
 
     // realiza a pesquisa
@@ -23,7 +25,7 @@ async function buscarFilme(e) {
 
         //url da API, incluindo a página atual para paginar os resultados e a pesquisa
         const url = `https://www.omdbapi.com/?s=${pesquisa}&page=${paginaAtual}&apikey=491135e0`; // atualiza a URL para incluir a página atual
-        const resposta = await fetch(url);
+        const resposta = await fetch(url); //fetch =
         const dados = await resposta.json();
 
         if (!dados.Search) {
@@ -31,33 +33,35 @@ async function buscarFilme(e) {
             return;
         }
 
+        DadosSalvos = dados.Search;
       
         // Cria os cards para os filmes encontrados
-        let cards = "";
+        // let cards = "";
 
-        dados.Search.forEach(filme => {
-            const poster = filme.Poster !== "N/A"
-                ? filme.Poster
-                : "./src/images/sem-imagem.png";
+        // dados.Search.forEach(filme => {
+        //     const poster = filme.Poster !== "N/A"
+        //         ? filme.Poster
+        //         : "./src/images/sem-imagem.png";
 
-            cards += `
-            <li class="anuncio-card">
-                 <div class="card-img">
-                     <img src="${poster}" alt="${filme.Title}">
-                 </div>
+        //     cards += `
+        //     <li class="anuncio-card">
+        //          <div class="card-img">
+        //              <img src="${poster}" alt="${filme.Title}">
+        //          </div>
 
-                 <div class="card-info">
-                     <h3>${filme.Title}</h3>
-                     <div class="proprietario">
-                         <h4>IMDb</h4>
-                     </div>
-                     <p>${filme.Year}</p>
-                 </div>
-             </li>
-            `;
-        });
-
-        lista.innerHTML = cards;
+        //          <div class="card-info">
+        //              <h3>${filme.Title}</h3>
+        //              <div class="proprietario">
+        //                  <h4>IMDb</h4>
+        //              </div>
+        //              <p>${filme.Year}</p>
+        //          </div>
+        //      </li>
+        //     `;
+        // });
+        
+        // lista.innerHTML = cards;
+        renderizarLista(DadosSalvos);
 
       const totalPaginas = Math.ceil(dados.totalResults / 10); // A API retorna 20 resultados por página, então calculamos o total de páginas
       
@@ -72,6 +76,50 @@ async function buscarFilme(e) {
     }
 }
 
+function renderizarLista(lista) {
+    const container = document.getElementById("grid-anuncios");
+    container.innerHTML = "";
+
+    lista.forEach(filme => {
+        const poster = filme.Poster !== "N/A"
+            ? filme.Poster
+            : "./src/images/sem-imagem.png";
+
+        container.innerHTML += `
+            <li class="anuncio-card">
+                <div class="card-img">
+                    <img src="${poster}" alt="${filme.Title}">
+                </div>
+
+                <div class="card-info">
+                    <h3>${filme.Title}</h3>
+                    <p>${filme.Year}</p>
+                </div>
+            </li>
+        `;
+    });
+}
+
+
+function ordenarComo() {
+    const ordenar = document.getElementById("ordenar").value;
+
+    let lista = [...DadosSalvos]; //copia a lista
+
+    if (ordenar === "titulo") {
+        lista.sort((a, b) => a.Title.localeCompare(b.Title));
+    } 
+    else if (ordenar === "asc") {
+        lista.sort((a, b) => Number(a.Year) - Number(b.Year));
+    } 
+    else if (ordenar === "desc") {
+        lista.sort((a, b) => Number(b.Year) - Number(a.Year));
+    }
+
+    renderizarLista(lista);
+}
+
+///////////////////////////////////////////////////////////////////////
 
 function criarPaginacao(totalPaginas) {
     const paginacao = document.getElementById("paginacao");
@@ -90,7 +138,7 @@ function criarPaginacao(totalPaginas) {
     // ação ao clicar no botão voltar, que é diminuir a página atual e buscar os filmes novamente
     prev.onclick = () => {
         paginaAtual --;
-        buscarFilme();
+        buscarProduto();
     };
     paginacao.appendChild(prev); // adiciona o botão voltar à paginação
 
@@ -100,7 +148,7 @@ function criarPaginacao(totalPaginas) {
         first.textContent = "1";
         first.onclick = () => {
             paginaAtual = 1;
-            buscarFilme();
+            buscarProduto();
         };
         paginacao.appendChild(first);
 
@@ -120,7 +168,7 @@ function criarPaginacao(totalPaginas) {
 
         btn.onclick = () => {
             paginaAtual = i;
-            buscarFilme();
+            buscarProduto();
         };
 
         paginacao.appendChild(btn);
@@ -136,7 +184,7 @@ function criarPaginacao(totalPaginas) {
         last.textContent = totalPaginas;
         last.onclick = () => {
             paginaAtual = totalPaginas;
-            buscarFilme();
+            buscarProduto();
         };
         paginacao.appendChild(last);
     }
@@ -147,7 +195,7 @@ function criarPaginacao(totalPaginas) {
     next.disabled = paginaAtual === totalPaginas;
     next.onclick = () => {
         paginaAtual++;
-        buscarFilme();
+        buscarProduto();
     };
     paginacao.appendChild(next);
 }
