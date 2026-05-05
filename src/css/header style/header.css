@@ -1,0 +1,333 @@
+:root {
+    /* CORES PRINCIPAIS */
+    --color-primary: #FFCA00;
+    --color-primary-light: #ffe97a;
+    --color-primary-soft: #fff6c7;
+    --color-secondary: #f0c000c0;
+
+    /* BACKGROUNDS */
+    --color-bg-main: #F9FAFB;
+    --color-bg-card: #ffffff;
+
+    /* TEXTOS */
+    --color-text-dark: #0A0A0A;
+    --color-text-secondary: #8e8e93;
+    --color-text-muted: #7a7a7a;
+    --color-text-desativado: #A0A0A0;
+    --color-text-link: #3A83FA;
+
+    /* BORDAS */
+    --color-border-card: #e5e7eb;
+    --color-linha-divisoria: #a0a0a09a;
+    --card-radius: 14px;
+
+    /* SOMBRAS */
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/* BASE GERAL */
+/* ============================= */
+
+body {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-dark);
+}
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 9%,
+            var(--color-primary-soft) 14%,
+            var(--color-bg-main) 20%);
+}
+
+/* ============================= */
+/* HEADER MOBILE */
+/* ============================= */
+
+.header-desktop {
+    display: none;
+}
+
+.menu-navegacao-desktop {
+    display: none;
+}
+
+.header-mobile {
+    width: 100%;
+    padding: 22px 20px 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* Linha com menu, logo e carrinho */
+.linha-topo-mobile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* AGRUPA MENU + LOGO */
+.lado-esquerdo {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+/* ============================= */
+/* LOGO */
+/* ============================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    height: 30px;
+    object-fit: contain;
+}
+
+/* ============================= */
+/* BOTÕES DO HEADER */
+/* ============================= */
+
+.menu-btn,
+.carrinho-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.menu-btn img,
+.carrinho-btn img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* Carrinho com badge */
+.carrinho-btn {
+    position: relative;
+    text-decoration: none;
+}
+
+.quantidade-carrinho {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================= */
+/* BARRA DE PESQUISA */
+/* ============================= */
+
+.barra-pesquisa-mobile {
+    width: 100%;
+    height: 54px;
+    background-color: var(--color-bg-card);
+    border-radius: 999px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-search);
+}
+
+.barra-pesquisa-mobile img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.65;
+}
+
+.barra-pesquisa-mobile input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--color-text-dark);
+    font-size: 15px;
+}
+
+.barra-pesquisa-mobile input::placeholder {
+    color: var(--color-text-muted);
+}
+
+
+
+
+
+
+
+
+
+/* ============================= */
+/* AJUSTES PARA TELAS MENORES */
+/* ============================= */
+
+@media (max-width: 380px) {
+    .header-mobile {
+        padding: 20px 16px 30px;
+        gap: 22px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .logo img {
+        height: 28px;
+    }
+
+    .barra-pesquisa-mobile {
+        height: 50px;
+        padding: 0 16px;
+    }
+
+    .barra-pesquisa-mobile input {
+        font-size: 14px;
+    }
+}
+
+/* ============================= */
+/* AJUSTES PARA TELAS MAIORES */
+/* ============================= */
+
+@media (min-width: 1024px) {
+    .app {
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 7%,
+                var(--color-primary-soft) 12.2%,
+                var(--color-bg-main) 16%);
+    }
+
+    /* ============================= */
+    /* HEADER */
+    /* ============================= */
+
+    .header-mobile {
+        display: none;
+    }
+
+    .header-desktop {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0 10px;
+    }
+
+    .linha-topo-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 32px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 800;
+        font-size: clamp(20px, 1.6vw, 26px);
+        color: var(--color-text-dark);
+        flex-shrink: 0;
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 30px;
+        object-fit: contain;
+    }
+
+    /* Barra de pesquisa */
+    .barra-pesquisa {
+        flex: 1;
+        max-width: 1000px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--color-bg-card);
+        border-radius: 999px;
+        padding: 0 20px;
+        margin: 0 32px;
+        box-shadow: var(--shadow-search);
+    }
+
+    .barra-pesquisa button {
+        border: none;
+        background: none;
+    }
+
+    .barra-pesquisa img {
+        width: 18px;
+        height: 18px;
+        opacity: 0.55;
+        flex-shrink: 0;
+    }
+
+    .barra-pesquisa input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: clamp(15px, 1.1vw, 17px);
+        color: var(--color-text-dark);
+    }
+
+    .barra-pesquisa input::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    /* Botão de chat */
+    .chat {
+        background: transparent;
+        border: 2px solid var(--color-text-dark);
+        border-radius: 50%;
+        width: clamp(36px, 3vw, 48px);
+        height: clamp(36px, 3vw, 48px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        cursor: pointer;
+        border: none;
+    }
+
+    .chat img {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+    }
+}
