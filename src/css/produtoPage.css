@@ -386,6 +386,14 @@ main {
   margin-right: 13px;
 }
 
+.btn-voltagem.selecionado {
+  background-color: var(--color-primary); /* fundo amarelo */
+  border-color: var(--color-primary-dark); /* borda um tom mais escuro */
+  color: var(--color-text-dark); /* texto escuro para contrastar */
+  font-weight: 700;
+}
+
+
  
 /* ---------- TEMPO + QUANTIDADE ---------- */
 .container-seletores {
@@ -586,6 +594,7 @@ section .descricao-produto {
   color: var(--color-text-dark);
   
 }
+
 
 /* seta: aponta para cima quando .aberto, para baixo quando fechado */
 .btn-expandir {
@@ -958,5 +967,13 @@ section .descricao-produto {
   color: var(--color-dark);
 }
  
-
+/* Expansíveis: garante colapso correto */
+.descricao-conteudo,
+.especificacoes-conteudo {
+  overflow: hidden;
+}
  
+/* Comentários extras ocultos até "Ver mais" */
+.comentario--oculto {
+  display: none;
+}
