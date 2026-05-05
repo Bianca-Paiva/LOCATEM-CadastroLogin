@@ -79,12 +79,12 @@
                      <h2>  Ordenar por:</h2>
                        
                          
-                     <select name="ordenar" id="ordenar">
-                            <option value="titulo">Relevância</option>
-                            <option value="asc">Preço: Menor para Maior</option>
-                            <option value="desc">Preço: Maior para Menor</option>
-                            <option value="avaliacao">Avaliação: Melhor para Pior</option>
-                            <option value="novidades">Novidades</option>
+                     <select name="ordenar" id="ordenar" onchange="ordenarComo()">
+                            <option value="1">Relevância</option>
+                            <option value="2">Preço: Menor para Maior</option>
+                            <option value="3">Preço: Maior para Menor</option>
+                            <option value="4">Avaliação: Melhor para Pior</option>
+                            <option value="5">Novidades</option>
                     </select>
                     </div>
                     <div>
@@ -113,29 +113,34 @@
             </div>
         </section>
           <aside class="sidebar">
+            <form action="Filtros" method="get" id="filtrosForm" class="filtrosForm">
             <div class="filtro">
                 <h2>Filtros</h2>
                 <hr>
-                <div class="filtro-padrao">
+                <div class="filtro-padrao" id="categorias">
                    
                      <h3>Categoria</h3>
                     <ul>
                         <li>
-                            <input type="checkbox" id="categoria1"><label for="categoria1">Ferramentas Elétricas</label>
+                            <input type="checkbox" id="categoria1">
+                            <label for="categoria1">Ferramentas Elétricas</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="categoria2"><label for="categoria2">Ferramentas Manuais</label>
+                            <input type="checkbox" id="categoria2">
+                            <label for="categoria2">Ferramentas Manuais</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="categoria3"><label for="categoria3">Equipamentos de Jardinagem</label>
+                            <input type="checkbox" id="categoria3">
+                            <label for="categoria3">Equipamentos de Jardinagem</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="categoria4"><label for="categoria4">Máquinas Pesadas</label>
+                            <input type="checkbox" id="categoria4">
+                            <label for="categoria4">Máquinas Pesadas</label>
                         </li>
                     </ul>
                      <hr>
                 </div>
-                <div class="filtro-padrao">
+                <div class="filtro-padrao" id="marcas">
                    
                     <h3>Marca</h3>
                     <div class="filtroMarca">
@@ -164,59 +169,60 @@
                      <hr>
                 </div>
     
-                <div class="filtro-padrao">
-                   
-                    <h3>Faixa de Preço</h3>
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="preco1">
-                            <label for="preco1">R$0 - R$50</label></li>
-                        <li>
-                            <input type="checkbox" id="preco2">
-                            <label for="preco2">R$51 - R$100</label></li>
-                        <li>
-                            <input type="checkbox" id="preco3">
-                            <label for="preco3">R$101 - R$200</label></li>
-                        <li>
-                            <input type="checkbox" id="preco4">
-                            <label for="preco4">R$201+</label>
-                        </li>
-                    </ul>
-                    <hr>
+               <div class="filtro-padrao" id="faixa-preco">
+                <h3>Faixa de Preço</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="preco" value="0-50" id="preco1">
+                        <label for="preco1">R$0 - R$50</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="preco" value="51-100" id="preco2">
+                        <label for="preco2">R$51 - R$100</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="preco" value="101-200" id="preco3">
+                        <label for="preco3">R$101 - R$200</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="preco" value="200+" id="preco4">
+                        <label for="preco4">R$201+</label>
+                    </li>
+                </ul>
                 </div>
-                <div class="filtro-padrao">
+                <div class="filtro-padrao" id="formas-pagamento">
                     
                     <h3>Formas de Pagamento</h3>
                     <ul>
                         <li>
-                            <input type="checkbox" id="pagamento1">
-                            <label for="pagamento1">Cartão de Crédito</label></li>
+                           <input type="checkbox" name="pagamento" value="credito" id="credito">
+                            <label for="credito">Cartão de Crédito</label></li>
                         <li>
-                            <input type="checkbox" id="pagamento2">
-                            <label for="pagamento2">Boleto Bancário</label></li>
+                            <input type="checkbox" name="pagamento" value="boleto" id="boleto">
+                            <label for="boleto">Boleto Bancário</label></li>
                         <li>
-                            <input type="checkbox" id="pagamento3">
-                            <label for="pagamento3">Pix</label></li>
+                            <input type="checkbox" name="pagamento" value="pix" id="pix">
+                            <label for="pix">Pix</label></li>
                         <li>
-                            <input type="checkbox" id="pagamento4">
-                            <label for="pagamento4">Transferência Bancária</label></li>
+                            <input type="checkbox" name="pagamento" value="transferencia" id="transferencia">
+                            <label for="transferencia">Transferência Bancária</label></li>
                     </ul>
                     <hr>
                 </div>
-                <div class="filtro-padrao">
+                <div class="filtro-padrao" id="disponibilidade">
                     
                     <h3>Disponibilidade</h3>
                     <ul>
                         <li>
-                            <input type="radio" name="Disponibilidade" value="1" id="disponibilidade">
-                            <label for="disponibilidade">Disponível para Aluguel</label></li>
+                            <input type="radio" name="disponibilidade" value="1" id="disponivel">
+                            <label for="disponivel">Disponível para Aluguel</label></li>
                         <li>
-                            <input type="radio" name="Disponibilidade" value="2" id="Indisponivel">
+                            <input type="radio" name="disponibilidade" value="2" id="Indisponivel">
                             <label for="Indisponivel">Indisponível para Aluguel</label></li>
                     </ul>
                     <hr>
                 </div>
-                <div class="filtro-padrao">  
+                <div class="filtro-padrao" id="avaliacao">  
                    
                     <h3>Avaliação</h3>
                     <ul>
@@ -236,10 +242,11 @@
 
                 </div>
                 <div class="botoesFiltro">
-                <button type="button" class="aplicar-filtros">Filtrar</button>
-                <button type="button" class="limpar-filtros">Limpar Filtros</button>
+                <button type="button" class="aplicar-filtros" onclick="aplicarFiltros()">Filtrar</button>
+                <button type="button" class="limpar-filtros" onclick="limparFiltros()">Limpar Filtros</button>
                 </div>
             </div>
+            </form>
             </aside>
         </main>
        

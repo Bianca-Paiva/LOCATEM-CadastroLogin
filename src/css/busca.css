@@ -216,8 +216,7 @@ main {
 }
 /*=============================*/
 .filtroMarca {
-    display: flex;
-    flex-direction: column;  
+    display: flex; 
     gap: 12px;
     padding: 0px;
 
@@ -243,7 +242,8 @@ main {
     font-size: 14px;
     color: var(--color-text-primary);
 } 
-.filtroMarca form {
+.filtroMarca input::placeholder {
+    color: var(--color-text-secondary);
    display: flex;
    gap: 10px;
 }
@@ -280,6 +280,12 @@ main {
     input[type="radio"] {  
         display: none;
     }
+    input[type="checkbox"]:checked + label {
+    
+      border-color: var(--color-terciary);
+        background-color: var(--color-terciary);
+        color: var(--color-secondary-soft);
+}
     
     label {
         font-size: 14px;
@@ -292,9 +298,9 @@ main {
         
     }
     label:hover {
-        border-color: var(--color-terciary);
-        background-color: var(--color-terciary);
-        color: var(--color-secondary-soft);
+        background-color: var(--color-secondary);
+        color: white;
+        border-color: var(--color-secondary);
     }
 }
 /*============= Botao filtro =============*/

@@ -76,6 +76,38 @@ async function buscarProduto(e) {
     }
 }
 
+
+
+
+function ordenarComo() {
+    const ordenar = document.getElementById("ordenar").value;
+
+    let listaOrdenada = [...DadosSalvos]; //copia a lista
+
+    if (ordenar === "1") {
+        // a, b = servem para comparar os objetos
+        // localeCompare é uma função que compara strings e retorna um valor indicando se a string é menor, igual ou maior que a outra
+        // aqui estamos ordenando por título, usando localeCompare para comparar os títulos dos filmes
+        listaOrdenada.sort((a, b) => a.Title.localeCompare(b.Title));
+    } 
+    else if (ordenar === "2") {
+        listaOrdenada.sort((a, b) => Number(a.Year) - Number(b.Year));
+    } 
+    else if (ordenar === "3") {
+        listaOrdenada.sort((a, b) => Number(b.Year) - Number(a.Year));
+    }
+    else if (ordenar === "4") {
+        // A API do OMDB não retorna avaliação, então aqui é só um exemplo de como seria a ordenação por avaliação
+         listaOrdenada.sort((a, b) => Number(b.imdbRating) - Number(a.imdbRating));
+    }
+    else if (ordenar === "5") {
+     // A ordenação por novidades também não é possível com os dados atuais, mas aqui seria um exemplo de como ordenar por data de lançamento
+        // listaOrdenada.sort((a, b) => new Date(b.Released) - new Date(a.Released));
+    }
+
+    renderizarLista(listaOrdenada);
+}
+
 function renderizarLista(lista) {
     const container = document.getElementById("grid-anuncios");
     container.innerHTML = "";
@@ -99,26 +131,6 @@ function renderizarLista(lista) {
         `;
     });
 }
-
-
-function ordenarComo() {
-    const ordenar = document.getElementById("ordenar").value;
-
-    let lista = [...DadosSalvos]; //copia a lista
-
-    if (ordenar === "titulo") {
-        lista.sort((a, b) => a.Title.localeCompare(b.Title));
-    } 
-    else if (ordenar === "asc") {
-        lista.sort((a, b) => Number(a.Year) - Number(b.Year));
-    } 
-    else if (ordenar === "desc") {
-        lista.sort((a, b) => Number(b.Year) - Number(a.Year));
-    }
-
-    renderizarLista(lista);
-}
-
 ///////////////////////////////////////////////////////////////////////
 
 function criarPaginacao(totalPaginas) {
@@ -198,4 +210,77 @@ function criarPaginacao(totalPaginas) {
         buscarProduto();
     };
     paginacao.appendChild(next);
+}
+
+/////////////////////// filtros ///////////////////////
+function pegarFiltros() {
+  const filtros = {
+    preco: [],
+    pagamento: [],
+    avaliacao: [],
+    disponibilidade: null
+  };
+
+  document.querySelectorAll('input[name="preco"]:checked')
+    .forEach(el => filtros.preco.push(el.value));
+
+  document.querySelectorAll('input[name="pagamento"]:checked')
+    .forEach(el => filtros.pagamento.push(el.value));
+
+  document.querySelectorAll('input[name="avaliacao"]:checked')
+    .forEach(el => filtros.avaliacao.push(el.value));
+
+  const disponibilidade = document.querySelector('input[name="disponibilidade"]:checked');
+  if (disponibilidade) {
+    filtros.disponibilidade = disponibilidade.value;
+  }
+
+  return filtros;
+}
+
+function aplicarFiltros() {
+  const filtros = pegarFiltros();
+
+  const resultadoFiltrado = dadosSalvos.filter(item => {
+
+    // PREÇO
+    if (filtros.preco.length > 0) {
+        const dentro = filtros.preco.some(range => {
+        if (range === "0-50") return item.preco >= 0 && item.preco <= 50;
+        if (range === "51-100") return item.preco >= 51 && item.preco <= 100;
+        if (range === "101-200") return item.preco >= 101 && item.preco <= 200;
+        if (range === "200+") return item.preco > 200;
+        });
+
+      if (!dentro) return false;
+    }
+
+    // PAGAMENTO
+    if (filtros.pagamento.length > 0) {
+      if (!filtros.pagamento.includes(item.pagamento)) return false;
+    }
+
+    // AVALIAÇÃO
+    if (filtros.avaliacao.length > 0) {
+      const passou = filtros.avaliacao.some(a => item.avaliacao >= Number(a)); 
+      if (!passou) return false;
+    }
+
+    // DISPONIBILIDADE
+    if (filtros.disponibilidade) {
+      if (item.disponibilidade !== filtros.disponibilidade) return false;
+    }
+
+    return true;
+  });
+
+  renderizarLista(resultadoFiltrado);
+}
+
+function limparFiltros() {
+    //seleciona todos os checkboxes e radios e desmarca eles
+  document.querySelectorAll('input[type="checkbox"], input[type="radio"]')
+    .forEach(el => el.checked = false);
+
+     renderizar(dadosSalvos); // volta ao normal
 }
