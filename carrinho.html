@@ -131,8 +131,8 @@
                         <div class="lista-produtos">
 
                             <!-- Produto 1
-                    IMPORTANTE: data-preco-dia é a fonte canônica do preço por dia.
-                    Não dependa do texto renderizado no DOM para calcular valores. -->
+                                    IMPORTANTE: data-preco-dia é a fonte canônica do preço por dia.
+                                    Não dependa do texto renderizado no DOM para calcular valores. -->
                             <div class="card-produto" data-preco-dia="15">
                                 <div class="produto-linha-topo">
                                     <img src="./src/images/Furadeira1.webp" alt="Furadeira" class="produto-imagem">
@@ -367,25 +367,34 @@
                     </div>
 
                     <div class="resumo-linha">
-                        <span>Frete</span>
+                        <span>Frete <span class="campo-obrigatorio" aria-hidden="true">*</span></span>
                         <strong class="resumo-frete-topo"></strong>
                     </div>
 
                     <div class="linha-cep">
-                        <div class="campo-cep">
-                            <input class="input-cep" type="text" placeholder="Informe um CEP" maxlength="9"
-                                inputmode="numeric" aria-label="CEP para cálculo de frete" />
-                            <button class="btn-usar" type="button">Usar</button>
+                        <div class="linha-cep-controles">
+                            <div class="campo-cep">
+                                <input class="input-cep" type="text" placeholder="Informe um CEP" maxlength="9"
+                                    inputmode="numeric" aria-label="CEP para cálculo de frete" required />
+                                <button class="btn-usar" type="button">Usar</button>
+                            </div>
+
+                            <a href="#" class="link-cep">Não sei o meu CEP</a>
                         </div>
-                        <a href="#" class="link-cep">Não sei o meu CEP</a>
+
+                        <span class="erro-cep" id="erro-cep" role="alert" aria-live="assertive"></span>
                     </div>
 
-                    <div class="campo-cupom">
-                        <img class="icone-cupom" src="./src/images/etiqueta.png" alt="Icone de etiqueta">
-                        <input class="input-cupom" type="text" placeholder="Inserir código de cupom"
-                            aria-label="Código de cupom" autocomplete="off" />
-                        <button class="btn-remover-cupom" type="button" aria-label="Remover cupom" hidden>×</button>
-                        <button class="btn-aplicar" type="button">Aplicar</button>
+                    <div class="linha-cupom">
+                        <div class="campo-cupom">
+                            <img class="icone-cupom" src="./src/images/etiqueta.png" alt="Icone de etiqueta">
+                            <input class="input-cupom" type="text" placeholder="Inserir código de cupom"
+                                aria-label="Código de cupom" autocomplete="off" />
+                            <button class="btn-remover-cupom" type="button" aria-label="Remover cupom" hidden>×</button>
+                            <button class="btn-aplicar" type="button">Aplicar</button>
+                        </div>
+
+                        <span class="erro-cupom" id="erro-cupom" role="alert"></span>
                     </div>
 
                     <hr class="linha-divisoria" />
@@ -395,7 +404,7 @@
                         <strong>R$ 184,00</strong>
                     </div>
 
-                    <button class="btn-pagamento" type="button">
+                    <button class="btn-continuar" type="button">
                         Continuar para Pagamento
                     </button>
                 </aside><!-- /card-resumo -->

@@ -30,6 +30,7 @@
     --color-text-muted: #7a7a7a;
     --color-text-desativado: #A0A0A0;
     --color-text-btn: #3A83FA;
+    --color-text-red: #e11d48;
 
     /* BORDER / RADIUS */
     --color-border-card: #E5E7EB;
@@ -265,7 +266,7 @@ body {
 
 .icon-voltar img {
     width: 20px;
-    height: 20px;
+    height: 15px;
     object-fit: contain;
 }
 
@@ -547,9 +548,16 @@ body {
 /* Campo CEP */
 .linha-cep {
     display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2px;
+    margin-bottom: 16px;
+}
+
+.linha-cep-controles {
+    display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 16px;
 }
 
 .campo-cep {
@@ -578,6 +586,36 @@ body {
 
 .input-cep::placeholder {
     color: var(--color-text-desativado);
+}
+
+/* ============================= */
+/* VALIDAÇÃO INLINE — CEP        */
+/* ============================= */
+
+.resumo-linha .campo-obrigatorio {
+    color: var(--color-text-red);
+    font-weight: 700;
+}
+
+.campo-cep--erro {
+    border-color: var(--color-text-red) !important;
+}
+
+.erro-cep {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-red);
+    font-weight: 500;
+    min-height: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .2s ease, opacity .2s ease;
+}
+
+.erro-cep--visivel {
+    max-height: 40px;
+    opacity: 1;
 }
 
 .btn-usar {
@@ -609,14 +647,24 @@ body {
 }
 
 /* Campo cupom */
+.linha-cupom {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
 .campo-cupom {
     display: flex;
     align-items: center;
 
+    width: 100%;
+    max-width: 400px;
+
     gap: 8px;
     height: 44px;
     padding: 0 5px 0 14px;
-    margin-bottom: 20px;
+    margin-bottom: 4px;
 
     border: 1px solid var(--color-border-card);
     border-radius: var(--radius-input);
@@ -667,6 +715,27 @@ body {
     cursor: pointer;
 }
 
+.campo-cupom--erro {
+    border-color: var(--color-text-red) !important;
+}
+
+.erro-cupom {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-red);
+    font-weight: 500;
+    min-height: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .2s ease, opacity .2s ease;
+}
+
+.erro-cupom--visivel {
+    max-height: 40px;
+    opacity: 1;
+}
+
 /* Total */
 .resumo-total {
     display: flex;
@@ -691,7 +760,7 @@ body {
 /* ============================= */
 /* BOTÃO PRINCIPAL (PAGAMENTO) */
 /* ============================= */
-.btn-pagamento {
+.btn-continuar {
     width: 100%;
     height: 54px;
 
@@ -709,12 +778,12 @@ body {
 }
 
 /* Hover */
-.btn-pagamento:hover {
+.btn-continuar:hover {
     background-color: var(--color-secondary);
 }
 
 /* Clique */
-.btn-pagamento:active {
+.btn-continuar:active {
     transform: scale(.98);
 }
 
@@ -841,7 +910,7 @@ body {
         padding: 0 5px;
     }
 
-    .btn-pagamento {
+    .btn-continuar {
         font-size: 1rem;
     }
 }
@@ -1077,7 +1146,7 @@ body {
         font-size: 1.375rem;
     }
 
-    .btn-pagamento {
+    .btn-continuar {
         height: 54px;
         border-radius: var(--radius-btn);
         font-size: 1rem;

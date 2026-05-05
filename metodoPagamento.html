@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/metodoPagamento.css" />
+
+    <title>LOCATEM</title>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- ============== -->
+        <!--     HEADER     -->
+        <!-- ============== -->
+        <header class="header">
+            <a href="./principalPage.html" class="logo">
+                <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                LOCATEM
+            </a>
+            <button class="chat">
+                <img src="./src/images/chat.png" alt="Chat" />
+            </button>
+        </header>
+
+        <!-- ============== -->
+        <!--      MAIN      -->
+        <!-- ============== -->
+        <main class="main-mobile">
+
+            <div class="cabecalho">
+                <a href="./carrinho.html" class="icon-voltar" aria-label="Voltar">
+                    <img src="./src/images/setaVoltar.png" alt="Ícone Voltar">
+                </a>
+                <h1>Escolha como Pagar</h1>
+            </div>
+
+            <!-- ============================= -->
+            <!-- CARD FORMA DE PAGAMENTO       -->
+            <!-- ============================= -->
+            <article class="card grupo-metodos">
+                <h3>Forma de Pagamento</h3>
+
+                <div class="metodo-pagamento">
+                    <!-- A classe 'ativo' deixa este botão selecionado por padrão -->
+                    <button class="btn-metodo">
+                        <span>Cartão de Crédito</span>
+                    </button>
+
+                    <button class="btn-metodo">
+                        <span>Cartão de Débito</span>
+                    </button>
+
+                    <button class="btn-metodo">
+                        <span>PIX</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- ============================= -->
+            <!-- CARD RESUMO DO PEDIDO         -->
+            <!-- ============================= -->
+            <aside class="card card-resumo">
+                <h3>Resumo do Pedido</h3>
+
+                <div class="resumo-linha">
+                    <span>Subtotal</span>
+                    <strong>R$ 184,00</strong>
+                </div>
+
+                <div class="resumo-linha">
+                    <span>Frete</span>
+                    <strong class="resumo-frete-topo"></strong>
+                </div>
+
+                <div class="resumo-linha resumo-linha--desconto" id="linha-desconto" style="display:none;">
+                    <span>Desconto</span>
+                    <strong class="resumo-desconto-valor"></strong>
+                </div>
+
+                <hr class="linha-divisoria" />
+
+                <div class="resumo-total">
+                    <span>Total</span>
+                    <strong>R$ 184,00</strong>
+                </div>
+
+                <button class="btn-pagamento" type="button">
+                    Continuar Pagamento
+                </button>
+
+                <!-- INDICADOR DE SEGURANÇA -->
+                <div class="seguranca">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-lock-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
+                    </svg>
+
+                    <p>Pagamento 100% seguro</p>
+                </div>
+            </aside><!-- /card-resumo -->
+
+        </main>
+    </div>
+
+    <script src="./src/js/metodoPagamento.js"></script>
+</body>
+
+</html>

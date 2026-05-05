@@ -181,11 +181,9 @@ body {
     color: var(--color-text-muted);
 }
 
-
-
-
-
-/* ── Layout principal ── */
+/* ============================= */
+/* MAIN (LAYOUT PRINCIPA) */
+/* ============================= */
 .main-mobile {
     width: 100%;
     min-height: 100vh;

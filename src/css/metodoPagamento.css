@@ -1,0 +1,601 @@
+:root {
+    /* CORES PRINCIPAIS */
+    --color-primary: #FFCA00;
+    --color-primary-light: #ffe97a;
+    --color-primary-soft: #fff6c7;
+    --color-secondary: #f0c000c0;
+
+    /* BACKGROUNDS */
+    --color-bg-main: #F9FAFB;
+    --color-bg-card: #ffffff;
+    --color-bg-metodo: #FFFBE6;
+
+    /* TEXTOS */
+    --color-text-dark: #0A0A0A;
+    --color-text-gray: #4A5565;
+    --color-text-desativado: #A0A0A0;
+    --color-text-sutil: #6A7282;
+
+    /* BORDAS */
+    --color-border-card: #e5e7eb;
+    --color-border-btn-metodo: #D1D5DC;
+    --color-border-btn-metodo-active: #FFD600;
+    --color-linha-divisoria: #a0a0a09a;
+
+    /* RADIUS */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-card: 14px;
+    --radius-btn: var(--radius-md);
+    --radius-input: var(--radius-md);
+    --radius-control: var(--radius-sm);
+    --radius-pill: 999px;
+
+    /* SOMBRAS */
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.184);
+}
+
+/* ===================== */
+/* BASE GERAL            */
+/* ===================== */
+
+body {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-dark);
+}
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+
+    /* Gradiente do topo (identidade visual LOCATEM) */
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 6.5%,
+            var(--color-primary-soft) 9.5%,
+            var(--color-bg-main) 12.5%);
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.header {
+    width: 100%;
+    padding: 15px 20px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ============================= */
+/* LOGO */
+/* ============================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--color-text-dark);
+    text-decoration: none;
+
+    font-size: clamp(16px, 4vw, 18px);
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    height: 25px;
+    object-fit: contain;
+}
+
+/* ============================= */
+/* CHAT */
+/* ============================= */
+.chat {
+    width: clamp(36px, 3vw, 48px);
+    height: clamp(36px, 3vw, 48px);
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+.chat img {
+    height: 23px;
+    object-fit: contain;
+}
+
+
+/* ============================= */
+/* MAIN (LAYOUT PRINCIPA) */
+/* ============================= */
+.main-mobile {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 8px 18px;
+}
+
+/* ── Cabeçalho ── */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 10px 20px;
+    gap: 16px;
+}
+
+.icon-voltar {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.icon-voltar img {
+    width: 20px;
+    height: 15px;
+    object-fit: contain;
+}
+
+.cabecalho>h1 {
+    font-size: 1.5rem;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+    color: var(--color-text-dark);
+}
+
+/* ============================= */
+/* CARD BASE */
+/* Componente reutilizável */
+/* ============================= */
+.card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border-card);
+    box-shadow: var(--shadow-card);
+
+    padding: 25px;
+}
+
+.grupo-metodos h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 16px;
+}
+
+.metodo-pagamento {
+    display: flex;
+    gap: 12px;
+}
+
+/* Estilo Padrão (Desmarcado) */
+.btn-metodo {
+    flex: 1;
+    /* Faz todos dividirem o espaço igualmente */
+    min-height: 50px;
+    background-color: transparent;
+    border: 2px solid var(--color-border-btn-metodo);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    /* Animação suave na troca de cor */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-metodo span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    line-height: 1.3;
+}
+
+/* Efeito ao passar o mouse (melhora a usabilidade) */
+.btn-metodo:hover:not(.ativo) {
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+}
+
+/* Estilo Ativo (Selecionado) */
+.btn-metodo.ativo {
+    background-color: var(--color-bg-metodo);
+    border-color: var(--color-border-btn-metodo-active);
+    transform: scale(0.98);
+}
+
+
+/* ============================= */
+/* CARD RESUMO DO PEDIDO         */
+/* ============================= */
+.card-resumo {
+    padding: 22px 20px 20px;
+    margin: 37px 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-resumo h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+
+    margin-bottom: 16px;
+}
+
+/* Linha subtotal */
+.resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+.resumo-linha span {
+    font-size: 0.9375rem;
+    color: var(--color-text-gray);
+}
+
+.resumo-linha strong {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--color-text-gray);
+}
+
+/* Campo CEP */
+.linha-cep {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.linha-divisoria {
+    border: none;
+    border-top: 1px solid var(--color-linha-divisoria);
+    margin: 0 0 16px;
+}
+
+/* Total */
+.resumo-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.resumo-total span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.resumo-total strong {
+    font-size: 1.1875rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    letter-spacing: -0.5px;
+}
+
+/* ============================= */
+/* BOTÃO PRINCIPAL (PAGAMENTO) */
+/* ============================= */
+.btn-pagamento {
+    width: 100%;
+    height: 54px;
+
+    border: none;
+    border-radius: var(--radius-btn);
+
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+
+    margin-bottom: 15px;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    transition: background .2s, transform .1s;
+    cursor: pointer;
+}
+
+/* Hover */
+.btn-pagamento:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Clique */
+.btn-pagamento:active {
+    transform: scale(.98);
+}
+
+/* ============================= */
+/* SEGURANÇA */
+/* ============================= */
+.seguranca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--color-text-sutil);
+}
+
+.seguranca svg {
+    width: auto;
+    height: 12.5px;
+    flex-shrink: 0;
+}
+
+.seguranca p {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+
+/* ========================================= */
+/* TELAS MUITO PEQUENAS — max-width: 380px   */
+/* ========================================= */
+@media (max-width: 380px) {
+    .header {
+        padding: 16px 14px 20px;
+    }
+
+    .logo {
+        font-size: 15px;
+        gap: 5px;
+    }
+
+    .logo img {
+        height: 26px;
+    }
+
+    .chat img {
+        height: 20px;
+    }
+
+    .main-mobile {
+        padding: 6px 12px;
+    }
+
+    .cabecalho {
+        gap: 10px;
+        padding: 0 4px 16px;
+    }
+
+    .icon-voltar img {
+        width: 15px;
+        height: 10px;
+        object-fit: contain;
+    }
+
+    .cabecalho>h1 {
+        font-size: clamp(20px, 6vw, 26px);
+        letter-spacing: -0.3px;
+    }
+
+    .card {
+        padding: 18px 16px;
+    }
+
+    .grupo-metodos h3 {
+        font-size: 0.9375rem;
+        margin-bottom: 12px;
+    }
+
+    .metodo-pagamento {
+        gap: 8px;
+    }
+
+    .btn-metodo {
+        min-height: 44px;
+        padding: 8px 6px;
+        border-radius: 8px;
+    }
+
+    .btn-metodo span {
+        font-size: 0.75rem;
+        line-height: 1.25;
+    }
+
+    .card-resumo {
+        padding: 18px 14px 16px;
+        margin: 24px 0;
+    }
+
+    .card-resumo h3 {
+        font-size: 0.9375rem;
+        margin-bottom: 12px;
+    }
+
+    .resumo-linha {
+        margin-bottom: 12px;
+    }
+
+    .resumo-linha span,
+    .resumo-linha strong {
+        font-size: 0.875rem;
+    }
+
+    .resumo-total {
+        margin-bottom: 22px;
+    }
+
+    .resumo-total span {
+        font-size: 0.9375rem;
+    }
+
+    .resumo-total strong {
+        font-size: 1.0625rem;
+    }
+
+    .btn-pagamento {
+        height: 48px;
+        font-size: 0.9375rem;
+        margin-bottom: 12px;
+    }
+
+    .seguranca {
+        gap: 6px;
+    }
+
+    .seguranca p {
+        font-size: 0.6875rem;
+    }
+}
+
+/* ================================= */
+/* TELAS MAIORES — min-width: 1024px */
+/* ================================= */
+
+@media (min-width: 1024px) {
+    .app {
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 7%,
+                var(--color-primary-soft) 12.2%,
+                var(--color-bg-main) 16%);
+    }
+
+    /* ── Header ─────────────────────────────────── */
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 20px 40px 16px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: clamp(18px, 1.5vw, 24px);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        text-decoration: none;
+        color: var(--color-text-dark);
+        flex-shrink: 0;
+    }
+
+    .logo img {
+        height: 30px;
+        object-fit: contain;
+    }
+
+    .chat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .chat img {
+        height: 22px;
+        object-fit: contain;
+    }
+
+    /* ── Main ───────────────────────────────────── */
+    .main-mobile {
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 48px 20px 64px;
+    }
+
+    /* ── Cabeçalho de página ────────────────────── */
+    .cabecalho {
+        padding: 0 0 28px;
+        gap: 18px;
+    }
+
+    .cabecalho>h1 {
+        font-size: clamp(26px, 2.2vw, 36px);
+        letter-spacing: -0.6px;
+    }
+
+    .icon-voltar img {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* ── Cards ──────────────────────────────────── */
+    .card {
+        padding: 30px 28px;
+    }
+
+    .grupo-metodos h3 {
+        font-size: 1.125rem;
+        margin-bottom: 18px;
+    }
+
+    /* Botões de método: mais espaçosos no desktop */
+    .metodo-pagamento {
+        gap: 14px;
+    }
+
+    .btn-metodo {
+        min-height: 56px;
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+
+    .btn-metodo span {
+        font-size: 0.9375rem;
+    }
+
+    /* ── Card resumo ─────────────────────────────── */
+    .card-resumo {
+        padding: 28px 26px 24px;
+        margin: 40px 0;
+    }
+
+    .card-resumo h3 {
+        font-size: 1.125rem;
+        margin-bottom: 20px;
+    }
+
+    .resumo-linha span,
+    .resumo-linha strong {
+        font-size: 1rem;
+    }
+
+    .resumo-total {
+        margin-bottom: 32px;
+    }
+
+    .resumo-total span {
+        font-size: 1.0625rem;
+    }
+
+    .resumo-total strong {
+        font-size: 1.3125rem;
+        letter-spacing: -0.6px;
+    }
+
+    /* ── Botão de pagamento ──────────────────────── */
+    .btn-pagamento {
+        height: 58px;
+        font-size: 1.0625rem;
+        border-radius: var(--radius-lg);
+        /* Radius um pouco maior no desktop */
+        margin-bottom: 16px;
+    }
+
+    /* ── Segurança ───────────────────────────────── */
+    .seguranca p {
+        font-size: 0.8125rem;
+    }
+}
