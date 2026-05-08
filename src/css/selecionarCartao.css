@@ -1,51 +1,55 @@
 :root {
     /* CORES PRINCIPAIS */
-    --color-primary:        #FFCA00;
-    --color-primary-light:  #ffe97a;
-    --color-primary-soft:   #fff6c7;
-    --color-terciary:       #FFD600;
-    --color-secondary:      #f0c000c0;
+    --color-primary: #FFCA00;
+    --color-primary-light: #ffe97a;
+    --color-primary-soft: #fff6c7;
+    --color-terciary: #FFD600;
+    --color-secondary: #f0c000c0;
 
     /* BACKGROUNDS */
-    --color-bg-main:        #F9FAFB;
-    --color-bg-card:        #ffffff;
-    --color-bg-icon:        #E7E8E9;
+    --color-bg-main: #F9FAFB;
+    --color-bg-card: #ffffff;
+    --color-bg-icon: #E7E8E9;
 
     /* TEXTOS */
-    --color-text-dark:       #0A0A0A;
-    --color-text-gray:       #4A5565;
+    --color-text-dark: #0A0A0A;
+    --color-text-gray: #4A5565;
     --color-text-desativado: #A0A0A0;
-    --color-text-add-card:     #705D00;
+    --color-text-add-card: #705D00;
 
     /* BORDA */
-    --color-border-card:    #e5e7eb;
-    --color-border-focus:   #FFCA00;
-    --color-input-radio: #D0C6AB;
+    --color-border-card: #e5e7eb;
+    --color-border-focus: #FFCA00;
+    --color-input-radio: #d1b464;
 
     /* SOMBRA */
-    --shadow-card:          0 1px 3px rgba(0, 0, 0, 0.184);
-    --shadow-card-hover:    0 4px 12px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.184);
+    --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
 
     /* RAIOS DE BORDA */
-    --radius-card:          14px;
-    --radius-btn:           14px;
-    --radius-icon:          10px;
+    --radius-card: 14px;
+    --radius-btn: 14px;
+    --radius-icon: 10px;
 
     /* ESPAÇAMENTOS BASE (escala 4px) */
-    --space-xs:  4px;
-    --space-sm:  8px;
-    --space-md:  16px;
-    --space-lg:  24px;
-    --space-xl:  32px;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
 
     /* TIPOGRAFIA */
-    --text-sm:    0.875rem;   /* 14px */
-    --text-base:  1rem;       /* 16px */
-    --text-h1:    1.5rem;     /* 24px */
-    --text-h3:    0.9375rem;  /* 15px */
+    --text-sm: 0.875rem;
+    /* 14px */
+    --text-base: 1rem;
+    /* 16px */
+    --text-h1: 1.5rem;
+    /* 24px */
+    --text-h3: 0.9375rem;
+    /* 15px */
 
     /* TRANSIÇÕES */
-    --transition-fast:   0.15s ease;
+    --transition-fast: 0.15s ease;
     --transition-normal: 0.25s ease;
 }
 
@@ -62,13 +66,11 @@ body {
 .app {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(
-        to bottom,
-        var(--color-primary)       0%,
-        var(--color-primary-light) 6.5%,
-        var(--color-primary-soft)  9.5%,
-        var(--color-bg-main)       12.5%
-    );
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 6.5%,
+            var(--color-primary-soft) 9.5%,
+            var(--color-bg-main) 12.5%);
 }
 
 /* ============================= */
@@ -108,7 +110,7 @@ body {
 /* ============================= */
 
 .chat {
-    width:  clamp(36px, 9vw, 48px);
+    width: clamp(36px, 9vw, 48px);
     height: clamp(36px, 9vw, 48px);
     display: flex;
     align-items: center;
@@ -119,8 +121,13 @@ body {
     transition: opacity var(--transition-fast);
 }
 
-.chat:hover  { opacity: 0.7; }
-.chat:active { opacity: 0.5; }
+.chat:hover {
+    opacity: 0.7;
+}
+
+.chat:active {
+    opacity: 0.5;
+}
 
 .chat img {
     height: 23px;
@@ -133,7 +140,8 @@ body {
 
 .main-mobile {
     width: 100%;
-    min-height: calc(100vh - 64px); /* desconta altura do header */
+    min-height: calc(100vh - 64px);
+    /* desconta altura do header */
     margin: 0 auto;
     padding: 35px 18px 40px;
     display: flex;
@@ -150,7 +158,7 @@ body {
     padding: 0 10px;
 }
 
-.cabecalho > h1 {
+.cabecalho>h1 {
     font-size: var(--text-h1);
     font-weight: 750;
     letter-spacing: -0.5px;
@@ -158,7 +166,7 @@ body {
     line-height: 1.2;
 }
 
-.cabecalho > p {
+.cabecalho>p {
     font-size: var(--text-sm);
     color: var(--color-text-gray);
     line-height: 1.5;
@@ -184,6 +192,12 @@ body {
     gap: var(--space-lg);
 }
 
+.lista-cartoes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
 /* ============================= */
 /* CARD DE CARTÃO (label)        */
 /* ============================= */
@@ -199,9 +213,9 @@ body {
     box-shadow: var(--shadow-card);
     cursor: pointer;
     transition:
-        border-color     var(--transition-fast),
-        box-shadow       var(--transition-fast),
-        transform        var(--transition-fast);
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
 }
 
 /* Feedback visual de pressão */
@@ -235,20 +249,21 @@ body {
 /* ============================= */
 
 .cartao-info {
-    flex: 1; /* ocupa espaço restante, empurra o radio para o fim */
+    flex: 1;
+    /* ocupa espaço restante, empurra o radio para o fim */
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.cartao-info > h3 {
+.cartao-info>h3 {
     font-size: var(--text-h3);
     font-weight: 600;
     color: var(--color-text-dark);
     letter-spacing: -0.2px;
 }
 
-.cartao-info > p {
+.cartao-info>p {
     font-size: var(--text-sm);
     font-weight: 400;
     color: var(--color-text-desativado);
@@ -272,7 +287,7 @@ body {
     background-color: transparent;
     cursor: pointer;
     transition:
-        border-color     var(--transition-fast),
+        border-color var(--transition-fast),
         background-color var(--transition-fast);
     margin-left: auto;
 }
@@ -301,8 +316,8 @@ body {
     text-align: left;
     transition:
         border-color var(--transition-fast),
-        box-shadow   var(--transition-fast),
-        transform    var(--transition-fast);
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
 }
 
 .btn-adicionar:active {
@@ -321,16 +336,17 @@ body {
     border-radius: 999px;
 }
 
-.icone-add > span {
+.icone-add>span {
     font-size: 1.75rem;
     font-weight: 300;
     color: var(--color-text-black);
     line-height: 1;
-    margin-top: -2px; /* ajuste óptico do símbolo "+" */
+    margin-top: -2px;
+    /* ajuste óptico do símbolo "+" */
 }
 
 /* Texto dourado do botão */
-.btn-adicionar > span {
+.btn-adicionar>span {
     font-size: var(--text-base);
     font-weight: 600;
     color: var(--color-text-add-card);
@@ -346,21 +362,18 @@ body {
     padding: 17px var(--space-md);
     background-color: var(--color-terciary);
     color: var(--color-text-dark);
-    font-family: var(--font-base);
     font-size: var(--text-base);
     font-weight: 700;
     letter-spacing: -0.2px;
     border: none;
     border-radius: var(--radius-btn);
     cursor: pointer;
-    /* Fica "colado" no fundo da viewport em mobile */
-    position: sticky;
     bottom: var(--space-lg);
     box-shadow: 0 4px 16px rgba(255, 202, 0, 0.45);
     transition:
         background-color var(--transition-fast),
-        box-shadow       var(--transition-fast),
-        transform        var(--transition-fast);
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
 }
 
 .btn-pagamento:active {
@@ -380,83 +393,81 @@ body {
 
 @media (min-width: 1024px) {
 
-  /* ── Gradiente: faixa amarela menor em telas grandes ── */
-  .app {
-    background: linear-gradient(
-      to bottom,
-      var(--color-primary)       0%,
-      var(--color-primary-light) 4%,
-      var(--color-primary-soft)  6.5%,
-      var(--color-bg-main)       9%
-    );
-  }
+    /* ── Gradiente: faixa amarela menor em telas grandes ── */
+    .app {
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 6%,
+                var(--color-primary-soft) 8.5%,
+                var(--color-bg-main) 11%);
+    }
 
-  /* ── Header: padding generoso + limita largura interna ── */
-  .header {
-    padding: 18px 48px;
-    max-width: 1280px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-  }
+    /* ── Header: padding generoso + limita largura interna ── */
+    .header {
+        padding: 15px 48px;
+        width: min(100%, clamp(1024px, 80vw, 1280px));
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
 
-  /* ── Logo: tamanho fixo no desktop ── */
-  .logo {
-    font-size: 18px;
-  }
+    /* ── Logo: tamanho fixo no desktop ── */
+    .logo {
+        font-size: 18px;
+    }
 
-  .logo img {
-    height: 28px;
-  }
+    .logo img {
+        height: 28px;
+    }
 
-  /* ── Main: coluna central com max-width ── */
-  .main-mobile {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 48px 0 80px;
-    gap: 32px;
-  }
+    /* ── Main: coluna central com max-width ── */
+    .main-mobile {
+        width: min(100%, clamp(900px, 75vw, 1200px));
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px 48px;
+        gap: 32px;
+    }
 
-  /* ── Cabeçalho textual: sem padding lateral extra ── */
-  .cabecalho {
-    padding: 0;
-    gap: 6px;
-  }
+    /* ── Cabeçalho textual: sem padding lateral extra ── */
+    .cabecalho {
+        padding: 0;
+        gap: 6px;
+    }
 
-  .cabecalho > h1 {
-    font-size: 1.75rem; /* 28px */
-  }
+    .cabecalho>h1 {
+        font-size: 1.75rem;
+        /* 28px */
+    }
 
-  .cabecalho > p {
-    font-size: 0.9375rem; /* 15px */
-  }
+    .cabecalho>p {
+        font-size: 0.9375rem;
+        /* 15px */
+    }
 
-  /* ── Cards: hover refinado para mouse ── */
-  .cartao:hover {
-    border-color: var(--color-border-focus);
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-1px);
-  }
+    /* ── Cards: hover refinado para mouse ── */
+    .cartao:hover {
+        box-shadow: var(--shadow-card-hover);
+        transform: translateY(-1px);
+    }
 
-  /* ── Botão adicionar cartão: hover para mouse ── */
-  .btn-adicionar:hover {
-    border-color: var(--color-border-focus);
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-1px);
-  }
+    /* ── Botão adicionar cartão: hover para mouse ── */
+    .btn-adicionar:hover {
+        box-shadow: var(--shadow-card-hover);
+        transform: translateY(-1px);
+    }
 
-  /* ── Botão submit: sai do sticky, fica no fluxo ── */
-  .btn-pagamento {
-    position: static;
-    margin-top: 8px;
-    padding: 18px var(--space-md);
-    border-radius: var(--radius-btn);
-  }
+    /* ── Botão submit: sai do sticky, fica no fluxo ── */
+    .btn-pagamento {
+        position: static;
+        margin-top: 8px;
+        padding: 18px var(--space-md);
+        border-radius: var(--radius-btn);
+    }
 
-  .btn-pagamento:hover {
-    background-color: var(--color-primary);
-    box-shadow: 0 6px 20px rgba(255, 202, 0, 0.55);
-    transform: translateY(-1px);
-  }
-
+    .btn-pagamento:hover {
+        background-color: var(--color-primary);
+        box-shadow: 0 6px 20px rgba(255, 202, 0, 0.55);
+        transform: translateY(-1px);
+    }
 }

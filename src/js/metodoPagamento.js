@@ -15,11 +15,12 @@ const botoes         = document.querySelectorAll('.btn-metodo');
 const btnContinuar   = document.querySelector('.btn-pagamento');
 
 // Elementos do resumo do pedido
-const elSubtotal     = document.querySelector('.resumo-linha strong');
-const elFrete        = document.querySelector('.resumo-frete-topo');
-const elTotal        = document.querySelector('.resumo-total strong');
-const elLinhaDesconto  = document.getElementById('linha-desconto');      
-const elDesconto       = document.querySelector('.resumo-desconto-valor'); 
+// Seletores baseados em classes específicas para evitar dependência de ordem no HTML
+const elSubtotal       = document.querySelector('.resumo-subtotal');
+const elFrete          = document.querySelector('.resumo-frete-topo');
+const elTotal          = document.querySelector('.resumo-total-valor');
+const elLinhaDesconto  = document.getElementById('linha-desconto');
+const elDesconto       = document.querySelector('.resumo-desconto-valor');
 
 
 // =======================================================
@@ -101,7 +102,7 @@ function atualizarResumo() {
 
     // Exibe a linha de desconto apenas quando houver desconto ativo
     if (desconto > 0) {
-        elDesconto.textContent      = `− ${formatarMoeda(desconto)}`;
+        elDesconto.textContent        = `− ${formatarMoeda(desconto)}`;
         elLinhaDesconto.style.display = '';
     } else {
         elLinhaDesconto.style.display = 'none';
@@ -117,14 +118,17 @@ function atualizarResumo() {
     * Retorna o botão de pagamento que está atualmente ativo, ou null caso nenhum esteja selecionado.
     *
     * @returns {Element|null}
-    */
+*/
 function obterMetodoAtivo() {
     return document.querySelector('.btn-metodo.ativo');
 }
 
 /**
-    * Verifica o método de pagamento ativo e redireciona para a página correspondente. Exibe alerta se nenhum método estiver selecionado.
- */
+    * Verifica o método de pagamento ativo e redireciona para a página correspondente.
+    * Antes do redirecionamento, salva o método selecionado no localStorage para que
+    * a tela selecionarCartao.html possa filtrar os cartões corretamente.
+    * Exibe alerta se nenhum método estiver selecionado.
+*/
 function processarContinuarPagamento() {
     const metodoAtivo = obterMetodoAtivo();
 
@@ -134,18 +138,23 @@ function processarContinuarPagamento() {
         return;
     }
 
-    const textoMetodo = metodoAtivo.querySelector('span').textContent.trim().toLowerCase();
+    // Lê o método diretamente do atributo data-metodo para evitar
+    // dependência do texto visual exibido no botão
+    const metodo = metodoAtivo.dataset.metodo;
 
     // Mapeamento de método → rota de destino
     const rotas = {
-        'cartão de crédito' : './escolhaCartao.html',
-        'cartão de débito'  : './escolhaCartao.html',
-        'pix'               : './pagamentoPix.html'
+        credito : '/selecionarCartao.html',
+        debito  : '/selecionarCartao.html',
+        pix     : '/pagamentoPix.html'
     };
 
-    const destino = rotas[textoMetodo];
+    const destino = rotas[metodo];
 
     if (destino) {
+        // Persiste o método escolhido para uso na próxima tela
+        localStorage.setItem('metodoPagamento', metodo);
+
         window.location.href = destino;
     } else {
         // Segurança: método desconhecido (não deve ocorrer em produção)
