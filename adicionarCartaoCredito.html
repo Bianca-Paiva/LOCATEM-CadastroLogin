@@ -4,7 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/css/pagamentoCredito.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./src/css/adicionarCartaoCredito.css" />
     <link rel="stylesheet" href="./src/css/reset.css">
     <title>LOCATEM</title>
 </head>
@@ -13,38 +20,22 @@
     <div class="app">
 
         <!-- HEADER -->
-        <header class="topo">
-            <div class="linha-topo">
-                <!-- Logo da LOCATEM com link para a página principal -->
-                <a href="./principalPage.html" class="logo">
-                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
-                    LOCATEM
-                </a>
-
-                <!-- Botão de acesso ao chat -->
-                <button class="chat">
-                    <img src="./src/images/chat.png" alt="Chat">
-                </button>
-            </div>
+        <header class="header">
+            <a href="./principalPage.html" class="logo">
+                <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                LOCATEM
+            </a>
+            <button class="chat">
+                <img src="./src/images/chat.png" alt="Chat" />
+            </button>
         </header>
 
         <!-- CONTEÚDO GERAL -->
         <main class="pagamento-container">
 
             <section class="titulo-pagina">
-                
-                <!-- Botão de seta para voltar para a página inicial -->
-                <button class="btn-voltar" aria-label="Voltar">
-                    <a href="/principalPage.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
-                        </svg>
-                    </a>
-                </button>
-
                 <h1>Pagamento com Cartão de Crédito</h1>
+                <p>Insira os dados do seu cartão para continuar o pagamento.</p>
             </section>
 
             <div class="cards-wrapper">
@@ -131,30 +122,51 @@
                 </section>
 
                 <!-- RESUMO -->
-                <section class="card resumo-pedido">
-                    <h2>Resumo do Pedido</h2>
+                <aside class="card card-resumo">
+                <h3>Resumo do Pedido</h3>
 
-                    <div class="linha-total">
-                        <span>Total</span>
-                        <span>R$ 15,00</span>
-                    </div>
+                <div class="resumo-linha">
+                    <span>Subtotal</span>
+                    <strong class="resumo-subtotal"></strong>
+                </div>
 
-                    <button class="btn-pagar" type="button">Confirmar Pagamento</button>
+                <div class="resumo-linha">
+                    <span>Frete</span>
+                    <strong class="resumo-frete-topo"></strong>
+                </div>
 
-                    <div class="seguranca">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-lock-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
-                        </svg>
-                        <p>Pagamento 100% seguro</p>
-                    </div>
-                </section>
+                <div class="resumo-linha resumo-linha--desconto" id="linha-desconto" style="display:none;">
+                    <span>Desconto</span>
+                    <strong class="resumo-desconto-valor"></strong>
+                </div>
+
+                <hr class="linha-divisoria" />
+
+                <div class="resumo-total">
+                    <span>Total</span>
+                    <strong class="resumo-total-valor"></strong>
+                </div>
+
+                <button class="btn-pagamento" type="button">
+                    Continuar Pagamento
+                </button>
+
+                <!-- INDICADOR DE SEGURANÇA -->
+                <div class="seguranca">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-lock-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
+                    </svg>
+
+                    <p>Pagamento 100% seguro</p>
+                </div>
+            </aside><!-- /card-resumo -->
             </div>
         </main>
     </div>
 
-    <script src="/src/js/pagamentoCredito.js"></script>
+    <script src="/src/js/adicionarCartaoCredito.js"></script>
 </body>
 
 </html>
