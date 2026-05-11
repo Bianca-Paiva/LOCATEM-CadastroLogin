@@ -658,9 +658,6 @@ main {
    Expansível via JS — o botão .btn-expandir
    controla a visibilidade do .descricao-conteudo.
    ======================================== */
-.descricao-secao {
-  /* herda card-secao */
-}
 .descricao-cabecalho {
   display: flex;
   align-items: center;
@@ -1031,6 +1028,7 @@ main {
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
