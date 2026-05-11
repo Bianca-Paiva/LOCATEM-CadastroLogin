@@ -1,0 +1,99 @@
+:root {
+  --color-primary-hover: #f2cb00;
+  --color-primary-soft: #fff3b0;
+  --secondary-color: #d9d9d9;
+  --secondary-color-soft: #f7f7f7;
+  --color-terciary: #A5A5A5;
+
+  --color-bg-main: #f3f4f6;
+  --color-bg-card: #ffffff;
+  --color-bg-input: #f9fafb;
+  --color-bg-info: #eef4ff;
+
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-dark: #111827;
+  --color-text-muted: #9ca3af;
+  --color-text-success: #16a34a;
+  --color-text-info: #3156d3;
+
+  --color-border: #d1d5db;
+  --color-border-soft: #e5e7eb;
+  --color-border-info: #b9d1ff;
+
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+  --radius-card: 16px;
+  --radius-input: 12px;
+  --radius-full: 999px;
+}
+/* BASE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+     width: 100%;
+    min-height: 100vh;
+    padding-bottom: 70px;
+}
+/*=========== HEADER =============*/
+/*Estilizado a parte*/
+/*=====================================*/
+main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+/*=================== sidebarChats ===================*/
+    
+.menu-lateral {
+     width: 500px;
+     max-width: 100%;
+     height: calc(100vh - 120px);  
+     overflow-y: auto;
+     background-color: var(--secondary-color-soft);
+     box-shadow: var(--shadow-card);
+     
+}
+.menu-lateral::-webkit-scrollbar {
+    width: 8px;
+}
+.menu-Conteudo{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 15px;
+}
+.Listacontatos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+.contato {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: var(--radius-input);
+}
+.contato a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+}
+
+/*=================== conteudo =============*/
+.Conversa{
+    display: flex;
+    flex-direction: column;
+}
+.cabecalho-conversa{
+    display: flex;
+    background-color: var(--secondary-color-soft);
+    width: 100vh;
+    padding: 25px;
+    
+}
