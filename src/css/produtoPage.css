@@ -563,9 +563,9 @@ main {
 
 /* Botão secundário: fundo amarelo suave com borda */
 .btn-adicionar-carrinho {
-  background-color: var(--color-primary-soft);
+  background-color: #F5E3B3;
   border: 1.5px solid var(--color-primary);
-  color: var(--color-text-dark);
+  color: #6E5000;
 }
 .btn-adicionar-carrinho:hover {
   background-color: var(--color-primary-light);
@@ -601,7 +601,7 @@ main {
 .logo-loja {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-md);
+  border-radius: 50%;
   background: var(--color-gray-100);
   overflow: hidden;
   flex-shrink: 0;
@@ -624,7 +624,7 @@ main {
 }
 .loja-locacoes {
   font-size: 0.75rem;
-  color: var(--color-gray-500);
+  color: 1F1B10;
   margin-top: 2px;
 }
 
@@ -647,10 +647,25 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 33px;
+  height: 50px;
+
+  border: 2px solid #d2c8ab;
+  border-radius: 999px;
+
+  background: var(--color-white);
+
   flex-shrink: 0;
   text-decoration: none;
+
+  transition: all 0.2s ease;
 }
-.btn-ir-loja img { width: 20px; height: 18px; }
+.btn-ir-loja img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
 
 /* ========================================
    CARD GENÉRICO
@@ -662,7 +677,7 @@ main {
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
   padding: var(--spacing-md);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 /* ========================================
@@ -964,6 +979,9 @@ main {
 .ferramentas-semelhantes--topo {
   display: none;
 }
+.ferramentas-semelhantes--rodape-desktop{
+  display: none;
+}
 
 /* Grid padrão: 2 colunas no mobile */
 .grid-produtos {
@@ -1019,9 +1037,9 @@ main {
   height: 110px;
 }
 .produto-foto img {
-  max-height: 90px;
-  object-fit: contain;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Área de texto do card: nome, loja e rodapé */
@@ -1029,7 +1047,9 @@ main {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 4px;
+  height: 100%;
 }
 
 /* Título truncado em 2 linhas para manter a altura uniforme dos cards */
@@ -1072,6 +1092,10 @@ main {
 .avaliacao-card img {
   width: 10px;
   height: 10px;
+}
+
+.nota {
+  margin: 0;
 }
 
 .preco { 
@@ -1227,6 +1251,8 @@ main {
       var(--color-primary-soft) 4.5%,
       var(--color-bg-main) 6%);
   }
+
+ 
 
   /* ── HEADER DESKTOP ──
      Reestrutura para linha única horizontal com altura fixa.
@@ -1486,6 +1512,7 @@ main {
     display: flex;
     padding: 0 0 var(--spacing-xl);
   }
+
   .ferramentas-semelhantes--topo h3 {
     font-size: 1.1rem;
     font-weight: 700;
@@ -1577,18 +1604,27 @@ main {
     border-bottom: 1px solid var(--color-gray-100);
   }
 
-  /* ── FERRAMENTAS SEMELHANTES — RODAPÉ (grid 4 colunas) ── */
-  .ferramentas-semelhantes:not(.ferramentas-semelhantes--topo) {
-    padding: var(--spacing-xl) 0 0;
-  }
-  .ferramentas-semelhantes:not(.ferramentas-semelhantes--topo) h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
-  .ferramentas-semelhantes:not(.ferramentas-semelhantes--topo) .grid-produtos {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
+  
+
+  /* ── FERRAMENTAS SEMELHANTES — RODAPÉ DESKTOP ── */
+
+
+.ferramentas-semelhantes--rodape-desktop {
+  display: flex;
+  padding: var(--spacing-xl) 0 0;
+}
+
+.ferramentas-semelhantes--rodape-desktop h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.ferramentas-semelhantes--rodape-desktop .grid-produtos {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+  /* ========================= VISIBILIDADE RODAPE MOBILE ========================= */
+  .ferramentas-semelhantes--rodape-mobile { display: none; }
 
   /* Cards maiores no desktop */
   .produto-foto { height: 140px; }
