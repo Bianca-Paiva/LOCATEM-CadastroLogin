@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOCATEM</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="./src/images/LogoIcon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/header style/header.css">    
+    
+</head>
+<body>
+
+    <div class="app">
+
+      
+        <!-- ============== -->
+        <!-- HEADER MOBILE -->
+        <!-- ============== -->
+        <header class="header-mobile">
+            <!-- LINHA SUPERIOR -->
+            <div class="linha-topo-mobile">
+                <!-- AGRUPAMENTO ESQUERDO -->
+                <div class="lado-esquerdo">
+                    <button class="menu-btn">
+                        <img src="./src/images/menuHamburguer.png" alt="Menu" />
+                    </button>
+
+                    <a href="./principalPage.html" class="logo">
+                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                        LOCATEM
+                    </a>
+                </div>
+
+                <!-- DIREITA -->
+                <a href="#" class="carrinho-btn">
+                    <img src="./src/images/carrinho.svg" alt="Carrinho" />
+                    <span class="quantidade-carrinho">2</span>
+                </a>
+            </div>
+
+            <!-- Barra de pesquisa -->
+            <form class="barra-pesquisa-mobile" id="searchFormMobile">
+                <img src="./src/images/lupa.png" alt="Buscar" />
+                <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                    aria-label="Pesquisar ferramentas" 
+                    id="searchInputMobile"/>
+            </form>
+        </header>
+
+        <!-- =============== -->
+        <!-- HEADER DESKTOP-->
+        <!-- =============== -->
+        <header class="header-desktop">
+            <div class="linha-topo-desktop">
+                <!-- Logo da LOCATEM com link para a página principal -->
+                <a href="./principalPage.html" class="logo">
+                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                    LOCATEM
+                </a>
+
+                <!-- Barra de pesquisa -->
+                <form class="barra-pesquisa" id="searchForm">
+                    <button type="submit" class="lupa-btn">
+                        <img src="./src/images/lupa.png" alt="Buscar" />
+                    </button>
+                    <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                        aria-label="Pesquisar ferramentas" id="searchInput" />
+                </form>
+
+                <!-- Botão de acesso ao chat -->
+                <a href="./mensagens.html" class="chat">
+                    <img src="./src/images/chat.png" alt="Chat" />
+                </a>
+            </div>
+        </header>
+        <section name="area-calendario">
+            <div class="tituloPage">
+                
+                <h1>Agenda</h1>
+            </div>
+        </section>
+        <section name="area-locacoes">
+            
+        </section>
+
+    </div>
+</body>
+</html>
+<script src="./src/js/busca.js"></script>
