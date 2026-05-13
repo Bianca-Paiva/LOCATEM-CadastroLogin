@@ -12,67 +12,123 @@
 
     <link rel="shortcut icon" href="./src/images/LogoIcon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/busca.css">
-    <link rel="stylesheet" href="./src/css/responsivoBusca.css">
-
+    <link rel="stylesheet" href="./src/css/busca.css">   
+    <link rel="stylesheet" href="./src/css/header style/header.css">    
+    
 </head>
 
 <body>
-
+  <!-- HEADER
+             <div class="app"> -->
     <div class="app">
 
-        <!-- HEADER -->
-        <header>
-            <div class="logo">
-                <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
-                LOCATEM
+      
+        <!-- ============== -->
+        <!-- HEADER MOBILE -->
+        <!-- ============== -->
+        <header class="header-mobile">
+            <!-- LINHA SUPERIOR -->
+            <div class="linha-topo-mobile">
+                <!-- AGRUPAMENTO ESQUERDO -->
+                <div class="lado-esquerdo">
+                    <button class="menu-btn">
+                        <img src="./src/images/menuHamburguer.png" alt="Menu" />
+                    </button>
+
+                    <a href="./principalPage.html" class="logo">
+                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                        LOCATEM
+                    </a>
+                </div>
+
+                <!-- DIREITA -->
+                <a href="#" class="carrinho-btn">
+                    <img src="./src/images/carrinho.svg" alt="Carrinho" />
+                    <span class="quantidade-carrinho">2</span>
+                </a>
             </div>
 
-            <!-- Barra de pesquisa desktop -->
-            <form class="search-bar-desktop">
-                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
-                <button type="submit" class="lupa-btn">
-                    <img src="./src/images/lupa.png" alt="Buscar">
-                </button>
+            <!-- Barra de pesquisa -->
+            <form class="barra-pesquisa-mobile" id="searchFormMobile">
+                <img src="./src/images/lupa.png" alt="Buscar" />
+                <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                    aria-label="Pesquisar ferramentas" 
+                    id="searchInputMobile"/>
             </form>
-
-            <button aria-label="Mensagens" class="chat">
-                <img src="./src/images/chat.png" alt="Chat">
-            </button>
-
-
         </header>
 
-        <!-- BARRA DE BUSCA -->
-        <div class="search-bar-carrinho">
-            <form class="search-bar">
-                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
-                <button type="submit" class="lupa-btn">
-                    <img src="./src/images/lupa.png" alt="Buscar">
+        <!-- =============== -->
+        <!-- HEADER DESKTOP-->
+        <!-- =============== -->
+        <header class="header-desktop">
+            <div class="linha-topo-desktop">
+                <!-- Logo da LOCATEM com link para a página principal -->
+                <a href="./principalPage.html" class="logo">
+                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                    LOCATEM
+                </a>
+
+                <!-- Barra de pesquisa -->
+                <form class="barra-pesquisa" id="searchForm">
+                    <button type="submit" class="lupa-btn">
+                        <img src="./src/images/lupa.png" alt="Buscar" />
+                    </button>
+                    <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                        aria-label="Pesquisar ferramentas" id="searchInput" />
+                </form>
+
+                <!-- Botão de acesso ao chat -->
+                <button class="chat">
+                    <img src="./src/images/chat.png" alt="Chat" />
                 </button>
-            </form>
+            </div>
+        </header>
+        <!-- ///////////////// FIM DO HEADER DESKTOP ///////////////// -->
 
-            <button aria-label="Carrinho" class="carrinho">
-                <img src="./src/images/carrinho.png" alt="Carrinho">
-            </button>
-        </div>
+        <!-- <header>
+            <div class="cabecario"> -->
 
-        <!-- Nav desktop fica abaixo da linha superior -->
-        <nav class="navegacaoDesktop">
+           
+                 <!-- <div class="header-superior">
+                    <div class="logo">
+                        <a href="#">
+                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
+                        LOCATEM
+                        </a>
+                    </div> -->
 
-            <a href="./principalPage.html"><img src="./src/images/home.png" alt="">Início</a>
-            <a href="#"><img src="./src/images/carrinho.png" alt="">Carrinho</a>
-            <a href="#"><img src="./src/images/relogio.png" alt="">Histórico</a>
-            <a href="#"><img src="./src/images/calendario.png" alt="">Agendamento</a>
-            <a href="#"><img src="./src/images/notificacoes.png" alt="">Notificações</a>
-            <a href="#"><img src="./src/images/Star.png" alt="">Avaliações</a>
-            <a href="#"><img src="./src/images/suporte.png" alt="">Suporte</a>
-            <a href="./login.html"><img src="./src/images/usuario.png" alt="">Entrar</a>
-        </nav>
+                    <!-- Barra de pesquisa
+                    <form class="search-bar" id="searchForm"> 
+                        <img src="./src/images/lupa.png" alt="" class="search-icon" />
+                        <input type="search" id="searchInput" placeholder="Buscar Ferramentas" aria-label="Pesquisar ferramentas" />
+                       
+                    </form> -->
 
+                    <!-- <button aria-label="Mensagens" class="chat">
+                        <img src="./src/images/chat.png" alt="Chat">
+                    </button>
+               </div> -->
 
+               <!-- <div class="header-inferior">
+                    <nav class="navegacaoMenu">
+                        <a href="#"><img src="./src/images/home.png" alt="">Início</a>
+                        <a href="#"><img src="./src/images/carrinho.png" alt="">Carrinho</a>
+                        <a href="#"><img src="./src/images/relogio.png" alt="">Histórico</a>
+                        <a href="#"><img src="./src/images/calendario.png" alt="">Agendamento</a>
+                        <a href="#"><img src="./src/images/notificacoes.png" alt="">Notificações</a>
+                        <a href="#"><img src="./src/images/Star.png" alt="">Avaliações</a>
+                        <a href="#"><img src="./src/images/suporte.png" alt="">Suporte</a>
+                        <a href="./login.html"><img src="./src/images/usuario.png" alt="">Entrar</a>
+                    </nav>
+                </div>
+           </div>
+        </header> -->
+
+        <main>
+      
+       
         <!-- BANNER -->
-        <section>
+         <section class="conteudo">
             <div aria-label="Banner de anúncio">
                 <div class="banner">
                     <div class="anuncio-img">
@@ -80,33 +136,208 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <main>
+        
+        
             <div class="produtosPesquisa">
                 <div class="ordenar">
-                    <h2>
+                    <div class="prioridade">
+                    
+                     <h2>  Ordenar por:</h2>
+                       
+                         
+                     <select name="ordenar" id="ordenar" onchange="ordenarComo()">
+                            <option value="1">Relevância</option>
+                            <option value="2">Preço: Menor para Maior</option>
+                            <option value="3">Preço: Maior para Menor</option>
+                            <option value="4">Avaliação: Melhor para Pior</option>
+                            <option value="5">Novidades</option>
+                    </select>
+                    </div>
+                    <div>
+                        <span name="total-resultados" id="totalResultados">
 
-                    </h2>
+                        </span>
+                    </div>
+                  
+
                 </div>
-                <ul class="grid-produtos">
-                    <li class="anuncio-card">
-                        <div class="card-img">
-                            <img src="./src/images/parafusadeira-furadeira-WAP.png" alt="Furadeira">
-                        </div>
+                
+                <ul class="grid-produtos" id="grid-anuncios">
+                  
 
-                        <div class="card-info">
-                            <h3>Furadeira de Impacto WAP</h3>
-                            <p>R$45,00<span>/dia</span></p>
-                        </div>
+                </ul>
+
+                <div class="paginacao">
+                    <!-- <button id="btnCarregarMais">Carregar mais</button> -->
+                    
+                   
+                    <div class="paginaInfo" id="paginacao">
+                        
+                    </div>
+                 
+                </div>
+            </div>
+        </section>
+          <aside class="sidebar">
+            <form action="Filtros" method="get" id="filtrosForm" class="filtrosForm">
+            <div class="filtro">
+                <h2>Filtros</h2>
+                <hr>
+                <div class="filtro-padrao" id="categorias">
+                   
+                     <h3>Categoria</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="categoria1">
+                            <label for="categoria1">Ferramentas Elétricas</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="categoria2">
+                            <label for="categoria2">Ferramentas Manuais</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="categoria3">
+                            <label for="categoria3">Equipamentos de Jardinagem</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="categoria4">
+                            <label for="categoria4">Máquinas Pesadas</label>
+                        </li>
+                    </ul>
+                     <hr>
+                </div>
+                <div class="filtro-padrao" id="marcas">
+                   
+                    <h3>Marca</h3>
+                    <div class="filtroMarca">
+                        <form id="buscaMarca" action="#" method="get">
+                            <input type="text" placeholder="Marca" aria-label="Buscar marca" name="marca">
+                            <button type="submit" class="lupa-btn">
+                                <img src="./src/images/lupa.png" alt="Buscar" >
+                            </button>                       
+                        </form>
+                    </div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="marca1">
+                            <label for="marca1">
+                                Bosch</label></li>
+                        <li>
+                            <input type="checkbox" id="marca2">
+                            <label for="marca2">Makita</label></li>
+                        <li>
+                            <input type="checkbox" id="marca3">
+                            <label for="marca3">DeWalt</label></li>
+                        <li>
+                            <input type="checkbox" id="marca4">
+                            <label for="marca4">Black & Decker</label></li>
+                    </ul>
+                     <hr>
+                </div>
+    
+               <div class="filtro-padrao" id="faixa-preco">
+                <h3>Faixa de Preço</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="preco" value="0-50" id="preco1">
+                        <label for="preco1">R$0 - R$50</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="preco" value="51-100" id="preco2">
+                        <label for="preco2">R$51 - R$100</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="preco" value="101-200" id="preco3">
+                        <label for="preco3">R$101 - R$200</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="preco" value="200+" id="preco4">
+                        <label for="preco4">R$201+</label>
                     </li>
                 </ul>
+                </div>
+                <div class="filtro-padrao" id="formas-pagamento">
+                    
+                    <h3>Formas de Pagamento</h3>
+                    <ul>
+                        <li>
+                           <input type="checkbox" name="pagamento" value="credito" id="credito">
+                            <label for="credito">Cartão de Crédito</label></li>
+                        <li>
+                            <input type="checkbox" name="pagamento" value="boleto" id="boleto">
+                            <label for="boleto">Boleto Bancário</label></li>
+                        <li>
+                            <input type="checkbox" name="pagamento" value="pix" id="pix">
+                            <label for="pix">Pix</label></li>
+                        <li>
+                            <input type="checkbox" name="pagamento" value="transferencia" id="transferencia">
+                            <label for="transferencia">Transferência Bancária</label></li>
+                    </ul>
+                    <hr>
+                </div>
+                <div class="filtro-padrao" id="disponibilidade">
+                    
+                    <h3>Disponibilidade</h3>
+                    <ul>
+                        <li>
+                            <input type="radio" name="disponibilidade" value="1" id="disponivel">
+                            <label for="disponivel">Disponível para Aluguel</label></li>
+                        <li>
+                            <input type="radio" name="disponibilidade" value="2" id="Indisponivel">
+                            <label for="Indisponivel">Indisponível para Aluguel</label></li>
+                    </ul>
+                    <hr>
+                </div>
+                <div class="filtro-padrao" id="avaliacao">  
+                   
+                    <h3>Avaliação</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="avaliacao1">
+                            <label for="avaliacao1">4 estrelas ou mais</label></li>
+                        <li>
+                            <input type="checkbox" id="avaliacao2">
+                            <label for="avaliacao2">3 estrelas ou mais</label></li>
+                        <li>
+                            <input type="checkbox" id="avaliacao3">
+                            <label for="avaliacao3">2 estrelas ou mais</label></li>
+                        <li>
+                            <input type="checkbox" id="avaliacao4">
+                            <label for="avaliacao4">1 estrela ou mais</label></li>
+                    </ul>
+
+                </div>
+                <div class="botoesFiltro">
+                <button type="button" class="aplicar-filtros" onclick="aplicarFiltros()">Filtrar</button>
+                <button type="button" class="limpar-filtros" onclick="limparFiltros()">Limpar Filtros</button>
+                </div>
             </div>
+            </form>
+            </aside>
+            <button class="btn-filtro" onclick="mostrarFiltros()">
+                ☰ Filtros
+            </button>
         </main>
-
-
+       
     </div>
+     <footer>
+            <div class="rodape">
+                <p>&copy; 2024 LOCATEM. Todos os direitos reservados.</p>
+                <nav class="navegacaoRodape">
+                    <a href="#">Início</a>
+                    <a href="#">Carrinho</a>
+                    <a href="#">Histórico</a>
+                    <a href="#">Agendamento</a>
+                    <a href="#">Notificações</a>
+                    <a href="#">Avaliações</a>
+                    <a href="#">Suporte</a>
+                    <a href="./login.html">Entrar</a>
+                </nav>
+            </div>
+        </footer>
 </body>
 
-<script src=""></script>
+<script src="./src/js/busca.js"></script>
+<!-- <script src="./src/js/buscaTestes.js"></script> -->
 
 </html>
