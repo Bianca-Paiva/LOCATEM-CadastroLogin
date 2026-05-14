@@ -13,58 +13,109 @@
     <link rel="shortcut icon" href="./src/images/LogoIcon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/principalPage.css">
-    <link rel="stylesheet" href="./src/css/responsivoPrincipalPage.css">
 </head>
 
 <body>
 
     <div class="app">
 
-        <!-- HEADER -->
-        <header>
-            <div class="logo">
-                <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM">
-                LOCATEM
+        <!-- ================================================================================================================= -->
+        <!-- SECAO: HEADER MOBILE                                                                                              -->
+        <!-- Exibido apenas em telas pequenas (controlado por CSS).                                                            -->
+        <!-- Contem: botao de menu hamburguer, logo, icone de carrinho e barra de pesquisa dedicada (linha separada do topo).  -->
+        <!-- ================================================================================================================= -->
+        <header class="header-mobile">
+            <div class="linha-topo-mobile">
+                <div class="lado-esquerdo">
+                    <!-- Botao que abre o menu lateral (drawer) em mobile -->
+                    <button class="menu-btn">
+                        <img src="./src/images/menuHamburguer.png" alt="Menu" />
+                    </button>
+                    <!-- Logo clicavel — redireciona para a pagina principal -->
+                    <a href="./principalPage.html" class="logo">
+                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                        LOCATEM
+                    </a>
+                </div>
+
+                <!-- Icone do carrinho com badge de quantidade.
+                    ATENCAO: valor hardcoded neste HTML de demonstracao. -->
+                <a href="./carrinho.html" class="carrinho-btn">
+                    <img src="./src/images/carrinho.svg" alt="Carrinho" />
+                    <span class="quantidade-carrinho">2</span>
+                </a>
             </div>
 
-            <!-- Barra de pesquisa desktop -->
-            <form class="search-bar-desktop">
-                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
-                <button type="submit" class="lupa-btn">
-                    <img src="./src/images/lupa.png" alt="Buscar">
-                </button>
+            <!-- Barra de pesquisa exclusiva do header mobile.
+                O input usa type="search" para ativar o botao de limpar nativo do navegador (X) em mobile. -->
+            <form class="barra-pesquisa-mobile">
+                <img src="./src/images/lupa.png" alt="Buscar" />
+                <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                    aria-label="Pesquisar ferramentas" />
             </form>
-
-            <button aria-label="Mensagens" class="chat">
-                <img src="./src/images/chat.png" alt="Chat">
-            </button>
         </header>
 
-        <!-- Nav desktop fica abaixo da linha superior -->
-        <nav class="navegacaoDesktop">
-            <a href="./principalPage.html"><img src="./src/images/home.png" alt="">Início</a>
-            <a href="#"><img src="./src/images/carrinho.png" alt="">Carrinho</a>
-            <a href="#"><img src="./src/images/relogio.png" alt="">Histórico</a>
-            <a href="#"><img src="./src/images/calendario.png" alt="">Agendamento</a>
-            <a href="#"><img src="./src/images/notificacoes.png" alt="">Notificações</a>
-            <a href="#"><img src="./src/images/Star.png" alt="">Avaliações</a>
-            <a href="#"><img src="./src/images/suporte.png" alt="">Suporte</a>
-            <a href="./login.html"><img src="./src/images/usuario.png" alt="">Entrar</a>
+        <!-- ============================================================ -->
+        <!-- SECAO: HEADER DESKTOP                                         -->
+        <!-- Exibido apenas em telas maiores (controlado por CSS).         -->
+        <!-- Contem: logo, barra de pesquisa central e botao de chat.      -->
+        <!-- ============================================================ -->
+        <header class="header-desktop">
+            <div class="linha-topo-desktop">
+                <!-- Logo clicavel — redireciona para a pagina principal -->
+                <a href="./principalPage.html" class="logo">
+                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                    LOCATEM
+                </a>
+
+                <!-- Barra de pesquisa central do desktop. -->
+                <form class="barra-pesquisa">
+                    <button type="submit" class="lupa-btn">
+                        <img src="./src/images/lupa.png" alt="Buscar" />
+                    </button>
+                    <input type="search" placeholder="Qual ferramenta você precisa hoje?"
+                        aria-label="Pesquisar ferramentas" />
+                </form>
+
+                <!-- Botao de acesso ao chat de suporte (comportamento via JS) -->
+                <a href="./mensagens.html" class="chat">
+                    <img src="./src/images/chat.png" alt="Chat" />
+                </a>
+            </div>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- SECAO: NAVEGACAO LATERAL (DESKTOP)                            -->
+        <!-- Menu de navegacao principal visivel apenas no desktop.        -->
+        <!-- Cada link contem um icone + label de texto.                   -->
+        <!-- Links com href="#" sao placeholders — funcionalidade pendente. -->
+        <!-- ============================================================ -->
+        <nav class="menu-navegacao-desktop">
+            <a href="./principalPage.html">
+                <img src="./src/images/home.png" alt="Ícone Início" />Início
+            </a>
+            <a href="./carrinho.html">
+                <img src="./src/images/carrinho.svg" alt="Ícone Carrinho" />Carrinho
+            </a>
+            <a href="#">
+                <img src="./src/images/relogio.png" alt="Ícone Histórico" />Histórico
+            </a>
+            <a href="#">
+                <img src="./src/images/calendario.png" alt="Ícone Agendamento" />Agendamento
+            </a>
+            <a href="#">
+                <img src="./src/images/notificacoes.png" alt="Ícone Notificações" />Notificações
+            </a>
+            <a href="#">
+                <img src="./src/images/Star.png" alt="Ícone Avaliações" />Avaliações
+            </a>
+            <a href="#">
+                <img src="./src/images/suporte.png" alt="Ícone Suporte" />Suporte
+            </a>
+            <a href="./login.html">
+                <img src="./src/images/usuario.png" alt="Ícone Entrar" />Entrar
+            </a>
         </nav>
-
-        <!-- BARRA DE BUSCA -->
-        <div class="search-bar-carrinho">
-            <form class="search-bar">
-                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar ferramentas" />
-                <button type="submit" class="lupa-btn">
-                    <img src="./src/images/lupa.png" alt="Buscar">
-                </button>
-            </form>
-
-            <button aria-label="Carrinho" class="carrinho">
-                <img src="./src/images/carrinho.png" alt="Carrinho">
-            </button>
-        </div>
 
         <!-- BANNER -->
         <section aria-label="Banner de anúncio">
@@ -100,11 +151,13 @@
 
             <!-- CATEGORIAS -->
             <ul class="categorias" aria-label="Categorias de ferramentas">
-                <li><button>Furadeira</button></li>
-                <li><button>Parafusadeira</button></li>
-                <li><button>Lixadeira</button></li>
-                <li><button>Serra elétrica</button></li>
-                <li><button>Gerador</button></li>
+                <li><button>Construção Civil</button></li>
+                <li><button>Reformas e Manutenção</button></li>
+                <li><button>Jardim e Paisagismo</button></li>
+                <li><button>Pintura e Acabamento</button></li>
+                <li><button>Transporte</button></li>
+                <li><button>Ferramentas Elétricas</button></li>
+                <li><button>Corte e Desbaste</button></li>
             </ul>
 
             <!-- GRID DE ANÚNCIOS -->
@@ -115,7 +168,7 @@
                     </div>
 
                     <div class="card-info">
-                        <h3>Furadeira Parafusadeira Sem Fio A Bateria Tb-12e 12v 3/8 10mm Com Maleta E Acessórios The
+                        <h3>Furadeira Parafusadeira The
                             Black Tools</h3>
                         <div class="proprietario">
                             <h4>MS Ferramentas</h4>
@@ -130,11 +183,11 @@
                 </li>
                 <li class="anuncio-card">
                     <div class="card-img">
-                        <img src="./src//images/Furadeira2.webp" alt="Furadeira Bosch">
+                        <img src="./src//images/pistolaPintura.png" alt="Furadeira Bosch">
                     </div>
 
                     <div class="card-info">
-                        <h3>Furadeira De Impacto Bosch GSB 450 RE 450W 10mm Com Brocas e Buchas</h3>
+                        <h3>Pistola de Pintura The Black Tools</h3>
                         <div class="proprietario">
                             <h4>WZ Ferramentas</h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -152,8 +205,7 @@
                     </div>
 
                     <div class="card-info">
-                        <h3>Parafusadeira Furadeira de Impacto Hanabi CY-3003 Brushless 2 Baterias 21v Cor Azul-petróleo
-                            Frequência 60hz</h3>
+                        <h3>Parafusadeira Furadeira de Impacto Hanabi</h3>
                         <div class="proprietario">
                             <h4>João Ferramentas</h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -167,12 +219,11 @@
                 </li>
                 <li class="anuncio-card">
                     <div class="card-img">
-                        <img src="./src//images/Furadeira4.webp" alt="Furadeira Wap">
+                        <img src="./src//images/aparadorGrama.webp" alt="Furadeira Wap">
                     </div>
 
                     <div class="card-info">
-                        <h3>Parafusadeira E Furadeira A Bateria Li-ion Wap Wf 12k3.2 Carregador Com Maleta E Kit De 11
-                            Acessórios</h3>
+                        <h3>Aparador De Grama Bipartido Tramontina</h3>
                         <div class="proprietario">
                             <h4>JB Ferramentas</h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -186,25 +237,6 @@
                 </li>
             </ul>
         </main>
-
-        <!-- BOTTOM NAV -->
-        <nav aria-label="Navegação principal" class="navegacaoMobile">
-            <a href="#" class="ativo" aria-label="Início" aria-current="page">
-                <img src="./src/images/home.png" alt="Início">
-            </a>
-            <a href="#" aria-label="Histórico">
-                <img src="./src/images/relogio.png" alt="Histórico">
-            </a>
-            <a href="#" aria-label="Calendário">
-                <img src="./src/images/calendario.png" alt="Agendamentos">
-            </a>
-            <a href="#" aria-label="Favoritos">
-                <img src="./src/images/Star.png" alt="Favoritos">
-            </a>
-            <a href="./login.html" aria-label="Perfil">
-                <img src="./src/images/usuario.png" alt="Usuário">
-            </a>
-        </nav>
     </div>
 </body>
 

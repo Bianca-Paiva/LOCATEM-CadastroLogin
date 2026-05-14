@@ -5,7 +5,7 @@
     --color-primary: #FFD600;
     --color-primary-hover: #f2cb00;
     --color-primary-light: #ffe97a;
-    --color-primary-soft: #fff3b0;
+    --color-primary-soft: #fff6c7;
 
     /* ============================= */
     /* BACKGROUNDS */
@@ -41,20 +41,19 @@
 /* ============================= */
 body {
     background-color: var(--color-bg-main);
-    color: var(--color-text-primary);
+    color: var(--color-text-dark);
 }
 
 .app {
     width: 100%;
-    max-width: 1280px;
     min-height: 100vh;
-    background: linear-gradient(
-        to bottom,
-        var(--color-primary) 0%,
-        var(--color-primary-light) 3%,
-        var(--color-primary-soft) 5%,
-        var(--color-bg-main) 8%
-    );
+
+    /* Gradiente do topo (identidade visual LOCATEM) */
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 4%,
+            var(--color-primary-soft) 7%,
+            var(--color-bg-main) 10%);
 }
 
 /* ============================= */
@@ -76,19 +75,21 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 795;
-    font-size: clamp(16px, 5vw, 20px);
+    gap: 7px;
+
     color: var(--color-text-dark);
-    flex-shrink: 0;
     text-decoration: none;
+
+    font-size: clamp(16px, 4vw, 20px);
+    /* Responsivo */
+    font-weight: 750;
+    letter-spacing: -0.5px;
 }
 
 .logo img {
     height: 30px;
-    width: auto;
     object-fit: contain;
-    display: block;
+    /* Mantém proporção */
 }
 
 /* ============================= */
