@@ -11,7 +11,8 @@
 
     <link rel="shortcut icon" href="./src/images/LogoIcon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/header style/header.css">    
+    <link rel="stylesheet" href="./src/css/header style/header.css">
+    <link rel="stylesheet" href="./src/css/agenda.css">    
     
 </head>
 <body>
@@ -79,17 +80,81 @@
                 </a>
             </div>
         </header>
-        <section name="area-calendario">
+        <section name="area-Agenda">
             <div class="tituloPage">
-                
+               
                 <h1>Agenda</h1>
+                <h2>Acompanhe suas Locações e prazos de devoluções</h2>
+            </div>
+            <div class="area-calendario">
+                </div>
+                
+                    <div class="estrutura-agenda">
+                       
+                        <button id="prev">‹</button>
+                        <div class="calendario-montado">
+
+                            <div class="header-calendario">
+                                 <h2 id="mes" class="mes"> </h2>
+                                <div class="defi-marcacao">
+                                    <span class="marcacao-atual">Hoje</span> 
+                                    <span class="marcacao-devol">Devolução</span>                     
+                                </div>
+                            </div>
+                            <div class="calendario">
+                                <div class="week-days">
+                                        <span>DOM</span>
+                                        <span>SEG</span>
+                                        <span>TER</span>
+                                        <span>QUA</span>
+                                        <span>QUI</span>
+                                        <span>SEX</span>
+                                        <span>SAB</span>
+                                </div>
+                                <div class="days" id="days"></div>
+                            </div>           
+                        </div>
+                          
+                                  
+                        <button id="next">›</button>
+                    </div>              
+                
+                </div>
             </div>
         </section>
         <section name="area-locacoes">
+            <div class="ferramentas">
+                <h2>Minhas Locações</h2>
+                <div class="grid-produtos">
+                    <div class="card">
+                        <ul>
+                           <li class="anuncio-card">
+                                    <div class="card-img">
+                                        <img src="./src//images/Furadeira2.webp" alt="Furadeira Bosch">
+                                    </div>
+
+                                    <div class="card-info">
+                                        <h3>Furadeira De Impacto Bosch GSB 450 RE 450W 10mm Com Brocas e Buchas</h3>
+                                        <div class="proprietario">
+                                            <h4>WZ Ferramentas</h4>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+                                            </svg>
+                                        </div>
+                                        <p>R$30,00<span>/dia</span></p>
+                                    </div>
+                             </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             
         </section>
 
     </div>
 </body>
 </html>
+<script src="./src/js/agenda.js"></script>
 <script src="./src/js/busca.js"></script>
