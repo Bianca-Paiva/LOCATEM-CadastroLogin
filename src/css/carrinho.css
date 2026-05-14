@@ -1,0 +1,1209 @@
+/* ============================= */
+/* VARIÁVEIS GLOBAIS */
+/* Centraliza cores, espaçamentos e padrões visuais */
+/* ============================= */
+:root {
+    /* CORES PRINCIPAIS */
+    --color-primary: #FFCA00;
+    /* Cor principal da marca */
+    --color-primary-light: #ffe97a;
+    /* Variação mais clara (gradientes) */
+    --color-primary-soft: #fff6c7;
+    /* Fundo suave */
+    --color-secondary: #f0c000c0;
+    /* Hover / destaque */
+
+    /* BACKGROUNDS */
+    --color-bg-main: #F9FAFB;
+    /* Fundo geral da aplicação */
+    --color-bg-card: #ffffff;
+    /* Fundo dos cards */
+    --color-bg-btn: #D5ECFF;
+    /* Fundo de botões secundários */
+
+    /* TEXTOS */
+    --color-text-dark: #0A0A0A;
+    /* Texto principal */
+    --color-text-secondary: #8e8e93;
+    --color-text-terciary: #4A5565;
+    --color-text-quartiary: #6A7282;
+    --color-text-muted: #7a7a7a;
+    --color-text-desativado: #A0A0A0;
+    --color-text-btn: #3A83FA;
+    --color-text-red: #e11d48;
+
+    /* BORDER / RADIUS */
+    --color-border-card: #E5E7EB;
+    --color-linha-divisoria: #a0a0a09a;
+
+    --radius-sm: 6px;
+    /* Radius base (escala pequena → média → grande) */
+    --radius-md: 8px;
+    /* Elementos pequenos (inputs, controles) */
+    --radius-lg: 12px;
+    /* Botões e campos padrão */
+
+    /* Radius semântico (uso específico) */
+    --radius-card: 14px;
+    /* Cards principais */
+    --radius-btn: var(--radius-md);
+    /* Botões padrão */
+    --radius-input: var(--radius-md);
+    /* Inputs */
+    --radius-control: var(--radius-sm);
+    /* Controles (+ / -) */
+    --radius-pill: 999px;
+    /* Totalmente arredondado (badge, search) */
+
+
+    /* SOMBRAS */
+    --shadow-search: 0 4px 4px #00000025;
+    /* Sobra padrão da barra de pesquisa */
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.184);
+}
+
+/* ============================= */
+/* BASE GERAL */
+/* Define comportamento global do layout */
+/* ============================= */
+
+body {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-dark);
+}
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+
+    /* Gradiente do topo (identidade visual LOCATEM) */
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 4%,
+            var(--color-primary-soft) 7%,
+            var(--color-bg-main) 10%);
+}
+
+/* ============================= */
+/* HEADER MOBILE */
+/* Layout principal para telas pequenas */
+/* ============================= */
+
+.header-desktop,
+.menu-navegacao-desktop {
+    display: none;
+    /* Esconde desktop no mobile (mobile-first) */
+}
+
+/* Container do header mobile */
+.header-mobile {
+    width: 100%;
+    padding: 22px 20px 34px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* Linha topo (menu + logo + carrinho) */
+.linha-topo-mobile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Agrupa botão menu + logo */
+.lado-esquerdo {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+/* ============================= */
+/* LOGO */
+/* ============================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--color-text-dark);
+    text-decoration: none;
+
+    font-size: clamp(16px, 4vw, 20px);
+    /* Responsivo */
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    height: 30px;
+    object-fit: contain;
+    /* Mantém proporção */
+}
+
+/* ============================= */
+/* BOTÕES DO HEADER */
+/* ============================= */
+
+.menu-btn,
+.carrinho-btn {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+/* Ícones internos */
+.menu-btn img,
+.carrinho-btn img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* Carrinho com badge (quantidade) */
+.carrinho-btn {
+    position: relative;
+    text-decoration: none;
+}
+
+/* Bolinha de quantidade */
+.quantidade-carrinho {
+    position: absolute;
+    top: -4px;
+    right: 0;
+
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+
+    border-radius: var(--radius-pill);
+
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+
+    font-size: clamp(10px, 2.5vw, 12px);
+    font-weight: 800;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================= */
+/* BARRA DE PESQUISA */
+/* ============================= */
+
+.barra-pesquisa-mobile {
+    width: 100%;
+    height: 54px;
+
+    background-color: var(--color-bg-card);
+    box-shadow: var(--shadow-search);
+    border-radius: var(--radius-pill);
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.barra-pesquisa-mobile img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.65;
+    /* Ícone mais sutil */
+}
+
+.barra-pesquisa-mobile input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--color-text-muted);
+
+    font-size: clamp(14px, 3.5vw, 16px);
+}
+
+
+/* ============================= */
+/* MAIN (ÁREA PRINCIPAL) */
+/* ============================= */
+.main {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 8px 18px;
+}
+
+/* ── Cabeçalho ── */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 10px 20px;
+    gap: 16px;
+}
+
+.icon-voltar {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.icon-voltar img {
+    width: 20px;
+    height: 15px;
+    object-fit: contain;
+}
+
+.cabecalho>h1 {
+    font-size: clamp(24px, 5vw, 30px);
+    font-weight: 750;
+    letter-spacing: -0.5px;
+    color: var(--color-text-dark);
+}
+
+/* ============================= */
+/* CARD BASE */
+/* Componente reutilizável */
+/* ============================= */
+.card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border-card);
+    box-shadow: var(--shadow-card);
+
+    padding: 18px 16px;
+    margin: 0 0 15px;
+}
+
+/* ============================= */
+/* GRUPO DE LOJA                 */
+/* ============================= */
+
+/* Cabeçalho do grupo (nome da loja) */
+.grupo-loja-header {
+    padding: 5px 18px 15px;
+    border-bottom: 1px solid var(--color-linha-divisoria);
+}
+
+.grupo-loja-header h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
+}
+
+.loja-oficial {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+/* Ícone de verificado */
+.icone-verificado {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* ============================= */
+/* LISTA DE PRODUTOS             */
+/* ============================= */
+.lista-produtos {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================= */
+/* PRODUTO */
+/* ============================= */
+
+/* Container do produto */
+.card-produto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 18px;
+}
+
+/* Linha principal: imagem + infos + lixeira */
+.produto-linha-topo {
+    display: flex;
+    gap: 12px;
+}
+
+/* Imagem do produto */
+.produto-imagem {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-btn);
+
+    flex-shrink: 0;
+    /* Impede encolher */
+}
+
+/* Infos do produto */
+.produto-infos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Nome + botão lixeira */
+.produto_nome-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.produto_nome {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+/* Botão remover */
+.btn-lixeira {
+    background: transparent;
+    border: none;
+
+    opacity: 0.5;
+    transition: opacity .2s;
+
+    cursor: pointer;
+}
+
+.btn-lixeira:hover {
+    opacity: 1;
+    /* Feedback visual */
+}
+
+.btn-lixeira img {
+    width: 16px;
+    height: 16px;
+}
+
+.produto-aluguel {
+    font-size: 0.8125rem;
+    color: var(--color-text-quartiary);
+}
+
+/* Container que deixa o detalhe na esquerda e o total na direita */
+.produto_valores {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.produto_preco {
+    font-size: 0.875rem;
+    color: var(--color-text-terciary);
+}
+
+.produto_total {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+
+/* ============================= */
+/* CONTROLES (DIAS / UNIDADES) */
+/* ============================= */
+.produto-controles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    overflow-x: auto;
+    /* Scroll horizontal se necessário */
+}
+
+/* Grupo de controle (+ / -) */
+.controle-grupo {
+    display: flex;
+    align-items: center;
+
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-control);
+
+    overflow: hidden;
+    height: 30px;
+}
+
+/* Botões */
+.btn-controle {
+    width: 20px;
+    height: 100%;
+
+    border: none;
+    background: transparent;
+    color: var(--color-text-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: background .15s;
+}
+
+/* Valor central */
+.controle-valor {
+    padding: 0 5px;
+    height: 100%;
+
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+
+    display: flex;
+    align-items: center;
+}
+
+.controle-label-max,
+.controle-label-disp {
+    font-size: 0.75rem;
+    color: var(--color-text-desativado);
+}
+
+/* Grupo unidade */
+.controle-unidade {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-left: 10px;
+}
+
+.controle-unidade .controle-valor {
+    min-width: 60px;
+}
+
+/* ============================= */
+/* CARD RESUMO DO PEDIDO         */
+/* ============================= */
+.card-resumo {
+    padding: 22px 20px 20px;
+    margin: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-resumo h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+
+    margin-bottom: 16px;
+}
+
+/* Linha subtotal */
+.resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.resumo-linha span {
+    font-size: 0.9375rem;
+    color: var(--color-text-terciary);
+}
+
+.resumo-linha strong {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--color-text-terciary);
+}
+
+.linha-divisoria {
+    border: none;
+    border-top: 1px solid var(--color-linha-divisoria);
+    margin: 0 0 16px;
+}
+
+/* Campo CEP */
+.linha-cep {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 16px;
+}
+
+.linha-cep-controles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.campo-cep {
+    padding: 4px;
+    width: 100%;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-btn);
+    background: var(--color-bg-card);
+}
+
+.input-cep {
+    flex: 1;
+    height: 100%;
+    padding-left: 10px;
+
+    font-size: 0.875rem;
+
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.input-cep::placeholder {
+    color: var(--color-text-desativado);
+}
+
+.btn-usar {
+    height: 100%;
+    padding: 0 14px;
+
+    border-radius: var(--radius-btn);
+    border: none;
+    background: var(--color-bg-btn);
+
+    color: var(--color-text-btn);
+    font-size: 0.8125rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .2;
+}
+
+.link-cep {
+    font-size: 0.8125rem;
+    color: var(--color-text-btn);
+    text-decoration: none;
+    display: block;
+}
+
+/* Campo cupom */
+.linha-cupom {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
+.campo-cupom {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 400px;
+
+    gap: 8px;
+    height: 44px;
+    padding: 0 5px 0 14px;
+    margin-bottom: 4px;
+
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-input);
+    background: var(--color-bg-card);
+
+    transition: border-color .2s;
+}
+
+.icone-cupom {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.input-cupom {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.875rem;
+}
+
+.input-cupom::placeholder {
+    color: var(--color-text-desativado);
+}
+
+.btn-aplicar {
+    height: 35px;
+    padding: 0 14px;
+
+    border-radius: var(--radius-btn);
+    border: none;
+    background: var(--color-bg-btn);
+
+    color: var(--color-text-btn);
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.btn-remover-cupom {
+    color: var(--color-text-red);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+/* ================================ */
+/* VALIDAÇÃO INLINE — CEP E CUPOM   */
+/* ================================ */
+
+.resumo-linha .campo-obrigatorio {
+    color: var(--color-text-red);
+    font-weight: 700;
+}
+
+.campo-cupom--erro,
+.campo-cep--erro {
+    border-color: var(--color-text-red) !important;
+}
+
+.erro-cupom,
+.erro-cep {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    min-height: 0;
+    max-height: 0;
+    width: 100%;
+    padding-left: 4px;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .2s ease, opacity .2s ease;
+}
+
+.erro-cupom--erro,
+.erro-cep--erro {
+    color: var(--color-text-red);
+}
+
+.erro-cupom--sucesso,
+.erro-cep--sucesso {
+    color: #22c55e;
+}
+
+.erro-cupom--visivel,
+.erro-cep--visivel {
+    display: block;
+    max-height: 40px;
+    opacity: 1;
+}
+
+.campo-cep--sucesso,
+.campo-cupom--sucesso {
+    border-color: #22c55e;
+}
+
+
+
+
+/* Total */
+.resumo-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.resumo-total span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.resumo-total strong {
+    font-size: 1.1875rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    letter-spacing: -0.5px;
+}
+
+/* ============================= */
+/* BOTÃO PRINCIPAL (PAGAMENTO) */
+/* ============================= */
+.btn-continuar {
+    width: 100%;
+    height: 54px;
+
+    border: none;
+    border-radius: var(--radius-btn);
+
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    transition: background .2s, transform .1s;
+    cursor: pointer;
+}
+
+/* Hover */
+.btn-continuar:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Clique */
+.btn-continuar:active {
+    transform: scale(.98);
+}
+
+
+/* ============================= */
+/* AJUSTES PARA TELAS MENORES */
+/* ============================= */
+
+@media (max-width: 380px) {
+    .app {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .header-mobile {
+        padding: 20px 16px;
+        gap: 22px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .logo img {
+        height: 28px;
+    }
+
+    .barra-pesquisa-mobile {
+        height: 50px;
+        padding: 0 16px;
+    }
+
+    .barra-pesquisa-mobile input {
+        font-size: 14px;
+    }
+
+    .main {
+        padding: 8px 10px;
+    }
+
+    .produto-imagem {
+        width: 60px;
+        height: 60px;
+    }
+
+    .produto_valores {
+        flex-direction: column;
+        align-items: start;
+        gap: 2px;
+    }
+
+    .produto_total {
+        font-size: 0.8125rem;
+    }
+
+    .produto-controles {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 12px 8px;
+        align-items: center;
+        overflow-x: visible;
+    }
+
+    .controle-unidade {
+        margin-left: 0 !important;
+    }
+
+    .controle-grupo {
+        height: 28px;
+    }
+
+    .btn-controle {
+        width: 24px;
+    }
+
+    .controle-valor {
+        font-size: 0.75rem;
+    }
+
+    .controle-unidade .controle-valor {
+        min-width: 50px;
+    }
+
+    .controle-label-max,
+    .controle-label-disp {
+        font-size: 0.7rem;
+    }
+
+    .linha-cep {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .campo-cupom {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 48px;
+        padding: 0 8px 0;
+    }
+
+    .linha-cep-controles {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .campo-cep {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .input-cep {
+        flex: 1;
+        outline: none;
+        width: 107px;
+        font-size: 12px;
+    }
+
+    .link-cep {
+        font-size: 12px;
+
+        min-width: 0;          /* deixa o item encolher */
+        max-width: 70px;       /* força espaço limitado */
+        
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+
+        line-height: 1.1;
+    }
+
+    .campo-cupom input {
+        flex: 1;
+        border: none !important;
+        font-size: 12px;
+        outline: none;
+        width: 0;
+    }
+
+    .btn-aplicar {
+        padding: 6px 12px;
+        font-size: 13px;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    .btn-continuar {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .linha-cep-controles {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .input-cep {
+        width: 490px;
+    }
+
+    .campo-cupom {
+        width: 100%;
+        max-width: 700px;
+    }
+}
+
+/* ============================= */
+/* AJUSTES PARA TELAS MAIORES */
+/* ============================= */
+
+@media (min-width: 1024px) {
+    .app {
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 7%,
+                var(--color-primary-soft) 10.2%,
+                var(--color-bg-main) 14%);
+    }
+
+    /* ============================= */
+    /* HEADER DESKTOP */
+    /* ============================= */
+    .header-mobile {
+        display: none;
+    }
+
+    .header-desktop {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0 10px;
+    }
+
+    .linha-topo-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 32px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 800;
+        font-size: clamp(20px, 1.6vw, 26px);
+        color: var(--color-text-dark);
+        flex-shrink: 0;
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 30px;
+        object-fit: contain;
+    }
+
+    /* Barra de pesquisa */
+    .barra-pesquisa {
+        flex: 1;
+        max-width: 1000px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--color-bg-card);
+        border-radius: var(--radius-pill);
+        padding: 0 20px;
+        margin: 0 32px;
+        box-shadow: var(--shadow-search);
+    }
+
+    .barra-pesquisa button {
+        border: none;
+        background: none;
+    }
+
+    .barra-pesquisa img {
+        width: 18px;
+        height: 18px;
+        opacity: 0.55;
+        flex-shrink: 0;
+    }
+
+    .barra-pesquisa input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: clamp(15px, 1.1vw, 17px);
+        color: var(--color-text-dark);
+    }
+
+    .barra-pesquisa input::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    /* Botão de chat */
+    .chat {
+        background: transparent;
+        border: 2px solid var(--color-text-dark);
+        border-radius: 50%;
+        width: clamp(36px, 3vw, 48px);
+        height: clamp(36px, 3vw, 48px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        cursor: pointer;
+        border: none;
+    }
+
+    .chat img {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+    }
+
+    /* Nav desktop */
+    .menu-navegacao-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(12px, 2vw, 38px);
+        padding: 18px 32px 0;
+        width: 100%;
+    }
+
+    .menu-navegacao-desktop a {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: clamp(15px, 1vw, 18px);
+        font-weight: 600;
+        color: var(--color-text-dark);
+        text-decoration: none;
+    }
+
+    .menu-navegacao-desktop img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
+
+    /* ========================= */
+    /* MAIN DESKTOP              */
+    /* ========================= */
+
+    .main {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 40px;
+        min-height: auto;
+    }
+
+    .cabecalho>h1 {
+        font-size: clamp(26px, 2.2vw, 36px);
+        font-weight: 800;
+    }
+
+    /* ========================= */
+    /* CHECKOUT CONTAINER        */
+    /* ========================= */
+
+    .checkout-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    /* Coluna de grupos de produtos */
+    .coluna-produtos {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-width: 0;
+    }
+
+    /* ========================= */
+    /* GRUPO DE LOJA DESKTOP     */
+    /* ========================= */
+
+    .grupo-loja-header {
+        padding: 18px 24px 16px;
+    }
+
+    .grupo-loja-header h2 {
+        font-size: 1.0625rem;
+    }
+
+    .produto-imagem {
+        width: 90px;
+        height: 90px;
+        border-radius: var(--radius-lg);
+    }
+
+    .produto_nome {
+        font-size: 0.9375rem;
+    }
+
+    /* ========================= */
+    /* RESUMO DESKTOP            */
+    /* ========================= */
+    /* Largura fixa à direita */
+    .card-resumo {
+        width: 372px;
+        flex-shrink: 0;
+        top: 24px;
+        margin-top: 0;
+    }
+
+    /* "Calcular frete | Grátis" na mesma linha */
+    .resumo-frete-linha {
+        margin-bottom: 12px;
+    }
+
+    .input-cep {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* CEP + link na mesma linha (sem quebra) */
+    .linha-cep {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        gap: 8px;
+    }
+
+    .resumo-total strong {
+        font-size: 1.375rem;
+    }
+
+    .btn-continuar {
+        height: 54px;
+        border-radius: var(--radius-btn);
+        font-size: 1rem;
+    }
+
+    .linha-cep {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

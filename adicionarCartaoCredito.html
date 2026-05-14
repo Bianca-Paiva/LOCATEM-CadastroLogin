@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./src/css/adicionarCartaoCredito.css" />
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <title>LOCATEM</title>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+            <a href="./principalPage.html" class="logo">
+                <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                LOCATEM
+            </a>
+            <button class="chat">
+                <img src="./src/images/chat.png" alt="Chat" />
+            </button>
+        </header>
+
+        <!-- CONTEÚDO GERAL -->
+        <main class="pagamento-container">
+
+            <section class="titulo-pagina">
+                <h1>Pagamento com Cartão de Crédito</h1>
+                <p>Insira os dados do seu cartão para continuar o pagamento.</p>
+            </section>
+
+            <div class="cards-wrapper">
+
+                <!-- CARD DE DADOS DO CARTÃO -->
+                <section class="card">
+
+                    <div class="card-header">
+                        <h2>Dados do Cartão</h2>
+
+                        <!-- svg do icone de cartão no canto direito -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-credit-card" viewBox="0 0 16 16">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                            <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+                        </svg>
+                    </div>
+
+                    <!-- ============================= -->
+                    <!-- FORMULÁRIO DE DADOS DO CARTÃO -->
+                    <!-- ============================= -->
+                    <form class="dados-cartao">
+
+                        <!-- Campo do número do cartão com ícone dinâmico da bandeira -->
+                        <div class="campo">
+                            <label for="numeroCartao">Número do Cartão</label>
+
+                            <div class="input-cartao">
+                                <input id="numeroCartao" type="text" placeholder="0000 0000 0000 0000" required />
+                                <img id="iconeBandeira" class="icone-bandeira" src="" alt="Bandeira do cartão">
+                            </div>
+
+                            <!-- Mensagem de erro exibida via JavaScript -->
+                            <small class="erro"></small>
+                        </div>
+
+                        <!-- Campo do nome do titular -->
+                        <div class="campo">
+                            <label for="nomeTitular">Nome do Titular</label>
+                            <input id="nomeTitular" type="text" placeholder="NOME COMO ESTÁ NO CARTÃO" required />
+
+                            <!-- Mensagem de erro exibida via JavaScript -->
+                            <small class="erro"></small>
+                        </div>
+
+                        <!-- Linha com validade e CVV lado a lado -->
+                        <div class="linha-campos">
+
+                            <div class="campo">
+                                <label for="validade">Validade</label>
+                                <input id="validade" type="text" placeholder="MM/AA" required />
+
+                                <!-- Mensagem de erro exibida via JavaScript -->
+                                <small class="erro"></small>
+                            </div>
+
+                            <div class="campo">
+                                <label for="cvv">CVV</label>
+                                <input id="cvv" type="text" placeholder="123" required />
+
+                                <!-- Mensagem de erro exibida via JavaScript -->
+                                <small class="erro"></small>
+                            </div>
+                        </div>
+
+                        <!-- Select de parcelamento gerado dinamicamente pelo JavaScript -->
+                        <div class="campo">
+                            <label for="parcelamento">Parcelamento</label>
+                            <select id="parcelamento" required>
+                                <option value="">Selecione</option>
+                            </select>
+
+                            <!-- Mensagem de erro exibida via JavaScript -->
+                            <small class="erro"></small>
+                        </div>
+
+                        <!-- Opção visual para salvar o cartão -->
+                        <div class="salvar-cartao">
+                            <input type="checkbox" />
+                            <span>Salvar cartão para próximas compras</span>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- RESUMO -->
+                <aside class="card card-resumo">
+                <h3>Resumo do Pedido</h3>
+
+                <div class="resumo-linha">
+                    <span>Subtotal</span>
+                    <strong class="resumo-subtotal"></strong>
+                </div>
+
+                <div class="resumo-linha">
+                    <span>Frete</span>
+                    <strong class="resumo-frete-topo"></strong>
+                </div>
+
+                <div class="resumo-linha resumo-linha--desconto" id="linha-desconto" style="display:none;">
+                    <span>Desconto</span>
+                    <strong class="resumo-desconto-valor"></strong>
+                </div>
+
+                <hr class="linha-divisoria" />
+
+                <div class="resumo-total">
+                    <span>Total</span>
+                    <strong class="resumo-total-valor"></strong>
+                </div>
+
+                <button class="btn-pagamento" type="button">
+                    Continuar Pagamento
+                </button>
+
+                <!-- INDICADOR DE SEGURANÇA -->
+                <div class="seguranca">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-lock-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
+                    </svg>
+
+                    <p>Pagamento 100% seguro</p>
+                </div>
+            </aside><!-- /card-resumo -->
+            </div>
+        </main>
+    </div>
+
+    <script src="/src/js/adicionarCartaoCredito.js"></script>
+</body>
+
+</html>

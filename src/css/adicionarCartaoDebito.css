@@ -1,0 +1,789 @@
+:root {
+  /* CORES PRINCIPAIS */
+  --color-primary: #ffd600;
+  --color-primary-hover: #f5cc00;
+  --color-primary-light: #ffe97a;
+  --color-primary-soft: #fff3b0;
+  --color-secondary: #f0c000c0;
+
+  /* BACKGROUNDS */
+  --color-bg-main: #F9FAFB;
+  --color-bg-card: #ffffff;
+  --color-bg-input-erro: #fff5f7;
+
+  /* TEXTOS */
+  --color-text-primary: #0A0A0A;
+  --color-text-secondary: #1a1a1a;
+  --color-text-tertiary: #364153;
+  --color-text-muted: #4A5565;
+  --color-text-subtle: #6A7282;
+  --color-text-dark: #000000;
+  --color-text-red: #e11d48;
+
+  /* BORDAS */
+  --color-border-light: #e8e8e8;
+  --color-border-input: #D1D5DC;
+  --color-linha-divisoria: #a0a0a09a;
+
+  /* SOMBRAS */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.05);
+  --shadow-btn: 0 4px 16px rgba(255, 214, 0, 0.45);
+
+  /* BORDER RADIUS */
+  --radius-card: 16px;
+  --radius-input: 10px;
+  --radius-btn: 8px;
+}
+
+/* ============================= */
+/* BASE GERAL */
+/* ============================= */
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+}
+
+/* GRADIENTE AMARELO */
+/* GRADIENTE AMARELO */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom,
+      var(--color-primary) 0%,
+      var(--color-primary-light) 4.5%,
+      var(--color-primary-soft) 6.5%,
+      var(--color-bg-main) 9.5%);
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+.header {
+  width: 100%;
+  padding: 15px 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--color-text-dark);
+  text-decoration: none;
+
+  font-size: clamp(16px, 4vw, 20px);
+  /* Responsivo */
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.logo img {
+  height: 30px;
+  object-fit: contain;
+  /* Mantém proporção */
+}
+
+.chat {
+  background: transparent;
+  border: 2px solid var(--color-text-dark);
+  border-radius: 50%;
+  width: clamp(36px, 3vw, 48px);
+  height: clamp(36px, 3vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: none;
+}
+
+.chat img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+/* ============================= */
+/* CONTEÚDO */
+/* ============================= */
+.pagamento-container {
+  padding: 0 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.titulo-pagina {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin: 30px 0 0 8px;
+  gap: 12px;
+}
+
+.titulo-pagina h1 {
+  font-size: clamp(14px, 4vw, 24px);
+  font-weight: 700;
+}
+
+.titulo-pagina p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+
+
+/* =========================== */
+/* CARD COMPONENT */
+/* =========================== */
+.cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* mesmo gap que estava no .pagamento-container */
+}
+
+.card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  padding: 25px;
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-card);
+}
+
+/* =========================== */
+/* CARD HEADER */
+/* =========================== */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.card-header h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.card-header svg {
+  color: var(--color-text-tertiary);
+  width: auto;
+  height: 18px;
+}
+
+/* =========================== */
+/* DADOS CARTÃO */
+/* =========================== */
+.dados-cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.campo label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+}
+
+.campo input {
+  width: 100%;
+  padding: 15.5px 16px;
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-input);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-card);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.campo input::placeholder {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* =========================== */
+/* INPUT DO CARTÃO COM BANDEIRA */
+/* =========================== */
+
+/* Wrapper usado para posicionar o ícone da bandeira dentro do campo */
+.input-cartao {
+  position: relative;
+  width: 100%;
+}
+
+/* Aumenta o espaço interno à direita para o texto não passar por cima do ícone */
+.input-cartao input {
+  padding-right: 56px;
+}
+
+/* Ícone da bandeira do cartão */
+.icone-bandeira {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: auto;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Classe adicionada via JavaScript quando uma bandeira é detectada */
+.icone-bandeira.ativo {
+  opacity: 1;
+}
+
+/* ================================ */
+/* INDICADOR DE CAMPO OBRIGATÓRIO */
+/* =================================== */
+
+/*
+    Usa :has() para verificar se o label está associado a um campo obrigatório.
+    A primeira regra funciona quando o input vem logo depois do label.
+    A segunda regra cobre o campo número do cartão, pois o input está dentro da div .input-cartao.
+*/
+.campo label:has(+ input[required])::after,
+.campo label:has(+ .input-cartao input[required])::after {
+  content: " *";
+  color: var(--color-text-red);
+  font-weight: 700;
+}
+
+/* para campos OPICIONAIS */
+/* .campo label:has(+ input:not([required]))::after {
+  content: " (opcional)";
+  color: var(--color-text-subtle);
+  font-weight: 400;
+} */
+
+/* =============================== */
+/* AJUSTE DOS CAMPOS LADO A LADO */
+/* ================================== */
+.linha-campos {
+  align-items: start;
+}
+
+.linha-campos .campo {
+  justify-content: flex-start;
+}
+
+/* ============================= */
+/* MENSAGENS E ESTADO DE ERRO */
+/* ============================= */
+
+/* Mensagem de erro abaixo dos campos */
+.campo .erro {
+  display: none;
+  min-height: 14px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-red);
+}
+
+/* Aplica borda e fundo vermelho claro nos campos inválidos */
+.campo.erro-ativo input {
+  border-color: var(--color-text-red);
+  background-color: var(--color-bg-input-erro);
+}
+
+/* Exibe a mensagem quando o campo recebe a classe de erro */
+.campo.erro-ativo .erro {
+  display: block;
+}
+
+/* Animação suave para chamar atenção no erro */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-4px);
+  }
+
+  40% {
+    transform: translateX(4px);
+  }
+
+  60% {
+    transform: translateX(-3px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ================================== */
+/* LINHA DE CAMPOS (validade + cvv) */
+/* ================================== */
+.linha-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* =========================== */
+/* CHECKBOX SALVAR CARTÃO */
+/* ============================= */
+.salvar-cartao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.salvar-cartao input[type="checkbox"] {
+  width: auto;
+  height: 20px;
+  border: 2px solid var(--color-border-input);
+  border-radius: 4px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.salvar-cartao span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* =========================== */
+/* RESUMO DO PEDIDO */
+/* =========================== */
+.card-resumo h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+
+  margin-bottom: 16px;
+}
+
+/* Linha subtotal */
+.resumo-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 16px;
+}
+
+.resumo-linha span {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.resumo-linha strong {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* Campo CEP */
+.linha-cep {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.linha-divisoria {
+  border: none;
+  border-top: 1px solid var(--color-linha-divisoria);
+  margin: 0 0 16px;
+}
+
+/* Total */
+.resumo-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.resumo-total span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.resumo-total strong {
+  font-size: 1.1875rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  letter-spacing: -0.5px;
+}
+
+/* ============================= */
+/* BOTÃO PRINCIPAL (PAGAMENTO) */
+/* ============================= */
+.btn-pagamento {
+  width: 100%;
+  height: 54px;
+
+  border: none;
+  border-radius: var(--radius-btn);
+
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+
+  margin-bottom: 15px;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition: background .2s, transform .1s;
+  cursor: pointer;
+}
+
+/* Hover */
+.btn-pagamento:hover {
+  background-color: var(--color-secondary);
+}
+
+/* Clique */
+.btn-pagamento:active {
+  transform: scale(.98);
+}
+
+/* =========================== */
+/* BOTÃO EM PROCESSAMENTO */
+/* =========================== */
+
+/*
+    Estado aplicado quando o usuário confirma o pagamento.
+    Impede novo clique e mostra feedback visual de carregamento.
+*/
+.btn-pagamento.carregando {
+  cursor: wait;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Spinner (circulo de carregamento) exibido ao lado do texto do botão */
+.btn-pagamento.carregando::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  border: 2px solid var(--color-text-secondary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+/* Animação do spinner */
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================= */
+/* SEGURANÇA */
+/* ============================= */
+.seguranca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+}
+
+.seguranca svg {
+  width: auto;
+  height: 12.5px;
+  flex-shrink: 0;
+}
+
+.seguranca p {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ===========================
+  RESPONSIVE
+=========================== */
+@media (max-width: 360px) {
+  .pagamento-container {
+    padding: 16px 12px 32px;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  /* TÍTULO */
+  .titulo-pagina {
+    gap: 8px;
+  }
+
+  .titulo-pagina h1 {
+    font-size: 0.9375rem;
+    /* 15px */
+  }
+
+  .btn-voltar svg {
+    height: 22px;
+  }
+
+  /* CARD HEADER */
+  .card-header h2 {
+    font-size: 0.9375rem;
+    /* 15px */
+  }
+
+  /* LABELS E INPUTS */
+  .campo label {
+    font-size: 0.75rem;
+    /* 12px */
+  }
+
+  .campo input {
+    font-size: 0.8125rem;
+    /* 13px */
+    padding: 11px 12px;
+  }
+
+  .campo input::placeholder {
+    font-size: 0.8125rem;
+  }
+
+  /* CHECKBOX */
+  .salvar-cartao span {
+    font-size: 0.75rem;
+    /* 12px */
+  }
+
+  .salvar-cartao input[type="checkbox"] {
+    height: 16px;
+  }
+
+  /* RESUMO */
+
+  .card-resumo h3 {
+    font-size: 0.9375rem;
+    margin-bottom: 12px;
+  }
+
+  .resumo-linha {
+    margin-bottom: 12px;
+  }
+
+  .resumo-linha span,
+  .resumo-linha strong {
+    font-size: 0.875rem;
+  }
+
+  .resumo-total {
+    margin-bottom: 22px;
+  }
+
+  .resumo-total span {
+    font-size: 0.9375rem;
+  }
+
+  .resumo-total strong {
+    font-size: 1.0625rem;
+  }
+
+  .btn-pagamento {
+    height: 48px;
+    font-size: 0.9375rem;
+    margin-bottom: 12px;
+  }
+
+  .seguranca {
+    gap: 6px;
+  }
+
+  .seguranca p {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app {
+    background: linear-gradient(to bottom,
+        var(--color-primary) 0%,
+        var(--color-primary-light) 7%,
+        var(--color-primary-soft) 9%,
+        var(--color-bg-main) 13%);
+  }
+
+  .topo {
+    padding: 20px 40px 48px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .pagamento-container {
+    padding: 0 40px 48px;
+    gap: 32px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .chat img {
+    height: 28px;
+  }
+
+  .pagamento-container {
+    padding: 0 40px 48px;
+    gap: 32px;
+  }
+
+  .cards-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .cards-wrapper .card:first-child {
+    flex: 1;
+  }
+
+  /* ── Card resumo ─────────────────────────────── */
+  .card-resumo {
+    padding: 28px 26px 24px;
+    margin: 40px 0;
+  }
+
+  .card-resumo h3 {
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+  }
+
+  .resumo-linha span,
+  .resumo-linha strong {
+    font-size: 1rem;
+  }
+
+  .resumo-total {
+    margin-bottom: 32px;
+  }
+
+  .resumo-total span {
+    font-size: 1.0625rem;
+  }
+
+  .resumo-total strong {
+    font-size: 1.3125rem;
+    letter-spacing: -0.6px;
+  }
+
+  /* ── Botão de pagamento ──────────────────────── */
+  .btn-pagamento {
+    height: 58px;
+    font-size: 1.0625rem;
+    border-radius: var(--radius-lg);
+    /* Radius um pouco maior no desktop */
+    margin-bottom: 16px;
+  }
+
+  /* ── Segurança ───────────────────────────────── */
+  .seguranca p {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .app {
+    background: linear-gradient(to bottom,
+        var(--color-primary) 0%,
+        var(--color-primary-light) 4%,
+        var(--color-primary-soft) 6%,
+        var(--color-bg-main) 9%);
+  }
+
+  .topo {
+    padding: 28px 80px 64px;
+    max-width: 2560px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .chat img {
+    height: 34px;
+  }
+
+  .pagamento-container {
+    padding: 0 80px 64px;
+    gap: 40px;
+    max-width: 2560px;
+  }
+
+  .titulo-pagina h1 {
+    font-size: 2rem;
+  }
+
+  .btn-voltar svg {
+    height: 38px;
+  }
+
+  .card {
+    padding: 36px;
+  }
+
+  .card-header h2 {
+    font-size: 1.375rem;
+  }
+
+  .campo label {
+    font-size: 1rem;
+  }
+
+  .campo input {
+    font-size: 1.125rem;
+    padding: 18px 20px;
+  }
+
+  .btn-pagar {
+    font-size: 1.125rem;
+    padding: 20px;
+  }
+
+  .seguranca p {
+    font-size: 0.875rem;
+  }
+
+  .salvar-cartao span {
+    font-size: 1rem;
+  }
+}
