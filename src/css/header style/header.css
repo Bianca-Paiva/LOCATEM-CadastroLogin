@@ -330,6 +330,33 @@ body {
         height: 60%;
         object-fit: contain;
     }
+
+    /* Nav desktop */
+    .menu-navegacao-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(12px, 2vw, 38px);
+        padding: 18px 32px 0;
+        width: 100%;
+    }
+
+    .menu-navegacao-desktop a {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: clamp(15px, 1vw, 18px);
+        font-weight: 600;
+        color: var(--color-text-dark);
+        text-decoration: none;
+    }
+
+    .menu-navegacao-desktop img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
 }
 
 
