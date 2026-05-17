@@ -1,70 +1,87 @@
-/* =====================================================================
-   LOCATEM — principalPage.css
-   Estratégia: Mobile-first
-   Breakpoints: base (< 320px), @media (min-width: 320px), @media (min-width: 1024px)
-   ===================================================================== */
-
 /* ============================= */
-/* DESIGN TOKENS / VARIÁVEIS CSS */
-/* Todas as variáveis usadas no projeto                                  */
+/* VARIÁVEIS CSS 
 /* ============================= */
 
 :root {
     /* — Cores Principais — */
-    --color-primary:        #FFCA00;   /* Cor principal da marca */
-    --color-primary-light:  #ffe97a;   /* Variação mais clara (gradientes) */
-    --color-primary-soft:   #fff6c7;   /* Fundo suave */
-    --color-secondary:      #f0c000c0; /* Hover / destaque */
+    --color-primary: #FFCA00;
+    /* Cor principal da marca */
+    --color-primary-light: #ffe97a;
+    /* Variação mais clara (gradientes) */
+    --color-primary-soft: #fff6c7;
+    /* Fundo suave */
+    --color-secondary: #f0c000c0;
+    /* Hover / destaque */
 
     /* — Backgrounds — */
-    --color-bg-main: #F9FAFB; /* Fundo geral da aplicação */
-    --color-bg-card: #ffffff; /* Fundo dos cards */
+    --color-bg-main: #F9FAFB;
+    /* Fundo geral da aplicação */
+    --color-bg-card: #ffffff;
+    /* Fundo dos cards */
+    --color-bg-card-img: #ffffff;
+    /* Fundo da área de imagem do card */
+    --color-bg-placeholder: #ececec;
+    /* Fundo do placeholder de imagem */
+    --color-bg-chat-hover: rgba(0, 0, 0, 0.13);
+    /* Hover do botão de chat */
 
     /* — Texto — */
-    --color-text-dark:  #111827; /* Texto escuro principal */
-    --color-text-muted: #6B7280; /* Texto secundário / placeholder */
+    --color-text-dark: #111827;
+    /* Texto escuro principal */
+    --color-text-muted: #6B7280;
+    /* Texto secundário / placeholder */
+    --color-text-owner: #444444;
+    /* Nome do proprietário no card */
+    --color-text-price-tag: #037233;
+    /* Tag de preço / frete grátis */
+    --color-text-placeholder: #bbbbbb;
+    /* Ícone do placeholder de imagem */
+
+    /* — Ícones / Badges — */
+    --color-icon-verified: #0077FF;
+    /* Ícone de verificado no proprietário */
+
+    /* — Banner — */
+    --color-banner-bg: #c8c8c8;
+    /* Fundo padrão do banner */
+    --color-indicator: rgba(255, 255, 255, 0.55);
+    /* Indicador inativo */
+    --color-indicator-active: #ffffff;
+    /* Indicador ativo */
+    --color-arrow: #ffffff;
+    /* Setas de navegação do banner */
+
+    /* — Barra de pesquisa — */
+    --color-search-focus-ring: rgba(255, 202, 0, 0.4);
+    /* Anel de foco */
 
     /* — Border Radius — */
-    --radius-sm:   8px;
-    --radius-md:   12px;
-    --radius-lg:   16px;
-    --radius-pill: 999px; /* Totalmente arredondado (badge, search) */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    /* Totalmente arredondado (badge, search) */
 
     /* — Sombras — */
-    --shadow-card:   0 2px 8px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.06);
     --shadow-search: 0 1px 6px rgba(0, 0, 0, 0.12);
-    --shadow-hover:  0 8px 24px rgba(0, 0, 0, 0.13);
+    --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.13);
 
     /* — Espaçamento base — */
-    --spacing-xs:  6px;
-    --spacing-sm:  12px;
-    --spacing-md:  16px;
-    --spacing-lg:  24px;
-    --spacing-xl:  32px;
+    --spacing-xs: 6px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
 
     /* — Transições — */
     --transition-fast: 0.18s ease;
-    --transition-mid:  0.28s ease;
-}
-
-
-/* ============================= */
-/* RESET / BASE GERAL            */
-/* ============================= */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --transition-mid: 0.28s ease;
 }
 
 body {
     background-color: var(--color-bg-main);
     color: var(--color-text-dark);
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
 }
 
 ul,
@@ -78,7 +95,6 @@ a {
 }
 
 button {
-    font-family: inherit;
     cursor: pointer;
 }
 
@@ -89,9 +105,9 @@ img {
 
 
 /* =====================================================================
-   BASE MOBILE (padrão — aplicado a qualquer largura)
-   Projetado para ~320px e acima
-   ===================================================================== */
+    BASE MOBILE (padrão — aplicado a qualquer largura)
+    Projetado para ~320px e acima
+===================================================================== */
 
 /* ============================= */
 /* APP WRAPPER                   */
@@ -100,13 +116,11 @@ img {
 .app {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(
-        to bottom,
-        var(--color-primary)       0%,
-        var(--color-primary-light) 5%,
-        var(--color-primary-soft)  9%,
-        var(--color-bg-main)       14%
-    );
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 5%,
+            var(--color-primary-soft) 9%,
+            var(--color-bg-main) 14%);
 }
 
 
@@ -130,7 +144,7 @@ img {
     padding: 18px var(--spacing-md) 28px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* Linha topo: hamburguer + logo + carrinho */
@@ -183,6 +197,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     flex-shrink: 0;
 }
 
@@ -224,7 +239,7 @@ img {
 
 .barra-pesquisa-mobile {
     width: 100%;
-    height: 48px;
+    height: 43px;
     background-color: var(--color-bg-card);
     box-shadow: var(--shadow-search);
     border-radius: var(--radius-pill);
@@ -257,11 +272,11 @@ img {
 /* ============================= */
 
 section {
-    padding: 12px var(--spacing-md) 0;
+    padding: 0 var(--spacing-md) 0;
 }
 
 .banner {
-    background-color: #c8c8c8;
+    background-color: var(--color-banner-bg);
     box-shadow: var(--shadow-card);
     border-radius: var(--radius-md);
     height: clamp(110px, 30vw, 160px);
@@ -276,7 +291,8 @@ section {
 .anuncio-img {
     position: absolute;
     inset: 0;
-    display: none; /* JS revela o ativo */
+    display: none;
+    /* JS revela o ativo */
 }
 
 .anuncio-img img {
@@ -296,13 +312,13 @@ section {
     display: flex;
     justify-content: space-between;
     z-index: 10;
-    pointer-events: none; /* permite clique só nos botões */
+    pointer-events: none;
 }
 
 .seta-btn {
     pointer-events: all;
     font-size: 14px;
-    color: #fff;
+    color: var(--color-arrow);
     border: none;
     background: none;
     border-radius: 50%;
@@ -329,12 +345,12 @@ section {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.55);
+    background: var(--color-indicator);
     transition: background var(--transition-fast);
 }
 
 .indicadores span.ativo {
-    background: #fff;
+    background: var(--color-indicator-active);
 }
 
 
@@ -390,7 +406,6 @@ main h2 {
 
 .categorias li button:hover,
 .categorias li button:focus-visible {
-    background-color: var(--color-primary-soft);
     transform: translateY(-1px);
 }
 
@@ -428,12 +443,12 @@ main h2 {
 
 /* Área da imagem do card */
 .card-img {
-    height: clamp(110px, 38vw, 160px);
+    height: clamp(100px, 38vw, 150px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: var(--color-bg-card-img);
 }
 
 .card-img img {
@@ -453,14 +468,14 @@ main h2 {
 }
 
 .card-img:has(img[src=""]) {
-    background-color: #ececec;
+    background-color: var(--color-bg-placeholder);
     border-radius: 0;
 }
 
 .card-img:has(img[src=""])::after {
     content: '📷';
     font-size: 28px;
-    color: #bbb;
+    color: var(--color-text-placeholder);
 }
 
 /* Informações do card */
@@ -477,7 +492,6 @@ main h2 {
     font-weight: 500;
     color: var(--color-text-dark);
     line-height: 1.35;
-    /* limita a 2 linhas para uniformidade */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -495,7 +509,7 @@ main h2 {
 .proprietario h4 {
     font-size: clamp(11px, 2.8vw, 13px);
     font-weight: 700;
-    color: #444;
+    color: var(--color-text-owner);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -504,7 +518,7 @@ main h2 {
 .proprietario svg {
     width: auto;
     height: 11px;
-    color: #0077FF;
+    color: var(--color-icon-verified);
     flex-shrink: 0;
 }
 
@@ -519,7 +533,7 @@ main h2 {
 .card-info span {
     font-size: 11px;
     font-weight: 500;
-    color: #037233;
+    color: var(--color-text-price-tag);
 }
 
 
@@ -530,24 +544,30 @@ main h2 {
 
 @media (min-width: 320px) {
 
-    /* Reduz padding lateral para caber em 320px */
     .header-mobile {
         padding: 16px 14px 24px;
+        gap: 15px;
     }
 
     .barra-pesquisa-mobile {
-        height: 44px;
+        height: 35px;
+    }
+
+    .barra-pesquisa-mobile img {
+        width: 15px;
+        height: 15px;
+        opacity: 0.55;
+        flex-shrink: 0;
     }
 
     section {
-        padding: 10px 14px 0;
+        padding: 0 14px 0;
     }
 
     main {
         padding: 14px 14px var(--spacing-md);
     }
 
-    /* Cards: 2 por linha, imagem mais compacta */
     .anuncios {
         gap: 10px;
     }
@@ -580,20 +600,27 @@ main h2 {
 
     .header-mobile {
         padding: 20px 24px 30px;
-        gap: 24px;
+        gap: 20px;
     }
 
     .logo {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .logo img {
-        height: 32px;
+        height: 30px;
     }
 
     .barra-pesquisa-mobile {
-        height: 52px;
+        height: 45px;
         padding: 0 18px;
+    }
+
+    .barra-pesquisa-mobile img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.55;
+        flex-shrink: 0;
     }
 
     .barra-pesquisa-mobile input {
@@ -606,7 +633,7 @@ main h2 {
     /* ============================= */
 
     section {
-        padding: 20px 24px 0;
+        padding: 0 24px 0;
     }
 
     .banner {
@@ -703,9 +730,9 @@ main h2 {
 
 
 /* =====================================================================
-   BREAKPOINT — DESKTOP (1024px+)
-   Layout amplo, navegação lateral, grid elegante
-   ===================================================================== */
+    BREAKPOINT — DESKTOP (1024px+)
+    Layout amplo, navegação lateral, grid elegante
+===================================================================== */
 
 @media (min-width: 1024px) {
 
@@ -714,13 +741,11 @@ main h2 {
     /* ============================= */
 
     .app {
-        background: linear-gradient(
-            to bottom,
-            var(--color-primary)       0%,
-            var(--color-primary-light) 8%,
-            var(--color-primary-soft)  12%,
-            var(--color-bg-main)       17%
-        );
+        background: linear-gradient(to bottom,
+                var(--color-primary) 0%,
+                var(--color-primary-light) 8%,
+                var(--color-primary-soft) 12%,
+                var(--color-bg-main) 17%);
     }
 
 
@@ -768,7 +793,7 @@ main h2 {
     .barra-pesquisa {
         flex: 1;
         max-width: 900px;
-        height: 44px;
+        height: 35px;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -781,7 +806,7 @@ main h2 {
     }
 
     .barra-pesquisa:focus-within {
-        box-shadow: 0 0 0 3px rgba(255, 202, 0, 0.4), var(--shadow-search);
+        box-shadow: 0 0 0 3px var(--color-search-focus-ring), var(--shadow-search);
     }
 
     .barra-pesquisa button {
@@ -805,7 +830,6 @@ main h2 {
         outline: none;
         background: transparent;
         font-size: clamp(14px, 1vw, 16px);
-        font-family: inherit;
         color: var(--color-text-dark);
     }
 
@@ -829,7 +853,7 @@ main h2 {
     }
 
     .chat:hover {
-        background: rgba(0, 0, 0, 0.13);
+        background: var(--color-bg-chat-hover);
     }
 
     .chat img {
@@ -961,9 +985,8 @@ main h2 {
         gap: clamp(14px, 1.5vw, 22px);
     }
 
-    /* Imagem maior e mais rica no desktop */
     .card-img {
-        height: clamp(160px, 18vw, 240px);
+        height: clamp(80px, 18vw, 160px);
         padding: 14px;
     }
 

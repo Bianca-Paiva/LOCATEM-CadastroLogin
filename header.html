@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Familia tipografica Inter — usada em toda a interface -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Reset de estilos -->
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <!-- Estilos exclusivos da pagina de carrinho -->
+    <link rel="stylesheet" href="./src/css/header style/header.css" />
+
+    <title>TESTE HEADER</title>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- ================================================================================================================= -->
+        <!-- SECAO: HEADER MOBILE   -->
+        <!-- Exibido apenas em telas pequenas (controlado por CSS).  -->
+        <!-- Contem: botao de menu hamburguer, logo, icone de carrinho e barra de pesquisa dedicada (linha separada do topo).  -->
+        <!-- ================================================================================================================= -->
+        <header class="header-mobile">
+            <div class="linha-topo-mobile">
+                <div class="lado-esquerdo">
+                    <!-- Botao que abre o menu lateral (drawer) em mobile -->
+                    <button class="menu-btn" id="btnAbrirDrawer" aria-label="Abrir menu">
+                        <img src="./src/images/menuHamburguer.png" alt="Menu" />
+                    </button>
+                    <!-- Logo clicavel — redireciona para a pagina principal -->
+                    <a href="./principalPage.html" class="logo">
+                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                        LOCATEM
+                    </a>
+                </div>
+
+                <!-- Icone do carrinho com badge de quantidade.
+                    ATENCAO: valor hardcoded neste HTML de demonstracao. -->
+                <a href="./carrinho.html" class="carrinho-btn">
+                    <img src="./src/images/carrinho.svg" alt="Carrinho" />
+                    <span class="quantidade-carrinho">2</span>
+                </a>
+            </div>
+
+            <!-- Barra de pesquisa exclusiva do header mobile.
+                O input usa type="search" para ativar o botao de limpar nativo do navegador (X) em mobile. -->
+            <form class="barra-pesquisa-mobile">
+                <img src="./src/images/lupa.png" alt="Buscar" />
+                <input type="search" name="busca" placeholder="Qual ferramenta você precisa hoje?"
+                    aria-label="Pesquisar ferramentas" />
+            </form>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- SECAO: HEADER DESKTOP                                         -->
+        <!-- Exibido apenas em telas maiores (controlado por CSS).         -->
+        <!-- Contem: logo, barra de pesquisa central e botao de chat.      -->
+        <!-- ============================================================ -->
+        <header class="header-desktop">
+            <div class="linha-topo-desktop">
+                <!-- Logo clicavel — redireciona para a pagina principal -->
+                <a href="./principalPage.html" class="logo">
+                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                    LOCATEM
+                </a>
+
+                <!-- Barra de pesquisa central do desktop. -->
+                <form class="barra-pesquisa">
+                    <button type="submit" class="lupa-btn">
+                        <img src="./src/images/lupa.png" alt="Buscar" />
+                    </button>
+                    <input type="search" name="busca" placeholder="Qual ferramenta você precisa hoje?"
+                        aria-label="Pesquisar ferramentas" />
+                </form>
+
+                <!-- Botao de acesso ao chat de suporte (comportamento via JS) -->
+                <a href="./mensagens.html" class="chat">
+                    <img src="./src/images/chat.png" alt="Chat" />
+                </a>
+            </div>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- SECAO: NAVEGACAO LATERAL (DESKTOP)                            -->
+        <!-- Menu de navegacao principal visivel apenas no desktop.        -->
+        <!-- Cada link contem um icone + label de texto.                   -->
+        <!-- Links com href="#" sao placeholders — funcionalidade pendente. -->
+        <!-- ============================================================ -->
+        <nav class="menu-navegacao-desktop">
+            <a href="./principalPage.html">
+                <img src="./src/images/home.png" alt="Ícone Início" />Início
+            </a>
+            <a href="./carrinho.html">
+                <img src="./src/images/carrinho.svg" alt="Ícone Carrinho" />Carrinho
+            </a>
+            <a href="#">
+                <img src="./src/images/relogio.png" alt="Ícone Histórico" />Histórico
+            </a>
+            <a href="#">
+                <img src="./src/images/calendario.png" alt="Ícone Agendamento" />Agendamento
+            </a>
+            <a href="#">
+                <img src="./src/images/notificacoes.png" alt="Ícone Notificações" />Notificações
+            </a>
+            <a href="./avaliacaoPage.html">
+                <img src="./src/images/Star.png" alt="Ícone Avaliações" />Avaliações
+            </a>
+            <a href="#">
+                <img src="./src/images/suporte.png" alt="Ícone Suporte" />Suporte
+            </a>
+            <a href="./login.html">
+                <img src="./src/images/usuario.png" alt="Ícone Entrar" />Entrar
+            </a>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- DRAWER MOBILE — Menu lateral                                  -->
+        <!-- ============================================================ -->
+
+        <!-- Fundo escurecido (fecha o drawer ao clicar) -->
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+
+        <!-- Painel do drawer -->
+        <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+
+            <!-- Cabeçalho com logo e botão fechar -->
+            <div class="drawer-header">
+                <a href="./principalPage.html" class="drawer-logo">
+                    <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                    LOCATEM
+                </a>
+                <button class="drawer-close-btn" id="btnFecharDrawer" aria-label="Fechar menu">✕</button>
+            </div>
+
+            <!-- ── PERFIL (visível apenas quando logado) ────────────── -->
+            <a href="./perfil.html" class="drawer-perfil" id="drawerPerfil">
+                <!--
+                    Se o usuário tiver foto:
+                    <img class="drawer-perfil-avatar" src="URL_DA_FOTO" alt="Foto de João" />
+ 
+                    Se não tiver foto, use o placeholder com inicial:
+                    <div class="drawer-perfil-avatar-placeholder">J</div>
+                -->
+                <img class="drawer-perfil-avatar" src="./src/images/usuario.png" alt="Foto do usuário" />
+                <div class="drawer-perfil-info">
+                    <div class="drawer-perfil-nome" id="drawerNome">Olá, João!</div>
+                    <div class="drawer-perfil-email" id="drawerEmail">joao.silva@email.com</div>
+                    <div class="drawer-perfil-badge">Cliente desde 2023</div>
+                </div>
+                <div class="drawer-perfil-seta"></div>
+            </a>
+
+            <!-- ── CORPO ROLÁVEL ─────────────────────────────────────── -->
+            <div class="drawer-body">
+
+                <!-- Navegação principal (sempre visível) -->
+                <nav class="drawer-nav">
+                    <a href="./principalPage.html" class="ativo">
+                        <img src="./src/images/home.png" alt="" />
+                        Início
+                    </a>
+                    <a href="./carrinho.html">
+                        <img src="./src/images/carrinho.svg" alt="" />
+                        Carrinho
+                        <!-- Badge de quantidade (remover se não houver itens) -->
+                        <!-- <span class="drawer-nav-badge">2</span> -->
+                    </a>
+                    <a href="#">
+                        <img src="./src/images/relogio.png" alt="" />
+                        Histórico
+                    </a>
+                    <a href="#">
+                        <img src="./src/images/calendario.png" alt="" />
+                        Agendamento
+                    </a>
+                    <a href="#">
+                        <img src="./src/images/notificacoes.png" alt="" />
+                        Notificações
+                        <!-- Badge de notificações não lidas (logado) -->
+                        <!-- <span class="drawer-nav-badge">3</span> -->
+                    </a>
+                    <a href="./avaliacaoPage.html">
+                        <img src="./src/images/Star.png" alt="" />
+                        Avaliações
+                    </a>
+                    <a href="#">
+                        <img src="./src/images/suporte.png" alt="" />
+                        Suporte
+                    </a>
+                    <!-- "Entrar" visível apenas quando NÃO está logado -->
+                    <a href="./login.html" id="drawerItemEntrar">
+                        <img src="./src/images/usuario.png" alt="" />
+                        Entrar
+                    </a>
+                </nav>
+
+                <!-- ── SEÇÃO EXTRA (visível apenas quando logado) ──── -->
+                <section class="drawer-secao-logado" id="drawerSecaoLogado">
+                    <a href="#">
+                        <img src="./src/images/usuario.png" alt="" />
+                        Minha conta
+                        <span class="seta">›</span>
+                    </a>
+                    <a href="#">
+                        <img src="./src/images/relogio.png" alt="" />
+                        Meus aluguéis
+                        <span class="seta">›</span>
+                    </a>
+                    <a href="#">
+                        <img src="./src/images/Star.png" alt="" />
+                        Cupons e benefícios
+                        <span class="seta">›</span>
+                    </a>
+                </section>
+
+                <!-- ── CARDS PROMOCIONAIS (sempre visíveis) ─────────── -->
+                <div class="drawer-cards">
+                    <a href="./mensagens.html" class="drawer-card">
+                        <div class="drawer-card-icone">
+                            <img src="./src/images/chat.png" alt="" />
+                        </div>
+                        <div class="drawer-card-texto">
+                            <div class="drawer-card-titulo">Fale com a Locatem</div>
+                            <div class="drawer-card-desc">Tire dúvidas ou peça ajuda pelo nosso chat</div>
+                        </div>
+                        <div class="drawer-card-seta">›</div>
+                    </a>
+
+                    <div class="drawer-card">
+                        <div class="drawer-card-icone">
+                            <img src="./src/images/Star.png" alt="" />
+                        </div>
+                        <div class="drawer-card-texto">
+                            <div class="drawer-card-titulo">Equipamentos de qualidade</div>
+                            <div class="drawer-card-desc">Segurança e confiança para o seu projeto</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /drawer-body -->
+
+            <!-- ── SAIR DA CONTA (visível apenas quando logado) ──────── -->
+            <a href="#" class="drawer-sair" id="drawerSair">
+                <img src="./src/images/usuario.png" alt="" />
+                Sair da conta
+            </a>
+
+        </aside>
+
+    </div><!-- /app -->
+
+    <script src="./src/js/header.js"></script>
+</body>
+
+</html>

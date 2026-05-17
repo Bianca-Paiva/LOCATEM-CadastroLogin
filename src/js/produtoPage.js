@@ -1,5 +1,3 @@
-'use strict';
-
 // ==================== CARROSSEL ====================
 // Controla a navegação entre slides do produto.
 // Suporta: botões de seta, clique nos indicadores e swipe touch.
@@ -114,19 +112,49 @@ const initQuantidade = () => {
 };
 
 //=================ADICIONAR CARRINHO=====================
+// Dentro de produtoPage.js
+
 const initAdicionarCarrinho = () => {
+  const btn = document.getElementById('btn-adicionar-carrinho');
+  if (!btn) return;
 
-  const btnAddCarrinho =
-    document.getElementById("btn-adicionar-carrinho");
+  btn.addEventListener('click', () => {
+    // ── Lê os dados do produto na página ──────────────────────────
+    const nome = document.querySelector('.descricao-produto h1')?.textContent.trim() ?? '';
+    const imagem = document.querySelector('.carrossel-item.ativo img')?.src ?? '';
+    const precoTexto = document.querySelector('.preco-produto')?.textContent ?? '';
+    const precoDia = parseFloat(precoTexto.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-  if (!btnAddCarrinho) return;
+    // Quantidade selecionada (controle de unidades da produtoPage)
+    const quantidadeTexto = document.querySelector('.controle-valor')?.textContent ?? '1';
+    const unidades = parseInt(quantidadeTexto, 10) || 1;
 
-  btnAddCarrinho.addEventListener("click", () => {
+    // Dias selecionados (select de tempo)
+    const selectTempo = document.getElementById('tempo');
+    const dias = parseInt(selectTempo?.value, 10) || 1;
 
-    window.location.href = "carrinho.html";
+    // Gera um id simples a partir do nome (ou use um data-id no HTML futuramente)
+    const id = nome.toLowerCase().replace(/\s+/g, '-');
 
+    // ── Monta o objeto e salva ─────────────────────────────────────
+    adicionarAoCarrinho({
+      id,
+      nome,
+      imagem,
+      precoDia,
+      estoque: 10,  // substitua por um data-estoque no HTML se quiser
+      dias,
+      unidades,
+    });
+
+    // Feedback visual antes de redirecionar
+    btn.textContent = 'Adicionado ✓';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      window.location.href = 'carrinho.html';
+    }, 600);
   });
-
 };
 
 
