@@ -1,63 +1,110 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ── Elementos ──────────────────────────────────────────────
-    const drawer = document.getElementById('drawer');
-    const overlay = document.getElementById('drawerOverlay');
-    const btnAbrir = document.getElementById('btnAbrirDrawer');
-    const btnFechar = document.getElementById('btnFecharDrawer');
+    // ────────────────── ELEMENTOS ──────────────────
 
-    const elPerfil = document.getElementById('drawerPerfil');
-    const elSecaoLogado = document.getElementById('drawerSecaoLogado');
-    const elSair = document.getElementById('drawerSair');
-    const elItemEntrar = document.getElementById('drawerItemEntrar');
+    const menuLateral = document.getElementById('menuLateral');
+    const overlay = document.getElementById('menuLateralOverlay');
 
-    // Verificação de segurança — avisa no console se algum elemento não for encontrado
-    if (!drawer || !overlay || !btnAbrir || !btnFechar) {
-        console.error('[Drawer] Um ou mais elementos não foram encontrados no DOM. Verifique os IDs no HTML.');
+    const btnAbrirMenu = document.getElementById('btnAbrirMenu');
+    const btnFecharMenu = document.getElementById('btnFecharMenu');
+
+    const perfil = document.getElementById('menuLateralPerfil');
+    const secaoLogado = document.getElementById('menuLateralLogado');
+
+    const btnSair = document.getElementById('menuLateralSair');
+    const itemEntrar = document.getElementById('menuLateralItemEntrar');
+
+    const nomeUsuario = document.getElementById('menuLateralNome');
+    const emailUsuario = document.getElementById('menuLateralEmail');
+
+    // ────────────────── VERIFICAÇÃO ──────────────────
+
+    if (
+        !menuLateral ||
+        !overlay ||
+        !btnAbrirMenu ||
+        !btnFecharMenu
+    ) {
+        console.error(
+            '[Menu Lateral] Alguns elementos não foram encontrados no DOM.'
+        );
+
         return;
     }
 
-    // ── Abrir / Fechar ─────────────────────────────────────────
-    function abrirDrawer() {
-        drawer.classList.add('active');
+    // ────────────────── ABRIR MENU ──────────────────
+
+    function abrirMenu() {
+        menuLateral.classList.add('active');
         overlay.classList.add('active');
+
         document.body.style.overflow = 'hidden';
     }
 
-    function fecharDrawer() {
-        drawer.classList.remove('active');
+    // ────────────────── FECHAR MENU ──────────────────
+
+    function fecharMenu() {
+
+        menuLateral.classList.remove('active');
         overlay.classList.remove('active');
+
         document.body.style.overflow = '';
     }
 
-    btnAbrir.addEventListener('click', abrirDrawer);
-    btnFechar.addEventListener('click', fecharDrawer);
-    overlay.addEventListener('click', fecharDrawer);
+    // ────────────────── EVENTOS ──────────────────
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') fecharDrawer();
+    btnAbrirMenu.addEventListener('click', abrirMenu);
+    btnFecharMenu.addEventListener('click', fecharMenu);
+    overlay.addEventListener('click', fecharMenu);
+
+    // Fecha no ESC
+    document.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Escape') {
+            fecharMenu();
+        }
     });
 
-    // ── Estado de Login ────────────────────────────────────────
-    function aplicarEstadoLogin(logado, dados = {}) {
-        if (logado) {
-            elPerfil.classList.add('visivel');
-            elSecaoLogado.classList.add('visivel');
-            elSair.classList.add('visivel');
-            elItemEntrar.style.display = 'none';
+    // ────────────────── ESTADO DE LOGIN ──────────────────
 
-            if (dados.nome) document.getElementById('drawerNome').textContent = 'Olá, ' + dados.nome + '!';
-            if (dados.email) document.getElementById('drawerEmail').textContent = dados.email;
+    function aplicarEstadoLogin(logado, dados = {}) {
+
+        if (logado) {
+
+            // Mostra elementos de usuário logado
+            perfil.classList.add('visivel');
+            secaoLogado.classList.add('visivel');
+            btnSair.classList.add('visivel');
+
+            // Esconde botão entrar
+            itemEntrar.style.display = 'none';
+
+            // Atualiza nome
+            if (dados.nome) {
+                nomeUsuario.textContent =
+                    `Olá, ${dados.nome}!`;
+            }
+
+            // Atualiza email
+            if (dados.email) {
+                emailUsuario.textContent =
+                    dados.email;
+            }
         } else {
-            elPerfil.classList.remove('visivel');
-            elSecaoLogado.classList.remove('visivel');
-            elSair.classList.remove('visivel');
-            elItemEntrar.style.display = '';
+            // Esconde elementos logados
+            perfil.classList.remove('visivel');
+            secaoLogado.classList.remove('visivel');
+            btnSair.classList.remove('visivel');
+
+            // Mostra botão entrar
+            itemEntrar.style.display = '';
         }
     }
 
-    // Por padrão: não logado.
-    // Para testar logado, troque pela linha comentada abaixo:
+    // ────────────────── TESTE ──────────────────
+
+    // Usuário deslogado
     aplicarEstadoLogin(false);
+
+    // Usuário logado
     // aplicarEstadoLogin(true, { nome: 'João', email: 'joao.silva@email.com' });
 });

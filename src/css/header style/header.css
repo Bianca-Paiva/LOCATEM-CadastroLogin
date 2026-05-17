@@ -191,11 +191,11 @@ body {
     color: var(--color-text-muted);
 }
 
-/* ============================= */
-/* OVERLAY — fundo escurecido    */
-/* ============================= */
+/* =========================================================
+   OVERLAY — Fundo escurecido
+========================================================= */
 
-.drawer-overlay {
+.menu-lateral-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
@@ -205,139 +205,119 @@ body {
     transition: opacity 0.28s ease;
 }
 
-.drawer-overlay.active {
+.menu-lateral-overlay.active {
     opacity: 1;
     pointer-events: all;
 }
 
-/* ============================= */
-/* DRAWER — painel lateral       */
-/* ============================= */
+/* =========================================================
+   MENU LATERAL
+========================================================= */
 
-.drawer {
+.menu-lateral {
     position: fixed;
     top: 0;
     left: 0;
+    width: min(82vw, 310px);
     height: 100dvh;
-    width: min(80vw, 280px);
-    background: #fff;
+    background: #ffffff;
     z-index: 201;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     transform: translateX(-100%);
     transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
 }
 
-.drawer.active {
+.menu-lateral.active {
     transform: translateX(0);
 }
 
-/* ============================= */
-/* CABEÇALHO DO DRAWER           */
-/* ============================= */
+/* =========================================================
+    CABEÇALHO
+========================================================= */
 
-.drawer-header {
+.menu-lateral-cabecalho {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 16px 16px;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 18px 16px;
+    border-bottom: 1px solid #f1f1f1;
     flex-shrink: 0;
 }
 
-.drawer-logo {
+.menu-lateral-logo {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
+    text-decoration: none;
     font-size: 18px;
     font-weight: 800;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.5px;
     color: #0A0A0A;
-    text-decoration: none;
 }
 
-.drawer-logo img {
+.menu-lateral-logo img {
     height: 26px;
     object-fit: contain;
 }
 
-.drawer-close-btn {
-    width: 32px;
-    height: 32px;
+.menu-lateral-btn-fechar {
+    width: 34px;
+    height: 34px;
     border: none;
     background: transparent;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 21px;
     color: #6B7280;
-    border-radius: 50%;
     transition: background 0.18s ease;
-    flex-shrink: 0;
 }
 
-.drawer-close-btn:hover {
-    background: rgba(0, 0, 0, 0.07);
+.menu-lateral-btn-fechar:hover {
+    background: rgba(0, 0, 0, 0.06);
 }
 
-/* ============================= */
-/* PERFIL DO USUÁRIO (logado)    */
-/* ============================= */
+/* =========================================================
+    PERFIL
+========================================================= */
 
-.drawer-perfil {
+.menu-lateral-perfil {
     display: none;
-    /* escondido por padrão (sem login) */
     align-items: center;
     gap: 12px;
-    padding: 16px 16px 14px;
-    border-bottom: 1px solid #f0f0f0;
-    cursor: pointer;
-    flex-shrink: 0;
+    padding: 16px;
     text-decoration: none;
     color: inherit;
-    transition: background 0.18s ease;
+    transition: background 0.15s ease;
+    flex-shrink: 0;
 }
 
-.drawer-perfil:hover {
+.menu-lateral-perfil:hover {
     background: #fafafa;
 }
 
-.drawer-perfil.visivel {
+.menu-lateral-perfil.visivel {
     display: flex;
 }
 
-.drawer-perfil-avatar {
-    width: 46px;
-    height: 46px;
+.menu-lateral-perfil-avatar {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    background: #e5e7eb;
     flex-shrink: 0;
 }
 
-/* Avatar placeholder (sem foto) */
-.drawer-perfil-avatar-placeholder {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: #e5e7eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: #6B7280;
-    flex-shrink: 0;
-}
-
-.drawer-perfil-info {
+.menu-lateral-perfil-info {
     flex: 1;
     min-width: 0;
 }
 
-.drawer-perfil-nome {
+.menu-lateral-perfil-nome {
     font-size: 14px;
     font-weight: 700;
     color: #0A0A0A;
@@ -346,81 +326,77 @@ body {
     text-overflow: ellipsis;
 }
 
-.drawer-perfil-email {
+.menu-lateral-perfil-email {
+    margin-top: 2px;
     font-size: 11.5px;
     color: #6B7280;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top: 1px;
 }
 
-.drawer-perfil-badge {
-    font-size: 10.5px;
-    color: #6B7280;
-    margin-top: 2px;
+.menu-lateral-perfil-badge {
+    width: fit-content;
+    margin-top: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #fff6cc;
+    font-size: 10px;
+    font-weight: 600;
+    color: #8A6A00;
 }
 
-.drawer-perfil-seta {
-    width: 16px;
-    height: 16px;
-    opacity: 0.4;
-    flex-shrink: 0;
-    /* seta ">" via CSS */
-}
-
-.drawer-perfil-seta::after {
+.menu-lateral-perfil-seta::after {
     content: '›';
-    font-size: 20px;
-    color: #6B7280;
-    line-height: 1;
+
+    font-size: 22px;
+    color: #9CA3AF;
 }
 
-/* ============================= */
-/* CONTEÚDO ROLÁVEL DO DRAWER    */
-/* ============================= */
+/* =========================================================
+    CONTEÚDO ROLÁVEL
+========================================================= */
 
-.drawer-body {
+.menu-lateral-conteudo {
     flex: 1;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================================
+    NAVEGAÇÃO
+========================================================= */
+
+.menu-lateral-nav {
+    display: flex;
+    flex-direction: column;
     padding: 8px 0;
-    display: flex;
-    flex-direction: column;
 }
 
-/* ============================= */
-/* NAVEGAÇÃO PRINCIPAL           */
-/* ============================= */
-
-.drawer-nav {
-    display: flex;
-    flex-direction: column;
-    padding: 4px 0;
-}
-
-.drawer-nav a {
+.menu-lateral-nav a {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 13px 20px;
-    font-size: 14.5px;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 14px;
     font-weight: 500;
     color: #0A0A0A;
-    text-decoration: none;
     transition: background 0.15s ease;
-    position: relative;
 }
 
-.drawer-nav a:hover {
-    background: #f5f5f5;
+.menu-lateral-nav a:hover {
+    background: #f7f7f7;
 }
 
-.drawer-nav a.ativo {
-    background: #fff9e0;
+.menu-lateral-nav a.ativo {
+    background: #fff8dc;
     font-weight: 700;
 }
 
-.drawer-nav a img {
+.menu-lateral-nav a img {
     width: 20px;
     height: 20px;
     object-fit: contain;
@@ -428,198 +404,179 @@ body {
     flex-shrink: 0;
 }
 
-.drawer-nav a.ativo img {
+.menu-lateral-nav a.ativo img {
     opacity: 1;
 }
 
-/* Badge de notificação no item do nav */
-.drawer-nav-badge {
+/* =========================================================
+    BADGE
+========================================================= */
+
+.menu-lateral-badge {
     position: absolute;
     right: 20px;
     min-width: 18px;
     height: 18px;
     padding: 0 5px;
     border-radius: 999px;
-    background: #f0c000;
-    color: #0A0A0A;
-    font-size: 10px;
-    font-weight: 800;
+    background: #facc15;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: #0A0A0A;
 }
 
-/* ============================= */
-/* SEÇÃO EXTRA (logado)          */
-/* ============================= */
+/* =========================================================
+    ÁREA LOGADO
+========================================================= */
 
-.drawer-secao-logado {
+.menu-lateral-logado {
     display: none;
     flex-direction: column;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid #f1f1f1;
     padding: 8px 0;
 }
 
-.drawer-secao-logado.visivel {
+.menu-lateral-logado.visivel {
     display: flex;
 }
 
-.drawer-secao-titulo {
-    font-size: 11px;
-    font-weight: 700;
-    color: #6B7280;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 10px 20px 4px;
-}
-
-.drawer-secao-logado a {
+.menu-lateral-logado a {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 13px 20px;
+    padding: 14px 20px;
+    text-decoration: none;
     font-size: 14px;
     font-weight: 500;
     color: #0A0A0A;
-    text-decoration: none;
     transition: background 0.15s ease;
 }
 
-.drawer-secao-logado a:hover {
-    background: #f5f5f5;
+.menu-lateral-logado a:hover {
+    background: #f7f7f7;
 }
 
-.drawer-secao-logado a img {
+.menu-lateral-logado a img {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    opacity: 0.7;
-    flex-shrink: 0;
+    opacity: 0.75;
 }
 
-.drawer-secao-logado a span.seta {
+.menu-lateral-seta {
     margin-left: auto;
     font-size: 18px;
-    color: #6B7280;
-    opacity: 0.5;
+    color: #9CA3AF;
 }
 
-/* ============================= */
-/* CARDS PROMOCIONAIS            */
-/* ============================= */
+/* =========================================================
+    CARDS
+========================================================= */
 
-.drawer-cards {
+.menu-lateral-cards {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 12px 14px;
-    border-top: 1px solid #f0f0f0;
+    padding: 14px;
+    border-top: 1px solid #f1f1f1;
     margin-top: auto;
 }
 
-.drawer-card {
+.menu-lateral-card {
     display: flex;
     align-items: center;
     gap: 12px;
-    background: #fffbe6;
-    border-radius: 14px;
-    padding: 12px 14px;
+    padding: 14px;
+    border-radius: 16px;
+    background: #fffbea;
     text-decoration: none;
     color: inherit;
     transition: background 0.18s ease;
-    cursor: pointer;
 }
 
-.drawer-card:hover {
-    background: #fff3b0;
+.menu-lateral-card:hover {
+    background: #fff4c2;
 }
 
-.drawer-card-icone {
+.menu-lateral-card-icone {
     width: 42px;
     height: 42px;
-    border-radius: 50%;
-    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 20px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
 }
 
-.drawer-card-icone img {
+.menu-lateral-card-icone img {
     width: 42px;
     height: 42px;
-    object-fit: cover;
-    border-radius: 50%;
+    object-fit: contain;
 }
 
-.drawer-card-texto {
+.menu-lateral-card-texto {
     flex: 1;
     min-width: 0;
 }
 
-.drawer-card-titulo {
+.menu-lateral-card-titulo {
     font-size: 13px;
     font-weight: 700;
     color: #0A0A0A;
 }
 
-.drawer-card-desc {
+.menu-lateral-card-descricao {
+    margin-top: 3px;
     font-size: 11.5px;
-    color: #6B7280;
-    margin-top: 2px;
     line-height: 1.4;
-}
-
-.drawer-card-seta {
-    font-size: 18px;
     color: #6B7280;
-    opacity: 0.5;
-    flex-shrink: 0;
 }
 
-/* ============================= */
-/* SAIR DA CONTA                 */
-/* ============================= */
+.menu-lateral-card-seta {
+    font-size: 18px;
+    color: #9CA3AF;
+}
 
-.drawer-sair {
+/* =========================================================
+    SAIR DA CONTA
+========================================================= */
+
+.menu-lateral-sair {
     display: none;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    padding: 14px 20px;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: #ef4444;
-    border-top: 1px solid #f0f0f0;
-    cursor: pointer;
-    background: transparent;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
     width: 100%;
-    text-align: left;
-    transition: background 0.15s ease;
+    padding: 16px 20px;
+    border-top: 1px solid #f1f1f1;
     text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #ef4444;
+    transition: background 0.15s ease;
     flex-shrink: 0;
 }
 
-.drawer-sair.visivel {
+.menu-lateral-sair.visivel {
     display: flex;
 }
 
-.drawer-sair:hover {
+.menu-lateral-sair:hover {
     background: #fef2f2;
 }
 
-.drawer-sair img {
-    width: 18px;
-    height: 18px;
+.menu-lateral-sair img {
+    width: 17px;
+    height: 17px;
     object-fit: contain;
-    opacity: 0.8;
-    /* tint via filter para vermelho */
-    filter: invert(27%) sepia(90%) saturate(1800%) hue-rotate(340deg) brightness(95%);
+    filter:
+        invert(27%)
+        sepia(90%)
+        saturate(1800%)
+        hue-rotate(340deg)
+        brightness(95%);
 }
 
 

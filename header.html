@@ -32,12 +32,12 @@
             <div class="linha-topo-mobile">
                 <div class="lado-esquerdo">
                     <!-- Botao que abre o menu lateral (drawer) em mobile -->
-                    <button class="menu-btn" id="btnAbrirDrawer" aria-label="Abrir menu">
-                        <img src="./src/images/menuHamburguer.png" alt="Menu" />
+                    <button class="menu-btn" id="btnAbrirMenu" aria-label="Abrir menu lateral">
+                        <img src="./src/images/menuHamburguer.png" alt="Ícone de menu hamburguer" />
                     </button>
                     <!-- Logo clicavel — redireciona para a pagina principal -->
-                    <a href="./principalPage.html" class="logo">
-                        <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+                    <a href="./principalPage.html" class="logo" aria-label="Ir para página inicial da Locatem">
+                        <img src="./src/images/LogoIcon.png" alt="Logo da LOCATEM" />
                         LOCATEM
                     </a>
                 </div>
@@ -121,138 +121,189 @@
             </a>
         </nav>
 
-        <!-- ============================================================ -->
-        <!-- DRAWER MOBILE — Menu lateral                                  -->
-        <!-- ============================================================ -->
+        <!-- =================================== -->
+        <!-- MENU LATERAL MOBILE -->
+        <!-- =================================== -->
 
-        <!-- Fundo escurecido (fecha o drawer ao clicar) -->
-        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <!-- Fundo escurecido -->
+        <div class="menu-lateral-overlay" id="menuLateralOverlay"></div>
 
-        <!-- Painel do drawer -->
-        <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <!-- Painel lateral -->
+        <aside class="menu-lateral" id="menuLateral" role="dialog" aria-modal="true" aria-label="Menu de navegação">
 
-            <!-- Cabeçalho com logo e botão fechar -->
-            <div class="drawer-header">
-                <a href="./principalPage.html" class="drawer-logo">
+            <!-- Cabeçalho -->
+            <div class="menu-lateral-cabecalho">
+
+                <a href="./principalPage.html" class="menu-lateral-logo">
                     <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
                     LOCATEM
                 </a>
-                <button class="drawer-close-btn" id="btnFecharDrawer" aria-label="Fechar menu">✕</button>
+
+                <button class="menu-lateral-btn-fechar" id="btnFecharMenu" aria-label="Fechar menu">
+                    ✕
+                </button>
+
             </div>
 
-            <!-- ── PERFIL (visível apenas quando logado) ────────────── -->
-            <a href="./perfil.html" class="drawer-perfil" id="drawerPerfil">
-                <!--
-                    Se o usuário tiver foto:
-                    <img class="drawer-perfil-avatar" src="URL_DA_FOTO" alt="Foto de João" />
- 
-                    Se não tiver foto, use o placeholder com inicial:
-                    <div class="drawer-perfil-avatar-placeholder">J</div>
-                -->
-                <img class="drawer-perfil-avatar" src="./src/images/usuario.png" alt="Foto do usuário" />
-                <div class="drawer-perfil-info">
-                    <div class="drawer-perfil-nome" id="drawerNome">Olá, João!</div>
-                    <div class="drawer-perfil-email" id="drawerEmail">joao.silva@email.com</div>
-                    <div class="drawer-perfil-badge">Cliente desde 2023</div>
+            <!-- =========================== -->
+            <!-- PERFIL DO USUÁRIO -->
+            <!-- =========================== -->
+
+            <a href="./perfil.html" class="menu-lateral-perfil" id="menuLateralPerfil">
+
+                <!-- Avatar -->
+                <img class="menu-lateral-perfil-avatar" src="./src/images/usuario.png" alt="Foto do usuário" />
+
+                <!-- Informações -->
+                <div class="menu-lateral-perfil-info">
+
+                    <div class="menu-lateral-perfil-nome" id="menuLateralNome">
+                        Olá, João!
+                    </div>
+
+                    <div class="menu-lateral-perfil-email" id="menuLateralEmail">
+                        joao.silva@email.com
+                    </div>
+
+                    <div class="menu-lateral-perfil-badge">
+                        Cliente desde 2023
+                    </div>
+
                 </div>
-                <div class="drawer-perfil-seta"></div>
+
+                <!-- Seta -->
+                <div class="menu-lateral-perfil-seta"></div>
             </a>
 
-            <!-- ── CORPO ROLÁVEL ─────────────────────────────────────── -->
-            <div class="drawer-body">
+            <!-- =================================== -->
+            <!-- CONTEÚDO ROLÁVEL -->
+            <!-- =================================== -->
 
-                <!-- Navegação principal (sempre visível) -->
-                <nav class="drawer-nav">
+            <div class="menu-lateral-conteudo">
+
+                <!-- Navegação -->
+                <nav class="menu-lateral-nav">
+
                     <a href="./principalPage.html" class="ativo">
                         <img src="./src/images/home.png" alt="" />
                         Início
                     </a>
-                    <a href="./carrinho.html">
-                        <img src="./src/images/carrinho.svg" alt="" />
-                        Carrinho
-                        <!-- Badge de quantidade (remover se não houver itens) -->
-                        <!-- <span class="drawer-nav-badge">2</span> -->
+
+                    <a href="./mensagens.html">
+                        <img src="./src/images/chat.png" alt="" />
+                        Chat
                     </a>
+
                     <a href="#">
                         <img src="./src/images/relogio.png" alt="" />
                         Histórico
                     </a>
+
                     <a href="#">
                         <img src="./src/images/calendario.png" alt="" />
                         Agendamento
                     </a>
+
                     <a href="#">
                         <img src="./src/images/notificacoes.png" alt="" />
                         Notificações
-                        <!-- Badge de notificações não lidas (logado) -->
-                        <!-- <span class="drawer-nav-badge">3</span> -->
                     </a>
+
                     <a href="./avaliacaoPage.html">
                         <img src="./src/images/Star.png" alt="" />
                         Avaliações
                     </a>
+
                     <a href="#">
                         <img src="./src/images/suporte.png" alt="" />
                         Suporte
                     </a>
-                    <!-- "Entrar" visível apenas quando NÃO está logado -->
-                    <a href="./login.html" id="drawerItemEntrar">
+
+                    <!-- Apenas quando NÃO logado -->
+                    <a href="./login.html" id="menuLateralItemEntrar">
                         <img src="./src/images/usuario.png" alt="" />
                         Entrar
                     </a>
+
                 </nav>
 
-                <!-- ── SEÇÃO EXTRA (visível apenas quando logado) ──── -->
-                <section class="drawer-secao-logado" id="drawerSecaoLogado">
+                <!-- ========================= -->
+                <!-- ÁREA LOGADO -->
+                <!-- ========================= -->
+
+                <section class="menu-lateral-logado" id="menuLateralLogado">
+
                     <a href="#">
                         <img src="./src/images/usuario.png" alt="" />
                         Minha conta
-                        <span class="seta">›</span>
+                        <span class="menu-lateral-seta">›</span>
                     </a>
-                    <a href="#">
-                        <img src="./src/images/relogio.png" alt="" />
-                        Meus aluguéis
-                        <span class="seta">›</span>
-                    </a>
+
                     <a href="#">
                         <img src="./src/images/Star.png" alt="" />
                         Cupons e benefícios
-                        <span class="seta">›</span>
+                        <span class="menu-lateral-seta">›</span>
                     </a>
                 </section>
 
-                <!-- ── CARDS PROMOCIONAIS (sempre visíveis) ─────────── -->
-                <div class="drawer-cards">
-                    <a href="./mensagens.html" class="drawer-card">
-                        <div class="drawer-card-icone">
-                            <img src="./src/images/chat.png" alt="" />
+                <!-- =================== -->
+                <!-- CARDS -->
+                <!-- =================== -->
+
+                <div class="menu-lateral-cards">
+
+                    <!-- Card chat -->
+                    <a href="#" class="menu-lateral-card">
+
+                        <div class="menu-lateral-card-icone">
+                            <img src="./src/images/chatAmarelo.png" alt="" />
                         </div>
-                        <div class="drawer-card-texto">
-                            <div class="drawer-card-titulo">Fale com a Locatem</div>
-                            <div class="drawer-card-desc">Tire dúvidas ou peça ajuda pelo nosso chat</div>
+
+                        <div class="menu-lateral-card-texto">
+
+                            <div class="menu-lateral-card-titulo">
+                                Fale com a Locatem
+                            </div>
+
+                            <div class="menu-lateral-card-descricao">
+                                Tire dúvidas ou peça ajuda pelo nosso chat
+                            </div>
                         </div>
-                        <div class="drawer-card-seta">›</div>
+
+                        <div class="menu-lateral-card-seta">
+                            ›
+                        </div>
                     </a>
 
-                    <div class="drawer-card">
-                        <div class="drawer-card-icone">
-                            <img src="./src/images/Star.png" alt="" />
+                    <!-- Card qualidade -->
+                    <div class="menu-lateral-card">
+
+                        <div class="menu-lateral-card-icone">
+                            <img src="./src/images/verificadoAmarelo.png" alt="" />
                         </div>
-                        <div class="drawer-card-texto">
-                            <div class="drawer-card-titulo">Equipamentos de qualidade</div>
-                            <div class="drawer-card-desc">Segurança e confiança para o seu projeto</div>
+
+                        <div class="menu-lateral-card-texto">
+
+                            <div class="menu-lateral-card-titulo">
+                                Equipamentos de qualidade
+                            </div>
+
+                            <div class="menu-lateral-card-descricao">
+                                Segurança e confiança para o seu projeto
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            </div><!-- /drawer-body -->
+            <!-- ======================== -->
+            <!-- SAIR -->
+            <!-- ======================== -->
 
-            <!-- ── SAIR DA CONTA (visível apenas quando logado) ──────── -->
-            <a href="#" class="drawer-sair" id="drawerSair">
-                <img src="./src/images/usuario.png" alt="" />
+            <a href="#" class="menu-lateral-sair" id="menuLateralSair">
+                <img src="./src/images/sair.svg" alt="" />
                 Sair da conta
             </a>
-
         </aside>
 
     </div><!-- /app -->
