@@ -42,6 +42,16 @@
     --radius: 12px;
 }
 
+.app {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 7.5%,
+            var(--color-primary-soft) 12.5%,
+            var(--color-bg-main) 16%);
+}
+
 .tituloPage {
     margin-bottom: 28px;
 }
