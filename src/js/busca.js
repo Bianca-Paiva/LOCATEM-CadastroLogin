@@ -1,318 +1,891 @@
+// ===============================
+// VARIÁVEIS GLOBAIS
+// ===============================
 let paginaAtual = 1;
-let pesquisa="";
-let dadosSalvos =[];
+let pesquisa = "";
+let dadosSalvos = [];
+
+const itensPorPagina = 8;
 
 
+// ===============================
+// IMAGENS DAS FURADEIRAS
+// ===============================
+const imagensFuradeira = [
+
+    "https://static3.tcdn.com.br/img/img_prod/484956/furadeira_de_impacto_bosch_gsb_13_re_600w_com_100_acessorios_sem_embalagem_109773_3_20190710111100.jpg",
+
+    "https://a-static.mlcdn.com.br/1500x1500/furadeira-de-impacto-de-alta-performance-1-2-710-watts-hp1630-220v-makita/dutramaquinas/hp1630-220v/740b4dda383e24fe98f4b0148a67624d.jpg",
+
+    "https://cdn.leroymerlin.com.br/products/furadeira_de_impacto_650w_220v_dewalt_88029291_d12d_600x600.jpg"
+
+];
+
+
+// ===============================
+// IMAGENS DAS SERRAS
+// ===============================
+const imagensSerra = [
+
+    "https://brasmetal.com/wp-content/uploads/2019/02/oie_transparent-2-1.png",
+
+    "https://a-static.mlcdn.com.br/undefinedxundefined/serra-marmore-125mm-1400w-dw862-dewalt/atlasferramentaseparafusos/12913245801/03a8c7ca56b1194e70cb6a0f64d76fcd.jpeg",
+
+    "https://www.royalmaquinas.com.br/upload/produto/imagem/serra-tico-tico-com-velocidade-vari-vel-gst-75e-710w-110v-bosch.jpg?101"
+
+];
+
+
+// ===============================
+// FUNÇÃO PARA PEGAR IMAGEM ALEATÓRIA
+// ===============================
+function pegarImagemAleatoria(lista) {
+
+    const index = Math.floor(
+        Math.random() * lista.length
+    );
+
+    return lista[index];
+
+}
+
+
+// ===============================
+// LISTA MOCKADA DE FERRAMENTAS
+// ===============================
+const ferramentasMockadas = [
+
+    // ===========================
+    // FURADEIRAS
+    // ===========================
+
+    {
+        id: 1,
+        nome: "Furadeira Bosch GSB 13",
+        loja: "Ferramentas Pro",
+        preco: 18,
+        avaliacao: 4.8,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 2,
+        nome: "Furadeira Makita Impacto",
+        loja: "Power Tools",
+        preco: 22,
+        avaliacao: 4.7,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 3,
+        nome: "Furadeira DeWalt 650W",
+        loja: "Casa das Ferramentas",
+        preco: 20,
+        avaliacao: 4.9,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 4,
+        nome: "Furadeira Industrial",
+        loja: "Master Ferragens",
+        preco: 28,
+        avaliacao: 4.5,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 5,
+        nome: "Mini Furadeira",
+        loja: "LocaTech",
+        preco: 12,
+        avaliacao: 4.1,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 6,
+        nome: "Furadeira Profissional",
+        loja: "Ferramentas Pro",
+        preco: 30,
+        avaliacao: 5.0,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 7,
+        nome: "Furadeira Compacta",
+        loja: "Tool Center",
+        preco: 14,
+        avaliacao: 4.2,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 8,
+        nome: "Furadeira Hammer",
+        loja: "Power Tools",
+        preco: 21,
+        avaliacao: 4.6,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 9,
+        nome: "Furadeira Titanium",
+        loja: "LocaTech",
+        preco: 26,
+        avaliacao: 4.8,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 10,
+        nome: "Furadeira Elétrica 900W",
+        loja: "Master Ferragens",
+        preco: 32,
+        avaliacao: 4.9,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "transferencia",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 11,
+        nome: "Furadeira Smart 500W",
+        loja: "Power Tools",
+        preco: 17,
+        avaliacao: 4.4,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 12,
+        nome: "Furadeira Turbo Impact",
+        loja: "LocaTech",
+        preco: 24,
+        avaliacao: 4.7,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 13,
+        nome: "Furadeira Ultra Drill",
+        loja: "Ferramentas Pro",
+        preco: 19,
+        avaliacao: 4.5,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 14,
+        nome: "Furadeira StrongMax",
+        loja: "Tool Center",
+        preco: 27,
+        avaliacao: 4.8,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 15,
+        nome: "Furadeira Compact Pro",
+        loja: "Casa das Ferramentas",
+        preco: 15,
+        avaliacao: 4.1,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 16,
+        nome: "Furadeira Heavy Duty",
+        loja: "Master Ferragens",
+        preco: 35,
+        avaliacao: 5.0,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "transferencia",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 17,
+        nome: "Furadeira Eco Drill",
+        loja: "Power Tools",
+        preco: 16,
+        avaliacao: 4.3,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 18,
+        nome: "Furadeira Speed 700W",
+        loja: "Tool Center",
+        preco: 29,
+        avaliacao: 4.9,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 19,
+        nome: "Furadeira Precision",
+        loja: "Ferramentas Pro",
+        preco: 20,
+        avaliacao: 4.6,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 20,
+        nome: "Furadeira MaxPower",
+        loja: "LocaTech",
+        preco: 31,
+        avaliacao: 4.8,
+        imagem: pegarImagemAleatoria(imagensFuradeira),
+        categoria: "furadeira",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+
+
+    // ===========================
+    // SERRAS
+    // ===========================
+
+    {
+        id: 21,
+        nome: "Serra Circular Bosch",
+        loja: "Ferramentas Pro",
+        preco: 25,
+        avaliacao: 4.8,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 22,
+        nome: "Serra Elétrica Makita",
+        loja: "Power Tools",
+        preco: 29,
+        avaliacao: 4.7,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 23,
+        nome: "Serra Mármore DeWalt",
+        loja: "Casa das Ferramentas",
+        preco: 32,
+        avaliacao: 4.9,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 24,
+        nome: "Serra Tico Tico",
+        loja: "Master Ferragens",
+        preco: 19,
+        avaliacao: 4.3,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 25,
+        nome: "Serra Industrial",
+        loja: "LocaTech",
+        preco: 45,
+        avaliacao: 5.0,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "transferencia",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 26,
+        nome: "Mini Serra",
+        loja: "Ferramentas Pro",
+        preco: 15,
+        avaliacao: 4.1,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 27,
+        nome: "Serra Profissional",
+        loja: "Tool Center",
+        preco: 38,
+        avaliacao: 4.9,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 28,
+        nome: "Serra Portátil",
+        loja: "Casa das Ferramentas",
+        preco: 24,
+        avaliacao: 4.2,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 29,
+        nome: "Serra Hammer",
+        loja: "Power Tools",
+        preco: 34,
+        avaliacao: 4.6,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 30,
+        nome: "Serra Premium",
+        loja: "Master Ferragens",
+        preco: 50,
+        avaliacao: 4.9,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 31,
+        nome: "Serra Turbo Cut",
+        loja: "Power Tools",
+        preco: 27,
+        avaliacao: 4.6,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 32,
+        nome: "Serra Industrial X",
+        loja: "Master Ferragens",
+        preco: 48,
+        avaliacao: 5.0,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 33,
+        nome: "Serra Precision",
+        loja: "Ferramentas Pro",
+        preco: 31,
+        avaliacao: 4.8,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 34,
+        nome: "Serra Compact Pro",
+        loja: "Tool Center",
+        preco: 18,
+        avaliacao: 4.2,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 35,
+        nome: "Serra Heavy Duty",
+        loja: "LocaTech",
+        preco: 39,
+        avaliacao: 4.9,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "transferencia",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 36,
+        nome: "Serra Smart Cut",
+        loja: "Casa das Ferramentas",
+        preco: 22,
+        avaliacao: 4.4,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 37,
+        nome: "Serra Nitro Blade",
+        loja: "Power Tools",
+        preco: 36,
+        avaliacao: 4.8,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 38,
+        nome: "Serra Ultra Force",
+        loja: "Ferramentas Pro",
+        preco: 42,
+        avaliacao: 5.0,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "boleto",
+        disponibilidade: "1",
+        novidade: false
+    },
+
+    {
+        id: 39,
+        nome: "Serra Eco Blade",
+        loja: "Tool Center",
+        preco: 16,
+        avaliacao: 4.1,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "credito",
+        disponibilidade: "1",
+        novidade: true
+    },
+
+    {
+        id: 40,
+        nome: "Serra Ultimate Cut",
+        loja: "Power Tools",
+        preco: 44,
+        avaliacao: 5.0,
+        imagem: pegarImagemAleatoria(imagensSerra),
+        categoria: "serra",
+        pagamento: "pix",
+        disponibilidade: "1",
+        novidade: false
+    }
+
+];
+
+// ===============================
+// INPUTS DE BUSCA
+// ===============================
 const busca = [
     document.querySelector('#searchInput'),
     document.querySelector('#searchInputMobile')
-]
+];
+
 const form = [
     document.getElementById("searchForm"),
     document.getElementById("searchFormMobile")
-]; // Seleciona o formulário, seja na versão desktop ou mobile
+];
 
+
+// ===============================
+// EVENTOS DE BUSCA
+// ===============================
 form.forEach((formElement, index) => {
+
     if (formElement) {
+
         formElement.addEventListener('submit', (e) => {
+
             e.preventDefault();
 
             pesquisa = busca[index].value.trim();
 
-            if (pesquisa) {
-                window.location.href =
-                    `busca.html?search=${encodeURIComponent(pesquisa)}`;
-            }
+            window.location.href =
+                `busca.html?search=${encodeURIComponent(pesquisa)}`;
+
         });
+
     }
+
 });
 
+
+// ===============================
+// CARREGAR PESQUISA DA URL
+// ===============================
 function IrparaBuscar() {
+
     const urlParams = new URLSearchParams(window.location.search);
 
     const searchQuery = urlParams.get('search');
-    const page = urlParams.get('page');
 
     if (searchQuery) {
+
         busca.forEach(input => {
-    if(input){
-        input.value = searchQuery;
+
+            if (input) {
+                input.value = searchQuery;
+            }
+
+        });
+
+        pesquisa = searchQuery;
+
     }
-});
-       pesquisa = busca.find(input => input)?.value.trim();
-    }
 
-    if (page) {
-        paginaAtual = Number(page);
-    }
+    buscarProduto();
 
-    if (pesquisa) {
-        buscarProduto();
-    }
-}
-
-async function buscarProduto(e) {
-    if (e) e.preventDefault(); // Previne o comportamento padrão do formulário, mas permite que a função seja chamada sem um evento (para carregar mais resultados), usando da tecla Enter ou clicando no botão "Carregar mais"
-
-
-    // realiza a pesquisa
-    if (e) {
-    pesquisa = busca.value.trim();
-    paginaAtual = 1; // reset quando for nova busca
-}
-
-    if (!pesquisa) return; // Verifica se a pesquisa não está vazia
-
-    const lista = document.getElementById("grid-anuncios");
-    lista.innerHTML = "<p>Carregando...</p>"; // Exibe mensagem de carregamento
-
-    try {
-
-        //url da API, incluindo a página atual para paginar os resultados e a pesquisa
-        const url = `https://www.omdbapi.com/?s=${pesquisa}&page=${paginaAtual}&apikey=491135e0`; // atualiza a URL para incluir a página atual
-        const resposta = await fetch(url); //fetch =
-        const dados = await resposta.json();
-
-        if (!dados.Search) {
-            lista.innerHTML = "<p>Nenhum resultado encontrado</p>";
-            return;
-        }
-
-        dadosSalvos = dados.Search;
-      
-
-        renderizarLista(dadosSalvos);
-
-      const totalPaginas = Math.ceil(dados.totalResults / 10); // A API retorna 10 resultados por página, então calculamos o total de páginas
-      
-        const totalResultados = document.getElementById("totalResultados");
-        totalResultados.textContent = `${dados.totalResults} resultados encontrados`;
-        criarPaginacao(totalPaginas);
-
-        const novaURL = `?search=${encodeURIComponent(pesquisa)}&page=${paginaAtual}`;
-        window.history.pushState({}, "", novaURL);
-
-    } catch (error) {
-        lista.innerHTML = "<p>Ocorreu um erro ao buscar os filmes. Tente novamente.</p>";
-        console.error("Erro ao buscar filmes:", error);
-    }
 }
 
 
+// ===============================
+// FUNÇÃO SIMULANDO API
+// ===============================
+function fakeApiBuscarFerramentas(nomeFerramenta) {
 
+    return new Promise((resolve) => {
 
-function ordenarComo() {
-    const ordenar = document.getElementById("ordenar").value;
+        setTimeout(() => {
 
-    let listaOrdenada = [...dadosSalvos]; //copia a lista
+            const resultado =
+                ferramentasMockadas.filter(item =>
+                    item.nome
+                        .toLowerCase()
+                        .includes(nomeFerramenta.toLowerCase())
+                );
 
-    if (ordenar === "1") {
-        // a, b = servem para comparar os objetos
-        // localeCompare é uma função que compara strings e retorna um valor indicando se a string é menor, igual ou maior que a outra
-        // aqui estamos ordenando por título, usando localeCompare para comparar os títulos dos filmes
-        listaOrdenada.sort((a, b) => a.Title.localeCompare(b.Title));
-    } 
-    else if (ordenar === "2") {
-        listaOrdenada.sort((a, b) => Number(a.Year) - Number(b.Year));
-    } 
-    else if (ordenar === "3") {
-        listaOrdenada.sort((a, b) => Number(b.Year) - Number(a.Year));
-    }
-    else if (ordenar === "4") {
-        // A API do OMDB não retorna avaliação, então aqui é só um exemplo de como seria a ordenação por avaliação
-         listaOrdenada.sort((a, b) => Number(b.imdbRating) - Number(a.imdbRating));
-    }
-    else if (ordenar === "5") {
-     // A ordenação por novidades também não é possível com os dados atuais, mas aqui seria um exemplo de como ordenar por data de lançamento
-        // listaOrdenada.sort((a, b) => new Date(b.Released) - new Date(a.Released));
-    }
+            resolve(resultado);
 
-    renderizarLista(listaOrdenada);
+        }, 500);
+
+    });
+
 }
 
+
+// ===============================
+// BUSCAR PRODUTOS
+// ===============================
+async function buscarProduto() {
+
+    paginaAtual = 1;
+
+    const lista =
+        document.getElementById("grid-anuncios");
+
+    lista.innerHTML = "<p>Carregando...</p>";
+
+    // SEM PESQUISA
+    if (!pesquisa) {
+
+        dadosSalvos = [];
+
+        lista.innerHTML =
+            "<p>Pesquise por uma ferramenta</p>";
+
+        return;
+
+    }
+
+    // BUSCA
+    const resultado =
+        await fakeApiBuscarFerramentas(pesquisa);
+
+    dadosSalvos = resultado;
+
+    renderizarLista(dadosSalvos);
+
+    // TOTAL RESULTADOS
+    const totalResultados =
+        document.getElementById("totalResultados");
+
+    totalResultados.textContent =
+        `${dadosSalvos.length} resultados encontrados`;
+
+}
+
+
+// ===============================
+// RENDERIZAR LISTA COM PAGINAÇÃO
+// ===============================
 function renderizarLista(lista) {
-    const container = document.getElementById("grid-anuncios");
+
+    const container =
+        document.getElementById("grid-anuncios");
+
+    const paginacao =
+        document.getElementById("paginacao");
+
     container.innerHTML = "";
 
-    lista.forEach(filme => {
-        const poster = filme.Poster !== "N/A"
-            ? filme.Poster
-            : "./src/images/sem-imagem.png";
+    // SEM RESULTADOS
+    if (lista.length === 0) {
+
+        container.innerHTML =
+            "<p>Nenhuma ferramenta encontrada.</p>";
+
+        paginacao.innerHTML = "";
+
+        return;
+
+    }
+
+    // ===========================
+    // PAGINAÇÃO
+    // ===========================
+    const inicio =
+        (paginaAtual - 1) * itensPorPagina;
+
+    const fim =
+        inicio + itensPorPagina;
+
+    const itensPagina =
+        lista.slice(inicio, fim);
+
+    // ===========================
+    // RENDERIZAR CARDS
+    // ===========================
+    itensPagina.forEach(ferramenta => {
 
         container.innerHTML += `
+        
             <li class="anuncio-card">
+
                 <div class="card-img">
-                    <img src="${poster}" alt="${filme.Title}">
+
+                    <img 
+                        src="${ferramenta.imagem}" 
+                        alt="${ferramenta.nome}"
+                    >
+
                 </div>
 
                 <div class="card-info">
-                    <h3>${filme.Title}</h3>
-                    <p>${filme.Year}</p>
-                </div>
-            </li>
-        `;
-    });
-}
-///////////////////////////////////////////////////////////////////////
 
-function criarPaginacao(totalPaginas) {
-    const paginacao = document.getElementById("paginacao");
+                    <h3>
+                        ${ferramenta.nome}
+                    </h3>
+
+                    <div class="loja">
+
+                        <h4>
+                            ${ferramenta.loja}
+                        </h4>
+
+                        <div class="verificado">
+                            ✓
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <div class="preco">
+                            R$${ferramenta.preco}
+                            <span>/dia</span>
+                        </div>
+
+                        <div class="avaliacao">
+                            ⭐ ${ferramenta.avaliacao}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+        `;
+
+    });
+
+    // ===========================
+    // CRIAR PAGINAÇÃO
+    // ===========================
+    const totalPaginas =
+        Math.ceil(lista.length / itensPorPagina);
+
     paginacao.innerHTML = "";
 
-    if (totalPaginas <= 1) return; // Se só tiver 1 página, não precisa mostrar a paginação
+    // BOTÃO ANTERIOR
+    paginacao.innerHTML += `
     
-    const maxBotoes = 5; // Quantidade máxima de botões a mostrar (ex: 5)
-    let inicio = Math.max(1, paginaAtual - 2); // Começa 2 páginas antes da atual
-    let fim = Math.min(totalPaginas, inicio + maxBotoes - 1); // Mostra até 5 páginas, mas não ultrapassa o total
+        <button
+            onclick="trocarPagina(${paginaAtual - 1})"
+            ${paginaAtual === 1 ? "disabled" : ""}
+        >
+            ←
+        </button>
+    
+    `;
 
-    // botão voltar
-    const prev = document.createElement("button");
-    prev.textContent = "<"; // texto do botão
-    prev.disabled = paginaAtual === 1; // desabilita se estiver na primeira página
-    // ação ao clicar no botão voltar, que é diminuir a página atual e buscar os filmes novamente
-    prev.onclick = () => {
-        paginaAtual --;
-        buscarProduto();
-    };
-    paginacao.appendChild(prev); // adiciona o botão voltar à paginação
+    // BOTÕES NUMÉRICOS
+    for (let i = 1; i <= totalPaginas; i++) {
 
-    // se tiver páginas antes
-    if (inicio > 1) {
-        const first = document.createElement("button"); 
-        first.textContent = "1";
-        first.onclick = () => {
-            paginaAtual = 1;
-            buscarProduto();
-        };
-        paginacao.appendChild(first);
+        paginacao.innerHTML += `
+        
+            <button
+                class="${i === paginaAtual ? 'ativo' : ''}"
+                onclick="trocarPagina(${i})"
+            >
+                ${i}
+            </button>
+        
+        `;
 
-        const dots = document.createElement("span"); 
-        dots.textContent = "...";
-        paginacao.appendChild(dots);
     }
 
-    // páginas do meio
-    for (let i = inicio; i <= fim; i++) {
-        const btn = document.createElement("button");
-        btn.textContent = i;
+    // BOTÃO PRÓXIMO
+    paginacao.innerHTML += `
+    
+        <button
+            onclick="trocarPagina(${paginaAtual + 1})"
+            ${paginaAtual === totalPaginas ? "disabled" : ""}
+        >
+            →
+        </button>
+    
+    `;
 
-        if (i === paginaAtual) {
-            btn.classList.add("ativo");
-        }
-
-        btn.onclick = () => {
-            paginaAtual = i;
-            buscarProduto();
-        };
-
-        paginacao.appendChild(btn);
-    }
-
-    // se tiver páginas depois
-    if (fim < totalPaginas) {
-        const dots = document.createElement("span");
-        dots.textContent = "...";
-        paginacao.appendChild(dots);
-
-        const last = document.createElement("button");
-        last.textContent = totalPaginas;
-        last.onclick = () => {
-            paginaAtual = totalPaginas;
-            buscarProduto();
-        };
-        paginacao.appendChild(last);
-    }
-
-    // botão próximo
-    const next = document.createElement("button");
-    next.textContent = ">";
-    next.disabled = paginaAtual === totalPaginas;
-    next.onclick = () => {
-        paginaAtual++;
-        buscarProduto();
-    };
-    paginacao.appendChild(next);
 }
 
-/////////////////////// filtros ///////////////////////
-function pegarFiltros() {
-  const filtros = {
-    preco: [],
-    pagamento: [],
-    avaliacao: [],
-    disponibilidade: null
-  };
-  
 
-  document.querySelectorAll('input[name="preco"]:checked')
-    .forEach(el => filtros.preco.push(el.value));
+// ===============================
+// TROCAR PÁGINA
+// ===============================
+function trocarPagina(novaPagina) {
 
-  document.querySelectorAll('input[name="pagamento"]:checked')
-    .forEach(el => filtros.pagamento.push(el.value));
+    paginaAtual = novaPagina;
 
-  document.querySelectorAll('input[name="avaliacao"]:checked')
-    .forEach(el => filtros.avaliacao.push(el.value));
+    renderizarLista(dadosSalvos);
 
-  const disponibilidade = document.querySelector('input[name="disponibilidade"]:checked');
-  if (disponibilidade) {
-    filtros.disponibilidade = disponibilidade.value;
-  }
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-  return filtros;
 }
 
-function aplicarFiltros() {
-  const filtros = pegarFiltros();
 
-  const resultadoFiltrado = dadosSalvos.filter(item => {
-
-    // PREÇO
-    if (filtros.preco.length > 0) {
-        const dentro = filtros.preco.some(range => {
-        if (range === "0-50") return item.preco >= 0 && item.preco <= 50;
-        if (range === "51-100") return item.preco >= 51 && item.preco <= 100;
-        if (range === "101-200") return item.preco >= 101 && item.preco <= 200;
-        if (range === "200+") return item.preco > 200;
-        });
-
-      if (!dentro) return false;
-    }
-
-    // PAGAMENTO
-    if (filtros.pagamento.length > 0) {
-      if (!filtros.pagamento.includes(item.pagamento)) return false;
-    }
-
-    // AVALIAÇÃO
-    if (filtros.avaliacao.length > 0) {
-      const passou = filtros.avaliacao.some(a => item.avaliacao >= Number(a)); 
-      if (!passou) return false;
-    }
-
-    // DISPONIBILIDADE
-    if (filtros.disponibilidade) {
-      if (item.disponibilidade !== filtros.disponibilidade) return false;
-    }
-
-    return true;
-  });
-
-  renderizarLista(resultadoFiltrado);
-}
-
-function limparFiltros() {
-    //seleciona todos os checkboxes e radios e desmarca eles
-  document.querySelectorAll('input[type="checkbox"], input[type="radio"]')
-    .forEach(el => el.checked = false);
-
-     renderizarLista(dadosSalvos); // volta ao normal
-}
-
-function mostrarFiltros() {
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('aberta');
-}
-
+// ===============================
+// INICIAR PÁGINA
+// ===============================
 document.addEventListener("DOMContentLoaded", () => {
+
     IrparaBuscar();
+
 });
