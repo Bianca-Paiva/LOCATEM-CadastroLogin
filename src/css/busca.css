@@ -289,61 +289,86 @@ main {
 .anuncio-card {
     background-color: #ffffff;
     box-shadow: 0 5px 10px #00000039;
-    border-radius: 12px;
+    border-radius: 18px;
+
     display: flex;
     flex-direction: column;
-    padding: 15px ;
+
+    overflow: hidden;
     cursor: pointer;
-}
-.anuncio-card:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px);
+
     transition: all 0.3s ease;
 }
 
+.anuncio-card:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
 .card-img {
+    width: 100%;
     height: 180px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+
+    padding: 18px;
+
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ececec;
 }
 
-/* quando src está vazio */
+/* IMG QUEBRADA */
 .card-img img[src=""] {
     display: none;
-    /* esconde a img quebrada */
-}
-
-/* mostra placeholder quando img está escondida */
-.card-img:has(img[src=""]) {
-    background-color: #f0f0f0;
-    border-radius: 8px;
 }
 
 .card-img:has(img[src=""])::after {
-    content: 'imagem';
-    font-size: 28px;
-    color: #bbb;
+    content: 'Sem imagem';
+    font-size: 18px;
+    color: #999;
 }
 
 .card-img img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+
     object-fit: contain;
 }
 
+
+/* =========================
+   INFORMAÇÕES
+========================= */
 .card-info {
-    padding: 12px 16px;
+    padding: 14px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
+
+/* =========================
+   NOME DA FERRAMENTA
+========================= */
 .card-info h3 {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
     color: #222;
-    margin-bottom: 6px;
+
+    line-height: 1.3;
 }
 
+
+/* =========================
+   PROPRIETÁRIO
+========================= */
 .proprietario {
     display: flex;
     align-items: center;
@@ -352,28 +377,95 @@ main {
 
 .proprietario h4 {
     font-size: 14px;
-    font-weight: bolder;
-    color: #222;
-    margin-bottom: 6px;
+    font-weight: 400;
+    color: #333;
 }
 
 .proprietario svg {
-    width: auto;
-    height: 12px;
+    width: 14px;
+    height: 14px;
+
     color: #0077FF;
-    transform: translateY(-2px); 
+}
+/* =========================
+   LOJA
+========================= */
+.loja {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.card-info p {
-    font-size: 22px;
-    font-weight: 550;
-    color: #000;
+.loja h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
 }
 
-.card-info span {
-    font-size: 12px;
-    color: #037233;
+/* ÍCONE VERIFICADO */
+.verificado {
+    width: 14px;
+    height: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0A84FF;
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: bold;
 }
+
+
+/* =========================
+   RODAPÉ DO CARD
+========================= */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: auto;
+}
+
+
+/* =========================
+   PREÇO
+========================= */
+.preco {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+}
+
+.preco::after {
+    content: "/dia";
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+
+    margin-left: 3px;
+}
+
+
+/* =========================
+   AVALIAÇÃO
+========================= */
+.avaliacao {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+}
+
+
 /*================== paginacao ============= */
 .paginacao {
     display: flex;
