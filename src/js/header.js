@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ────────────────── TESTE ──────────────────
 
     // Usuário deslogado
-    aplicarEstadoLogin(false);
+     aplicarEstadoLogin(false);
 
     // Usuário logado
     // aplicarEstadoLogin(true, { nome: 'João', email: 'joao.silva@email.com' });

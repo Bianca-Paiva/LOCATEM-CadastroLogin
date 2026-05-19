@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Reset de estilos -->
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <!-- Estilos exclusivos do header -->
+    <link rel="stylesheet" href="./src/css/header style/header.css" />
+    <link rel="stylesheet" href="./src/css/notificacaoPage.css" />
+
+    <title>LOCATEM</title>
+  </head>
+  <body>
+    <div class="app">
+      <!-- =========================================================== -->
+      <!-- SECAO: HEADER MOBILE   -->
+      <!-- Exibido apenas em telas pequenas (controlado por CSS).  -->
+      <!-- =========================================================== -->
+      <header class="header-mobile">
+        <div class="linha-topo-mobile">
+          <div class="lado-esquerdo">
+            <!-- Botao que abre o menu lateral (drawer) em mobile -->
+            <button
+              class="menu-btn"
+              id="btnAbrirMenu"
+              aria-label="Abrir menu lateral"
+            >
+              <img
+                src="./src/images/menuHamburguer.png"
+                alt="Ícone de menu hamburguer"
+              />
+            </button>
+            <!-- Logo clicavel — redireciona para a pagina principal -->
+            <a
+              href="./principalPage.html"
+              class="logo"
+              aria-label="Ir para página inicial da Locatem"
+            >
+              <img src="./src/images/LogoIcon.png" alt="Logo da LOCATEM" />
+              LOCATEM
+            </a>
+          </div>
+
+          <!-- Icone do carrinho com badge de quantidade.
+                    ATENCAO: valor hardcoded neste HTML de demonstracao. -->
+          <a href="./carrinho.html" class="carrinho-btn">
+            <img src="./src/images/carrinho.svg" alt="Carrinho" />
+            <span class="quantidade-carrinho">2</span>
+          </a>
+        </div>
+
+        <!-- Barra de pesquisa exclusiva do header mobile.
+                O input usa type="search" para ativar o botao de limpar nativo do navegador (X) em mobile. -->
+        <form class="barra-pesquisa-mobile">
+          <img src="./src/images/lupa.png" alt="Buscar" />
+          <input
+            type="search"
+            name="busca"
+            placeholder="Qual ferramenta você precisa hoje?"
+            aria-label="Pesquisar ferramentas"
+          />
+        </form>
+      </header>
+
+      <!-- =================================== -->
+      <!-- MENU LATERAL MOBILE -->
+      <!-- =================================== -->
+
+      <!-- Fundo escurecido -->
+      <div class="menu-lateral-overlay" id="menuLateralOverlay"></div>
+
+      <!-- Painel lateral -->
+      <aside
+        class="menu-lateral"
+        id="menuLateral"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu de navegação"
+      >
+        <!-- Cabeçalho -->
+        <div class="menu-lateral-cabecalho">
+          <a href="./principalPage.html" class="menu-lateral-logo">
+            <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+            LOCATEM
+          </a>
+
+          <button
+            class="menu-lateral-btn-fechar"
+            id="btnFecharMenu"
+            aria-label="Fechar menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- =========================== -->
+        <!-- PERFIL DO USUÁRIO -->
+        <!-- =========================== -->
+
+        <a
+          href="./perfil.html"
+          class="menu-lateral-perfil"
+          id="menuLateralPerfil"
+        >
+          <!-- Avatar -->
+          <img
+            class="menu-lateral-perfil-avatar"
+            src="./src/images/usuario.png"
+            alt="Foto do usuário"
+          />
+
+          <!-- Informações -->
+          <div class="menu-lateral-perfil-info">
+            <div class="menu-lateral-perfil-nome" id="menuLateralNome">
+              Olá, João!
+            </div>
+
+            <div class="menu-lateral-perfil-email" id="menuLateralEmail">
+              joao.silva@email.com
+            </div>
+
+            <div class="menu-lateral-perfil-badge">Cliente desde 2023</div>
+          </div>
+
+          <!-- Seta -->
+          <div class="menu-lateral-perfil-seta"></div>
+        </a>
+
+        <!-- =================================== -->
+        <!-- CONTEÚDO ROLÁVEL -->
+        <!-- =================================== -->
+
+        <div class="menu-lateral-conteudo">
+          <!-- Navegação -->
+          <nav class="menu-lateral-nav">
+            <a href="./principalPage.html" class="ativo">
+              <img src="./src/images/home.png" alt="" />
+              Início
+            </a>
+
+            <a href="./mensagens.html">
+              <img src="./src/images/chat.png" alt="" />
+              Chat
+            </a>
+
+            <a href="#">
+              <img src="./src/images/relogio.png" alt="" />
+              Histórico
+            </a>
+
+            <a href="#">
+              <img src="./src/images/calendario.png" alt="" />
+              Agendamento
+            </a>
+
+            <a href="./notiicacaoPage.html">
+              <img src="./src/images/notificacoes.png" alt="" />
+              Notificações
+            </a>
+
+            <a href="./avaliacaoPage.html">
+              <img src="./src/images/Star.png" alt="" />
+              Avaliações
+            </a>
+
+            <a href="#">
+              <img src="./src/images/suporte.png" alt="" />
+              Suporte
+            </a>
+
+            <!-- Apenas quando NÃO logado -->
+            <a href="./login.html" id="menuLateralItemEntrar">
+              <img src="./src/images/usuario.png" alt="" />
+              Entrar
+            </a>
+          </nav>
+
+          <!-- ========================= -->
+          <!-- ÁREA LOGADO -->
+          <!-- ========================= -->
+
+          <section class="menu-lateral-logado" id="menuLateralLogado">
+            <a href="#">
+              <img src="./src/images/usuario.png" alt="" />
+              Minha conta
+              <span class="menu-lateral-seta">›</span>
+            </a>
+
+            <a href="#">
+              <img src="./src/images/Star.png" alt="" />
+              Cupons e benefícios
+              <span class="menu-lateral-seta">›</span>
+            </a>
+          </section>
+
+          <!-- =================== -->
+          <!-- CARDS -->
+          <!-- =================== -->
+
+          <div class="menu-lateral-cards">
+            <!-- Card chat -->
+            <a href="#" class="menu-lateral-card">
+              <div class="menu-lateral-card-icone">
+                <img src="./src/images/chatAmarelo.png" alt="" />
+              </div>
+
+              <div class="menu-lateral-card-texto">
+                <div class="menu-lateral-card-titulo">Fale com a Locatem</div>
+
+                <div class="menu-lateral-card-descricao">
+                  Tire dúvidas ou peça ajuda pelo nosso chat
+                </div>
+              </div>
+
+              <div class="menu-lateral-card-seta">›</div>
+            </a>
+
+            <!-- Card qualidade -->
+            <div class="menu-lateral-card">
+              <div class="menu-lateral-card-icone">
+                <img src="./src/images/verificadoAmarelo.png" alt="" />
+              </div>
+
+              <div class="menu-lateral-card-texto">
+                <div class="menu-lateral-card-titulo">
+                  Equipamentos de qualidade
+                </div>
+
+                <div class="menu-lateral-card-descricao">
+                  Segurança e confiança para o seu projeto
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======================== -->
+        <!-- SAIR -->
+        <!-- ======================== -->
+
+        <a href="#" class="menu-lateral-sair" id="menuLateralSair">
+          <img src="./src/images/sair.svg" alt="" />
+          Sair da conta
+        </a>
+      </aside>
+
+      <!-- ======================================================== -->
+      <!-- SECAO: HEADER DESKTOP -->
+      <!-- Exibido apenas em telas maiores (controlado por CSS). -->
+      <!-- ======================================================== -->
+      <header class="header-desktop">
+        <div class="linha-topo-desktop">
+          <!-- Logo clicavel — redireciona para a pagina principal -->
+          <a href="./principalPage.html" class="logo">
+            <img src="./src/images/LogoIcon.png" alt="Logo LOCATEM" />
+            LOCATEM
+          </a>
+
+          <!-- Barra de pesquisa central do desktop. -->
+          <form class="barra-pesquisa">
+            <button type="submit" class="lupa-btn">
+              <img src="./src/images/lupa.png" alt="Buscar" />
+            </button>
+            <input
+              type="search"
+              name="busca"
+              placeholder="Qual ferramenta você precisa hoje?"
+              aria-label="Pesquisar ferramentas"
+            />
+          </form>
+
+          <a href="./mensagens.html" class="chat">
+            <img src="./src/images/chat.png" alt="Chat" />
+          </a>
+        </div>
+      </header>
+
+      <!-- =========================================================== -->
+      <!-- SECAO: NAVEGACAO (DESKTOP) -->
+      <!-- Menu de navegacao principal visivel apenas no desktop. -->
+      <!-- Cada link contem um icone + label de texto. -->
+      <!-- Links com href="#" sao placeholders — funcionalidade pendente -->
+      <!-- =========================================================== -->
+      <nav class="menu-navegacao-desktop">
+        <a href="./principalPage.html">
+          <img src="./src/images/home.png" alt="Ícone Início" />Início
+        </a>
+        <a href="./carrinho.html">
+          <img src="./src/images/carrinho.svg" alt="Ícone Carrinho" />Carrinho
+        </a>
+        <a href="#">
+          <img src="./src/images/relogio.png" alt="Ícone Histórico" />Histórico
+        </a>
+        <a href="#">
+          <img
+            src="./src/images/calendario.png"
+            alt="Ícone Agendamento"
+          />Agendamento
+        </a>
+        <a href="./notiicacaoPage.html">
+          <img
+            src="./src/images/notificacoes.png"
+            alt="Ícone Notificações"
+          />Notificações
+        </a>
+        <a href="./avaliacaoPage.html">
+          <img src="./src/images/Star.png" alt="Ícone Avaliações" />Avaliações
+        </a>
+        <a href="#">
+          <img src="./src/images/suporte.png" alt="Ícone Suporte" />Suporte
+        </a>
+        <a href="./login.html">
+          <img src="./src/images/usuario.png" alt="Ícone Entrar" />Entrar
+        </a>
+      </nav>
+
+      <!-- ========================================================= -->
+      <!-- MAIN — NOTIFICAÇÕES                                       -->
+      <!-- ========================================================= -->
+      <main>
+        <h1 class="notif-page-title">Notificações</h1>
+
+        <!-- Toolbar -->
+        <div class="notif-toolbar">
+          <div class="notif-filtro">
+            <select id="filtroSelect" aria-label="Filtrar notificações">
+              <option value="hoje">Hoje</option>
+              <option value="semana">Esta semana</option>
+              <option value="mes">Este mês</option>
+              <option value="todas">Todas</option>
+            </select>
+          </div>
+          <button
+            class="notif-limpar-tudo"
+            id="btnLimparTudo"
+            aria-label="Limpar todas as notificações"
+          >
+            <!-- Ícone lixeira -->
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="3 6 5 6 21 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10 11v6M14 11v6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Limpar tudo
+          </button>
+        </div>
+
+        <!-- Lista -->
+        <div class="notif-lista" id="notifLista">
+          <!-- Card 1 — Reserva Confirmada -->
+          <div class="notif-card confirmado" data-id="1">
+            <div class="notif-card-topo">
+              <div class="notif-icone">
+                <!-- Ícone check -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 6L9 17l-5-5"
+                    stroke="#16a34a"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="notif-textos">
+                <div class="notif-titulo">Reserva Confirmada</div>
+                <div class="notif-descricao">
+                  Sua reserva da Lixadeira Bosch foi confirmada.
+                </div>
+              </div>
+            </div>
+            <div class="notif-rodape">
+              <div class="notif-data">
+                <!-- Ícone relógio -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#6B7280"
+                    stroke-width="1.8"
+                  />
+                  <polyline
+                    points="12 6 12 12 16 14"
+                    stroke="#6B7280"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                02/10/2025 às 10h15
+              </div>
+              <div class="notif-acoes">
+                <button
+                  class="notif-btn notif-btn-detalhes"
+                  onclick="verDetalhes(1)"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                    <polyline
+                      points="14 2 14 8 20 8"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Ver detalhes
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 — Devolução Pendente -->
+          <div class="notif-card pendente" data-id="2">
+            <div class="notif-card-topo">
+              <div class="notif-icone">
+                <!-- Ícone aviso -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                    stroke="#d97706"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                  />
+                  <line
+                    x1="12"
+                    y1="9"
+                    x2="12"
+                    y2="13"
+                    stroke="#d97706"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="12"
+                    y1="17"
+                    x2="12.01"
+                    y2="17"
+                    stroke="#d97706"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <div class="notif-textos">
+                <div class="notif-titulo">Devolução Pendente</div>
+                <div class="notif-descricao">
+                  A devolução da Betoneira deve ser feita amanhã.
+                </div>
+              </div>
+            </div>
+            <div class="notif-rodape">
+              <div class="notif-data">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#6B7280"
+                    stroke-width="1.8"
+                  />
+                  <polyline
+                    points="12 6 12 12 16 14"
+                    stroke="#6B7280"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                30/09/2025 às 17h00
+              </div>
+              <div class="notif-acoes">
+                <button
+                  class="notif-btn notif-btn-renovar"
+                  onclick="renovar(2)"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline
+                      points="1 4 1 10 7 10"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M3.51 15a9 9 0 102.13-9.36L1 10"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Renovar
+                </button>
+                <button
+                  class="notif-btn notif-btn-detalhes"
+                  onclick="verDetalhes(2)"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                    <polyline
+                      points="14 2 14 8 20 8"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Ver detalhes
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 — Entrega em Andamento -->
+          <div class="notif-card entrega" data-id="3">
+            <div class="notif-card-topo">
+              <div class="notif-icone">
+                <!-- Ícone caminhão -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="1"
+                    y="3"
+                    width="15"
+                    height="13"
+                    rx="1"
+                    stroke="#2563eb"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M16 8h4l3 4v5h-7V8z"
+                    stroke="#2563eb"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                  <circle
+                    cx="5.5"
+                    cy="18.5"
+                    r="2.5"
+                    stroke="#2563eb"
+                    stroke-width="1.8"
+                  />
+                  <circle
+                    cx="18.5"
+                    cy="18.5"
+                    r="2.5"
+                    stroke="#2563eb"
+                    stroke-width="1.8"
+                  />
+                </svg>
+              </div>
+              <div class="notif-textos">
+                <div class="notif-titulo">Entrega em Andamento</div>
+                <div class="notif-descricao">
+                  A Serra Circular Makita está a caminho.
+                </div>
+                <div class="notif-tag">
+                  <span class="notif-tag-dot"></span>
+                  Tempo estimado de chegada: Hoje às 15:00
+                </div>
+              </div>
+            </div>
+            <div class="notif-rodape">
+              <div class="notif-data" style="visibility: hidden">—</div>
+              <div class="notif-acoes">
+                <button
+                  class="notif-btn notif-btn-detalhes"
+                  onclick="verDetalhes(3)"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                    <polyline
+                      points="14 2 14 8 20 8"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Ver detalhes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado vazio -->
+        <div class="notif-vazio" id="notifVazio">
+          <svg
+            width="56"
+            height="56"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"
+              stroke="#6B7280"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <p>Nenhuma notificação por aqui.</p>
+        </div>
+
+        <!-- Paginação -->
+        <div class="notif-paginacao" id="notifPaginacao">
+          <button
+            class="notif-pag-btn"
+            id="btnPagAnterior"
+            aria-label="Página anterior"
+            disabled
+          >
+            ‹
+          </button>
+          <div class="notif-pag-numeros">
+            <button class="notif-pag-num ativo" data-pag="1">1</button>
+            <button class="notif-pag-num" data-pag="2">2</button>
+          </div>
+          <button
+            class="notif-pag-btn"
+            id="btnPagProxima"
+            aria-label="Próxima página"
+          >
+            ›
+          </button>
+        </div>
+      </main>
+    </div>
+    <!-- /app -->
+
+    <script src="./src/js/notificacaoPage.js"></script>
+    <script src="./src/js/header.js"></script>
+  </body>
+</html>
