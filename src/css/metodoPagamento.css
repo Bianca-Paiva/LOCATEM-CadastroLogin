@@ -48,13 +48,11 @@ body {
 .app {
     width: 100%;
     min-height: 100vh;
-
-    /* Gradiente do topo (identidade visual LOCATEM) */
     background: linear-gradient(to bottom,
             var(--color-primary) 0%,
-            var(--color-primary-light) 6.5%,
-            var(--color-primary-soft) 9.5%,
-            var(--color-bg-main) 12.5%);
+            var(--color-primary-light) 5.5%,
+            var(--color-primary-soft) 8.5%,
+            var(--color-bg-main) 12%);
 }
 
 /* ============================= */
@@ -82,6 +80,8 @@ body {
     font-size: clamp(20px, 1.5vw, 26px);
     font-weight: 800;
     flex-shrink: 0;
+    gap: 7px;
+    letter-spacing: -0.4px;
     color: var(--color-text-dark);
     text-decoration: none;
     display: flex;
@@ -117,11 +117,16 @@ body {
 /* MAIN (LAYOUT PRINCIPA) */
 /* ============================= */
 .main-mobile {
-    min-height: calc(100vh - 80px);
-    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+
+    margin: 40px 0 auto;
     padding: 8px 18px;
+
     display: flex;
     flex-direction: column;
+
+    box-sizing: border-box;
 }
 
 /* ── Cabeçalho ── */
@@ -162,6 +167,7 @@ body {
     border: 1px solid var(--color-border-card);
     box-shadow: var(--shadow-card);
 
+    width: 100%;
     padding: 25px;
 }
 
@@ -348,23 +354,6 @@ body {
 /* TELAS MUITO PEQUENAS — max-width: 380px   */
 /* ========================================= */
 @media (max-width: 380px) {
-    .header {
-        padding: 16px 14px 20px;
-    }
-
-    .logo {
-        font-size: 15px;
-        gap: 5px;
-    }
-
-    .logo img {
-        height: 26px;
-    }
-
-    .chat img {
-        height: 20px;
-    }
-
     .main-mobile {
         padding: 6px 12px;
     }
@@ -465,20 +454,9 @@ body {
         min-height: 100vh;
         background: linear-gradient(to bottom,
                 var(--color-primary) 0%,
-                var(--color-primary-light) 7%,
-                var(--color-primary-soft) 9.2%,
-                var(--color-bg-main) 14%);
-    }
-
-    /* ── Header ─────────────────────────────────── */
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0 auto;
-        width: 100%;
-        padding: 20px 40px 16px;
+                var(--color-primary-light) 5%,
+                var(--color-primary-soft) 8%,
+                var(--color-bg-main) 13%);
     }
 
     .logo {
