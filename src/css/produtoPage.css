@@ -50,9 +50,6 @@
   --shadow-sm:              var(--card-shadow);
   --shadow-md:              0 4px 12px rgba(0,0,0,.12);
 
-  /* ── TIPOGRAFIA ── */
-  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
-
   /* ── ESPAÇAMENTOS ── */
   --spacing-xs:  4px;
   --spacing-sm:  8px;
@@ -72,162 +69,20 @@
 body {
   background-color: var(--color-bg-main);
   color: var(--color-text-dark);
-  font-family: var(--font-sans);
 }
 
-/* ========================================
-   APP WRAPPER
-   Gradiente de fundo que vai do amarelo primário
-   até o cinza claro, criando a identidade visual do topo da página.
-   ======================================== */
 .app {
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(to bottom,
-    var(--color-primary) 0%,
-    var(--color-primary-light) 2%,
-    var(--color-primary-soft) 3.5%,
-    var(--color-bg-main) 4.5%);
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom,
+            var(--color-primary) 0%,
+            var(--color-primary-light) 2.8%,
+            var(--color-primary-soft) 4.5%,
+            var(--color-bg-main) 6%);
 }
 
-/* ========================================
-   HEADER — MOBILE (base)
-   Layout em coluna: linha superior + barra de pesquisa empilhadas.
-   No desktop, este componente é reestruturado para linha única via media query.
-   ======================================== */
-.header-mobile {
-  width: 100%;
-  padding: 22px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
-
-/* Linha superior: distribui logo (esq), pesquisa (centro/desktop) e ações (dir) */
-.linha-topo-mobile {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Agrupa o botão menu + logo no lado esquerdo */
-.lado-esquerdo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* ── LOGO ── */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--color-text-dark);
-  text-decoration: none;
-  font-size: clamp(16px, 4vw, 20px); /* Responsivo entre 16px e 20px */
   font-weight: 750;
-  letter-spacing: -0.5px;
-}
-.logo img {
-  height: 30px;
-  object-fit: contain;
-}
-
-/* ── BOTÕES DO HEADER (menu, carrinho, chat) ── */
-.menu-btn,
-.carrinho-btn,
-.btn-chat {
-  width: 42px;
-  height: 42px;
-  border: none;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.menu-btn img,
-.carrinho-btn img {
-  width: 25px;
-  height: 25px;
-  object-fit: contain;
-}
-
-/* Carrinho com posicionamento relativo para o badge de quantidade */
-.carrinho-btn {
-  position: relative;
-  text-decoration: none;
-}
-
-/* Badge de quantidade sobre o ícone do carrinho */
-.quantidade-carrinho {
-  position: absolute;
-  top: -4px;
-  right: 0;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  border-radius: 999px;
-  background-color: var(--color-secondary);
-  color: var(--color-text-dark);
-  font-size: clamp(10px, 2.5vw, 12px);
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Agrupa carrinho e chat com espaçamento */
-.header-acoes {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-/* Chat e barra desktop: ocultos no mobile — exibidos no breakpoint desktop */
-.btn-chat {
-  display: none;
-}
-.barra-pesquisa-desktop {
-  display: none;
-}
-
-/* ── BARRA DE PESQUISA MOBILE ── */
-.barra-pesquisa-mobile {
-  width: 100%;
-  height: 54px;
-  background-color: var(--color-bg-card);
-  border-radius: 999px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: var(--shadow-sm);
-}
-.barra-pesquisa-mobile img {
-  width: 22px;
-  height: 22px;
-  opacity: 0.65;
-}
-.barra-pesquisa-mobile input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: var(--color-text-dark);
-  font-size: 15px;
-}
-.barra-pesquisa-mobile input::placeholder {
-  color: var(--color-text-muted);
-}
-
-/* ========================================
-   NAV DESKTOP
-   Oculto no mobile; ativado a partir de 1024px.
-   ======================================== */
-.nav-desktop {
-  display: none;
 }
 
 /* ========================================
@@ -611,7 +466,11 @@ main {
   align-items: center;
   justify-content: center;
 }
-.logo-loja img { width: 100%; height: 100%; object-fit: cover; }
+.logo-loja img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+}
 
 .nome-loja {
   flex: 1;
@@ -1198,25 +1057,6 @@ main {
    Ajustes intermediários de tamanho e layout.
    ============================================================ */
 @media (min-width: 768px) {
-
-  /* Gradiente de fundo mais suave no tablet */
-  .app {
-    background: linear-gradient(to bottom,
-      var(--color-primary) 0%,
-      var(--color-primary-light) 1.5%,
-      var(--color-primary-soft) 2.5%,
-      var(--color-bg-main) 3.5%);
-  }
-
-  .header-mobile {
-    padding: 20px 32px;
-    gap: 20px;
-  }
-
-  .barra-pesquisa-mobile {
-    height: 50px;
-  }
-
   main {
     padding: 16px 32px;
   }
@@ -1246,6 +1086,7 @@ main {
   .preco-produto,
   .descricao-produto > p {
     font-size: 1.6rem;
+    font-weight: 750;
   }
 
   .acoes-produto {
@@ -1311,147 +1152,6 @@ main {
    os ajustes de escala para telas maiores.
    ============================================================ */
 @media (min-width: 1024px) {
-
-  /* Gradiente mais suave e extendido no desktop */
-  .app {
-    background: linear-gradient(to bottom,
-      var(--color-primary) 0%,
-      var(--color-primary-light) 3%,
-      var(--color-primary-soft) 4.5%,
-      var(--color-bg-main) 6%);
-  }
-
- 
-
-  /* ── HEADER DESKTOP ──
-     Reestrutura para linha única horizontal com altura fixa.
-  */
-  .header-mobile {
-    padding: 0 clamp(32px, 5vw, 80px);
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: var(--header-height-desktop);
-    gap: 0;
-    position: static;
-    top: auto;
-    z-index: 100;
-  }
-
-  .logo {
-    font-size: 1.25rem;
-    font-weight: 1000;
-    white-space: nowrap;
-  }
-
-  /* Barra mobile oculta; barra desktop exibida */
-  .barra-pesquisa-mobile {
-    display: none;
-  }
-  .barra-pesquisa-desktop {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-    max-width: 560px;
-    margin: 0 clamp(16px, 3vw, 40px);
-    height: 42px;
-    background: var(--color-white);
-    border-radius: var(--radius-full);
-    padding: 0 18px;
-    box-shadow: var(--shadow-sm);
-  }
-  .barra-pesquisa-desktop img {
-    width: 18px;
-    height: 18px;
-    opacity: 0.6;
-    flex-shrink: 0;
-  }
-  .barra-pesquisa-desktop input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 14px;
-    color: var(--color-text-dark);
-  }
-  .barra-pesquisa-desktop input::placeholder {
-    color: var(--color-text-muted);
-  }
-
-  /* Menu hamburguer: oculto no desktop */
-  .menu-btn {
-    display: none;
-  }
-
-  /* Botão de chat: exibido no desktop */
-  .btn-chat {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  .btn-chat img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
-
-  /* Ações do header com espaçamento maior no desktop */
-  .header-acoes {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  /* Ícone e badge do carrinho ocultos no desktop (navegação via nav-desktop) */
-  .carrinho-btn img, .quantidade-carrinho  {
-    display: none;
-  }
-
-  /* ── NAV DESKTOP ── */
-  .nav-desktop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    height: var(--nav-height-desktop);
-    padding: 0 clamp(32px, 5vw, 80px);  }
-  .nav-desktop ul {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    max-width: var(--max-width);
-    justify-content: center;
-  }
-  .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    font-size: 0.82rem;
-    font-weight: 900;
-    color: var(--color-dark);
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-  }
-  .nav-link img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    flex-shrink: 0;
-    display: block;
-  }
 
   /* ── MAIN DESKTOP ── */
   main {
@@ -1648,7 +1348,7 @@ main {
   .img-banner-render {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
